@@ -7,7 +7,7 @@ require("chai")
 
 const Kudos = artifacts.require("Kudos");
 
-contract("kudosTests", function([deployer, business, worker, user]) {
+contract("kudosTests", function([deployer, business, worker, secondWorker, thirdWorker, user]) {
 
   let kudos;
 
@@ -52,12 +52,39 @@ contract("kudosTests", function([deployer, business, worker, user]) {
 
   });
 
-  it("employee list should be updated", async function() {
+  it("employee list should be updated when employee is added", async function() {
 
     await kudos.registerAsBusiness({from: business});
 
     var numberOfEmployees = await kudos.numberOfEmployees(business);
     numberOfEmployees.toNumber().should.equal(0);
+
+    await kudos.addEmployee(worker, {from: business});
+    await kudos.addEmployer(business, {from: worker});
+
+    var numberOfEmployees = await kudos.numberOfEmployees(business);
+    numberOfEmployees.toNumber().should.equal(1);
+
+    await kudos.addEmployee(secondWorker, {from: business});
+    await kudos.addEmployer(business, {from: secondWorker});
+
+    var numberOfEmployees = await kudos.numberOfEmployees(business);
+    numberOfEmployees.toNumber().should.equal(2);
+  });
+
+
+  it("employee list should not contain duplicate addresses", async function() {
+
+    await kudos.registerAsBusiness({from: business});
+
+    var numberOfEmployees = await kudos.numberOfEmployees(business);
+    numberOfEmployees.toNumber().should.equal(0);
+
+    await kudos.addEmployee(worker, {from: business});
+    await kudos.addEmployer(business, {from: worker});
+
+    var numberOfEmployees = await kudos.numberOfEmployees(business);
+    numberOfEmployees.toNumber().should.equal(1);
 
     await kudos.addEmployee(worker, {from: business});
     await kudos.addEmployer(business, {from: worker});

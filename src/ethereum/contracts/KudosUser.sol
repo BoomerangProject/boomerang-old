@@ -20,7 +20,7 @@ contract KudosUser is KudosActor {
     bytes32 nonceHash = sha3(nonce[_businessAddress][_workerAddress][msg.sender]);
     bytes memory prefix = "\x19Ethereum Signed Message:\n32";
     bytes32 prefixedHash = sha3(prefix, nonceHash);
-    address recoveredAddress = ecrecover(prefixedHash, v, r, s);
+    address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
 
     require(recoveredAddress == _businessAddress);
     incrementNonce(_businessAddress, _workerAddress);
@@ -41,10 +41,10 @@ contract KudosUser is KudosActor {
   public {
 
     recordBusinessRating(_businessAddress, _businessRating, _transactionHash);
-    recordWorkerRating(_businessAddress, _businessRating, _transactionHash);
+    recordWorkerRating(_businessAddress, _workerAddress, _workerRating, _transactionHash);
   }
 
-  function recordBusinessRating(address _businessAddress, _businessRating, bytes32 _transactionHash) internal {
+  function recordBusinessRating(address _businessAddress, uint256 _businessRating, bytes32 _transactionHash) internal {
 
     if (_businessRating > 0 && _businessRating < 6) {
       numberOfBusinessRatings[_businessAddress] += 1;
@@ -53,7 +53,7 @@ contract KudosUser is KudosActor {
     }
   }
 
-  function recordWorkerRating(address _workerAddress, _workerRating, bytes32 _transactionHash) internal {
+  function recordWorkerRating(address _businessAddress, address _workerAddress, uint256 _workerRating, bytes32 _transactionHash) internal {
 
     if (_workerRating > 0 && _workerRating < 6) {
       numberOfWorkerRatings[_businessAddress][_workerAddress] += 1;

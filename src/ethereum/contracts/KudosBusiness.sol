@@ -15,8 +15,9 @@ contract KudosBusiness is KudosActor {
 
   function registerAsBusiness() public {
     isBusiness[msg.sender] = true;
+    RegisteredAsBusiness(msg.sender);
 
-    // any add business init
+    // any business registration init
   }
 
   function addEmployee(address _workerAddress) onlyBusiness public {

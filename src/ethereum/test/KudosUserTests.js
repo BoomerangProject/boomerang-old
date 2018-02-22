@@ -44,19 +44,14 @@ contract("kudosUserTests", function([deployer, business, worker, user]) {
 
     var signature = signNonce(0, business);
 
-    await kudos.rateWorker( signature.v,
-                            signature.r,
-                            signature.s,
-                            business,
-                            worker,
-                            5,
-                            ipfsHashInBytes("QmdXuenGKXGmSBdFZdfWqcHzZuDKiQ8eUZ1h5ZQHGNdVLy"),
-                            {from: user});
+    await kudos.rateExperience( signature.v,
+                                signature.r,
+                                signature.s,
+                                business,
+                                worker,
+                                5,
+                                5,
+                                ipfsHashInBytes("QmdXuenGKXGmSBdFZdfWqcHzZuDKiQ8eUZ1h5ZQHGNdVLy"),
+                                {from: user});
   });
-
-
 });
-
-
-// const ipfsHash = QmdXuenGKXGmSBdFZdfWqcHzZuDKiQ8eUZ1h5ZQHGNdVLy;
-
