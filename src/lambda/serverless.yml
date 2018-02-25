@@ -1,0 +1,24 @@
+# For full config options, check the docs:
+#    docs.serverless.com
+service: Kudos
+
+plugins:
+  - serverless-plugin-include-dependencies
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  versionFunctions: false
+  region: us-east-1
+  timeout: 120
+
+
+functions:
+  getSignature:
+    handler: buildsrc/handler.getSignature
+    events:
+      - http:
+          path: /getSignature
+          method: get

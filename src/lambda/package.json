@@ -1,0 +1,26 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "deploy": "babel ./src --out-dir ./buildsrc && sls deploy --stage dev",
+    "offline": "babel ./src --out-dir ./buildsrc && sls offline start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^5.0.0",
+    "ethereumjs-wallet": "^0.6.0",
+    "serverless-plugin-include-dependencies": "^3.0.0",
+    "truffle-contract": "^3.0.3",
+    "truffle-wallet-provider": "0.0.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "serverless-offline": "^3.18.0"
+  }
+}

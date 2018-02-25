@@ -1,3 +1,4 @@
+// do not put "require('dotenv').config();" here, because it will get it from react
 const WalletProvider = require("truffle-wallet-provider");
 const Wallet = require('ethereumjs-wallet');
 
