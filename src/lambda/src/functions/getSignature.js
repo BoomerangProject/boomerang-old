@@ -12,7 +12,7 @@ export default async (event, context, callback) => {
 
   // await KudosContractService.registerAsBusiness();
 
-  var isBusiness = await KudosContractService.isBusiness();
+  // var isBusiness = await KudosContractService.isBusiness();
 
   const response = {
     statusCode: 200,
