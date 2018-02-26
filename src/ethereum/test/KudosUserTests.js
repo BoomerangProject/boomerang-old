@@ -48,8 +48,8 @@ contract("kudosUserTests", function([deployer, business, worker, user]) {
                                 signature.r,
                                 signature.s,
                                 business,
-                                worker,
                                 5,
+                                worker,
                                 5,
                                 ipfsHashInBytes("QmdXuenGKXGmSBdFZdfWqcHzZuDKiQ8eUZ1h5ZQHGNdVLy"),
                                 {from: user});

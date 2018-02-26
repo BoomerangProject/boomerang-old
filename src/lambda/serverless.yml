@@ -22,3 +22,9 @@ functions:
       - http:
           path: /getSignature
           method: get
+  rateExperience:
+    handler: buildsrc/handler.rateExperience
+    events:
+      - http:
+          path: /rateExperience
+          method: post

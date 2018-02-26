@@ -33,8 +33,8 @@ contract KudosUser is KudosActor {
 
   function rateExperience(  uint8 _v, bytes32 _r, bytes32 _s,
                             address _businessAddress,
-                            address _workerAddress,
                             uint256 _businessRating,
+                            address _workerAddress,
                             uint256 _workerRating,
                             bytes32 _transactionHash)
            withCorrectSignature(_businessAddress, _workerAddress, _v, _r, _s)
