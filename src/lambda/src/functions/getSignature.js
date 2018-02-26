@@ -15,6 +15,7 @@ export default async (event, context, callback) => {
   // var isBusiness = await KudosContractService.isBusiness();
 
   // test
+  // test2
 
   const response = {
     statusCode: 200,
