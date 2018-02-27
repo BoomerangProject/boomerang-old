@@ -27,7 +27,7 @@ let getIpfsObjectFromRequest = (() => {
     var workerReviewText = queryStringParameters["workerReviewText"];
 
     var ipfsObject = {
-      userAddress: userAddress,
+      userAddress: "funny",
       businessAddress: businessAddress,
       businessRating: Number(businessRating),
       businessReviewText: businessReviewText,
@@ -49,14 +49,17 @@ let storeToIpfs = (() => {
 
     const ipfs = new _ipfsMini2.default({ host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http' });
 
-    var ipfsHash;
+    return new Promise(function (resolve, reject) {
+      ipfs.addJSON(ipfsObject, (error, result) => {
 
-    yield ipfs.addJSON(ipfsObject, function (err, result) {
-      console.log(err, result);
-      ipfsHash = result;
+        if (error != null) {
+          reject(error);
+        }
+
+        console.log("hash: " + result);
+        resolve(result);
+      });
     });
-
-    return ipfsHash;
   });
 
   return function storeToIpfs(_x2) {
@@ -75,7 +78,7 @@ exports.default = (() => {
     const response = {
       statusCode: 200,
       body: JSON.stringify({
-        message: `success`,
+        message: `success ${ipfsHash}`,
         input: event
       })
     };

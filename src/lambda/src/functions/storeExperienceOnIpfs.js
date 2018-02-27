@@ -31,28 +31,28 @@ let storeToIpfs = async (ipfsObject) => {
 
   const ipfs = new IPFS({ host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http' });
 
-  var ipfsHash;
+  return new Promise(function(resolve, reject) {
 
-  await ipfs.addJSON(ipfsObject, (err, result) => {
-    console.log(err, result);
-    ipfsHash = result;
+    ipfs.addJSON(ipfsObject, (error, result) => {
+
+      if (error != null) {
+        reject(error);
+      }
+
+      resolve(result);
+    });
   });
-
-  return ipfsHash;
 };
 
 export default async (event, context, callback) => {
 
-
   const ipfsObject = await getIpfsObjectFromRequest(event);
   const ipfsHash = await storeToIpfs(ipfsObject);
-
-  console.log(ipfsHash);
 
   const response = {
     statusCode: 200,
     body: JSON.stringify({
-      message: `success`,
+      message: `success ${ipfsHash}`,
       input: event,
     })
   };
