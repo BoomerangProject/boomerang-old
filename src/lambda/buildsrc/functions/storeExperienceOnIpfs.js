@@ -16,6 +16,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+const isAddress = require("web3").utils.isAddress;
+
 exports.default = (() => {
   var _ref = _asyncToGenerator(function* (event, context, callback) {
 
@@ -56,32 +58,18 @@ let getIpfsObjectFromRequest = (() => {
     const workerRating = queryStringParameters["workerRating"];
     const workerReviewText = queryStringParameters["workerReviewText"];
 
-    let missingFields = [];
+    let errorMessage = [];
+    errorMessage.push(missingFieldErrorMessage(userAddress, businessAddress, businessRating, workerAddress, workerRating));
+    errorMessage.push(badEthereumAddressErrorMessage(userAddress, businessAddress, workerAddress));
+    errorMessage.push(badRatingValueErrorMessage(businessRating, workerRating));
 
-    if (!userAddress) {
-      missingFields.push("userAddress");
-    }
-    if (!businessAddress) {
-      missingFields.push("businessAddress");
-    }
-    if (!businessRating) {
-      missingFields.push("businessRating");
-    }
-    if (!workerAddress) {
-      missingFields.push("workerAddress");
-    }
-    if (!workerRating) {
-      missingFields.push("workerRating");
-    }
-
-    if (missingFields.length > 0) {
-
-      const errorMessage = `the following required fields are missing: [${missingFields.join(", ")}]`;
+    // return error
+    if (errorMessage) {
 
       const response = {
         statusCode: 400,
         body: JSON.stringify({
-          message: errorMessage,
+          message: errorMessage.join(" ").trim(),
           input: event
         })
       };
@@ -107,31 +95,88 @@ let getIpfsObjectFromRequest = (() => {
   };
 })();
 
-let storeToIpfs = (() => {
-  var _ref3 = _asyncToGenerator(function* (ipfsObject) {
+let missingFieldErrorMessage = (userAddress, businessAddress, businessRating, workerAddress, workerRating) => {
 
-    const ipfs = new _ipfsMini2.default({ host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http' });
+  let missingFields = [];
 
-    return new Promise(function (resolve, reject) {
+  if (!userAddress) {
+    missingFields.push("userAddress");
+  }
+  if (!businessAddress) {
+    missingFields.push("businessAddress");
+  }
+  if (!businessRating) {
+    missingFields.push("businessRating");
+  }
+  if (!workerAddress) {
+    missingFields.push("workerAddress");
+  }
+  if (!workerRating) {
+    missingFields.push("workerRating");
+  }
 
-      ipfs.addJSON(ipfsObject, (error, result) => {
+  if (missingFields.length > 0) {
+    return `the following required fields are missing: [${missingFields.join(", ")}].`;
+  }
+};
 
-        if (error) {
-          return reject(error);
-        }
+let badEthereumAddressErrorMessage = (userAddress, businessAddress, workerAddress) => {
 
-        resolve(result);
-      });
+  let badAddresses = [];
+
+  if (userAddress && !isAddress(userAddress)) {
+    badAddresses.push("userAddress");
+  }
+
+  if (businessAddress && !isAddress(businessAddress)) {
+    badAddresses.push("businessAddress");
+  }
+
+  if (workerAddress && !isAddress(workerAddress)) {
+    badAddresses.push("workerAddress");
+  }
+
+  if (badAddresses.length > 0) {
+    return `the following ethereum addresses are not valid: [${badAddresses.join(", ")}].`;
+  }
+};
+
+let badRatingValueErrorMessage = (businessRating, workerRating) => {
+
+  let badRatings = [];
+
+  if (businessRating && (businessRating < 1 || businessRating > 5)) {
+    badRatings.push("businessRating");
+  }
+
+  if (workerRating && (workerRating < 1 || workerRating > 5)) {
+    badRatings.push("workerRating");
+  }
+
+  if (badRatings.length > 0) {
+    return `Ratings must be 1, 2, 3, 4 or 5. The following ratings are not valid: [${badRatings.join(", ")}].`;
+  }
+};
+
+let storeToIpfs = ipfsObject => {
+
+  const ipfs = new _ipfsMini2.default({ host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http' });
+
+  return new Promise(function (resolve, reject) {
+
+    ipfs.addJSON(ipfsObject, (error, result) => {
+
+      if (error) {
+        return reject(error);
+      }
+
+      resolve(result);
     });
   });
-
-  return function storeToIpfs(_x6) {
-    return _ref3.apply(this, arguments);
-  };
-})();
+};
 
 let storeToS3 = (() => {
-  var _ref4 = _asyncToGenerator(function* (ipfsObject, ipfsHash) {
+  var _ref3 = _asyncToGenerator(function* (ipfsObject, ipfsHash) {
 
     const s3 = new _awsSdk2.default.S3();
 
@@ -151,7 +196,7 @@ let storeToS3 = (() => {
     });
   });
 
-  return function storeToS3(_x7, _x8) {
-    return _ref4.apply(this, arguments);
+  return function storeToS3(_x6, _x7) {
+    return _ref3.apply(this, arguments);
   };
 })();

@@ -1,6 +1,7 @@
 'use strict';
 import IPFS from "ipfs-mini";
 import AWS from "aws-sdk";
+const isAddress = require("web3").utils.isAddress;
 
 export default async (event, context, callback) => {
 
@@ -35,6 +36,40 @@ let getIpfsObjectFromRequest = async (event, callback) => {
   const workerRating = queryStringParameters["workerRating"];
   const workerReviewText = queryStringParameters["workerReviewText"];
 
+  let errorMessage = [];
+  errorMessage.push(missingFieldErrorMessage(userAddress, businessAddress, businessRating, workerAddress, workerRating));
+  errorMessage.push(badEthereumAddressErrorMessage(userAddress, businessAddress, workerAddress));
+  errorMessage.push(badRatingValueErrorMessage(businessRating, workerRating));
+
+  // return error
+  if (errorMessage) {
+
+    const response = {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: errorMessage.join(" ").trim(),
+        input: event,
+      })
+    };
+
+    callback(null, response);
+  }
+
+  const ipfsObject = {
+    userAddress: userAddress,
+    businessAddress: businessAddress,
+    businessRating: Number(businessRating),
+    businessReviewText: businessReviewText,
+    workerAddress: workerAddress,
+    workerRating: Number(workerRating),
+    workerReviewText: workerReviewText
+  };
+
+  return ipfsObject;
+};
+
+let missingFieldErrorMessage = (userAddress, businessAddress, businessRating, workerAddress, workerRating) => {
+
   let missingFields = [];
 
   if (!userAddress) {
@@ -54,37 +89,49 @@ let getIpfsObjectFromRequest = async (event, callback) => {
   }
 
   if (missingFields.length > 0) {
-
-    const errorMessage = `the following required fields are missing: [${missingFields.join(", ")}]`;
-
-    const response = {
-      statusCode: 400,
-      body: JSON.stringify({
-        message: errorMessage,
-        input: event,
-      })
-    };
-
-    callback(null, response);
+    return(`The following required fields are missing: [${missingFields.join(", ")}].`);
   }
-
-
-
-
-  const ipfsObject = {
-    userAddress: userAddress,
-    businessAddress: businessAddress,
-    businessRating: Number(businessRating),
-    businessReviewText: businessReviewText,
-    workerAddress: workerAddress,
-    workerRating: Number(workerRating),
-    workerReviewText: workerReviewText
-  };
-
-  return ipfsObject;
 };
 
-let storeToIpfs = async (ipfsObject) => {
+let badEthereumAddressErrorMessage = (userAddress, businessAddress, workerAddress) => {
+
+  let badAddresses = [];
+
+  if (userAddress && !isAddress(userAddress)) {
+    badAddresses.push("userAddress");
+  }
+
+  if (businessAddress && !isAddress(businessAddress)) {
+    badAddresses.push("businessAddress");
+  }
+
+  if (workerAddress && !isAddress(workerAddress)) {
+    badAddresses.push("workerAddress");
+  }
+
+  if (badAddresses.length > 0) {
+    return(`The following ethereum addresses are not valid: [${badAddresses.join(", ")}].`);
+  }
+};
+
+let badRatingValueErrorMessage = (businessRating, workerRating) => {
+
+  let badRatings = [];
+
+  if (businessRating && (businessRating < 1 || businessRating > 5)) {
+    badRatings.push("businessRating");
+  }
+
+  if (workerRating && (workerRating < 1 || workerRating > 5)) {
+    badRatings.push("workerRating");
+  }
+
+  if (badRatings.length > 0) {
+    return(`Ratings must be 1, 2, 3, 4 or 5. The following ratings are not valid: [${badRatings.join(", ")}].`);
+  }
+};
+
+let storeToIpfs = (ipfsObject) => {
 
   const ipfs = new IPFS({ host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http' });
 
