@@ -193,7 +193,7 @@ let storeToS3 = async (ipfsObject, ipfsHash, event, callback) => {
       const params = {
         Bucket : "kudos-experiences",
         Key : ipfsHash,
-        Body : ipfsObject
+        Body : JSON.stringify(ipfsObject)
       };
 
       s3.putObject(params, function(error, data) {

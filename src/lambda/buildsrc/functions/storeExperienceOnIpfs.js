@@ -23,7 +23,7 @@ exports.default = (() => {
 
     const ipfsObject = yield getIpfsObjectFromRequest(event, callback);
     const ipfsHash = yield storeToIpfs(ipfsObject, event, callback);
-    // await storeToS3(ipfsObject, ipfsHash, event, callback);
+    yield storeToS3(ipfsObject, ipfsHash, event, callback);
 
     const response = {
       statusCode: 200,
@@ -225,7 +225,7 @@ let storeToS3 = (() => {
         const params = {
           Bucket: "kudos-experiences",
           Key: ipfsHash,
-          Body: ipfsObject
+          Body: JSON.stringify(ipfsObject)
         };
 
         s3.putObject(params, function (error, data) {
