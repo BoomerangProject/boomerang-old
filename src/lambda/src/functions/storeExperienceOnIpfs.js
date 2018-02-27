@@ -1,21 +1,37 @@
 'use strict';
 import IPFS from "ipfs-mini";
 
+export default async (event, context, callback) => {
+
+  const ipfsObject = await getIpfsObjectFromRequest(event);
+  const ipfsHash = await storeToIpfs(ipfsObject);
+
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: `success, pinned ${ipfsHash}`,
+      input: event,
+    })
+  };
+
+  callback(null, response);
+};
+
 let getIpfsObjectFromRequest = async (event) => {
 
-  var queryStringParameters = event["queryStringParameters"];
+  const queryStringParameters = event["queryStringParameters"];
 
-  var userAddress = queryStringParameters["userAddress"];
+  const userAddress = queryStringParameters["userAddress"];
 
-  var businessAddress = queryStringParameters["businessAddress"];
-  var businessRating = queryStringParameters["businessRating"];
-  var businessReviewText = queryStringParameters["businessReviewText"];
-  var workerAddress = queryStringParameters["workerAddress"];
-  var workerRating = queryStringParameters["workerRating"];
-  var workerReviewText = queryStringParameters["workerReviewText"];
+  const businessAddress = queryStringParameters["businessAddress"];
+  const businessRating = queryStringParameters["businessRating"];
+  const businessReviewText = queryStringParameters["businessReviewText"];
+  const workerAddress = queryStringParameters["workerAddress"];
+  const workerRating = queryStringParameters["workerRating"];
+  const workerReviewText = queryStringParameters["workerReviewText"];
 
-  var ipfsObject = {
-    userAddress: "funny",
+  const ipfsObject = {
+    userAddress: userAddress,
     businessAddress: businessAddress,
     businessRating: Number(businessRating),
     businessReviewText: businessReviewText,
@@ -35,8 +51,8 @@ let storeToIpfs = async (ipfsObject) => {
 
     ipfs.addJSON(ipfsObject, (error, result) => {
 
-      if (error != null) {
-        reject(error);
+      if (error) {
+        return reject(error);
       }
 
       resolve(result);
@@ -44,18 +60,3 @@ let storeToIpfs = async (ipfsObject) => {
   });
 };
 
-export default async (event, context, callback) => {
-
-  const ipfsObject = await getIpfsObjectFromRequest(event);
-  const ipfsHash = await storeToIpfs(ipfsObject);
-
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: `success ${ipfsHash}`,
-      input: event,
-    })
-  };
-
-  callback(null, response);
-};

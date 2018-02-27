@@ -10,10 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.203.0",
     "axios": "^0.18.0",
     "dotenv": "^5.0.0",
     "ethereumjs-wallet": "^0.6.0",
-    "ipfs-api": "^18.1.1",
     "ipfs-mini": "^1.1.2",
     "serverless-plugin-include-dependencies": "^3.0.0",
     "truffle-contract": "^3.0.3",
