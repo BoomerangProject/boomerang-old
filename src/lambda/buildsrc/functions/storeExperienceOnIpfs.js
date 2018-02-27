@@ -12,18 +12,18 @@ var _awsSdk = require("aws-sdk");
 
 var _awsSdk2 = _interopRequireDefault(_awsSdk);
 
+var _utils = require("../utils");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
-const isAddress = require("web3").utils.isAddress;
 
 exports.default = (() => {
   var _ref = _asyncToGenerator(function* (event, context, callback) {
 
     const ipfsObject = yield getIpfsObjectFromRequest(event, callback);
-    const ipfsHash = yield storeToIpfs(ipfsObject);
-    const success = yield storeToS3(ipfsObject, ipfsHash);
+    const ipfsHash = yield storeToIpfs(ipfsObject, event, callback);
+    // await storeToS3(ipfsObject, ipfsHash, event, callback);
 
     const response = {
       statusCode: 200,
@@ -33,7 +33,7 @@ exports.default = (() => {
       })
     };
 
-    callback(null, response);
+    return callback(null, response);
   });
 
   return function (_x, _x2, _x3) {
@@ -50,21 +50,33 @@ let getIpfsObjectFromRequest = (() => {
       queryStringParameters = [];
     }
 
-    const userAddress = queryStringParameters["userAddress"];
-    const businessAddress = queryStringParameters["businessAddress"];
-    const businessRating = queryStringParameters["businessRating"];
-    const businessReviewText = queryStringParameters["businessReviewText"];
-    const workerAddress = queryStringParameters["workerAddress"];
-    const workerRating = queryStringParameters["workerRating"];
-    const workerReviewText = queryStringParameters["workerReviewText"];
+    const userAddress = queryStringParameters["userAddress"].replaceAll('"', '');
+    const businessAddress = queryStringParameters["businessAddress"].replaceAll('"', '');
+    const businessRating = queryStringParameters["businessRating"].replaceAll('"', '');
+    const businessReviewText = queryStringParameters["businessReviewText"].replaceAll('"', '');
+    const workerAddress = queryStringParameters["workerAddress"].replaceAll('"', '');
+    const workerRating = queryStringParameters["workerRating"].replaceAll('"', '');
+    const workerReviewText = queryStringParameters["workerReviewText"].replaceAll('"', '');
 
     let errorMessage = [];
-    errorMessage.push(missingFieldErrorMessage(userAddress, businessAddress, businessRating, workerAddress, workerRating));
-    errorMessage.push(badEthereumAddressErrorMessage(userAddress, businessAddress, workerAddress));
-    errorMessage.push(badRatingValueErrorMessage(businessRating, workerRating));
+
+    var missingFieldErrorMessage = getMissingFieldErrorMessage(userAddress, businessAddress, businessRating, workerAddress, workerRating);
+    if (missingFieldErrorMessage) {
+      errorMessage.push(missingFieldErrorMessage);
+    }
+
+    var badEthereumAddressErrorMessage = getBadEthereumAddressErrorMessage(userAddress, businessAddress, workerAddress);
+    if (badEthereumAddressErrorMessage) {
+      errorMessage.push(badEthereumAddressErrorMessage);
+    }
+
+    var badRatingValueErrorMessage = getBadRatingValueErrorMessage(businessRating, workerRating);
+    if (badRatingValueErrorMessage) {
+      errorMessage.push(badRatingValueErrorMessage);
+    }
 
     // return error
-    if (errorMessage) {
+    if (errorMessage.length > 0) {
 
       const response = {
         statusCode: 400,
@@ -74,7 +86,7 @@ let getIpfsObjectFromRequest = (() => {
         })
       };
 
-      callback(null, response);
+      return callback(null, response);
     }
 
     const ipfsObject = {
@@ -95,7 +107,7 @@ let getIpfsObjectFromRequest = (() => {
   };
 })();
 
-let missingFieldErrorMessage = (userAddress, businessAddress, businessRating, workerAddress, workerRating) => {
+let getMissingFieldErrorMessage = (userAddress, businessAddress, businessRating, workerAddress, workerRating) => {
 
   let missingFields = [];
 
@@ -116,32 +128,32 @@ let missingFieldErrorMessage = (userAddress, businessAddress, businessRating, wo
   }
 
   if (missingFields.length > 0) {
-    return `the following required fields are missing: [${missingFields.join(", ")}].`;
+    return `The following required fields are missing: [${missingFields.join(", ")}].`;
   }
 };
 
-let badEthereumAddressErrorMessage = (userAddress, businessAddress, workerAddress) => {
+let getBadEthereumAddressErrorMessage = (userAddress, businessAddress, workerAddress) => {
 
   let badAddresses = [];
 
-  if (userAddress && !isAddress(userAddress)) {
+  if (userAddress && !(0, _utils.isAddress)(userAddress)) {
     badAddresses.push("userAddress");
   }
 
-  if (businessAddress && !isAddress(businessAddress)) {
+  if (businessAddress && !(0, _utils.isAddress)(businessAddress.toString())) {
     badAddresses.push("businessAddress");
   }
 
-  if (workerAddress && !isAddress(workerAddress)) {
+  if (workerAddress && !(0, _utils.isAddress)(workerAddress.toString())) {
     badAddresses.push("workerAddress");
   }
 
   if (badAddresses.length > 0) {
-    return `the following ethereum addresses are not valid: [${badAddresses.join(", ")}].`;
+    return `The following ethereum addresses are not valid: [${badAddresses.join(", ")}].`;
   }
 };
 
-let badRatingValueErrorMessage = (businessRating, workerRating) => {
+let getBadRatingValueErrorMessage = (businessRating, workerRating) => {
 
   let badRatings = [];
 
@@ -158,45 +170,90 @@ let badRatingValueErrorMessage = (businessRating, workerRating) => {
   }
 };
 
-let storeToIpfs = ipfsObject => {
+let storeToIpfs = (() => {
+  var _ref3 = _asyncToGenerator(function* (ipfsObject, event, callback) {
 
-  const ipfs = new _ipfsMini2.default({ host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http' });
+    let storeToIpfsPromise;
 
-  return new Promise(function (resolve, reject) {
+    try {
 
-    ipfs.addJSON(ipfsObject, (error, result) => {
+      const ipfs = new _ipfsMini2.default({ host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http' });
 
-      if (error) {
-        return reject(error);
-      }
+      storeToIpfsPromise = new Promise(function (resolve, reject) {
 
-      resolve(result);
-    });
+        ipfs.addJSON(ipfsObject, (error, result) => {
+
+          if (error) {
+            return reject(error);
+          }
+
+          resolve(result);
+        });
+      });
+    } catch (error) {
+
+      const response = {
+        statusCode: 500,
+        body: JSON.stringify({
+          message: `Unable to store experience on ipfs node. error: ${error}`,
+          input: event
+        })
+      };
+
+      return callback(null, response);
+    }
+
+    return storeToIpfsPromise;
   });
-};
+
+  return function storeToIpfs(_x6, _x7, _x8) {
+    return _ref3.apply(this, arguments);
+  };
+})();
 
 let storeToS3 = (() => {
-  var _ref3 = _asyncToGenerator(function* (ipfsObject, ipfsHash) {
+  var _ref4 = _asyncToGenerator(function* (ipfsObject, ipfsHash, event, callback) {
 
-    const s3 = new _awsSdk2.default.S3();
+    let storeToS3Promise;
 
-    const params = {
-      Bucket: "kudos-experiences",
-      Key: ipfsHash,
-      Body: ipfsObject
-    };
+    try {
 
-    s3.putObject(params, function (error, data) {
+      storeToS3Promise = new Promise(function (resolve, reject) {
 
-      if (error) {
-        console.log(error, error.stack);
-      }
+        const s3 = new _awsSdk2.default.S3();
 
-      console.log(data);
-    });
+        const params = {
+          Bucket: "kudos-experiences",
+          Key: ipfsHash,
+          Body: ipfsObject
+        };
+
+        s3.putObject(params, function (error, data) {
+
+          if (error) {
+            return reject(error);
+          }
+
+          resolve(data);
+        });
+      });
+    } catch (error) {
+
+      const response = {
+        statusCode: 500,
+        body: JSON.stringify({
+          message: `Unable to store experience on S3. error: ${error}`,
+          input: event
+        })
+      };
+
+      return callback(null, response);
+    }
+
+    return storeToS3Promise;
   });
 
-  return function storeToS3(_x6, _x7) {
-    return _ref3.apply(this, arguments);
+  return function storeToS3(_x9, _x10, _x11, _x12) {
+    return _ref4.apply(this, arguments);
   };
 })();

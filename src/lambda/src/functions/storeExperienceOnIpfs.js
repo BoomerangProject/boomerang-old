@@ -1,13 +1,13 @@
 'use strict';
 import IPFS from "ipfs-mini";
 import AWS from "aws-sdk";
-const isAddress = require("web3").utils.isAddress;
+import { isAddress } from "../utils";
 
 export default async (event, context, callback) => {
 
   const ipfsObject = await getIpfsObjectFromRequest(event, callback);
-  const ipfsHash = await storeToIpfs(ipfsObject);
-  const success = await storeToS3(ipfsObject, ipfsHash);
+  const ipfsHash = await storeToIpfs(ipfsObject, event, callback);
+  await storeToS3(ipfsObject, ipfsHash, event, callback);
 
   const response = {
     statusCode: 200,
@@ -17,7 +17,7 @@ export default async (event, context, callback) => {
     })
   };
 
-  callback(null, response);
+  return callback(null, response);
 };
 
 let getIpfsObjectFromRequest = async (event, callback) => {
@@ -28,22 +28,34 @@ let getIpfsObjectFromRequest = async (event, callback) => {
     queryStringParameters = [];
   }
 
-  const userAddress = queryStringParameters["userAddress"];
-  const businessAddress = queryStringParameters["businessAddress"];
-  const businessRating = queryStringParameters["businessRating"];
-  const businessReviewText = queryStringParameters["businessReviewText"];
-  const workerAddress = queryStringParameters["workerAddress"];
-  const workerRating = queryStringParameters["workerRating"];
-  const workerReviewText = queryStringParameters["workerReviewText"];
+  const userAddress = queryStringParameters["userAddress"].replaceAll('"', '');
+  const businessAddress = queryStringParameters["businessAddress"].replaceAll('"', '');
+  const businessRating = queryStringParameters["businessRating"].replaceAll('"', '');
+  const businessReviewText = queryStringParameters["businessReviewText"].replaceAll('"', '');
+  const workerAddress = queryStringParameters["workerAddress"].replaceAll('"', '');
+  const workerRating = queryStringParameters["workerRating"].replaceAll('"', '');
+  const workerReviewText = queryStringParameters["workerReviewText"].replaceAll('"', '');
 
   let errorMessage = [];
-  errorMessage.push(missingFieldErrorMessage(userAddress, businessAddress, businessRating, workerAddress, workerRating));
-  errorMessage.push(badEthereumAddressErrorMessage(userAddress, businessAddress, workerAddress));
-  errorMessage.push(badRatingValueErrorMessage(businessRating, workerRating));
+  
+  var missingFieldErrorMessage = getMissingFieldErrorMessage(userAddress, businessAddress, businessRating, workerAddress, workerRating);
+  if (missingFieldErrorMessage) {
+    errorMessage.push(missingFieldErrorMessage);
+  }
+
+  var badEthereumAddressErrorMessage = getBadEthereumAddressErrorMessage(userAddress, businessAddress, workerAddress);
+  if (badEthereumAddressErrorMessage) {
+    errorMessage.push(badEthereumAddressErrorMessage);
+  }
+
+  var badRatingValueErrorMessage = getBadRatingValueErrorMessage(businessRating, workerRating);
+  if (badRatingValueErrorMessage) {
+    errorMessage.push(badRatingValueErrorMessage);
+  }
 
   // return error
-  if (errorMessage) {
-
+  if (errorMessage.length > 0) {
+    
     const response = {
       statusCode: 400,
       body: JSON.stringify({
@@ -52,7 +64,7 @@ let getIpfsObjectFromRequest = async (event, callback) => {
       })
     };
 
-    callback(null, response);
+    return callback(null, response);
   }
 
   const ipfsObject = {
@@ -68,7 +80,7 @@ let getIpfsObjectFromRequest = async (event, callback) => {
   return ipfsObject;
 };
 
-let missingFieldErrorMessage = (userAddress, businessAddress, businessRating, workerAddress, workerRating) => {
+let getMissingFieldErrorMessage = (userAddress, businessAddress, businessRating, workerAddress, workerRating) => {
 
   let missingFields = [];
 
@@ -93,7 +105,7 @@ let missingFieldErrorMessage = (userAddress, businessAddress, businessRating, wo
   }
 };
 
-let badEthereumAddressErrorMessage = (userAddress, businessAddress, workerAddress) => {
+let getBadEthereumAddressErrorMessage = (userAddress, businessAddress, workerAddress) => {
 
   let badAddresses = [];
 
@@ -101,11 +113,11 @@ let badEthereumAddressErrorMessage = (userAddress, businessAddress, workerAddres
     badAddresses.push("userAddress");
   }
 
-  if (businessAddress && !isAddress(businessAddress)) {
+  if (businessAddress && !isAddress(businessAddress.toString())) {
     badAddresses.push("businessAddress");
   }
 
-  if (workerAddress && !isAddress(workerAddress)) {
+  if (workerAddress && !isAddress(workerAddress.toString())) {
     badAddresses.push("workerAddress");
   }
 
@@ -114,7 +126,7 @@ let badEthereumAddressErrorMessage = (userAddress, businessAddress, workerAddres
   }
 };
 
-let badRatingValueErrorMessage = (businessRating, workerRating) => {
+let getBadRatingValueErrorMessage = (businessRating, workerRating) => {
 
   let badRatings = [];
 
@@ -131,40 +143,82 @@ let badRatingValueErrorMessage = (businessRating, workerRating) => {
   }
 };
 
-let storeToIpfs = (ipfsObject) => {
+let storeToIpfs = async (ipfsObject, event, callback) => {
 
-  const ipfs = new IPFS({ host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http' });
+  let storeToIpfsPromise;
 
-  return new Promise(function(resolve, reject) {
+  try {
 
-    ipfs.addJSON(ipfsObject, (error, result) => {
+    const ipfs = new IPFS({ host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http' });
 
-      if (error) {
-        return reject(error);
-      }
+    storeToIpfsPromise = new Promise(function(resolve, reject) {
 
-      resolve(result);
+      ipfs.addJSON(ipfsObject, (error, result) => {
+
+        if (error) {
+          return reject(error);
+        }
+
+        resolve(result);
+      });
     });
-  });
+
+  } catch (error) {
+
+    const response = {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: `Unable to store experience on ipfs node. error: ${error}`,
+        input: event,
+      })
+    };
+
+    return callback(null, response);
+  }
+
+  return storeToIpfsPromise;
 };
 
 
-let storeToS3 = async (ipfsObject, ipfsHash) => {
+let storeToS3 = async (ipfsObject, ipfsHash, event, callback) => {
 
-  const s3 = new AWS.S3();
+  let storeToS3Promise;
 
-  const params = {
-    Bucket : "kudos-experiences",
-    Key : ipfsHash,
-    Body : ipfsObject
-  };
+  try {
 
-  s3.putObject(params, function(error, data) {
+    storeToS3Promise = new Promise(function(resolve, reject) {
 
-    if (error) {
-      console.log(error, error.stack);
-    }
+      const s3 = new AWS.S3();
 
-    console.log(data);
-  });
+      const params = {
+        Bucket : "kudos-experiences",
+        Key : ipfsHash,
+        Body : ipfsObject
+      };
+
+      s3.putObject(params, function(error, data) {
+
+        if (error) {
+          return reject(error);
+        }
+
+        resolve(data);
+      });
+
+    });
+
+  } catch (error) {
+
+    const response = {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: `Unable to store experience on S3. error: ${error}`,
+        input: event,
+      })
+    };
+
+    return callback(null, response);
+  }
+
+  return storeToS3Promise;
 };
