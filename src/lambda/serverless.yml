@@ -28,9 +28,9 @@ functions:
       - http:
           path: /rateExperience
           method: get
-  storeExperienceOnIpfs:
-    handler: buildsrc/handler.storeExperienceOnIpfs
+  storeExperience:
+    handler: buildsrc/handler.storeExperience
     events:
       - http:
-          path: /storeExperienceOnIpfs
+          path: /storeExperience
           method: get
