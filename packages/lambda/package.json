@@ -15,7 +15,7 @@
   "dependencies": {
     "aws-sdk": "^2.203.0",
     "axios": "^0.18.0",
-    "dotenv": "^5.0.0",
+    "dotenv": "^5.0.1",
     "ethereumjs-wallet": "^0.6.0",
     "ipfs-mini": "^1.1.2",
     "serverless-plugin-include-dependencies": "^3.0.0",
