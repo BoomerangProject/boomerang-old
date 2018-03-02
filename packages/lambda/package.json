@@ -4,17 +4,18 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "deploy": "babel ./src --out-dir ./buildsrc && sls deploy --stage dev",
-    "offline": "babel ./src --out-dir ./buildsrc && sls offline start"
+    "deploy": "npm run compileContracts && npm run copyContractJsonToSrcFolder && npm run transpileCodeToEs7 && sls deploy --stage dev",
+    "offline": "npm run compileContracts && npm run copyContractJsonToSrcFolder && npm run transpileCodeToEs7 && sls offline start",
+    "compileContracts": "cd ../ethereum/ && truffle compile --all && cd ../lambda",
+    "copyContractJsonToSrcFolder": "cp -R ../ethereum/build/contracts/ ./buildsrc/ethereum/build/contracts/",
+    "transpileCodeToEs7": "babel ./src --out-dir ./buildsrc"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.203.0",
     "axios": "^0.18.0",
-    "babel": "^6.23.0",
     "dotenv": "^5.0.0",
-    "ethereum": "^1.0.0",
     "ethereumjs-wallet": "^0.6.0",
     "ipfs-mini": "^1.1.2",
     "serverless-plugin-include-dependencies": "^3.0.0",
