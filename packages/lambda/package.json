@@ -12,6 +12,7 @@
   "dependencies": {
     "aws-sdk": "^2.203.0",
     "axios": "^0.18.0",
+    "babel": "^6.23.0",
     "dotenv": "^5.0.0",
     "ethereum": "^1.0.0",
     "ethereumjs-wallet": "^0.6.0",
