@@ -8,7 +8,7 @@ var _truffleContract = require("truffle-contract");
 
 var _truffleContract2 = _interopRequireDefault(_truffleContract);
 
-var _Kudos = require("../../buildsrc/contractjson/Kudos.json");
+var _Kudos = require("ethereum/build/contracts/Kudos.json");
 
 var _Kudos2 = _interopRequireDefault(_Kudos);
 
