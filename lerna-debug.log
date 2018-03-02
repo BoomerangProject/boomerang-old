@@ -1,0 +1,121 @@
+0 silly argv { _: [ 'bootstrap' ],
+0 silly argv   help: false,
+0 silly argv   h: false,
+0 silly argv   version: false,
+0 silly argv   v: false,
+0 silly argv   'reject-cycles': undefined,
+0 silly argv   rejectCycles: undefined,
+0 silly argv   sort: undefined,
+0 silly argv   'ignore-scripts': undefined,
+0 silly argv   ignoreScripts: undefined,
+0 silly argv   '$0': '/usr/local/bin/lerna',
+0 silly argv   loglevel: undefined,
+0 silly argv   concurrency: undefined,
+0 silly argv   scope: undefined,
+0 silly argv   since: undefined,
+0 silly argv   ignore: undefined,
+0 silly argv   'include-filtered-dependencies': undefined,
+0 silly argv   'max-buffer': undefined,
+0 silly argv   hoist: undefined,
+0 silly argv   nohoist: undefined,
+0 silly argv   mutex: undefined,
+0 silly argv   'npm-client': undefined,
+0 silly argv   registry: undefined }
+1 info version 3.0.0-alpha.1
+2 verbose rootPath /Users/panda/projects/kudos
+3 silly batched [ PackageGraphNode {
+3 silly batched     name: 'ethereum',
+3 silly batched     externalDependencies: Map { 'web3-utils' => [Object] },
+3 silly batched     localDependencies: Map {},
+3 silly batched     localDependents: Map { 'dapp' => [Object] } },
+3 silly batched   PackageGraphNode {
+3 silly batched     name: 'lambda',
+3 silly batched     externalDependencies:
+3 silly batched      Map {
+3 silly batched        'babel-cli' => [Object],
+3 silly batched        'babel-plugin-transform-async-to-generator' => [Object],
+3 silly batched        'babel-preset-env' => [Object],
+3 silly batched        'serverless-offline' => [Object],
+3 silly batched        'aws-sdk' => [Object],
+3 silly batched        'axios' => [Object],
+3 silly batched        'dotenv' => [Object],
+3 silly batched        'ethereumjs-wallet' => [Object],
+3 silly batched        'ipfs-mini' => [Object],
+3 silly batched        'serverless-plugin-include-dependencies' => [Object],
+3 silly batched        'truffle-contract' => [Object],
+3 silly batched        'truffle-wallet-provider' => [Object] },
+3 silly batched     localDependencies: Map {},
+3 silly batched     localDependents: Map {} } ]
+4 silly batched [ PackageGraphNode {
+4 silly batched     name: 'dapp',
+4 silly batched     externalDependencies:
+4 silly batched      Map {
+4 silly batched        'react' => [Object],
+4 silly batched        'react-dom' => [Object],
+4 silly batched        'react-redux' => [Object],
+4 silly batched        'react-scripts' => [Object],
+4 silly batched        'redux' => [Object] },
+4 silly batched     localDependencies: Map {},
+4 silly batched     localDependents: Map {} } ]
+5 silly npmConfig { registry: undefined,
+5 silly npmConfig   npmClient: 'npm',
+5 silly npmConfig   npmClientArgs: undefined,
+5 silly npmConfig   mutex: undefined }
+6 info Bootstrapping 3 packages
+7 info lifecycle preinstall
+8 silly hasDependencyInstalled dapp react
+9 silly hasDependencyInstalled dapp react-dom
+10 silly hasDependencyInstalled dapp react-redux
+11 silly hasDependencyInstalled dapp react-scripts
+12 silly hasDependencyInstalled dapp redux
+13 silly hasDependencyInstalled ethereum web3-utils
+14 silly hasDependencyInstalled lambda babel-cli
+15 silly hasDependencyInstalled lambda babel-plugin-transform-async-to-generator
+16 silly hasDependencyInstalled lambda babel-preset-env
+17 silly hasDependencyInstalled lambda serverless-offline
+18 silly hasDependencyInstalled lambda aws-sdk
+19 silly hasDependencyInstalled lambda axios
+20 silly hasDependencyInstalled lambda dotenv
+21 silly hasDependencyInstalled lambda ethereumjs-wallet
+22 silly hasDependencyInstalled lambda ipfs-mini
+23 silly hasDependencyInstalled lambda serverless-plugin-include-dependencies
+24 silly hasDependencyInstalled lambda truffle-contract
+25 silly hasDependencyInstalled lambda truffle-wallet-provider
+26 silly root dependencies {}
+27 silly leaf dependencies {}
+28 info Installing external dependencies
+29 verbose actions 1 actions, concurrency 4
+30 silly installInDir dapp [ 'react@^16.2.0',
+30 silly installInDir   'react-dom@^16.2.0',
+30 silly installInDir   'react-redux@^5.0.7',
+30 silly installInDir   'react-scripts@1.1.1',
+30 silly installInDir   'redux@^3.7.2' ]
+31 silly installInDir backup /Users/panda/projects/kudos/packages/dapp/package.json
+32 silly rename [ '/Users/panda/projects/kudos/packages/dapp/package.json',
+32 silly rename   '/Users/panda/projects/kudos/packages/dapp/package.json.lerna_backup' ]
+33 silly installInDir writing tempJson { name: 'dapp',
+33 silly installInDir   version: '0.1.0',
+33 silly installInDir   private: true,
+33 silly installInDir   dependencies:
+33 silly installInDir    { react: '^16.2.0',
+33 silly installInDir      'react-dom': '^16.2.0',
+33 silly installInDir      'react-redux': '^5.0.7',
+33 silly installInDir      'react-scripts': '1.1.1',
+33 silly installInDir      redux: '^3.7.2' } }
+34 silly getExecOpts { cwd: '/Users/panda/projects/kudos/packages/dapp' }
+35 silly npmInstall [ 'npm', [ 'install' ] ]
+36 silly installInDir cleanup /Users/panda/projects/kudos/packages/dapp/package.json
+37 silly renameSync [ '/Users/panda/projects/kudos/packages/dapp/package.json.lerna_backup',
+37 silly renameSync   '/Users/panda/projects/kudos/packages/dapp/package.json' ]
+38 error Error: Command failed: npm install
+38 error npm ERR! code ETARGET
+38 error npm ERR! notarget No matching version found for ethereum@1.0.0
+38 error npm ERR! notarget In most cases you or one of your dependencies are requesting
+38 error npm ERR! notarget a package version that doesn't exist.
+38 error
+38 error npm ERR! A complete log of this run can be found in:
+38 error npm ERR!     /Users/panda/.npm/_logs/2018-03-01T21_01_03_120Z-debug.log
+38 error
+38 error     at makeError (/usr/local/lib/node_modules/lerna/node_modules/execa/index.js:169:9)
+38 error     at Promise.all.then.arr (/usr/local/lib/node_modules/lerna/node_modules/execa/index.js:274:16)
+38 error     at <anonymous>

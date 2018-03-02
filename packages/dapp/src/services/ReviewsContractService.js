@@ -1,5 +1,5 @@
 import contract from "truffle-contract";
-import ReviewsContractJson from "../ethereum/build/contracts/Reviews.json";
+import ReviewsContractJson from "ethereum/build/contracts/Reviews.json";
 import provider from "../web3/Web3Provider";
 
 const ReviewsContract = contract(ReviewsContractJson);
