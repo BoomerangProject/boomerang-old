@@ -5,7 +5,7 @@ module.exports = {
       library: 'showRatingComponent',
       path:     __dirname + '/build/',
       filename: 'rating-component.js',
-      publicPath: "/build/"
+      publicPath: "https://s3.amazonaws.com/kudos-webplugin/"
   },
   module: {
       rules: [

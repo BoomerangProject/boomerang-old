@@ -69,7 +69,6 @@ class RatingComponent extends Component {
                       initialRating={this.state.workerRatingValue}
                       onChange={this.onChangeOfWorkerRating.bind(this)}/>
             </td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>
               <textarea style={textAreaStyle} onChange={this.onChangeOfWorkerReviewText.bind(this)}/>
             </td>
@@ -91,7 +90,6 @@ class RatingComponent extends Component {
                       initialRating={this.state.businessRatingValue}
                       onChange={this.onChangeOfBusinessRating.bind(this)}/>
             </td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>
               <textarea style={textAreaStyle} onChange={this.onChangeOfBusinessReviewText.bind(this)}/>
             </td>
