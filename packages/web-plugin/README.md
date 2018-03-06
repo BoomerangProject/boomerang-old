@@ -625,7 +625,7 @@ Then we can change `start` and `build` scripts to include the CSS preprocessor c
    }
 ```
 
-Now running `npm start` and `npm run build` also builds Sass files.
+Now running `npm start` and `npm run build` also build Sass files.
 
 **Why `node-sass-chokidar`?**
 
@@ -2230,7 +2230,7 @@ MyDirectory in /tmp/build_1234/src
 
 It means you need to ensure that the lettercase of the file or directory you `import` matches the one you see on your filesystem or on GitHub.
 
-This is important because Linux (the operating system used by Heroku) is case sensitive. So `MyDirectory` and `mydirectory` are two distinct directories and thus, even though the project builds locally, the difference in case breaks the `import` statements on Heroku remotes.
+This is important because Linux (the operating system used by Heroku) is case sensitive. So `MyDirectory` and `mydirectory` are two distinct directories and thus, even though the project build locally, the difference in case breaks the `import` statements on Heroku remotes.
 
 ##### "Could not find a required file."
 
@@ -2423,7 +2423,7 @@ To resolve this:
 
 3. If the dependency is small enough, copy it to your `src/` folder and treat it as application code.
 
-In the future, we might start automatically compiling incompatible third-party modules, but it is not currently supported. This approach would also slow down the production builds.
+In the future, we might start automatically compiling incompatible third-party modules, but it is not currently supported. This approach would also slow down the production build.
 
 ## Alternatives to Ejecting
 
