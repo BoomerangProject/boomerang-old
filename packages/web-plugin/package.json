@@ -1,7 +1,6 @@
 {
   "name": "web-plugin",
   "version": "1.0.0",
-  "main": "wrapper.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -20,6 +19,8 @@
     "react": "^15.0.1",
     "react-dom": "^15.0.0",
     "react-rating": "^1.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^1.1.1",
     "webpack": "^4.1.0",
     "webpack-cli": "^2.0.10"
   },
