@@ -3,16 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "browserify": "^16.1.0",
     "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-buffer": "0.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "gulplog": "^1.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-rating": "^1.0.6",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "bundle": "gulp bundle"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browserify-css": "^0.14.0"
   }
 }

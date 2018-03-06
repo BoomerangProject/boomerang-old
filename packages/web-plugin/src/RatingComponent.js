@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Rating from "react-rating";
-import 'font-awesome/css/font-awesome.min.css';
-import './someCss.css';
+import "../node_modules/font-awesome/css/font-awesome.min.css";
+import "./someCss.css";
 
 const divStyle = {
   border: "1px solid black",
