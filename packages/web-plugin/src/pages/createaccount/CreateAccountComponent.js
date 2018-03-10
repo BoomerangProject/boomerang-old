@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import crypto from 'crypto';
-import mainDivStyle from "../styles/MainDivStyle";
-import buttonStyle from "../styles/ButtonStyle";
 
 class CreateAccountComponent extends Component {
 
@@ -14,12 +12,10 @@ class CreateAccountComponent extends Component {
   render() {
 
     return (
-      <div style={mainDivStyle}>
+      <div className="CreateAccount container">
         <h3>create account</h3>
 
-
-
-        <button style={buttonStyle} onClick={this.onClickOfTheButton.bind(this)}>click me</button>
+        <button className="CreateAccount button" onClick={this.onClickOfTheButton.bind(this)}>click me</button>
       </div>
     );
   }

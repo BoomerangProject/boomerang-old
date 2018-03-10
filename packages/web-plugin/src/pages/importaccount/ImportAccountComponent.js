@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import mainDivStyle from "../styles/MainDivStyle";
 
 class ImportAccountComponent extends Component {
 
@@ -7,7 +6,7 @@ class ImportAccountComponent extends Component {
 
     return (
 
-      <div style={mainDivStyle}>
+      <div className="ImportAccount container">
         <h3>import account</h3>
       </div>
     );

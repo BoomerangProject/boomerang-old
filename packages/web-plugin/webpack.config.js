@@ -8,7 +8,7 @@ module.exports = {
       libraryTarget: 'var',
       library: 'showWidget',
       path: path.resolve(__dirname, 'build'),
-      filename: 'rating-component.js',
+      filename: 'kudosWebPluginWidget.js',
       // publicPath: "/build/"
       publicPath: "https://s3.amazonaws.com/kudos-webplugin/"
   },

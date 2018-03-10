@@ -5,14 +5,22 @@
 
 <!-- Start of Kudos Widget script -->
 <script>
+
   var iframeElement = document.createElement("iframe");
   iframeElement.id="kudosIframe";
   iframeElement.scrolling="no";
   iframeElement.frameBorder="0";
+  iframeElement.allowtransparency="false";
   iframeElement.title="";
   iframeElement.role="presentation";
-  (iframeElement.frameElement||iframeElement).style.cssText="width: 260px; height: 410px; display: flex; position: fixed; bottom: 0; right: 0; margin: 5px;";
-  document.body.appendChild(iframeElement);
+
+  var cssStyle = "z-index: 999999; width: 260px; opacity: 1; height: 410px; position: fixed; bottom: 0; right: 0; margin: 5px;";
+
+  (iframeElement.frameElement||iframeElement).style.cssText=cssStyle;
+
+  var containerDiv = document.createElement("div");
+  containerDiv.appendChild(iframeElement);
+  document.body.appendChild(containerDiv);
 
   var kudosIframeDocument = document.getElementById("kudosIframe").contentWindow.document;
 
@@ -27,7 +35,7 @@
 
     var mainScript = this.createElement("script");
 
-    var code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        showWidget(d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/kudos-webplugin/rating-component.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'kudosWebPlugin'));";
+    var code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        showWidget(d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/kudos-webplugin/kudosWebPluginWidget.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'kudosWebPlugin'));";
 
     try {
       mainScript.appendChild(this.createTextNode(code));
@@ -40,13 +48,6 @@
 
   kudosIframeDocument.write('<body onload="document._l();">');
   kudosIframeDocument.close()
-
-
-
-
-
-
-
 </script>
 <!-- End of Kudos Widget script -->
 </body>

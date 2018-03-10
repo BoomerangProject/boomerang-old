@@ -16,9 +16,7 @@ class NewUserWelcomeComponent extends Component {
       <div className="NewUserWelcome container">
 
         <img alt="" className="NewUserWelcome logo" src={require("../../images/kudos.png")}/>
-
-        <br/>
-        {/*<h4 style={{marginTop: 0, lineHeight: 1.4, fontStyle: "normal", fontSize: "1.6em", fontWeight: 600, fontFamily: "Work Sans, sans-serif"}}>Our public sale is no longer on January 16th, 2018. We are excited to announce a partnership for our sale coming soon. Stay tuned!</h4>*/}
+        <h5 className="NewUserWelcome welcomeMessage">Welcome to Kudos</h5>
 
         <div>
           <Link to="/createAccount">
@@ -31,7 +29,7 @@ class NewUserWelcomeComponent extends Component {
           </Link>
         </div>
 
-        <h6 className="NewUserWelcome version">KUDOS v1.0</h6>
+        <h6 className="NewUserWelcome version">K U D O S - v 1 . 0</h6>
 
       </div>
     );

@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
 
     <title>webpack dev server</title>
-    <script src="https://s3.amazonaws.com/kudos-webplugin/rating-component.js" type="text/javascript"></script>
+    <script src="https://s3.amazonaws.com/kudos-webplugin/kudosWebPluginWidget.js" type="text/javascript"></script>
     <script>
       function initialize() {
         showWidget(document.getElementById("content"));
@@ -20,6 +20,6 @@
 
   <body onload="initialize()">
     <h1>webpack dev server</h1>
-    <div style="max-width: 600px" id="content" />
+    <div style="position: fixed; bottom: 0; right: 0; margin: 5px;" id="content" />
   </body>
 </html>
