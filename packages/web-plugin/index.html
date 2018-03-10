@@ -9,24 +9,17 @@
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
 
-    <title>example site</title>
-    <script src="/build/rating-component.js" type="text/javascript"></script>
+    <title>webpack dev server</title>
+    <script src="https://s3.amazonaws.com/kudos-webplugin/rating-component.js" type="text/javascript"></script>
     <script>
       function initialize() {
-        showRatingComponent(document.getElementById("content"));
+        showWidget(document.getElementById("content"));
       }
     </script>
-
-    <style>
-      body {
-        font-family: 'Work Sans', sans-serif;
-      }
-    </style>
-
   </head>
 
   <body onload="initialize()">
-    <h1>example site</h1>
+    <h1>webpack dev server</h1>
     <div style="max-width: 600px" id="content" />
   </body>
 </html>

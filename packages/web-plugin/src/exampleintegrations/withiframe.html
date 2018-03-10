@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<body>
+<h1>third party site</h1>
+
+<!-- Start of Kudos Widget script -->
+<script>
+  var iframeElement = document.createElement("iframe");
+  iframeElement.id="kudosIframe";
+  iframeElement.scrolling="no";
+  iframeElement.frameBorder="0";
+  iframeElement.title="";
+  iframeElement.role="presentation";
+  (iframeElement.frameElement||iframeElement).style.cssText="width: 260px; height: 410px; display: flex; position: fixed; bottom: 0; right: 0; margin: 5px;";
+  document.body.appendChild(iframeElement);
+
+  var kudosIframeDocument = document.getElementById("kudosIframe").contentWindow.document;
+
+  kudosIframeDocument.open();
+
+  kudosIframeDocument._l=function() {
+
+    var mainDiv = this.createElement("div");
+    mainDiv.style = "max-width: 600px";
+    mainDiv.id = "content";
+    this.body.appendChild(mainDiv);
+
+    var mainScript = this.createElement("script");
+
+    var code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        showWidget(d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/kudos-webplugin/rating-component.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'kudosWebPlugin'));";
+
+    try {
+      mainScript.appendChild(this.createTextNode(code));
+    } catch (e) {
+      mainScript.text = code;
+    }
+
+    this.body.appendChild(mainScript);
+  };
+
+  kudosIframeDocument.write('<body onload="document._l();">');
+  kudosIframeDocument.close()
+
+
+
+
+
+
+
+</script>
+<!-- End of Kudos Widget script -->
+</body>
+</html>
+
+

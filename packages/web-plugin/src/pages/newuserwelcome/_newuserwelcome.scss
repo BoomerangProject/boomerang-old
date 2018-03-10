@@ -1,0 +1,42 @@
+.NewUserWelcome {
+
+  &.container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    width: 250px;
+    height: 400px;
+  }
+
+  &.logo {
+
+    margin-top: auto;
+    width: 40px;
+    height: 40px;
+  }
+
+  %button {
+    width: 175px;
+    height: 40px;
+    margin-bottom: 5px;
+    font-size: small;
+  }
+
+  &.createAccountButton {
+
+    @extend %button;
+  }
+
+  &.importAccountButton {
+
+    @extend %button;
+  }
+
+  &.version {
+
+    justify-content: flex-end;
+    margin-top: auto;
+  }
+}

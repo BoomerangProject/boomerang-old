@@ -1,9 +1,13 @@
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+
 module.exports = {
   entry: './wrapper.js',
   output: {
       libraryTarget: 'var',
-      library: 'showRatingComponent',
-      path:     __dirname + '/build/',
+      library: 'showWidget',
+      path: path.resolve(__dirname, 'build'),
       filename: 'rating-component.js',
       // publicPath: "/build/"
       publicPath: "https://s3.amazonaws.com/kudos-webplugin/"
@@ -41,7 +45,23 @@ module.exports = {
           use: [
             { loader: 'file-loader' }
           ]
+        },
+        {
+          test: /\.scss$/,
+          use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+        },
+        {
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          loader: "file-loader?name=[name].[ext]"
         }
-      ],
-  }
+      ]
+  },
+  plugins: [
+    new UglifyJSPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
+  ]
 };
