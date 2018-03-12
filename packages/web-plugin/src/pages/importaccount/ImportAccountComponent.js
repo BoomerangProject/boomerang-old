@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ethUtil from "ethereumjs-util";
 
 class ImportAccountComponent extends Component {
 
@@ -8,12 +9,13 @@ class ImportAccountComponent extends Component {
 
   onClickOfConfirmButton() {
 
-    if (this.state.seedText.length !== 64) {
+    if (this.state.seedText === null || this.state.seedText.length !== 64) {
       window.alert("seed text must be 64 hexadecimal characters");
       return;
     }
 
     localStorage.setItem("kudosAccountSeed", this.state.seedText);
+    localStorage.setItem("kudosAccountAddress", ethUtil.privateToAddress(new Buffer(this.state.seedText, "hex")).toString("hex"));
     this.props.history.push("/account");
   }
 
