@@ -10,7 +10,9 @@ class App extends Component {
 
   startingComponent() {
 
-    if (localStorage.getItem("kudosAccountSeed").length === 64) {
+    const kudosAccountSeed = localStorage.getItem("kudosAccountSeed");
+
+    if (kudosAccountSeed !== null && kudosAccountSeed.length === 64) {
       return AccountComponent;
     } else {
       return NewUserComponent;

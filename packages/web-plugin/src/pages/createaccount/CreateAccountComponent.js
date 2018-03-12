@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import crypto from 'crypto';
 import { copyTextToClipboard } from "../../util";
+import ethUtil from "ethereumjs-util";
 
 class CreateAccountComponent extends Component {
 
@@ -15,6 +16,7 @@ class CreateAccountComponent extends Component {
 
   onClickOfConfirmButton() {
     localStorage.setItem("kudosAccountSeed", this.privateKey);
+    localStorage.setItem("kudosAccountAddress", ethUtil.privateToAddress(new Buffer(this.privateKey, "hex")).toString("hex"));
     this.props.history.push("/account");
   }
 
