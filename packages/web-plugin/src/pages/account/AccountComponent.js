@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 
 class AccountComponent extends Component {
 
+  onClickOfButton() {
+
+    if (document.isVisible()) {
+      document.hide();
+    } else {
+      document.show();
+    }
+  }
+
   render() {
 
     return (
@@ -13,6 +22,8 @@ class AccountComponent extends Component {
         <div className="Account accountAddress">
           {"0x" + localStorage.getItem("kudosAccountAddress")}
         </div>
+
+        <button style={{width: "100px", height: "100px"}} onClick={this.onClickOfButton.bind(this)}>click</button>
       </div>
     );
   }

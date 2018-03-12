@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NewUserComponent from "./pages/newuserwelcome/NewUserWelcomeComponent";
+import NewUserComponent from "./pages/newuser/NewUserComponent";
 import { MemoryRouter as Router, Route } from 'react-router-dom'
 import CreateAccountComponent from "./pages/createaccount/CreateAccountComponent";
 import ImportAccountComponent from "./pages/importaccount/ImportAccountComponent";

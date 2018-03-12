@@ -1,43 +1,40 @@
 <!doctype html>
 <html>
 <body>
-<h1>third party site</h1>
+<h1>third party site (with iframe)</h1>
 
 <!-- Start of Kudos Widget script -->
 <script>
 
-  var iframeElement = document.createElement("iframe");
+  const iframeElement = document.createElement("iframe");
   iframeElement.id="kudosIframe";
   iframeElement.scrolling="no";
   iframeElement.frameBorder="0";
   iframeElement.allowtransparency="false";
   iframeElement.title="";
 
-  // TODO fix this
-  // iframeElement.src = 'javascript:var d=document.open();d.domain="'+document.domain+'";void(0);';
-
-  var cssStyle = "z-index: 999999; width: 260px; opacity: 1; height: 410px; position: fixed; bottom: 0; right: 0; margin: 5px;";
+  const cssStyle = "z-index: 999999; width: 260px; opacity: 1; height: 410px; position: fixed; bottom: 0; right: 0; margin: 5px;";
 
   (iframeElement.frameElement||iframeElement).style.cssText=cssStyle;
 
-  var containerDiv = document.createElement("div");
+  const containerDiv = document.createElement("div");
+  containerDiv.style.visibility = "visible";
   containerDiv.appendChild(iframeElement);
   document.body.appendChild(containerDiv);
 
-  var kudosIframeDocument = document.getElementById("kudosIframe").contentWindow.document;
-
+  const kudosIframeDocument = document.getElementById("kudosIframe").contentWindow.document;
   kudosIframeDocument.open();
 
   kudosIframeDocument._l=function() {
 
-    var mainDiv = this.createElement("div");
+    const mainDiv = this.createElement("div");
     mainDiv.style = "max-width: 600px";
     mainDiv.id = "content";
     this.body.appendChild(mainDiv);
 
-    var mainScript = this.createElement("script");
+    const mainScript = this.createElement("script");
 
-    var code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        showWidget(d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/kudos-webplugin/kudosWebPluginWidget.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'kudosWebPlugin'));";
+    const code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        showWidget(d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/kudos-webplugin/kudosWebPluginWidget.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'kudosWebPlugin'));";
 
     try {
       mainScript.appendChild(this.createTextNode(code));
@@ -49,9 +46,26 @@
   };
 
   kudosIframeDocument.write('<body onload="document._l();">');
-  kudosIframeDocument.close()
+  kudosIframeDocument.close();
+
+  const kudos = kudosIframeDocument;
+
+  kudos.show = function() {
+    containerDiv.style.visibility = "visible";
+  };
+
+  kudos.hide = function() {
+    containerDiv.style.visibility = "hidden";
+  };
+
+  kudos.isVisible = function() {
+    return containerDiv.style.visibility === "visible";
+  };
+
 </script>
 <!-- End of Kudos Widget script -->
+
+
 </body>
 </html>
 

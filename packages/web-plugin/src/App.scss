@@ -1,8 +1,9 @@
 @import "./styles/typography";
-@import "./pages/newuserwelcome/newuserwelcome";
+@import "pages/newuser/newuser";
 @import "./pages/createaccount/createaccount";
 @import "./pages/importaccount/importaccount";
 @import "./pages/account/account";
+@import "./pages/rating/rating";
 
 .App {
   text-align: center;
