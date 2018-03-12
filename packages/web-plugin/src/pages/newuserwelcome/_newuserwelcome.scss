@@ -1,6 +1,7 @@
 .NewUserWelcome {
 
-  font-family: $base-family;
+  font-family: $defaultFont;
+  color: #002A1C;
 
   &.container {
 
@@ -21,7 +22,15 @@
   }
 
   &.welcomeMessage {
+
     margin-top: 25px;
+
+    // didn't have to add this for "npm run start", but deployed script needed it
+    // TODO -- find out why
+
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
   }
 
   %button {
@@ -48,8 +57,13 @@
 
   &.version {
 
-    color: #118476;
-    justify-content: flex-end;
+    color: #5DD0C2;
     margin-top: auto;
+    margin-bottom: 15px;
+
+    // TODO -- see above
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
   }
 }

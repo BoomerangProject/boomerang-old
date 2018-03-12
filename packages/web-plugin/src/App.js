@@ -4,16 +4,29 @@ import { MemoryRouter as Router, Route } from 'react-router-dom'
 import CreateAccountComponent from "./pages/createaccount/CreateAccountComponent";
 import ImportAccountComponent from "./pages/importaccount/ImportAccountComponent";
 import "./App.scss";
+import AccountComponent from "./pages/account/AccountComponent";
 
 class App extends Component {
+
+  startingComponent() {
+
+    if (localStorage.getItem("kudosAccountSeed").length === 64) {
+      return AccountComponent;
+    } else {
+      return NewUserComponent;
+    }
+  }
+
   render() {
+
     return (
 
         <Router>
           <div>
-            <Route exact={true} path="/" component={NewUserComponent} />
+            <Route exact={true} path="/" component={this.startingComponent()} />
             <Route path="/createAccount" component={CreateAccountComponent} />
             <Route path="/importAccount" component={ImportAccountComponent} />
+            <Route path="/account" component={AccountComponent} />
           </div>
         </Router>
     );

@@ -3,8 +3,14 @@
 // Font weights
 $light: 300;
 $regular: 400;
-$semi-bold: 600;
+$semiBold: 600;
 $bold: 800;
 $black: 900;
 
-$base-family: 'Work Sans', Helvetica, Arial, sans-serif;
+$defaultFont: 'Work Sans', Helvetica, Arial, sans-serif;
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+$monospaceFont: 'Roboto Mono', monospace;

@@ -1,5 +1,8 @@
 .CreateAccount {
 
+  font-family: $defaultFont;
+  color: #002A1C;
+
   &.container {
 
     display: flex;
@@ -11,10 +14,89 @@
     height: 400px;
   }
 
+  &.logo {
+
+    margin-top: 15px;
+    width: 50px;
+    height: 50px;
+  }
+
+  &.title {
+
+    margin-top: 5px;
+    margin-bottom: 0;
+
+    // didn't have to add this for "npm run start", but deployed script needed it
+    // TODO -- find out why
+
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  &.firstParagraph {
+    margin-top: auto;
+    margin-left: 23px;
+    margin-right: 23px;
+    font-size: 0.7em;
+  }
+
+  &.warningMessage {
+    margin: 10px 30px 10px 30px;
+    font-size: 0.7em;
+    color: #EA2F57;
+  }
+
+  &.secondParagraph {
+    margin-left: 23px;
+    margin-right: 23px;
+    font-size: 0.7em;
+  }
+
+  &.secondParagraphRedText {
+    color: #EA2F57;
+  }
+
+  &.seedButton {
+
+    margin-top: auto;
+    font-family: $monospaceFont;
+
+    width: 190px;
+    height: 60px;
+
+    border: none;
+    outline: none;
+    background-color: #005143;
+
+    padding: 5px 26px 5px 26px;
+    font-weight: 300;
+    font-size: 0.6em;
+    color: white;
+    white-space: normal;
+    word-wrap: break-word;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+  }
+
+  &.tapToCopyMessage {
+
+    font-size: x-small;
+  }
+
   &.button {
-    width: 175px;
+
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+    width: 190px;
     height: 40px;
-    margin-bottom: 5px;
     font-size: small;
+    border: none;
+    outline: none;
+    box-shadow: 0px 2px #F6F6F6;
+    background-color: #5DD0C2;
   }
 }

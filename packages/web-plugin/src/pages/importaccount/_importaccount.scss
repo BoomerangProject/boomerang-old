@@ -1,5 +1,8 @@
 .ImportAccount {
 
+  font-family: $defaultFont;
+  color: #002A1C;
+
   &.container {
 
     display: flex;
@@ -9,5 +12,86 @@
     border: 1px solid black;
     width: 250px;
     height: 400px;
+  }
+
+  &.logo {
+
+    margin-top: auto;
+    width: 50px;
+    height: 50px;
+  }
+
+  &.title {
+
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    // didn't have to add this for "npm run start", but deployed script needed it
+    // TODO -- find out why
+
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  &.seedLabel {
+    margin-top: auto;
+    font-size: 0.7em;
+  }
+
+  &.seedTextContainer {
+
+    margin-top: 3px;
+    background-color: #005143;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+    display: flex;
+    width: 190px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.seedText {
+
+    background: none;
+    font-family: $monospaceFont;
+
+    width: 190px;
+    height: 40px;
+
+    border: none;
+    outline: none;
+    overflow-y: hidden;
+
+    padding: 5px 26px 5px 26px;
+    font-weight: 300;
+    font-size: 0.6em;
+    color: white;
+    white-space: normal;
+    word-wrap: break-word;
+
+
+
+    resize: none;
+
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+  }
+
+  &.button {
+    margin-top: auto;
+    margin-bottom: 45px;
+
+    width: 190px;
+    height: 40px;
+    font-size: small;
+    border: none;
+    outline: none;
+    box-shadow: 0px 2px #F6F6F6;
+    background-color: #5DD0C2;
   }
 }

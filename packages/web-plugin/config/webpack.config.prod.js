@@ -61,7 +61,7 @@ module.exports = {
     // The build folder.
     path: paths.appBuild,
     // Generated JS file names (with nested folders).
-    // There will be one main bundle, and one file per asynchronous chunk.
+    // There will be one account bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
     filename: 'static/js/[name].[chunkhash:8].js',
     chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
@@ -164,7 +164,7 @@ module.exports = {
           // a single CSS file in production instead of JS code injecting <style>
           // tags. If you use code splitting, however, any async bundles will still
           // use the "style" loader inside the async code so CSS from them won't be
-          // in the main CSS file.
+          // in the account CSS file.
           {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract(
