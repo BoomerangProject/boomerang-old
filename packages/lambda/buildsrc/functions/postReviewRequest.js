@@ -23,10 +23,10 @@ const tableName = "ReviewRequests";
 exports.default = (() => {
   var _ref = _asyncToGenerator(function* (event, context, callback) {
 
-    const queryStringParameters = event["queryStringParameters"];
+    const queryStringParameters = event.queryStringParameters;
 
-    const userAccountAddressArg = queryStringParameters["userAccountAddress"];
-    // const userAccountAddressArg = "0x0038b10a573235b10f00b8c4900c664b80dfc62c";
+    const userAddressArg = queryStringParameters["userAddress"];
+    // const userAddressArg = "0x0038b10a573235b10f00b8c4900c664b80dfc62c";
 
     const reviewRequestMetaDataArg = JSON.parse(event.body);
     console.log(reviewRequestMetaDataArg);
@@ -36,7 +36,7 @@ exports.default = (() => {
       TableName: tableName,
       Item: {
 
-        userAccountAddress: userAccountAddressArg,
+        userAddress: userAddressArg,
         reviewRequestMetaData: reviewRequestMetaDataArg
       }
     };

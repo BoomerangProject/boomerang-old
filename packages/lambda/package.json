@@ -6,6 +6,7 @@
   "scripts": {
     "deploy": "npm run compileContracts && npm run copyContractJsonToSrcFolder && npm run transpileCodeToEs7 && sls deploy --stage dev",
     "offline": "npm run compileContracts && npm run copyContractJsonToSrcFolder && npm run transpileCodeToEs7 && sls offline start",
+    "offlineQuick": "npm run transpileCodeToEs7 && sls offline start",
     "compileContracts": "cd ../ethereum/ && truffle compile --all && cd ../lambda",
     "copyContractJsonToSrcFolder": "cp -R ../ethereum/build/contracts/ ./buildsrc/ethereum/build/contracts/",
     "transpileCodeToEs7": "babel ./src --out-dir ./buildsrc"
@@ -16,12 +17,15 @@
     "aws-sdk": "^2.203.0",
     "axios": "^0.18.0",
     "dotenv": "^5.0.1",
+    "ethereumjs-util": "^5.1.5",
     "ethereumjs-wallet": "^0.6.0",
     "ipfs-mini": "^1.1.2",
     "scrypt": "^6.0.3",
     "serverless-plugin-include-dependencies": "^3.0.0",
     "truffle-contract": "^3.0.3",
-    "truffle-wallet-provider": "0.0.5"
+    "truffle-wallet-provider": "0.0.5",
+    "uuid": "^3.2.1",
+    "web3-utils": "^1.0.0-beta.31"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

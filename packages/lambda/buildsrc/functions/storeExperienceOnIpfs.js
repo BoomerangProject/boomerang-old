@@ -44,7 +44,7 @@ exports.default = (() => {
 let getIpfsObjectFromRequest = (() => {
   var _ref2 = _asyncToGenerator(function* (event, callback) {
 
-    let queryStringParameters = event["queryStringParameters"];
+    let queryStringParameters = event.queryStringParameters;
 
     if (!queryStringParameters) {
       queryStringParameters = [];

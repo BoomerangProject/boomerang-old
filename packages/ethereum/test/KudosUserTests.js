@@ -23,9 +23,9 @@ contract("kudosUserTests", function([deployer, business, worker, user]) {
 
   class Signature {
     constructor(nonce, signer) {
-      var message = soliditySha3(nonce);
-      var sig = web3.eth.sign(signer, message, {from: signer});
-      var res = util.fromRpcSig(sig);
+      const message = soliditySha3(nonce);
+      const sig = web3.eth.sign(signer, message, {from: signer});
+      const res = util.fromRpcSig(sig);
       this.v = res.v;
       this.r = "0x" + res.r.toString("hex");
       this.s = "0x" + res.s.toString("hex");

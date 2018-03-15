@@ -10,8 +10,8 @@ class AccountComponent extends Component {
         <img alt="" className="Account logo" src={require("../../images/kudos.png")}/>
         <h1>Account</h1>
 
-        <div className="Account accountAddress">
-          {"0x" + localStorage.getItem("kudosAccountAddress")}
+        <div className="Account Address">
+          {"0x" + localStorage.getItem("kudosAddress")}
         </div>
 
         <button style={{width: "100px", height: "100px"}}>click</button>

@@ -1,12 +1,12 @@
 'use strict';
-import KudosContractService from '../services/KudosContractService';
+import KudosContractService from '../../services/KudosContractService';
 
 
 
 export default async (event, context, callback) => {
 
-  var queryStringParameters = event["queryStringParameters"];
-  
+  var queryStringParameters = event.queryStringParameters;
+
   var businessAddress = queryStringParameters["businessAddress"];
   var businessRating = queryStringParameters["businessRating"];
   var businessReviewText = queryStringParameters["businessReviewText"];

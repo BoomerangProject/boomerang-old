@@ -40,9 +40,27 @@ functions:
       - http:
           path: /requestReview
           method: post
-  getReviewRequests:
-    handler: buildsrc/handler.getReviewRequests
+  getPendingReviews:
+    handler: buildsrc/handler.getPendingReviews
     events:
       - http:
-          path: /getReviewRequests
+          path: /getPendingReviews
+          method: get
+  addUserToRegistry:
+    handler: buildsrc/handler.addUserToRegistry
+    events:
+      - http:
+          path: /addUserToRegistry
+          method: post
+  getUserAddress:
+    handler: buildsrc/handler.getUserAddress
+    events:
+      - http:
+          path: /getUserAddress
+          method: get
+  getNonceForAddingUserToRegistry:
+    handler: buildsrc/handler.getNonceForAddingUserToRegistry
+    events:
+      - http:
+          path: /getNonceForAddingUserToRegistry
           method: get

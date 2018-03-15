@@ -16,7 +16,7 @@ class CreateAccountComponent extends Component {
 
   onClickOfConfirmButton() {
     localStorage.setItem("kudosAccountSeed", this.privateKey);
-    localStorage.setItem("kudosAccountAddress", ethUtil.privateToAddress(new Buffer(this.privateKey, "hex")).toString("hex"));
+    localStorage.setItem("kudosAddress", ethUtil.privateToAddress(new Buffer(this.privateKey, "hex")).toString("hex"));
     this.props.history.push("/account");
   }
 

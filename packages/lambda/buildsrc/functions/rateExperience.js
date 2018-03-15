@@ -15,7 +15,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 exports.default = (() => {
   var _ref = _asyncToGenerator(function* (event, context, callback) {
 
-    var queryStringParameters = event["queryStringParameters"];
+    var queryStringParameters = event.queryStringParameters;
 
     var businessAddress = queryStringParameters["businessAddress"];
     var businessRating = queryStringParameters["businessRating"];

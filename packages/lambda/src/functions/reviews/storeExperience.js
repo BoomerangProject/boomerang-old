@@ -1,7 +1,7 @@
 'use strict';
 import IPFS from "ipfs-mini";
 import AWS from "aws-sdk";
-import { isAddress } from "../utils";
+import { isAddress } from "../../utils";
 
 export default async (event, context, callback) => {
 
@@ -22,7 +22,7 @@ export default async (event, context, callback) => {
 
 let getIpfsObjectFromRequest = async (event, callback) => {
 
-  let queryStringParameters = event["queryStringParameters"];
+  let queryStringParameters = event.queryStringParameters;
 
   if (!queryStringParameters) {
     queryStringParameters = [];

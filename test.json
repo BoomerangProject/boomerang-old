@@ -1,50 +1,200 @@
 {
-  "message": "success",
-  "input": {
-    "headers": {
-      "HOST": "localhost:3000",
-      "content-length": "17",
-      "Content-Length": 17,
-      "Content-Type": "application/json"
-    },
-    "path": "/postReviewRequest",
-    "pathParameters": null,
-    "requestContext": {
-      "accountId": "offlineContext_accountId",
-      "resourceId": "offlineContext_resourceId",
-      "apiId": "offlineContext_apiId",
-      "stage": "dev",
-      "requestId": "offlineContext_requestId_",
-      "identity": {
-        "cognitoIdentityPoolId": "offlineContext_cognitoIdentityPoolId",
-        "accountId": "offlineContext_accountId",
-        "cognitoIdentityId": "offlineContext_cognitoIdentityId",
-        "caller": "offlineContext_caller",
-        "apiKey": "offlineContext_apiKey",
-        "sourceIp": "127.0.0.1",
-        "cognitoAuthenticationType": "offlineContext_cognitoAuthenticationType",
-        "cognitoAuthenticationProvider": "offlineContext_cognitoAuthenticationProvider",
-        "userArn": "offlineContext_userArn",
-        "userAgent": "",
-        "user": "offlineContext_user"
-      },
-      "authorizer": {
-        "principalId": "offlineContext_authorizer_principalId"
-      },
-      "resourcePath": "/postReviewRequest",
-      "httpMethod": "POST"
-    },
-    "resource": "/postReviewRequest",
-    "httpMethod": "POST",
-    "queryStringParameters": {
-      "userAccountAddress": "0x0038b10a573235b10f00b8c4900c664b80dfc62c"
-    },
-    "stageVariables": null,
-    "body": "{\\"
-    myParameter
-    \
-    \
-    ":2}",
-    "isOffline": true
-  }
-}
+  domain:
+  Domain {
+  domain: null,
+  _events: { error: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  members: [] },
+service:
+Service {
+config:
+Config {
+credentials: [Object],
+credentialProvider: [Object],
+region: 'us-east-1',
+logger: null,
+apiVersions: {},
+apiVersion: null,
+endpoint: 'https://dynamodb.us-east-1.amazonaws.com',
+httpOptions: [Object],
+maxRetries: undefined,
+maxRedirects: 10,
+paramValidation: true,
+sslEnabled: true,
+s3ForcePathStyle: false,
+s3BucketEndpoint: false,
+s3DisableBodySigning: true,
+computeChecksums: true,
+convertResponseTypes: true,
+correctClockSkew: false,
+customUserAgent: null,
+dynamoDbCrc32: true,
+systemClockOffset: 0,
+signatureVersion: null,
+signatureCache: true,
+retryDelayOptions: {},
+useAccelerateEndpoint: false },
+endpoint:
+Endpoint {
+protocol: 'https:',
+host: 'dynamodb.us-east-1.amazonaws.com',
+port: 443,
+hostname: 'dynamodb.us-east-1.amazonaws.com',
+pathname: '/',
+path: '/',
+href: 'https://dynamodb.us-east-1.amazonaws.com/' },
+_clientId: 1 },
+operation: 'getItem',
+params:
+{ AttributesToGet: [ 'nonce' ],
+TableName: 'NonceForAddingUserToRegistry',
+Key: { businessAddress: [Object] } },
+httpRequest:
+HttpRequest {
+method: 'POST',
+path: '/',
+headers:
+{ 'User-Agent': 'aws-sdk-nodejs/2.203.0 darwin/v8.4.0 callback',
+'Content-Type': 'application/x-amz-json-1.0',
+'X-Amz-Target': 'DynamoDB_20120810.GetItem',
+'X-Amz-Content-Sha256': '040018eea794d76d727fdd9d9cf83cd0dbb207268d5c7bc0a9be549b182553af',
+'Content-Length': 149,
+Host: 'dynamodb.us-east-1.amazonaws.com',
+'X-Amz-Date': '20180315T163049Z',
+Authorization: 'AWS4-HMAC-SHA256 Credential=AKIAJZNNWMX5JEW2XYEQ/20180315/us-east-1/dynamodb/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=11bfbd079289e33fc0a59574a3a8ea7ddf66865aae12ffd483507cffbd6e656b' },
+body: '{"AttributesToGet":["nonce"],"TableName":"NonceForAddingUserToRegistry","Key":{"businessAddress":{"S":"0x0038b10a573235b10f00b8c4900c664b80dfc62c"}}}',
+endpoint:
+Endpoint {
+protocol: 'https:',
+host: 'dynamodb.us-east-1.amazonaws.com',
+port: 443,
+hostname: 'dynamodb.us-east-1.amazonaws.com',
+pathname: '/',
+path: '/',
+href: 'https://dynamodb.us-east-1.amazonaws.com/',
+constructor: [Object] },
+region: 'us-east-1',
+_userAgent: 'aws-sdk-nodejs/2.203.0 darwin/v8.4.0 callback',
+stream:
+ClientRequest {
+domain: [Object],
+_events: [Object],
+_eventsCount: 6,
+_maxListeners: undefined,
+output: [],
+outputEncodings: [],
+outputCallbacks: [],
+outputSize: 0,
+writable: false,
+_last: false,
+upgrading: false,
+chunkedEncoding: false,
+shouldKeepAlive: true,
+useChunkedEncodingByDefault: true,
+sendDate: false,
+_removedConnection: false,
+_removedContLen: false,
+_removedTE: false,
+_contentLength: 149,
+_hasBody: true,
+_trailer: '',
+finished: true,
+_headerSent: true,
+socket: [Object],
+connection: [Object],
+_header: 'POST / HTTP/1.1\r\nUser-Agent: aws-sdk-nodejs/2.203.0 darwin/v8.4.0 callback\r\nContent-Type: application/x-amz-json-1.0\r\nX-Amz-Target: DynamoDB_20120810.GetItem\r\nX-Amz-Content-Sha256: 040018eea794d76d727fdd9d9cf83cd0dbb207268d5c7bc0a9be549b182553af\r\nContent-Length: 149\r\nHost: dynamodb.us-east-1.amazonaws.com\r\nX-Amz-Date: 20180315T163049Z\r\nAuthorization: AWS4-HMAC-SHA256 Credential=AKIAJZNNWMX5JEW2XYEQ/20180315/us-east-1/dynamodb/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date;x-amz-target, Signature=11bfbd079289e33fc0a59574a3a8ea7ddf66865aae12ffd483507cffbd6e656b\r\nConnection: keep-alive\r\n\r\n',
+_onPendingData: [Function: noopPendingOutput],
+agent: [Object],
+socketPath: undefined,
+timeout: undefined,
+method: 'POST',
+path: '/',
+_ended: false,
+res: null,
+aborted: undefined,
+timeoutCb: [Function: emitTimeout],
+upgradeOrConnect: false,
+parser: [Object],
+maxHeadersCount: null,
+didCallback: false,
+[Symbol(outHeadersKey)]: [Object] } },
+startTime: 2018-03-15T16:30:48.994Z,
+response:
+Response {
+request: [Circular],
+data: null,
+error: null,
+retryCount: 0,
+redirectCount: 0,
+httpResponse:
+HttpResponse {
+statusCode: undefined,
+headers: {},
+body: undefined,
+streaming: false,
+stream: null,
+_abortCallback: [Function: callNextListener] },
+maxRetries: 10,
+maxRedirects: 10,
+nextPage: [Function] },
+_asm:
+AcceptorStateMachine {
+currentState: 'send',
+states:
+{ validate: [Object],
+build: [Object],
+afterBuild: [Object],
+sign: [Object],
+retry: [Object],
+afterRetry: [Object],
+send: [Object],
+validateResponse: [Object],
+extractError: [Object],
+extractData: [Object],
+restart: [Object],
+success: [Object],
+error: [Object],
+complete: [Object] } },
+_haltHandlersOnError: false,
+_events:
+{ validate:
+[ [Function],
+[Object],
+[Function: VALIDATE_REGION],
+[Function: BUILD_IDEMPOTENCY_TOKENS],
+[Function: VALIDATE_PARAMETERS] ],
+afterBuild:
+[ [Object],
+[Function: SET_CONTENT_LENGTH],
+[Function: SET_HTTP_HOST] ],
+restart: [ [Function: RESTART] ],
+sign: [ [Object] ],
+validateResponse: [ [Function: VALIDATE_RESPONSE] ],
+send: [ [Object] ],
+httpHeaders: [ [Function: HTTP_HEADERS] ],
+httpData: [ [Function: HTTP_DATA] ],
+httpDone: [ [Function: HTTP_DONE] ],
+retry:
+[ [Function: FINALIZE_ERROR],
+[Function: INVALIDATE_CREDENTIALS],
+[Function: EXPIRED_SIGNATURE],
+[Function: CLOCK_SKEWED],
+[Function: REDIRECT],
+[Function: RETRY_CHECK] ],
+afterRetry: [ [Object] ],
+build: [ [Function: buildRequest] ],
+extractData:
+[ [Function: extractRequestId],
+[Function: checkCrc32],
+[Function: extractData],
+[Function] ],
+extractError: [ [Function: extractError], [Function: extractRequestId] ],
+httpError: [ [Function: ENOTFOUND_ERROR] ],
+complete: [ [Function] ] },
+emit: [Function: emit],
+rawParams:
+{ AttributesToGet: [ 'nonce' ],
+TableName: 'NonceForAddingUserToRegistry',
+Key: { businessAddress: '0x0038b10a573235b10f00b8c4900c664b80dfc62c' } },
+signedAt: 2018-03-15T16:30:49.000Z }
