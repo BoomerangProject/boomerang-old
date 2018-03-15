@@ -6,7 +6,7 @@ module.exports = {
   entry: './wrapper.js',
   output: {
       libraryTarget: 'var',
-      library: 'showWidget',
+      library: 'kudosApp',
       path: path.resolve(__dirname, 'build'),
       filename: 'kudosWebPluginWidget.js',
       // publicPath: "/build/"

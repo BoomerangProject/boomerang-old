@@ -34,7 +34,7 @@
 
     const mainScript = this.createElement("script");
 
-    const code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        showWidget(d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/kudos-webplugin/kudosWebPluginWidget.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'kudosWebPlugin'));";
+    const code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        kudosApp.showWidget(d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/kudos-webplugin/kudosWebPluginWidget.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'kudosWebPlugin'));";
 
     try {
       mainScript.appendChild(this.createTextNode(code));
@@ -48,7 +48,7 @@
   kudosIframeDocument.write('<body onload="document._l();">');
   kudosIframeDocument.close();
 
-  const kudos = kudosIframeDocument;
+  const kudos = document.getElementById("kudosIframe").contentWindow;
 
   kudos.show = function() {
     containerDiv.style.visibility = "visible";

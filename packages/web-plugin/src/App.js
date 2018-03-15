@@ -8,7 +8,15 @@ import AccountComponent from "./pages/account/AccountComponent";
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   startingComponent() {
+
+    if (this.props.someParameter == "go") {
+      return AccountComponent;
+    }
 
     const kudosAccountSeed = localStorage.getItem("kudosAccountSeed");
 
@@ -23,14 +31,14 @@ class App extends Component {
 
     return (
 
-        <Router>
-          <div>
-            <Route exact={true} path="/" component={this.startingComponent()} />
-            <Route path="/createAccount" component={CreateAccountComponent} />
-            <Route path="/importAccount" component={ImportAccountComponent} />
-            <Route path="/account" component={AccountComponent} />
-          </div>
-        </Router>
+      <Router>
+        <div>
+          <Route exact={true} path="/" component={this.startingComponent()}/>
+          <Route path="/createAccount" component={CreateAccountComponent}/>
+          <Route path="/importAccount" component={ImportAccountComponent}/>
+          <Route path="/account" component={AccountComponent}/>
+        </div>
+      </Router>
     );
   }
 }

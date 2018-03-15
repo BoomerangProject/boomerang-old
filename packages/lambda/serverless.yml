@@ -34,3 +34,15 @@ functions:
       - http:
           path: /storeExperience
           method: get
+  requestReview:
+    handler: buildsrc/handler.requestReview
+    events:
+      - http:
+          path: /requestReview
+          method: post
+  getReviewRequests:
+    handler: buildsrc/handler.getReviewRequests
+    events:
+      - http:
+          path: /getReviewRequests
+          method: get
