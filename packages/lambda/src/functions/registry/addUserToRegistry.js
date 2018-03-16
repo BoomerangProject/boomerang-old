@@ -1,6 +1,9 @@
 'use strict';
 
 import ethUtil from "ethereumjs-util";
+import database from "../../services/database/Database";
+import okayResponse from "../../responses/okayResponse";
+import invalidSignatureResponse from "../../responses/invalidSignatureResponse";
 const Web3Utils = require('web3-utils');
 const soliditySha3 = Web3Utils.soliditySha3;
 
@@ -8,41 +11,35 @@ const soliditySha3 = Web3Utils.soliditySha3;
 
 export default async (event, context, callback) => {
 
-  // get nonce to sign
+  const businessAddress = event.queryStringParameters.businessAddress;
 
-  // sign the none and 
+  const nonceValue = await database.getNonceForAddingUserToRegistry(businessAddress);
 
-
-  const data = '1';
-  const message = ethUtil.toBuffer(data);
+  const message = ethUtil.toBuffer(nonceValue);
   const messageHash = ethUtil.hashPersonalMessage(message);
 
-  const privateKey = new Buffer("a62d1306d2f88e6a9e5adf5b8a632d5026019bfb450c009886dba13e9ed357aa", "hex");
-  const signature = ethUtil.ecsign(messageHash, privateKey);
+  const signature = getSignature(event);
+
+  console.log(signature);
+
   const publicKey = ethUtil.ecrecover(messageHash, signature.v, signature.r, signature.s);
   const sender = ethUtil.publicToAddress(publicKey);
-  const addr = ethUtil.bufferToHex(sender);
-  //
+  const address = ethUtil.bufferToHex(sender);
+
+  if (address !== businessAddress) {
+    callback(null, invalidSignatureResponse);
+    return;
+  }
+
+  const userId = event.queryStringParameters.userId;
+  const userAddress = event.queryStringParameters.userAddress;
 
 
+  callback(null, okayResponse);
+};
 
 
-  console.log(addr);
+const getSignature = function(event) {
 
-
-
-  const queryStringParameters = event.queryStringParameters;
-
-  const userId = queryStringParameters.userId;
-  const businessAddress = queryStringParameters.businessAddress;
-
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: `it will be success`,
-      input: event,
-    })
-  };
-
-  callback(null, response);
+  return JSON.parse(event.body);
 };
