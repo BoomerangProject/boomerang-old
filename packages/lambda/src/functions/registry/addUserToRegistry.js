@@ -11,29 +11,25 @@ const soliditySha3 = Web3Utils.soliditySha3;
 
 export default async (event, context, callback) => {
 
-  const businessAddress = event.queryStringParameters.businessAddress;
+  const businessAddress = getBusinessAddress(event);
+  const signature = getSignature(event);
+  const userId = getUserId(event);
+  const userAddress = getUserAddress(event);
+
+  //
 
   const nonceValue = await database.getNonceForAddingUserToRegistry(businessAddress);
 
   const message = ethUtil.toBuffer(nonceValue);
   const messageHash = ethUtil.hashPersonalMessage(message);
-
-  const signature = getSignature(event);
-
-  console.log(signature);
-
   const publicKey = ethUtil.ecrecover(messageHash, signature.v, signature.r, signature.s);
   const sender = ethUtil.publicToAddress(publicKey);
-  const address = ethUtil.bufferToHex(sender);
+  const recoveredAddress = ethUtil.bufferToHex(sender);
 
-  if (address !== businessAddress) {
+  if (recoveredAddress !== businessAddress) {
     callback(null, invalidSignatureResponse);
     return;
   }
-
-  const userId = event.queryStringParameters.userId;
-  const userAddress = event.queryStringParameters.userAddress;
-
 
   callback(null, okayResponse);
 };
@@ -41,5 +37,37 @@ export default async (event, context, callback) => {
 
 const getSignature = function(event) {
 
-  return JSON.parse(event.body);
+  const jsonBody = JSON.parse(event.body, (k, v) => {
+    if (
+    v !== null            &&
+    typeof v === 'object' &&
+    'type' in v           &&
+    v.type === 'Buffer'   &&
+    'data' in v           &&
+    Array.isArray(v.data)) {
+      return new Buffer(v.data);
+    }
+
+    return v;
+  });
+
+  return jsonBody.signature;
+};
+
+const getBusinessAddress = function(event) {
+
+  const jsonBody = JSON.parse(event.body);
+  return jsonBody.businessAddress;
+};
+
+const getUserId = function(event) {
+
+  const jsonBody = JSON.parse(event.body);
+  return jsonBody.userId;
+};
+
+const getUserAddress = function(event) {
+
+  const jsonBody = JSON.parse(event.body);
+  return jsonBody.userAddress;
 };
