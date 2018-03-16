@@ -570,175 +570,277 @@
   "source": "pragma solidity ^0.4.18;\n\nimport \"./KudosBusiness.sol\";\nimport \"./KudosWorker.sol\";\nimport \"./KudosUser.sol\";\n\ncontract Kudos is KudosUser, KudosWorker, KudosBusiness {\n\n\n}",
   "sourcePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/Kudos.sol",
   "ast": {
-    "attributes": {
-      "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/Kudos.sol",
-      "exportedSymbols": {
-        "Kudos": [
-          219
-        ]
-      }
+    "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/Kudos.sol",
+    "exportedSymbols": {
+      "Kudos": [
+        219
+      ]
     },
-    "children": [
+    "id": 220,
+    "nodeType": "SourceUnit",
+    "nodes": [
       {
-        "attributes": {
-          "literals": [
-            "solidity",
-            "^",
-            "0.4",
-            ".18"
-          ]
-        },
         "id": 209,
-        "name": "PragmaDirective",
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
         "src": "0:24:1"
       },
       {
-        "attributes": {
-          "SourceUnit": 417,
-          "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosBusiness.sol",
-          "file": "./KudosBusiness.sol",
-          "scope": 220,
-          "symbolAliases": [
-            null
-          ],
-          "unitAlias": ""
-        },
+        "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosBusiness.sol",
+        "file": "./KudosBusiness.sol",
         "id": 210,
-        "name": "ImportDirective",
-        "src": "26:29:1"
+        "nodeType": "ImportDirective",
+        "scope": 220,
+        "sourceUnit": 417,
+        "src": "26:29:1",
+        "symbolAliases": [],
+        "unitAlias": ""
       },
       {
-        "attributes": {
-          "SourceUnit": 808,
-          "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosWorker.sol",
-          "file": "./KudosWorker.sol",
-          "scope": 220,
-          "symbolAliases": [
-            null
-          ],
-          "unitAlias": ""
-        },
+        "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosWorker.sol",
+        "file": "./KudosWorker.sol",
         "id": 211,
-        "name": "ImportDirective",
-        "src": "56:27:1"
+        "nodeType": "ImportDirective",
+        "scope": 220,
+        "sourceUnit": 808,
+        "src": "56:27:1",
+        "symbolAliases": [],
+        "unitAlias": ""
       },
       {
-        "attributes": {
-          "SourceUnit": 669,
-          "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosUser.sol",
-          "file": "./KudosUser.sol",
-          "scope": 220,
-          "symbolAliases": [
-            null
-          ],
-          "unitAlias": ""
-        },
+        "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosUser.sol",
+        "file": "./KudosUser.sol",
         "id": 212,
-        "name": "ImportDirective",
-        "src": "84:25:1"
+        "nodeType": "ImportDirective",
+        "scope": 220,
+        "sourceUnit": 669,
+        "src": "84:25:1",
+        "symbolAliases": [],
+        "unitAlias": ""
       },
       {
-        "attributes": {
-          "contractDependencies": [
-            279,
-            416,
-            668,
-            807
-          ],
-          "contractKind": "contract",
-          "documentation": null,
-          "fullyImplemented": true,
-          "linearizedBaseContracts": [
-            219,
-            416,
-            807,
-            668,
-            279
-          ],
-          "name": "Kudos",
-          "nodes": [
-            null
-          ],
-          "scope": 220
-        },
-        "children": [
+        "baseContracts": [
           {
-            "attributes": {
-              "arguments": [
-                null
-              ]
-            },
-            "children": [
-              {
-                "attributes": {
-                  "contractScope": null,
-                  "name": "KudosUser",
-                  "referencedDeclaration": 668,
-                  "type": "contract KudosUser"
-                },
-                "id": 213,
-                "name": "UserDefinedTypeName",
-                "src": "129:9:1"
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 213,
+              "name": "KudosUser",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 668,
+              "src": "129:9:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_KudosUser_$668",
+                "typeString": "contract KudosUser"
               }
-            ],
+            },
             "id": 214,
-            "name": "InheritanceSpecifier",
+            "nodeType": "InheritanceSpecifier",
             "src": "129:9:1"
           },
           {
-            "attributes": {
-              "arguments": [
-                null
-              ]
-            },
-            "children": [
-              {
-                "attributes": {
-                  "contractScope": null,
-                  "name": "KudosWorker",
-                  "referencedDeclaration": 807,
-                  "type": "contract KudosWorker"
-                },
-                "id": 215,
-                "name": "UserDefinedTypeName",
-                "src": "140:11:1"
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 215,
+              "name": "KudosWorker",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 807,
+              "src": "140:11:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_KudosWorker_$807",
+                "typeString": "contract KudosWorker"
               }
-            ],
+            },
             "id": 216,
-            "name": "InheritanceSpecifier",
+            "nodeType": "InheritanceSpecifier",
             "src": "140:11:1"
           },
           {
-            "attributes": {
-              "arguments": [
-                null
-              ]
-            },
-            "children": [
-              {
-                "attributes": {
-                  "contractScope": null,
-                  "name": "KudosBusiness",
-                  "referencedDeclaration": 416,
-                  "type": "contract KudosBusiness"
-                },
-                "id": 217,
-                "name": "UserDefinedTypeName",
-                "src": "153:13:1"
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 217,
+              "name": "KudosBusiness",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 416,
+              "src": "153:13:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_KudosBusiness_$416",
+                "typeString": "contract KudosBusiness"
               }
-            ],
+            },
             "id": 218,
-            "name": "InheritanceSpecifier",
+            "nodeType": "InheritanceSpecifier",
             "src": "153:13:1"
           }
         ],
+        "contractDependencies": [
+          279,
+          416,
+          668,
+          807
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
         "id": 219,
-        "name": "ContractDefinition",
+        "linearizedBaseContracts": [
+          219,
+          416,
+          807,
+          668,
+          279
+        ],
+        "name": "Kudos",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 220,
         "src": "111:61:1"
       }
     ],
+    "src": "0:172:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/Kudos.sol",
+    "exportedSymbols": {
+      "Kudos": [
+        219
+      ]
+    },
     "id": 220,
-    "name": "SourceUnit",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 209,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosBusiness.sol",
+        "file": "./KudosBusiness.sol",
+        "id": 210,
+        "nodeType": "ImportDirective",
+        "scope": 220,
+        "sourceUnit": 417,
+        "src": "26:29:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosWorker.sol",
+        "file": "./KudosWorker.sol",
+        "id": 211,
+        "nodeType": "ImportDirective",
+        "scope": 220,
+        "sourceUnit": 808,
+        "src": "56:27:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosUser.sol",
+        "file": "./KudosUser.sol",
+        "id": 212,
+        "nodeType": "ImportDirective",
+        "scope": 220,
+        "sourceUnit": 669,
+        "src": "84:25:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 213,
+              "name": "KudosUser",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 668,
+              "src": "129:9:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_KudosUser_$668",
+                "typeString": "contract KudosUser"
+              }
+            },
+            "id": 214,
+            "nodeType": "InheritanceSpecifier",
+            "src": "129:9:1"
+          },
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 215,
+              "name": "KudosWorker",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 807,
+              "src": "140:11:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_KudosWorker_$807",
+                "typeString": "contract KudosWorker"
+              }
+            },
+            "id": 216,
+            "nodeType": "InheritanceSpecifier",
+            "src": "140:11:1"
+          },
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 217,
+              "name": "KudosBusiness",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 416,
+              "src": "153:13:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_KudosBusiness_$416",
+                "typeString": "contract KudosBusiness"
+              }
+            },
+            "id": 218,
+            "nodeType": "InheritanceSpecifier",
+            "src": "153:13:1"
+          }
+        ],
+        "contractDependencies": [
+          279,
+          416,
+          668,
+          807
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 219,
+        "linearizedBaseContracts": [
+          219,
+          416,
+          807,
+          668,
+          279
+        ],
+        "name": "Kudos",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 220,
+        "src": "111:61:1"
+      }
+    ],
     "src": "0:172:1"
   },
   "compiler": {
@@ -752,6 +854,6 @@
       "address": "0xcb6e15d2d929beddc9f98de36f9fa6ac223d0453"
     }
   },
-  "schemaVersion": "1.0.1",
-  "updatedAt": "2018-03-16T02:15:57.440Z"
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-03-16T15:20:16.485Z"
 }

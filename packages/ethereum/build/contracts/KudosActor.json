@@ -246,674 +246,1323 @@
   "source": "pragma solidity ^0.4.18;\n\ncontract KudosActor {\n\n  // business\n  mapping(address => bool) public isBusiness;\n\n  mapping(address => uint256) public businessAverageRating;\n  mapping(address => uint256) public numberOfBusinessRatings;\n\n  mapping(address => mapping(address => bool)) public isEmployee;\n  mapping(address => address[]) public employeeList;\n\n  mapping(address => mapping(address => mapping(address => uint256))) public nonce;\n\n  // worker\n  mapping(address => mapping(address => uint256)) public workerAverageRating;\n  mapping(address => mapping(address => uint256)) public numberOfWorkerRatings;\n  mapping(address => mapping(address => bool)) public isEmployer;\n\n\n  // user\n  mapping(address => uint256) public userAverageRating;\n  mapping(address => uint256) public numberOfUserRatings;\n}",
   "sourcePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosActor.sol",
   "ast": {
-    "attributes": {
-      "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosActor.sol",
-      "exportedSymbols": {
-        "KudosActor": [
-          279
-        ]
-      }
+    "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosActor.sol",
+    "exportedSymbols": {
+      "KudosActor": [
+        279
+      ]
     },
-    "children": [
+    "id": 280,
+    "nodeType": "SourceUnit",
+    "nodes": [
       {
-        "attributes": {
-          "literals": [
-            "solidity",
-            "^",
-            "0.4",
-            ".18"
-          ]
-        },
         "id": 221,
-        "name": "PragmaDirective",
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
         "src": "0:24:2"
       },
       {
-        "attributes": {
-          "baseContracts": [
-            null
-          ],
-          "contractDependencies": [
-            null
-          ],
-          "contractKind": "contract",
-          "documentation": null,
-          "fullyImplemented": true,
-          "linearizedBaseContracts": [
-            279
-          ],
-          "name": "KudosActor",
-          "scope": 280
-        },
-        "children": [
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 279,
+        "linearizedBaseContracts": [
+          279
+        ],
+        "name": "KudosActor",
+        "nodeType": "ContractDefinition",
+        "nodes": [
           {
-            "attributes": {
-              "constant": false,
-              "name": "isBusiness",
-              "scope": 279,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => bool)",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => bool)"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 222,
-                    "name": "ElementaryTypeName",
-                    "src": "73:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "name": "bool",
-                      "type": "bool"
-                    },
-                    "id": 223,
-                    "name": "ElementaryTypeName",
-                    "src": "84:4:2"
-                  }
-                ],
-                "id": 224,
-                "name": "Mapping",
-                "src": "65:24:2"
-              }
-            ],
+            "constant": false,
             "id": 225,
-            "name": "VariableDeclaration",
-            "src": "65:42:2"
+            "name": "isBusiness",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "65:42:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+              "typeString": "mapping(address => bool)"
+            },
+            "typeName": {
+              "id": 224,
+              "keyType": {
+                "id": 222,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "73:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "65:24:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                "typeString": "mapping(address => bool)"
+              },
+              "valueType": {
+                "id": 223,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "84:4:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "businessAverageRating",
-              "scope": 279,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => uint256)",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => uint256)"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 226,
-                    "name": "ElementaryTypeName",
-                    "src": "120:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "name": "uint256",
-                      "type": "uint256"
-                    },
-                    "id": 227,
-                    "name": "ElementaryTypeName",
-                    "src": "131:7:2"
-                  }
-                ],
-                "id": 228,
-                "name": "Mapping",
-                "src": "112:27:2"
-              }
-            ],
+            "constant": false,
             "id": 229,
-            "name": "VariableDeclaration",
-            "src": "112:56:2"
+            "name": "businessAverageRating",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "112:56:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 228,
+              "keyType": {
+                "id": 226,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "120:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "112:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 227,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "131:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "numberOfBusinessRatings",
-              "scope": 279,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => uint256)",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => uint256)"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 230,
-                    "name": "ElementaryTypeName",
-                    "src": "180:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "name": "uint256",
-                      "type": "uint256"
-                    },
-                    "id": 231,
-                    "name": "ElementaryTypeName",
-                    "src": "191:7:2"
-                  }
-                ],
-                "id": 232,
-                "name": "Mapping",
-                "src": "172:27:2"
-              }
-            ],
+            "constant": false,
             "id": 233,
-            "name": "VariableDeclaration",
-            "src": "172:58:2"
+            "name": "numberOfBusinessRatings",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "172:58:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 232,
+              "keyType": {
+                "id": 230,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "180:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "172:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 231,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "191:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "isEmployee",
-              "scope": 279,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => mapping(address => bool))",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => mapping(address => bool))"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 234,
-                    "name": "ElementaryTypeName",
-                    "src": "243:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "type": "mapping(address => bool)"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 235,
-                        "name": "ElementaryTypeName",
-                        "src": "262:7:2"
-                      },
-                      {
-                        "attributes": {
-                          "name": "bool",
-                          "type": "bool"
-                        },
-                        "id": 236,
-                        "name": "ElementaryTypeName",
-                        "src": "273:4:2"
-                      }
-                    ],
-                    "id": 237,
-                    "name": "Mapping",
-                    "src": "254:24:2"
-                  }
-                ],
-                "id": 238,
-                "name": "Mapping",
-                "src": "235:44:2"
-              }
-            ],
+            "constant": false,
             "id": 239,
-            "name": "VariableDeclaration",
-            "src": "235:62:2"
+            "name": "isEmployee",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "235:62:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
+              "typeString": "mapping(address => mapping(address => bool))"
+            },
+            "typeName": {
+              "id": 238,
+              "keyType": {
+                "id": 234,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "243:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "235:44:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
+                "typeString": "mapping(address => mapping(address => bool))"
+              },
+              "valueType": {
+                "id": 237,
+                "keyType": {
+                  "id": 235,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "262:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "254:24:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                  "typeString": "mapping(address => bool)"
+                },
+                "valueType": {
+                  "id": 236,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "273:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "employeeList",
-              "scope": 279,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => address[] storage ref)",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => address[] storage ref)"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 240,
-                    "name": "ElementaryTypeName",
-                    "src": "309:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "length": null,
-                      "type": "address[] storage pointer"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 241,
-                        "name": "ElementaryTypeName",
-                        "src": "320:7:2"
-                      }
-                    ],
-                    "id": 242,
-                    "name": "ArrayTypeName",
-                    "src": "320:9:2"
-                  }
-                ],
-                "id": 243,
-                "name": "Mapping",
-                "src": "301:29:2"
-              }
-            ],
+            "constant": false,
             "id": 244,
-            "name": "VariableDeclaration",
-            "src": "301:49:2"
+            "name": "employeeList",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "301:49:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_address_$dyn_storage_$",
+              "typeString": "mapping(address => address[] storage ref)"
+            },
+            "typeName": {
+              "id": 243,
+              "keyType": {
+                "id": 240,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "309:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "301:29:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_address_$dyn_storage_$",
+                "typeString": "mapping(address => address[] storage ref)"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 241,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "320:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "id": 242,
+                "length": null,
+                "nodeType": "ArrayTypeName",
+                "src": "320:9:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                  "typeString": "address[] storage pointer"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "nonce",
-              "scope": 279,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => mapping(address => mapping(address => uint256)))",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => mapping(address => mapping(address => uint256)))"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 245,
-                    "name": "ElementaryTypeName",
-                    "src": "363:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "type": "mapping(address => mapping(address => uint256))"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 246,
-                        "name": "ElementaryTypeName",
-                        "src": "382:7:2"
-                      },
-                      {
-                        "attributes": {
-                          "type": "mapping(address => uint256)"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "name": "address",
-                              "type": "address"
-                            },
-                            "id": 247,
-                            "name": "ElementaryTypeName",
-                            "src": "401:7:2"
-                          },
-                          {
-                            "attributes": {
-                              "name": "uint256",
-                              "type": "uint256"
-                            },
-                            "id": 248,
-                            "name": "ElementaryTypeName",
-                            "src": "412:7:2"
-                          }
-                        ],
-                        "id": 249,
-                        "name": "Mapping",
-                        "src": "393:27:2"
-                      }
-                    ],
-                    "id": 250,
-                    "name": "Mapping",
-                    "src": "374:47:2"
-                  }
-                ],
-                "id": 251,
-                "name": "Mapping",
-                "src": "355:67:2"
-              }
-            ],
+            "constant": false,
             "id": 252,
-            "name": "VariableDeclaration",
-            "src": "355:80:2"
+            "name": "nonce",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "355:80:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$_$",
+              "typeString": "mapping(address => mapping(address => mapping(address => uint256)))"
+            },
+            "typeName": {
+              "id": 251,
+              "keyType": {
+                "id": 245,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "363:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "355:67:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$_$",
+                "typeString": "mapping(address => mapping(address => mapping(address => uint256)))"
+              },
+              "valueType": {
+                "id": 250,
+                "keyType": {
+                  "id": 246,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "382:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "374:47:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+                  "typeString": "mapping(address => mapping(address => uint256))"
+                },
+                "valueType": {
+                  "id": 249,
+                  "keyType": {
+                    "id": 247,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "401:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "393:27:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                    "typeString": "mapping(address => uint256)"
+                  },
+                  "valueType": {
+                    "id": 248,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "412:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "workerAverageRating",
-              "scope": 279,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => mapping(address => uint256))",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => mapping(address => uint256))"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 253,
-                    "name": "ElementaryTypeName",
-                    "src": "460:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "type": "mapping(address => uint256)"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 254,
-                        "name": "ElementaryTypeName",
-                        "src": "479:7:2"
-                      },
-                      {
-                        "attributes": {
-                          "name": "uint256",
-                          "type": "uint256"
-                        },
-                        "id": 255,
-                        "name": "ElementaryTypeName",
-                        "src": "490:7:2"
-                      }
-                    ],
-                    "id": 256,
-                    "name": "Mapping",
-                    "src": "471:27:2"
-                  }
-                ],
-                "id": 257,
-                "name": "Mapping",
-                "src": "452:47:2"
-              }
-            ],
+            "constant": false,
             "id": 258,
-            "name": "VariableDeclaration",
-            "src": "452:74:2"
+            "name": "workerAverageRating",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "452:74:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+              "typeString": "mapping(address => mapping(address => uint256))"
+            },
+            "typeName": {
+              "id": 257,
+              "keyType": {
+                "id": 253,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "460:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "452:47:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+                "typeString": "mapping(address => mapping(address => uint256))"
+              },
+              "valueType": {
+                "id": 256,
+                "keyType": {
+                  "id": 254,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "479:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "471:27:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "valueType": {
+                  "id": 255,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "490:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "numberOfWorkerRatings",
-              "scope": 279,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => mapping(address => uint256))",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => mapping(address => uint256))"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 259,
-                    "name": "ElementaryTypeName",
-                    "src": "538:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "type": "mapping(address => uint256)"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 260,
-                        "name": "ElementaryTypeName",
-                        "src": "557:7:2"
-                      },
-                      {
-                        "attributes": {
-                          "name": "uint256",
-                          "type": "uint256"
-                        },
-                        "id": 261,
-                        "name": "ElementaryTypeName",
-                        "src": "568:7:2"
-                      }
-                    ],
-                    "id": 262,
-                    "name": "Mapping",
-                    "src": "549:27:2"
-                  }
-                ],
-                "id": 263,
-                "name": "Mapping",
-                "src": "530:47:2"
-              }
-            ],
+            "constant": false,
             "id": 264,
-            "name": "VariableDeclaration",
-            "src": "530:76:2"
+            "name": "numberOfWorkerRatings",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "530:76:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+              "typeString": "mapping(address => mapping(address => uint256))"
+            },
+            "typeName": {
+              "id": 263,
+              "keyType": {
+                "id": 259,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "538:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "530:47:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+                "typeString": "mapping(address => mapping(address => uint256))"
+              },
+              "valueType": {
+                "id": 262,
+                "keyType": {
+                  "id": 260,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "557:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "549:27:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "valueType": {
+                  "id": 261,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "568:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "isEmployer",
-              "scope": 279,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => mapping(address => bool))",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => mapping(address => bool))"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 265,
-                    "name": "ElementaryTypeName",
-                    "src": "618:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "type": "mapping(address => bool)"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 266,
-                        "name": "ElementaryTypeName",
-                        "src": "637:7:2"
-                      },
-                      {
-                        "attributes": {
-                          "name": "bool",
-                          "type": "bool"
-                        },
-                        "id": 267,
-                        "name": "ElementaryTypeName",
-                        "src": "648:4:2"
-                      }
-                    ],
-                    "id": 268,
-                    "name": "Mapping",
-                    "src": "629:24:2"
-                  }
-                ],
-                "id": 269,
-                "name": "Mapping",
-                "src": "610:44:2"
-              }
-            ],
+            "constant": false,
             "id": 270,
-            "name": "VariableDeclaration",
-            "src": "610:62:2"
+            "name": "isEmployer",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "610:62:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
+              "typeString": "mapping(address => mapping(address => bool))"
+            },
+            "typeName": {
+              "id": 269,
+              "keyType": {
+                "id": 265,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "618:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "610:44:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
+                "typeString": "mapping(address => mapping(address => bool))"
+              },
+              "valueType": {
+                "id": 268,
+                "keyType": {
+                  "id": 266,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "637:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "629:24:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                  "typeString": "mapping(address => bool)"
+                },
+                "valueType": {
+                  "id": 267,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "648:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "userAverageRating",
-              "scope": 279,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => uint256)",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => uint256)"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 271,
-                    "name": "ElementaryTypeName",
-                    "src": "696:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "name": "uint256",
-                      "type": "uint256"
-                    },
-                    "id": 272,
-                    "name": "ElementaryTypeName",
-                    "src": "707:7:2"
-                  }
-                ],
-                "id": 273,
-                "name": "Mapping",
-                "src": "688:27:2"
-              }
-            ],
+            "constant": false,
             "id": 274,
-            "name": "VariableDeclaration",
-            "src": "688:52:2"
+            "name": "userAverageRating",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "688:52:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 273,
+              "keyType": {
+                "id": 271,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "696:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "688:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 272,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "707:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "numberOfUserRatings",
-              "scope": 279,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => uint256)",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => uint256)"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 275,
-                    "name": "ElementaryTypeName",
-                    "src": "752:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "name": "uint256",
-                      "type": "uint256"
-                    },
-                    "id": 276,
-                    "name": "ElementaryTypeName",
-                    "src": "763:7:2"
-                  }
-                ],
-                "id": 277,
-                "name": "Mapping",
-                "src": "744:27:2"
-              }
-            ],
+            "constant": false,
             "id": 278,
-            "name": "VariableDeclaration",
-            "src": "744:54:2"
+            "name": "numberOfUserRatings",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "744:54:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 277,
+              "keyType": {
+                "id": 275,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "752:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "744:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 276,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "763:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           }
         ],
-        "id": 279,
-        "name": "ContractDefinition",
+        "scope": 280,
         "src": "26:775:2"
       }
     ],
+    "src": "0:801:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosActor.sol",
+    "exportedSymbols": {
+      "KudosActor": [
+        279
+      ]
+    },
     "id": 280,
-    "name": "SourceUnit",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 221,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 279,
+        "linearizedBaseContracts": [
+          279
+        ],
+        "name": "KudosActor",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 225,
+            "name": "isBusiness",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "65:42:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+              "typeString": "mapping(address => bool)"
+            },
+            "typeName": {
+              "id": 224,
+              "keyType": {
+                "id": 222,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "73:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "65:24:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                "typeString": "mapping(address => bool)"
+              },
+              "valueType": {
+                "id": 223,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "84:4:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 229,
+            "name": "businessAverageRating",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "112:56:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 228,
+              "keyType": {
+                "id": 226,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "120:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "112:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 227,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "131:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 233,
+            "name": "numberOfBusinessRatings",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "172:58:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 232,
+              "keyType": {
+                "id": 230,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "180:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "172:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 231,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "191:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 239,
+            "name": "isEmployee",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "235:62:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
+              "typeString": "mapping(address => mapping(address => bool))"
+            },
+            "typeName": {
+              "id": 238,
+              "keyType": {
+                "id": 234,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "243:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "235:44:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
+                "typeString": "mapping(address => mapping(address => bool))"
+              },
+              "valueType": {
+                "id": 237,
+                "keyType": {
+                  "id": 235,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "262:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "254:24:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                  "typeString": "mapping(address => bool)"
+                },
+                "valueType": {
+                  "id": 236,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "273:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 244,
+            "name": "employeeList",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "301:49:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_address_$dyn_storage_$",
+              "typeString": "mapping(address => address[] storage ref)"
+            },
+            "typeName": {
+              "id": 243,
+              "keyType": {
+                "id": 240,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "309:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "301:29:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_address_$dyn_storage_$",
+                "typeString": "mapping(address => address[] storage ref)"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 241,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "320:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "id": 242,
+                "length": null,
+                "nodeType": "ArrayTypeName",
+                "src": "320:9:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                  "typeString": "address[] storage pointer"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 252,
+            "name": "nonce",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "355:80:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$_$",
+              "typeString": "mapping(address => mapping(address => mapping(address => uint256)))"
+            },
+            "typeName": {
+              "id": 251,
+              "keyType": {
+                "id": 245,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "363:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "355:67:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$_$",
+                "typeString": "mapping(address => mapping(address => mapping(address => uint256)))"
+              },
+              "valueType": {
+                "id": 250,
+                "keyType": {
+                  "id": 246,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "382:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "374:47:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+                  "typeString": "mapping(address => mapping(address => uint256))"
+                },
+                "valueType": {
+                  "id": 249,
+                  "keyType": {
+                    "id": 247,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "401:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "393:27:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                    "typeString": "mapping(address => uint256)"
+                  },
+                  "valueType": {
+                    "id": 248,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "412:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 258,
+            "name": "workerAverageRating",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "452:74:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+              "typeString": "mapping(address => mapping(address => uint256))"
+            },
+            "typeName": {
+              "id": 257,
+              "keyType": {
+                "id": 253,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "460:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "452:47:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+                "typeString": "mapping(address => mapping(address => uint256))"
+              },
+              "valueType": {
+                "id": 256,
+                "keyType": {
+                  "id": 254,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "479:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "471:27:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "valueType": {
+                  "id": 255,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "490:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 264,
+            "name": "numberOfWorkerRatings",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "530:76:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+              "typeString": "mapping(address => mapping(address => uint256))"
+            },
+            "typeName": {
+              "id": 263,
+              "keyType": {
+                "id": 259,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "538:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "530:47:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+                "typeString": "mapping(address => mapping(address => uint256))"
+              },
+              "valueType": {
+                "id": 262,
+                "keyType": {
+                  "id": 260,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "557:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "549:27:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "valueType": {
+                  "id": 261,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "568:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 270,
+            "name": "isEmployer",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "610:62:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
+              "typeString": "mapping(address => mapping(address => bool))"
+            },
+            "typeName": {
+              "id": 269,
+              "keyType": {
+                "id": 265,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "618:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "610:44:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
+                "typeString": "mapping(address => mapping(address => bool))"
+              },
+              "valueType": {
+                "id": 268,
+                "keyType": {
+                  "id": 266,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "637:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "629:24:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                  "typeString": "mapping(address => bool)"
+                },
+                "valueType": {
+                  "id": 267,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "648:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 274,
+            "name": "userAverageRating",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "688:52:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 273,
+              "keyType": {
+                "id": 271,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "696:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "688:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 272,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "707:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 278,
+            "name": "numberOfUserRatings",
+            "nodeType": "VariableDeclaration",
+            "scope": 279,
+            "src": "744:54:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 277,
+              "keyType": {
+                "id": 275,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "752:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "744:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 276,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "763:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 280,
+        "src": "26:775:2"
+      }
+    ],
     "src": "0:801:2"
   },
   "compiler": {
@@ -921,6 +1570,6 @@
     "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "1.0.1",
-  "updatedAt": "2018-03-16T02:15:57.441Z"
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-03-16T15:20:16.485Z"
 }

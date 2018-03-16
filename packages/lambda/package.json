@@ -7,7 +7,7 @@
     "deploy": "npm run compileContracts && npm run copyContractJsonToSrcFolder && npm run transpileCodeToEs7 && sls deploy --stage dev",
     "offline": "npm run compileContracts && npm run copyContractJsonToSrcFolder && npm run transpileCodeToEs7 && sls offline start",
     "offlineQuick": "npm run transpileCodeToEs7 && sls offline start",
-    "compileContracts": "cd ../ethereum/ && truffle compile --all && cd ../lambda",
+    "compileContracts": "cd ../ethereum/ && npm run compile && cd ../lambda",
     "copyContractJsonToSrcFolder": "cp -R ../ethereum/build/contracts/ ./lib/ethereum/build/contracts/",
     "transpileCodeToEs7": "babel ./src --out-dir ./lib",
     "compile": "babel -d lib/ src/",
