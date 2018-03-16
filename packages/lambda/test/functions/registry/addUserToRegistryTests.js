@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import ethUtil from "ethereumjs-util";
 
 const should = require('chai')
@@ -6,24 +5,21 @@ const should = require('chai')
   .should();
 
 const axios = require("axios");
-// axios.defaults.baseURL = 'http://localhost:3000';
-// axios.defaults.timeout = 30000;
+axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.timeout = 30000;
 
-var client = axios.create({
-  baseURL: 'http://localhost:3000',
-  timeout: 30000
-});
-
-client.defaults.timeout = 30000;
-
-const privateKey =  new Buffer("a62d1306d2f88e6a9e5adf5b8a632d5026019bfb450c009886dba13e9ed357aa", "hex");
-const address = "0xbac2a9e1995dc4eb23fd565ffe5fecc58eb4f71e";
+//
+// client.defaults.timeout = 30000;
+//
+// const privateKey =  new Buffer("a62d1306d2f88e6a9e5adf5b8a632d5026019bfb450c009886dba13e9ed357aa", "hex");
+// const address = "0xbac2a9e1995dc4eb23fd565ffe5fecc58eb4f71e";
 
 describe("addUserToRegistryTests", function() {
 
   it("business should be able to add user to registry", async function() {
 
-    const nonceValue = await getThatNonce("0xmyAddress");
+    const nonceValue = await getNonce("0xmyAddress");
+
 
     console.log("the nonce value is " + nonceValue);
 
@@ -71,38 +67,23 @@ describe("addUserToRegistryTests", function() {
 });
 
 
-
-
 async function getNonce(businessAddressArg) {
 
   return new Promise(function(resolve, reject) {
 
-    try {
-      const response = axios.get('/getNonceForAddingUserToRegistry', {
+    return axios.get('/getNonceForAddingUserToRegistry', {
+
+      params: {
         businessAddress: businessAddressArg
-      });
+      }
 
-      console.log(response.data);
+    }).then(function (response) {
 
-      return resolve(response.data);
+      const nonceValue = response.data.nonce;
+      return resolve(nonceValue);
 
-    } catch (error) {
+    }).catch(function (error) {
       return reject(error);
-    }
-  });
-}
-
-async function getThatNonce(businessAddressArg) {
-
-  console.log("1");
-  console.log(client.timeout);
-
-  try {
-    const response = await client.get('/getNonceForAddingUserToRegistry', {
-      businessAddress: businessAddressArg
     });
-    console.log(response);
-  } catch (error) {
-    console.error(error);
-  }
+  });
 }

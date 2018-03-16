@@ -8,16 +8,17 @@
     "offline": "npm run compileContracts && npm run copyContractJsonToSrcFolder && npm run transpileCodeToEs7 && sls offline start",
     "offlineQuick": "npm run transpileCodeToEs7 && sls offline start",
     "compileContracts": "cd ../ethereum/ && truffle compile --all && cd ../lambda",
-    "copyContractJsonToSrcFolder": "cp -R ../ethereum/build/contracts/ ./buildsrc/ethereum/build/contracts/",
-    "transpileCodeToEs7": "babel ./src --out-dir ./buildsrc",
+    "copyContractJsonToSrcFolder": "cp -R ../ethereum/build/contracts/ ./lib/ethereum/build/contracts/",
+    "transpileCodeToEs7": "babel ./src --out-dir ./lib",
     "compile": "babel -d lib/ src/",
-    "test": "npm run compile && mocha --compilers js:babel-core/register --recursive || true"
+    "test": "npm run compile && mocha --timeout 30000 --require babel-core/register --compilers js:babel-core/register --recursive || true"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.203.0",
     "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
     "dotenv": "^5.0.1",
     "ethereumjs-util": "^5.1.5",
     "ethereumjs-wallet": "^0.6.0",
@@ -32,6 +33,7 @@
   "devDependencies": {
     "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",

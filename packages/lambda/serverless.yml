@@ -17,49 +17,49 @@ provider:
 
 functions:
   getSignature:
-    handler: buildsrc/handler.getSignature
+    handler: lib/handler.getSignature
     events:
       - http:
           path: /getSignature
           method: get
   rateExperience:
-    handler: buildsrc/handler.rateExperience
+    handler: lib/handler.rateExperience
     events:
       - http:
           path: /rateExperience
           method: get
   storeExperience:
-    handler: buildsrc/handler.storeExperience
+    handler: lib/handler.storeExperience
     events:
       - http:
           path: /storeExperience
           method: get
   requestReview:
-    handler: buildsrc/handler.requestReview
+    handler: lib/handler.requestReview
     events:
       - http:
           path: /requestReview
           method: post
   getPendingReviews:
-    handler: buildsrc/handler.getPendingReviews
+    handler: lib/handler.getPendingReviews
     events:
       - http:
           path: /getPendingReviews
           method: get
   addUserToRegistry:
-    handler: buildsrc/handler.addUserToRegistry
+    handler: lib/handler.addUserToRegistry
     events:
       - http:
           path: /addUserToRegistry
           method: post
   getUserAddress:
-    handler: buildsrc/handler.getUserAddress
+    handler: lib/handler.getUserAddress
     events:
       - http:
           path: /getUserAddress
           method: get
   getNonceForAddingUserToRegistry:
-    handler: buildsrc/handler.getNonceForAddingUserToRegistry
+    handler: lib/handler.getNonceForAddingUserToRegistry
     events:
       - http:
           path: /getNonceForAddingUserToRegistry

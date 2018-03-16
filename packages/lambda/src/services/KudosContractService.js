@@ -1,5 +1,5 @@
 import contract from "truffle-contract";
-import KudosContractJson from "../../buildsrc/ethereum/build/contracts/Kudos.json";
+import KudosContractJson from "../../lib/ethereum/build/contracts/Kudos.json";
 import provider from "./Web3Provider";
 
 const KudosContract = contract(KudosContractJson);
