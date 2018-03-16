@@ -4,7 +4,7 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "deploy": "npm run compileContracts && npm run copyContractJsonToSrcFolder && npm run transpileCodeToEs7 && sls deploy --stage dev",
+    "deploy": "npm run copyContractJsonToSrcFolder && npm run transpileCodeToEs7 && sls deploy --stage dev",
     "offline": "npm run compileContracts && npm run copyContractJsonToSrcFolder && npm run transpileCodeToEs7 && sls offline start",
     "offlineQuick": "npm run transpileCodeToEs7 && sls offline start",
     "compileContracts": "cd ../ethereum/ && npm run compile && cd ../lambda",
