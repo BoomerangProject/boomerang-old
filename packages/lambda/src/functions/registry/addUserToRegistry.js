@@ -38,13 +38,14 @@ export default async (event, context, callback) => {
 const getSignature = function(event) {
 
   const jsonBody = JSON.parse(event.body, (k, v) => {
-    if (
-    v !== null            &&
-    typeof v === 'object' &&
-    'type' in v           &&
-    v.type === 'Buffer'   &&
-    'data' in v           &&
-    Array.isArray(v.data)) {
+
+    if (v !== null            &&
+        typeof v === 'object' &&
+        'type' in v           &&
+        v.type === 'Buffer'   &&
+        'data' in v           &&
+        Array.isArray(v.data)) {
+
       return new Buffer(v.data);
     }
 
