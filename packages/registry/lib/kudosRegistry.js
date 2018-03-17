@@ -69,9 +69,9 @@ var addUserToRegistry = function () {
 
               }).then(function (response) {
 
-                return resolve(response.status);
+                return resolve(response);
               }).catch(function (error) {
-                return resolve(error.response.status);
+                return reject(error);
               });
             }));
 
@@ -97,14 +97,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 require('dotenv').config();
 
 var axios = require("axios");
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';
 axios.defaults.timeout = 30000;
 
 var kudosRegistry = {
 
   addUser: function () {
     var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(businessAddress, userId, userAddress) {
-      var nonceValue, message, messageHash, privateKey, signature;
+      var nonceValue, message, messageHash, privateKey, signature, statusCode;
       return _regenerator2.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -116,15 +116,16 @@ var kudosRegistry = {
               nonceValue = _context.sent;
               message = _ethereumjsUtil2.default.toBuffer(nonceValue);
               messageHash = _ethereumjsUtil2.default.hashPersonalMessage(message);
-              privateKey = process.env.KUDOS_ACCOUNT_SEED;
+              privateKey = new Buffer(process.env.KUDOS_ACCOUNT_SEED, 'hex');
               signature = _ethereumjsUtil2.default.ecsign(messageHash, privateKey);
               _context.next = 9;
               return addUserToRegistry(businessAddress, signature, userId, userAddress);
 
             case 9:
-              return _context.abrupt("return", _context.sent);
+              statusCode = _context.sent;
+              return _context.abrupt("return", statusCode);
 
-            case 10:
+            case 11:
             case "end":
               return _context.stop();
           }

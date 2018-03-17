@@ -1,13 +1,13 @@
-import dynamoDb from "./DynamoDbService";
+import dynamoDb from "../DynamoDbService";
 
-const getNonceForAddingUserToRegistry = async function(businessAddressArg) {
+const getNonceForUpdatingRegistry = async function(businessAddressArg) {
 
   return new Promise(function(resolve, reject) {
 
     const params = {
 
       AttributesToGet: ["nonce"],
-      TableName: "NonceForAddingUserToRegistry",
+      TableName: "NonceForUpdatingRegistry",
       Key : {businessAddress: businessAddressArg}
     };
 
@@ -26,4 +26,4 @@ const getNonceForAddingUserToRegistry = async function(businessAddressArg) {
   });
 };
 
-export default getNonceForAddingUserToRegistry;
+export default getNonceForUpdatingRegistry;

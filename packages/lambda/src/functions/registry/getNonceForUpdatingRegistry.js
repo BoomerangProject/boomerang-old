@@ -3,7 +3,8 @@ import database from "../../services/database/Database";
 
 export default async (event, context, callback) => {
 
-  const nonceValue = await database.getNonceForAddingUserToRegistry(event.queryStringParameters.businessAddress);
+  const businessAddress = event.queryStringParameters.businessAddress;
+  const nonceValue = await database.getNonceForUpdatingRegistry(businessAddress);
 
   const response = {
     statusCode: 200,

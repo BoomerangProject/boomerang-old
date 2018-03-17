@@ -2,7 +2,7 @@ import ethUtil from "ethereumjs-util";
 require('dotenv').config();
 
 const axios = require("axios");
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';
 axios.defaults.timeout = 30000;
 
 const kudosRegistry = {
@@ -14,10 +14,11 @@ const kudosRegistry = {
     const message = ethUtil.toBuffer(nonceValue);
     const messageHash = ethUtil.hashPersonalMessage(message);
 
-    const privateKey = process.env.KUDOS_ACCOUNT_SEED;
+    const privateKey = new Buffer(process.env.KUDOS_ACCOUNT_SEED, 'hex');
     const signature = ethUtil.ecsign(messageHash, privateKey);
 
-    return await addUserToRegistry(businessAddress, signature, userId, userAddress);
+    const statusCode = await addUserToRegistry(businessAddress, signature, userId, userAddress);
+    return statusCode;
   }
 };
 
@@ -55,10 +56,10 @@ async function addUserToRegistry(businessAddressArg, signatureArg, userIdArg, us
 
     }).then(function (response) {
 
-      return resolve(response.status);
+      return resolve(response);
 
     }).catch(function (error) {
-      return resolve(error.response.status);
+      return reject(error);
     });
   });
 }

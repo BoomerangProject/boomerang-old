@@ -18,6 +18,26 @@ export default async (event, context, callback) => {
 
   //
 
+  if (signatureIsInvalid(businessAddress, signature)) {
+    callback(null, invalidSignatureResponse);
+    return;
+  }
+
+  if (userId == null || userId === "") {
+    await database.deleteFromRegistry(businessAddress, userAddress, userId);
+  } else {
+    await database.putInRegistry(businessAddress, userAddress, userId);
+  }
+
+  await database.incrementNonceForUpdatingRegistry(businessAddress);
+
+
+
+  callback(null, okayResponse);
+};
+
+const signatureIsInvalid = async function(businessAddress, signature) {
+
   const nonceValue = await database.getNonceForAddingUserToRegistry(businessAddress);
 
   const message = ethUtil.toBuffer(nonceValue);
@@ -26,14 +46,8 @@ export default async (event, context, callback) => {
   const sender = ethUtil.publicToAddress(publicKey);
   const recoveredAddress = ethUtil.bufferToHex(sender);
 
-  if (recoveredAddress !== businessAddress) {
-    callback(null, invalidSignatureResponse);
-    return;
-  }
-
-  callback(null, okayResponse);
+  return recoveredAddress !== businessAddress;
 };
-
 
 const getSignature = function(event) {
 

@@ -1,8 +1,8 @@
 {
   "name": "kudos-registry",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "description": "",
-  "main": "index.js",
+  "main": "lib/kudosRegistry.js",
   "scripts": {
     "compile": "babel -d lib/ src/",
     "test": "echo \"Error: no test specified\" && exit 1"

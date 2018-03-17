@@ -1,8 +1,8 @@
-import dynamoDb from "./DynamoDbService";
-import getNonceForAddingUserToRegistry from "./getNonceForAddingUserToRegistry";
+import dynamoDb from "../DynamoDbService";
+import getNonceForAddingUserToRegistry from "./getNonceForUpdatingRegistryDao";
 
 
-const incrementNonceForAddingUserToRegistry = async function(businessAddressArg) {
+const incrementNonceForUpatingRegistry = async function(businessAddressArg) {
 
   const nonceValue = await getNonceForAddingUserToRegistry(businessAddressArg);
   await putItem(businessAddressArg, nonceValue+1);
@@ -12,7 +12,7 @@ const putItem = async function(businessAddressArg, nonceArg) {
 
   const params = {
 
-    TableName: "NonceForAddingUserToRegistry",
+    TableName: "NonceForUpdatingRegistry",
     Item: {
 
       businessAddress: businessAddressArg,
@@ -28,4 +28,4 @@ const putItem = async function(businessAddressArg, nonceArg) {
   });
 };
 
-export default incrementNonceForAddingUserToRegistry;
+export default incrementNonceForUpatingRegistry;

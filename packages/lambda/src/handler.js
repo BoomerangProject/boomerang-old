@@ -4,8 +4,8 @@ import rateExperience from "./functions/reviews/rateExperience";
 import storeExperience from "./functions/reviews/storeExperience";
 import requestReview from "./functions/reviewrequests/requestReview";
 import getPendingReviews from "./functions/reviewrequests/getPendingReviews";
-import addUserToRegistry from "./functions/registry/addUserToRegistry";
-import getNonceForAddingUserToRegistry from "./functions/registry/getNonceForAddingUserToRegistry";
+import addUserToRegistry from "./functions/registry/updateRegistry";
+import getNonceForAddingUserToRegistry from "./functions/registry/getNonceForUpdatingRegistry";
 import getUserAddress from "./functions/registry/getUserAddress";
 
 module.exports.getSignature = getSignature;
