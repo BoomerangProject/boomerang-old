@@ -6,7 +6,7 @@ require('dotenv');
 
 import kudosRegistry from "kudos-registry";
 
-const address = "0xbac2a9e1995dc4eb23fd565ffe5fecc58eb4f71e";
+const businessAddress = "0xbac2a9e1995dc4eb23fd565ffe5fecc58eb4f71e";
 const userId = "Fred";
 const userAddress = "0xFlintstone";
 
@@ -21,7 +21,7 @@ describe("addUserToRegistryTests", function() {
 
     process.env['KUDOS_ACCOUNT_SEED'] = "a62d1306d2f88e6a9e5adf5b8a632d5026019bfb450c009886dba13e9ed357aa";
 
-    const response = await kudosRegistry.update(address, userId, userAddress);
+    const response = await kudosRegistry.update(businessAddress, userAddress, userId);
     response.status.should.equal(200);
   });
 
@@ -33,7 +33,7 @@ describe("addUserToRegistryTests", function() {
     let statusCode;
 
     try {
-      const response = await kudosRegistry.update(address, userId, userAddress);
+      const response = await kudosRegistry.update(businessAddress, userAddress, userId);
     } catch(error) {
       statusCode = error.response.status;
     }

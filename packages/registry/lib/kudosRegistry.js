@@ -53,7 +53,7 @@ var getNonce = function () {
 }();
 
 var updateRegistry = function () {
-  var _ref3 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee3(businessAddressArg, signatureArg, userIdArg, userAddressArg) {
+  var _ref3 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee3(businessAddressArg, userAddressArg, userIdArg, signatureArg) {
     return _regenerator2.default.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
@@ -63,9 +63,9 @@ var updateRegistry = function () {
               return axios.post('/updateRegistry', {
 
                 businessAddress: businessAddressArg,
-                signature: signatureArg,
+                userAddress: userAddressArg,
                 userId: userIdArg,
-                userAddress: userAddressArg
+                signature: signatureArg
 
               }).then(function (response) {
 
@@ -97,14 +97,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 require('dotenv').config();
 
 var axios = require("axios");
-// axios.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';
+// axios.defaults.baseURL = 'http://localhost:3000';
 axios.defaults.timeout = 30000;
 
 var kudosRegistry = {
 
   update: function () {
-    var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(businessAddress, userId, userAddress) {
+    var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(businessAddress, userAddress, userId) {
       var nonceValue, message, messageHash, privateKey, signature, statusCode;
       return _regenerator2.default.wrap(function _callee$(_context) {
         while (1) {
@@ -120,7 +120,7 @@ var kudosRegistry = {
               privateKey = new Buffer(process.env.KUDOS_ACCOUNT_SEED, 'hex');
               signature = _ethereumjsUtil2.default.ecsign(messageHash, privateKey);
               _context.next = 9;
-              return updateRegistry(businessAddress, signature, userId, userAddress);
+              return updateRegistry(businessAddress, userAddress, userId, signature);
 
             case 9:
               statusCode = _context.sent;

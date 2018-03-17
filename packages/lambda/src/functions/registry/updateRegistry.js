@@ -8,9 +8,9 @@ import invalidSignatureResponse from "../../responses/invalidSignatureResponse";
 export default async (event, context, callback) => {
 
   const businessAddress = getBusinessAddress(event);
-  const signature = getSignature(event);
-  const userId = getUserId(event);
   const userAddress = getUserAddress(event);
+  const userId = getUserId(event);
+  const signature = getSignature(event);
 
   //
 
