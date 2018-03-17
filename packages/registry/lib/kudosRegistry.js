@@ -24,7 +24,7 @@ var getNonce = function () {
           case 0:
             return _context2.abrupt("return", new _promise2.default(function (resolve, reject) {
 
-              return axios.get('/getNonceForAddingUserToRegistry', {
+              return axios.get('/getNonceForUpdatingRegistry', {
 
                 params: {
                   businessAddress: businessAddressArg
@@ -52,7 +52,7 @@ var getNonce = function () {
   };
 }();
 
-var addUserToRegistry = function () {
+var updateRegistry = function () {
   var _ref3 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee3(businessAddressArg, signatureArg, userIdArg, userAddressArg) {
     return _regenerator2.default.wrap(function _callee3$(_context3) {
       while (1) {
@@ -60,7 +60,7 @@ var addUserToRegistry = function () {
           case 0:
             return _context3.abrupt("return", new _promise2.default(function (resolve, reject) {
 
-              return axios.post('/addUserToRegistry', {
+              return axios.post('/updateRegistry', {
 
                 businessAddress: businessAddressArg,
                 signature: signatureArg,
@@ -83,7 +83,7 @@ var addUserToRegistry = function () {
     }, _callee3, this);
   }));
 
-  return function addUserToRegistry(_x5, _x6, _x7, _x8) {
+  return function updateRegistry(_x5, _x6, _x7, _x8) {
     return _ref3.apply(this, arguments);
   };
 }();
@@ -97,12 +97,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 require('dotenv').config();
 
 var axios = require("axios");
-axios.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';
+// axios.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';
+axios.defaults.baseURL = 'http://localhost:3000';
 axios.defaults.timeout = 30000;
 
 var kudosRegistry = {
 
-  addUser: function () {
+  update: function () {
     var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(businessAddress, userId, userAddress) {
       var nonceValue, message, messageHash, privateKey, signature, statusCode;
       return _regenerator2.default.wrap(function _callee$(_context) {
@@ -119,7 +120,7 @@ var kudosRegistry = {
               privateKey = new Buffer(process.env.KUDOS_ACCOUNT_SEED, 'hex');
               signature = _ethereumjsUtil2.default.ecsign(messageHash, privateKey);
               _context.next = 9;
-              return addUserToRegistry(businessAddress, signature, userId, userAddress);
+              return updateRegistry(businessAddress, signature, userId, userAddress);
 
             case 9:
               statusCode = _context.sent;
@@ -133,11 +134,11 @@ var kudosRegistry = {
       }, _callee, undefined);
     }));
 
-    function addUser(_x, _x2, _x3) {
+    function update(_x, _x2, _x3) {
       return _ref.apply(this, arguments);
     }
 
-    return addUser;
+    return update;
   }()
 };
 

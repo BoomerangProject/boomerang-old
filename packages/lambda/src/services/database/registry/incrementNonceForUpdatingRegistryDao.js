@@ -10,21 +10,26 @@ const incrementNonceForUpatingRegistry = async function(businessAddressArg) {
 
 const putItem = async function(businessAddressArg, nonceArg) {
 
-  const params = {
+  return new Promise(function(resolve, reject) {
 
-    TableName: "NonceForUpdatingRegistry",
-    Item: {
+    const params = {
 
-      businessAddress: businessAddressArg,
-      nonce: nonceArg
-    }
-  };
+      TableName: "NonceForUpdatingRegistry",
+      Item: {
 
-  dynamoDb.put(params, function(err, data) {
+        businessAddress: businessAddressArg,
+        nonce: nonceArg
+      }
+    };
 
-    if (err) {
-      throw err;
-    }
+    return dynamoDb.put(params, function(err, data) {
+
+      if (err) {
+        return reject(err);
+      }
+
+      return resolve(data);
+    });
   });
 };
 

@@ -1,4 +1,4 @@
-import addPendingReview from "./addPendingReviewDao";
+import addPendingReview from "./reviewrequests/addPendingReviewDao";
 import getNonceForUpdatingRegistry from "./registry/getNonceForUpdatingRegistryDao";
 import incrementNonceForUpdatingRegistry from "./registry/incrementNonceForUpdatingRegistryDao";
 import putInRegistry from "./registry/putInRegistryDao";

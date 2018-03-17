@@ -4,10 +4,6 @@ import ethUtil from "ethereumjs-util";
 import database from "../../services/database/Database";
 import okayResponse from "../../responses/okayResponse";
 import invalidSignatureResponse from "../../responses/invalidSignatureResponse";
-const Web3Utils = require('web3-utils');
-const soliditySha3 = Web3Utils.soliditySha3;
-
-//TODO make user send hash that is the userId signed with the business's private key
 
 export default async (event, context, callback) => {
 
@@ -18,35 +14,22 @@ export default async (event, context, callback) => {
 
   //
 
-  if (signatureIsInvalid(businessAddress, signature)) {
+  const recoveredAddress = await getRecoveredAddress(businessAddress, signature);
+
+  if (recoveredAddress !== businessAddress) {
     callback(null, invalidSignatureResponse);
     return;
   }
 
   if (userId == null || userId === "") {
-    await database.deleteFromRegistry(businessAddress, userAddress, userId);
+    await database.deleteFromRegistry(businessAddress, userAddress);
   } else {
     await database.putInRegistry(businessAddress, userAddress, userId);
   }
 
   await database.incrementNonceForUpdatingRegistry(businessAddress);
 
-
-
   callback(null, okayResponse);
-};
-
-const signatureIsInvalid = async function(businessAddress, signature) {
-
-  const nonceValue = await database.getNonceForAddingUserToRegistry(businessAddress);
-
-  const message = ethUtil.toBuffer(nonceValue);
-  const messageHash = ethUtil.hashPersonalMessage(message);
-  const publicKey = ethUtil.ecrecover(messageHash, signature.v, signature.r, signature.s);
-  const sender = ethUtil.publicToAddress(publicKey);
-  const recoveredAddress = ethUtil.bufferToHex(sender);
-
-  return recoveredAddress !== businessAddress;
 };
 
 const getSignature = function(event) {
@@ -54,11 +37,11 @@ const getSignature = function(event) {
   const jsonBody = JSON.parse(event.body, (k, v) => {
 
     if (v !== null            &&
-        typeof v === 'object' &&
-        'type' in v           &&
-        v.type === 'Buffer'   &&
-        'data' in v           &&
-        Array.isArray(v.data)) {
+      typeof v === 'object' &&
+      'type' in v           &&
+      v.type === 'Buffer'   &&
+      'data' in v           &&
+      Array.isArray(v.data)) {
 
       return new Buffer(v.data);
     }
@@ -85,4 +68,16 @@ const getUserAddress = function(event) {
 
   const jsonBody = JSON.parse(event.body);
   return jsonBody.userAddress;
+};
+
+const getRecoveredAddress = async function(businessAddress, signature) {
+
+  const nonceValue = await database.getNonceForUpdatingRegistry(businessAddress);
+
+  const message = ethUtil.toBuffer(nonceValue);
+  const messageHash = ethUtil.hashPersonalMessage(message);
+  const publicKey = ethUtil.ecrecover(messageHash, signature.v, signature.r, signature.s);
+  const sender = ethUtil.publicToAddress(publicKey);
+  const recoveredAddress = ethUtil.bufferToHex(sender);
+  return recoveredAddress;
 };

@@ -2,22 +2,27 @@ import dynamoDb from "../DynamoDbService";
 
 const putInRegistry = async function(businessAddressArg, userAddressArg, userIdArg) {
 
-  const params = {
+  return new Promise(function(resolve, reject) {
 
-    TableName: "KudosRegistry",
-    Item: {
+    const params = {
 
-      businessAddress: businessAddressArg,
-      userAddress: userAddressArg,
-      userId: userIdArg
-    }
-  };
+      TableName: "KudosRegistry",
+      Item: {
 
-  dynamoDb.put(params, function(err, data) {
+        businessAddress: businessAddressArg,
+        userAddress: userAddressArg,
+        userId: userIdArg
+      }
+    };
 
-    if (err) {
-      throw err;
-    }
+    return dynamoDb.put(params, function(err, data) {
+
+      if (err) {
+        return reject(err);
+      }
+
+      return resolve(data);
+    });
   });
 };
 

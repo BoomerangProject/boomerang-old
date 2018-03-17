@@ -46,11 +46,11 @@ functions:
       - http:
           path: /getPendingReviews
           method: get
-  addUserToRegistry:
-    handler: lib/handler.addUserToRegistry
+  updateRegistry:
+    handler: lib/handler.updateRegistry
     events:
       - http:
-          path: /addUserToRegistry
+          path: /updateRegistry
           method: post
   getUserAddress:
     handler: lib/handler.getUserAddress
@@ -58,9 +58,9 @@ functions:
       - http:
           path: /getUserAddress
           method: get
-  getNonceForAddingUserToRegistry:
-    handler: lib/handler.getNonceForAddingUserToRegistry
+  getNonceForUpdatingRegistry:
+    handler: lib/handler.getNonceForUpdatingRegistry
     events:
       - http:
-          path: /getNonceForAddingUserToRegistry
+          path: /getNonceForUpdatingRegistry
           method: get

@@ -1,24 +1,28 @@
 import dynamoDb from "../DynamoDbService";
 
-const deleteFromRegistry = async function(businessAddressArg, userIdArg, userAddressArg) {
+const deleteFromRegistry = async function(businessAddressArg, userAddressArg) {
 
-  const params = {
+  return new Promise(function(resolve, reject) {
 
-    TableName: "KudosRegistry",
-    Item: {
+    const params = {
 
-      businessAddress: businessAddressArg,
-      userId: userIdArg,
-      userAddress: userAddressArg
-    }
-  };
+      TableName: "KudosRegistry",
+      Key: {
 
-  dynamoDb.delete(params, function(err, data) {
+        businessAddress: businessAddressArg,
+        userAddress: userAddressArg
+      }
+    };
 
-    if (err) {
-      throw err;
-    }
-  });
+    return dynamoDb.delete(params, function(err, data) {
+
+      if (err) {
+        return reject(err);
+      }
+
+      return resolve(data);
+    });
+  })
 };
 
 export default deleteFromRegistry;
