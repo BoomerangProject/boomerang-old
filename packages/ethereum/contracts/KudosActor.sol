@@ -11,7 +11,7 @@ contract KudosActor {
   mapping(address => mapping(address => bool)) public isEmployee;
   mapping(address => address[]) public employeeList;
 
-  mapping(address => mapping(address => mapping(address => uint256))) public nonce;
+  mapping(address => mapping(bytes32 => uint256)) public nonce;
 
   // worker
   mapping(address => mapping(address => uint256)) public workerAverageRating;
@@ -22,4 +22,6 @@ contract KudosActor {
   // user
   mapping(address => uint256) public userAverageRating;
   mapping(address => uint256) public numberOfUserRatings;
+
+
 }

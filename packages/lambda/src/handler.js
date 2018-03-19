@@ -1,5 +1,5 @@
 'use strict';
-import getSignature from "./functions/getSignature";
+import getNonceValue from "./functions/getNonceValue";
 import rateExperience from "./functions/reviews/rateExperience";
 import storeExperience from "./functions/reviews/storeExperience";
 import requestReview from "./functions/reviewrequests/requestReview";
@@ -8,7 +8,7 @@ import updateRegistry from "./functions/registry/updateRegistry";
 import getNonceForUpdatingRegistry from "./functions/registry/getNonceForUpdatingRegistry";
 import getUserAddress from "./functions/registry/getUserAddress";
 
-module.exports.getSignature = getSignature;
+module.exports.getNonceValue = getNonceValue;
 module.exports.rateExperience = rateExperience;
 module.exports.storeExperience = storeExperience;
 module.exports.requestReview = requestReview;

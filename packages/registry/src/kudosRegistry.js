@@ -1,5 +1,4 @@
 import ethUtil from "ethereumjs-util";
-require('dotenv').config();
 
 const axios = require("axios");
 axios.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';

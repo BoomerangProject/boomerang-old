@@ -15,20 +15,20 @@ contract KudosUser is KudosActor {
                       uint256 _workerRating,
                       bytes32 _ipfsHash);
 
-  modifier withCorrectSignature(address _businessAddress, address _workerAddress, uint8 _v, bytes32 _r, bytes32 _s) {
+  modifier withCorrectSignature(address _businessAddress, bytes32 _userId, uint8 _v, bytes32 _r, bytes32 _s) {
 
-    bytes32 nonceHash = sha3(nonce[_businessAddress][_workerAddress][msg.sender]);
+    bytes32 nonceHash = sha3(nonce[_businessAddress][_userId]);
     bytes memory prefix = "\x19Ethereum Signed Message:\n32";
     bytes32 prefixedHash = sha3(prefix, nonceHash);
     address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
 
     require(recoveredAddress == _businessAddress);
-    incrementNonce(_businessAddress, _workerAddress);
+    incrementNonce(_businessAddress, _userId);
     _;
   }
 
-  function incrementNonce(address _businessAddress, address _workerAddress) internal {
-    nonce[_businessAddress][_workerAddress][msg.sender] += 1;
+  function incrementNonce(address _businessAddress, bytes32 _userId) public {
+    nonce[_businessAddress][_userId] += 1;
   }
 
   function rateExperience(  uint8 _v, bytes32 _r, bytes32 _s,
@@ -36,8 +36,9 @@ contract KudosUser is KudosActor {
                             uint256 _businessRating,
                             address _workerAddress,
                             uint256 _workerRating,
+                            bytes32 _userId,
                             bytes32 _transactionHash)
-           withCorrectSignature(_businessAddress, _workerAddress, _v, _r, _s)
+           withCorrectSignature(_businessAddress, _userId, _v, _r, _s)
   public {
 
     recordBusinessRating(_businessAddress, _businessRating, _transactionHash);

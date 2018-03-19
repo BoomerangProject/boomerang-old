@@ -1,17 +1,17 @@
 {
-  "name": "kudos-registry",
-  "version": "1.0.10",
+  "name": "signerexample",
+  "version": "1.0.0",
   "description": "",
-  "main": "lib/kudosRegistry.js",
+  "main": "index.js",
   "scripts": {
-    "compile": "babel -d lib/ src/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "babel ./src --out-dir ./lib"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
-    "ethereumjs-util": "^5.1.5"
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "kudos-signer": "^1.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

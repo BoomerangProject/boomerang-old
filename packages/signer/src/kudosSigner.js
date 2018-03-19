@@ -1,19 +1,16 @@
 import ethUtil from "ethereumjs-util";
+import axios from "axios";
 
-const axios = require("axios");
-
-// TODO  -- abstract this call to lambda function so you have the option to swap out INFURA for something else later on
-// axios.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';z
-// axios.defaults.baseURL = 'http://localhost:3000';
-axios.defaults.baseURL = 'https://ropsten.infura.io/';
-const wallet = Wallet.fromPrivateKey(privateKey);
-const provider = new WalletProvider(wallet, "https://ropsten.infura.io/2wx4womFMFUEyRBJKbKq");
+// axios.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';
+axios.defaults.baseURL = 'http://localhost:3000';
 
 const kudosSigner = {
 
   getSignature: async (businessAddress, userId) => {
 
-    const nonceValue = await getNonce(businessAddress);
+    const nonceValue = await getNonce(businessAddress, userId);
+
+    console.log(nonceValue);
 
     const message = ethUtil.toBuffer(nonceValue);
     const messageHash = ethUtil.hashPersonalMessage(message);
@@ -25,14 +22,15 @@ const kudosSigner = {
   }
 };
 
-async function getNonce(businessAddressArg) {
+async function getNonce(businessAddressArg, userIdArg) {
 
   return new Promise(function(resolve, reject) {
 
-    return axios.get('/getNonceForUpdatingRegistry', {
+    return axios.get('/getNonceValue', {
 
       params: {
-        businessAddress: businessAddressArg
+        businessAddress: businessAddressArg,
+        userId: userIdArg
       }
 
     }).then(function (response) {
@@ -45,6 +43,5 @@ async function getNonce(businessAddressArg) {
     });
   });
 }
-
 
 export default kudosSigner;
