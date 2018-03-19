@@ -1,10 +1,6 @@
 'use strict';
 import KudosContractService from '../services/KudosContractService';
-
-// let registerBusiness = async () => {
-//
-//   await KudosContractService.registerAsBusiness();
-// };
+import okayResponse from "../responses/okayResponse";
 
 export default async (event, context, callback) => {
 
@@ -14,16 +10,6 @@ export default async (event, context, callback) => {
 
   var isBusiness = await KudosContractService.isBusiness();
 
-  // test
-  // test2
 
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: `it will be ${isBusiness}`,
-      input: event,
-    })
-  };
-
-  callback(null, response);
+  callback(null, okayResponse);
 };

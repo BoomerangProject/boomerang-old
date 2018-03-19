@@ -13,9 +13,6 @@ class AccountComponent extends Component {
         <div className="Account Address">
           {"0x" + localStorage.getItem("kudosAddress")}
         </div>
-
-        <button style={{width: "100px", height: "100px"}}>click</button>
-
       </div>
     );
   }

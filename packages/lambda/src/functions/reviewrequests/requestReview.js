@@ -16,7 +16,7 @@ export default async (event, context, callback) => {
 
   database.addPendingReview(userAddress(event), experienceMetadata(event));
 
-  await database.incrementNonceForAddingUserToRegistry(event.queryStringParameters.userAddress);
+  await database.incrementNonceForUpdatingRegistry(event.queryStringParameters.userAddress);
 
   callback(null, okayResponse);
 };

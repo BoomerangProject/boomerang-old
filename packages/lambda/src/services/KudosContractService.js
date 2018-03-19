@@ -1,7 +1,7 @@
 import contract from "truffle-contract";
-import KudosContractJson from "../../lib/ethereum/build/contracts/Kudos.json";
 import provider from "./Web3Provider";
 
+const KudosContractJson = require("kudos-contract-objects/Kudos");
 const KudosContract = contract(KudosContractJson);
 KudosContract.setProvider(provider);
 
