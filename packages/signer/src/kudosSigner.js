@@ -44,4 +44,4 @@ async function getNonce(businessAddressArg, userIdArg) {
   });
 }
 
-export default kudosSigner;
+module.exports = kudosSigner;

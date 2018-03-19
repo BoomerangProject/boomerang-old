@@ -1,9 +1,5 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _promise = require("babel-runtime/core-js/promise");
 
 var _promise2 = _interopRequireDefault(_promise);
@@ -106,4 +102,4 @@ var kudosSigner = {
   }()
 };
 
-exports.default = kudosSigner;
+module.exports = kudosSigner;

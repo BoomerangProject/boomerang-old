@@ -64,4 +64,4 @@ async function updateRegistry(businessAddressArg, userAddressArg, userIdArg, sig
   });
 }
 
-export default kudosRegistry;
+module.exports = kudosRegistry;
