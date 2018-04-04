@@ -1,9 +1,11 @@
-@import "./styles/typography";
+@import "styles/typography";
+@import "styles/stars";
 @import "pages/newuser/newuser";
-@import "./pages/createaccount/createaccount";
-@import "./pages/importaccount/importaccount";
-@import "./pages/account/account";
-@import "./pages/rating/rating";
+@import "pages/createaccount/createaccount";
+@import "pages/importaccount/importaccount";
+@import "pages/account/account";
+@import "pages/ratingwidget/ratingwidget";
+@import "pages/ratingmodal/ratingmodal";
 
 .App {
   text-align: center;

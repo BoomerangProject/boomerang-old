@@ -1,0 +1,31 @@
+.RatingModalComponent {
+
+  font-family: $defaultFont;
+
+  &.container {
+
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.85);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &.title {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid black;
+    color: #002A1C;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.2;
+    background-color: white;
+    width: 600px;
+    height: 600px;
+  }
+}

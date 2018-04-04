@@ -1,0 +1,40 @@
+.RatingWidgetComponent {
+
+  font-family: $defaultFont;
+
+  &.container {
+
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px 1px 0px 1px;
+    width: 300px;
+    height: 100px;
+
+    box-shadow: 2px 0px #F6F6F6;
+  }
+
+  &.space {
+    margin-top: 5px;
+  }
+
+  &.title {
+    color: #002A1C;
+    margin-top: auto;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  &.starsDiv {
+
+    margin-top: 10px;
+    margin-bottom: auto;
+    font-size: 2.25em;
+  }
+}
+

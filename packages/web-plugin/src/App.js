@@ -5,6 +5,9 @@ import CreateAccountComponent from "./pages/createaccount/CreateAccountComponent
 import ImportAccountComponent from "./pages/importaccount/ImportAccountComponent";
 import "./App.scss";
 import AccountComponent from "./pages/account/AccountComponent";
+import RatingWidgetComponent from "./pages/ratingwidget/RatingWidgetComponent";
+import RatingModalComponent from "./pages/ratingmodal/RatingModalComponent";
+import RatingModalContainerComponent from "./pages/ratingmodal/RatingModalContainerComponent";
 
 class App extends Component {
 
@@ -12,20 +15,16 @@ class App extends Component {
     super(props);
   }
 
-  startingComponent() {
-
-    if (this.props.someParameter == "go") {
-      return AccountComponent;
-    }
-
-    const kudosAccountSeed = localStorage.getItem("kudosAccountSeed");
-
-    if (kudosAccountSeed !== null && kudosAccountSeed.length === 64) {
-      return AccountComponent;
-    } else {
-      return NewUserComponent;
-    }
-  }
+  // startingComponent() {
+  //
+  //   const kudosAccountSeed = localStorage.getItem("kudosAccountSeed");
+  //
+  //   if (kudosAccountSeed !== null && kudosAccountSeed.length === 64) {
+  //     return AccountComponent;
+  //   } else {
+  //     return NewUserComponent;
+  //   }
+  // }
 
   render() {
 
@@ -33,7 +32,8 @@ class App extends Component {
 
       <Router>
         <div>
-          <Route exact={true} path="/" component={this.startingComponent()}/>
+          <Route path="/" exact={true} component={() => (<NewUserComponent {...this.props} />)} />
+          <Route path="/ratingModalContainer" component={() => (<RatingModalContainerComponent {...this.props} />)}/>
           <Route path="/createAccount" component={CreateAccountComponent}/>
           <Route path="/importAccount" component={ImportAccountComponent}/>
           <Route path="/account" component={AccountComponent}/>

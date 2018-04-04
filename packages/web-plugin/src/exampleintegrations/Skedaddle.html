@@ -341,53 +341,71 @@ ga('send','pageview');
    <!-- Start of skedaddle Zendesk Widget script -->
     <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","skedaddle.zendesk.com");/*]]>*/</script>
     <!-- End of skedaddle Zendesk Widget script -->
-    
-    <!-- Start of Kudos Widget script -->
-<script>
 
-  var iframeElement = document.createElement("iframe");
-  iframeElement.id="kudosIframe";
-  iframeElement.scrolling="no";
-  iframeElement.frameBorder="0";
-  iframeElement.allowtransparency="false";
-  iframeElement.title="";
-  iframeElement.role="presentation";
+        <!-- Start of Kudos Widget script -->
+        <script>
 
-  var cssStyle = "z-index: 999999; width: 260px; opacity: 1; height: 410px; position: fixed; bottom: 0; right: 0; margin: 5px;";
+          const iframeElement = document.createElement("iframe");
+          iframeElement.id="kudosIframe";
+          iframeElement.scrolling="no";
+          iframeElement.frameBorder="0";
+          iframeElement.allowtransparency="false";
+          iframeElement.title="";
+          iframeElement.width = "255px";
+          iframeElement.height = "405px";
 
-  (iframeElement.frameElement||iframeElement).style.cssText=cssStyle;
+          const cssStyle = "z-index: 999999; position: fixed; bottom: 0; right: 0; margin: 2px";
 
-  var containerDiv = document.createElement("div");
-  containerDiv.appendChild(iframeElement);
-  document.body.appendChild(containerDiv);
+          (iframeElement.frameElement||iframeElement).style.cssText=cssStyle;
 
-  var kudosIframeDocument = document.getElementById("kudosIframe").contentWindow.document;
+          // const containerDiv = document.createElement("div");
+          // containerDiv.style.visibility = "visible";
+          // containerDiv.appendChild(iframeElement);
+          // document.body.appendChild(containerDiv);
 
-  kudosIframeDocument.open();
+          document.body.appendChild(iframeElement);
 
-  kudosIframeDocument._l=function() {
+          const kudosIframeDocument = document.getElementById("kudosIframe").contentWindow.document;
+          kudosIframeDocument.open();
 
-    var mainDiv = this.createElement("div");
-    mainDiv.style = "max-width: 600px";
-    mainDiv.id = "content";
-    this.body.appendChild(mainDiv);
+          kudosIframeDocument._l=function() {
 
-    var mainScript = this.createElement("script");
+            const mainDiv = this.createElement("div");
+            mainDiv.style = "max-width: 600px";
+            mainDiv.id = "content";
+            this.body.appendChild(mainDiv);
 
-    var code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        showWidget(d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/kudos-webplugin/kudosWebPluginWidget.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'kudosWebPlugin'));";
+            const mainScript = this.createElement("script");
 
-    try {
-      mainScript.appendChild(this.createTextNode(code));
-    } catch (e) {
-      mainScript.text = code;
-    }
+            const code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        kudosApp.rateExperience('Sharoda', 'mySignature', d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/kudos-webplugin/kudosWebPluginWidget.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'kudosWebPlugin'));";
 
-    this.body.appendChild(mainScript);
-  };
+            try {
+              mainScript.appendChild(this.createTextNode(code));
+            } catch (e) {
+              mainScript.text = code;
+            }
 
-  kudosIframeDocument.write('<body onload="document._l();">');
-  kudosIframeDocument.close()
-</script>
-<!-- End of Kudos Widget script -->
+            this.body.appendChild(mainScript);
+          };
+
+          kudosIframeDocument.write('<body style="margin:0; padding:0" onload="document._l();">');
+          kudosIframeDocument.close();
+
+          const kudos = document.getElementById("kudosIframe").contentWindow;
+
+          kudos.show = function() {
+            containerDiv.style.visibility = "visible";
+          };
+
+          kudos.hide = function() {
+            containerDiv.style.visibility = "hidden";
+          };
+
+          kudos.isVisible = function() {
+            return containerDiv.style.visibility === "visible";
+          };
+
+        </script>
+        <!-- End of Kudos Widget script -->
   </body>
 </html>

@@ -6,12 +6,18 @@
 <!-- Start of Kudos Widget script -->
 <script>
 
-  (function(d, s, id){
+  const data = {"firstName": "Sharoda"};
+  const signature = "mySignature";
+
+  (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)){ return; }
-    js = d.createElement(s); js.id = id;
-    js.onload = function(){
-      kudosApp.showWidget(document.getElementById("content"));
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.onload = function() {
+      kudosApp.rateExperience(data, signature, document.getElementById("content"));
     };
     js.src = "https://s3.amazonaws.com/kudos-webplugin/kudosWebPluginWidget.js";
     fjs.parentNode.insertBefore(js, fjs);
@@ -20,7 +26,7 @@
 </script>
 <!-- End of Kudos Widget script -->
 
-<div style="width: 250px; height: 400px; position: fixed; bottom: 0; right: 0; margin: 5px;" id="content" />
+<div style="width: 300px; height: 100px; position: fixed; bottom: 0; left: 0; margin-left: 100px; margin-bottom: -1px;" id="content"/>
 
 </body>
 </html>

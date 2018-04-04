@@ -59,8 +59,13 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// axios.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';
-_axios2.default.defaults.baseURL = 'http://localhost:3000';
+_axios2.default.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';
+// axios.defaults.baseURL = 'http://localhost:3000';
+
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 var kudosSigner = {
 
@@ -71,22 +76,44 @@ var kudosSigner = {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return getNonce(businessAddress, userId);
 
-            case 2:
-              nonceValue = _context.sent;
-
-
-              console.log(nonceValue);
+              // const nonceValue = await getNonce(businessAddress, userId);
+              nonceValue = 27031;
+              //
+              // for (var i = 0; i < 10; i++) {
+              //
+              //   const value = getRandomInt(0,32000);
+              //   console.log(value);
+              //
+              //   const message = ethUtil.toBuffer(value);
+              //   const messageHash = ethUtil.hashPersonalMessage(message);
+              //
+              //   console.log(messageHash);
+              //
+              //   const privateKey = new Buffer(process.env.KUDOS_ACCOUNT_SEED, 'hex');
+              //   const signature = ethUtil.ecsign(messageHash, privateKey);
+              //
+              //   console.log(signature);
+              // }
 
               message = _ethereumjsUtil2.default.toBuffer(nonceValue);
+
+              console.log("message");
+              console.log(message);
               messageHash = _ethereumjsUtil2.default.hashPersonalMessage(message);
+
+              console.log("messageHash");
+              console.log(messageHash);
               privateKey = new Buffer(process.env.KUDOS_ACCOUNT_SEED, 'hex');
               signature = _ethereumjsUtil2.default.ecsign(messageHash, privateKey);
+
+
+              console.log(_ethereumjsUtil2.default.publicToAddress(_ethereumjsUtil2.default.ecrecover(messageHash, 27, signature.r, signature.s)));
+              console.log(_ethereumjsUtil2.default.publicToAddress(_ethereumjsUtil2.default.ecrecover(messageHash, 28, signature.r, signature.s)));
+
               return _context.abrupt("return", signature);
 
-            case 9:
+            case 12:
             case "end":
               return _context.stop();
           }
