@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './AccountComponentStyle';
 
 class AccountComponent extends Component {
 
@@ -10,7 +11,7 @@ class AccountComponent extends Component {
         <img alt="" className="Account logo" src={require("../../images/kudos.png")}/>
         <h1>Account</h1>
 
-        <div className="Account address">
+        <div className="Account Address">
           {"0x" + localStorage.getItem("kudosAddress")}
         </div>
       </div>

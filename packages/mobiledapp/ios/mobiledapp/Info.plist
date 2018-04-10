@@ -39,9 +39,8 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSAppTransportSecurity</key>
-	<!--See http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/ -->
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
@@ -52,5 +51,27 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>RobotoMono-Bold.ttf</string>
+		<string>RobotoMono-BoldItalic.ttf</string>
+		<string>RobotoMono-Italic.ttf</string>
+		<string>RobotoMono-Light.ttf</string>
+		<string>RobotoMono-LightItalic.ttf</string>
+		<string>RobotoMono-Medium.ttf</string>
+		<string>RobotoMono-MediumItalic.ttf</string>
+		<string>RobotoMono-Regular.ttf</string>
+		<string>RobotoMono-Thin.ttf</string>
+		<string>RobotoMono-ThinItalic.ttf</string>
+		<string>WorkSans-Black.ttf</string>
+		<string>WorkSans-Bold.ttf</string>
+		<string>WorkSans-ExtraBold.ttf</string>
+		<string>WorkSans-ExtraLight.ttf</string>
+		<string>WorkSans-Light.ttf</string>
+		<string>WorkSans-Medium.ttf</string>
+		<string>WorkSans-Regular.ttf</string>
+		<string>WorkSans-SemiBold.ttf</string>
+		<string>WorkSans-Thin.ttf</string>
+	</array>
 </dict>
 </plist>
