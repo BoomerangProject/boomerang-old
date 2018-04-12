@@ -3,13 +3,13 @@ import { StyleSheet } from 'react-native';
 module.exports = StyleSheet.create({
 
   container: {
-    fontFamily: "'Work Sans', Helvetica, Arial, sans-serif"
+
 
   },
   logo: {
 
   },
-  Address: {
+  address: {
 
   }
 });

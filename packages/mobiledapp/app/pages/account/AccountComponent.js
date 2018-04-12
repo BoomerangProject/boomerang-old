@@ -6,14 +6,14 @@ class AccountComponent extends Component {
   render() {
 
     return (
-      <div className="Account container">
+      <div style={styles.container}>
 
-        <img alt="" className="Account logo" src={require("../../images/kudos.png")}/>
-        <h1>Account</h1>
+        <img style={styles.logo} source={require("../../images/kudos.png")}/>
+        <Text>Account</Text>
 
-        <div className="Account Address">
+        <Text style={styles.address}>
           {"0x" + localStorage.getItem("kudosAddress")}
-        </div>
+        </Text>
       </div>
     );
   }

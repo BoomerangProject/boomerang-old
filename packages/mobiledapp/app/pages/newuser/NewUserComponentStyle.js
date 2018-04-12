@@ -20,11 +20,11 @@ module.exports = StyleSheet.create({
     fontSize: 24,
     color: '#002A1C',
     fontFamily: 'WorkSans-Regular',
-    marginTop: 25
+    marginTop: 20
   },
   createAccountButtonContainer: {
 
-    marginTop: 55,
+    marginTop: 65,
     marginBottom: 15,
     width: '60%',
     height: 50,

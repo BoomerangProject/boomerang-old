@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { Clipboard } from 'react-native';
+import { View, Image, Text, TouchableOpacity, ToastAndroid, Clipboard } from 'react-native';
+import crypto from 'crypto'
+import styles from './CreateAccountComponentStyle';
+import ethUtil from "ethereumjs-util";
 
 class CreateAccountComponent extends Component {
 
   constructor(props) {
     super(props);
-    // this.privateKey = crypto.randomBytes(32).toString("hex");
-    this.privateKey = "this is not a private key"
+    this.privateKey = crypto.randomBytes(32).toString("hex");
+    // ToastAndroid.show(this.privateKey, ToastAndroid.SHORT);
   }
 
   async onClickOfSeedButton() {
@@ -14,32 +17,41 @@ class CreateAccountComponent extends Component {
   }
 
   onClickOfConfirmButton() {
-    localStorage.setItem("kudosAccountSeed", this.privateKey);
+    ToastAndroid.show(ethUtil.privateToAddress(new Buffer(this.privateKey, "hex")).toString("hex"), ToastAndroid.SHORT);
+    // localStorage.setItem("kudosAccountSeed", this.privateKey);
     // localStorage.setItem("kudosAddress", ethUtil.privateToAddress(new Buffer(this.privateKey, "hex")).toString("hex"));
-    this.props.history.push("/account");
+    // this.props.history.push("/account");
   }
 
   render() {
 
     return (
-      <View className="CreateAccount container">
+      <View style={styles.container}>
 
-        <img alt="" className="CreateAccount logo" src={require("../../images/kudos.png")}/>
+        <Image style={styles.logo} source={require("../../images/kudos.png")}/>
 
-        <h5 className="CreateAccount title">Your Kudos Account Seed</h5>
+        <Text style={styles.title}>Your Kudos Account Seed</Text>
 
-        <Text className="CreateAccount firstParagraph">Your Kudos Account Seed is how we generate your account. It's also how you log into the iOS and Android apps.</div>
+        <Text style={styles.firstParagraph}>Your Kudos Account Seed is how we generate your account. It's also how you log into the iOS and Android apps.</Text>
 
-        <Text className="CreateAccount warningMessage">If you lose your Account Seed, your funds cannot be recovered.</Text>
+        <Text style={styles.warningMessage}>If you lose your Account Seed, your funds cannot be recovered.</Text>
 
-        <Text className="CreateAccount secondParagraph">Keep your Account Seed somewhere safe (like 1Password, LastPass, or print it out and put it in a safe) and <span className="CreateAccount secondParagraphRedText">never give it to anyone, ever.</span></Text>
+        <Text style={styles.secondParagraph}>Keep your Account Seed somewhere safe (like 1Password, LastPass, or print it out and put it in a safe) and <Text style={styles.secondParagraphRedText}>never give it to anyone, ever.</Text></Text>
 
-        <button className="CreateAccount seedButton" id="seedButton" onClick={this.onClickOfSeedButton.bind(this)}>{this.privateKey}</button>
+        <TouchableOpacity
+          style={styles.seedButtonContainer}
+          onPress={this.onClickOfSeedButton.bind(this)}>
+          <Text style={styles.seedButton}>{this.privateKey}</Text>
+        </TouchableOpacity>
 
-        <div className="CreateAccount tapToCopyMessage">Tap to copy</div>
+        <Text style={styles.tapToCopyMessage}>Tap to copy</Text>
 
-        <button className="CreateAccount button" onClick={this.onClickOfConfirmButton.bind(this)}>I Understand, Continue</button>
-      </View>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={this.onClickOfConfirmButton.bind(this)}>
+          <Text style={styles.button}>I Understand, Continue</Text>
+        </TouchableOpacity>
+     </View>
     );
   }
 }

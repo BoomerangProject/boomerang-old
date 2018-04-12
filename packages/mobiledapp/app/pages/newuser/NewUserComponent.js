@@ -36,7 +36,6 @@ class NewUserComponent extends Component {
         </TouchableOpacity>
 
         <Text style={styles.version}>K U D O S - v 1 . 0</Text>
-
       </View>
     );
   }

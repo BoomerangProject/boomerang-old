@@ -16,175 +16,86 @@ module.exports = StyleSheet.create({
     height: 40
   },
   title: {
-
+    fontFamily: 'WorkSans-Regular',
+    color: '#002A1C',
+    marginTop: 8,
+    marginBottom: 8,
+    fontSize: 20
   },
   firstParagraph: {
-    marginTop: auto;
-marginLeft: 23;
-marginRight: 23;
-fontSize: 0.7em;
-},
+    marginTop: 'auto',
+    marginLeft: 32,
+    marginRight: 32,
+    fontSize: 14,
+    color: '#002A1C',
+    fontFamily: 'WorkSans-Regular'
+  },
 
-warningMessage: {
-  margin: 10 30 10 30;
-  fontSize: 0.7em;
-  color: #EA2F57;
-},
+  warningMessage: {
+    marginTop: 10,
+    marginRight: 32,
+    marginBottom: 10,
+    marginLeft: 32,
+    fontSize: 14,
+    color: '#EA2F57',
+    fontFamily: 'WorkSans-Regular'
+  },
 
-secondParagraph: {
-  marginLeft: 23;
-  marginRight: 23;
-  fontSize: 0.7em;
-},
+  secondParagraph: {
+    marginLeft: 32,
+    marginRight: 32,
+    fontSize: 14,
+    color: '#002A1C',
+    fontFamily: 'WorkSans-Regular'
+  },
 
-secondParagraphRedText: {
-  color: #EA2F57;
-},
+  secondParagraphRedText: {
+    color: '#EA2F57',
+    fontFamily: 'WorkSans-Regular'
+  },
 
-seedButton: {
+  seedButtonContainer: {
 
-  marginTop: auto;
-  font-family: $monospaceFont;
+    marginTop: 'auto',
+    backgroundColor: '#005143',
+    borderRadius: 4,
 
-  width: 190;
-  height: 60;
+    width: 190,
+    height: 110,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
 
-  border: none;
-  outline: none;
-  background-color: #005143;
+  seedButton: {
 
-  padding: 5 26 5 26;
-  font-weight: 300;
-  fontSize: 0.6em;
-  color: white;
-  white-space: normal;
-  word-wrap: break-word;
+    fontFamily: 'RobotoMono-Regular',
+    width: 140,
+    height: 80,
+    color: 'white',
+    fontSize: 14
+  },
 
-  -moz-border-radius: 4;
-  -webkit-border-radius: 4;
-  border-radius: 4;
-},
+  tapToCopyMessage: {
 
-tapToCopyMessage: {
+    fontSize: 12,
+    color: '#002A1C',
+    fontFamily: 'WorkSans-Regular'
+  },
 
-  fontSize: x-small;
-},
+  buttonContainer: {
 
-button: {
+    marginTop: 16,
+    marginBottom: 32,
+    backgroundColor: '#5DD0C2',
+    width: '60%',
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 
-  marginTop: 10;
-  margin-bottom: 15;
-
-  width: 190;
-  height: 40;
-  fontSize: small;
-  border: none;
-  outline: none;
-  box-shadow: 0 2 #F6F6F6;
-  background-color: #5DD0C2;
-}
+  button: {
+    fontSize: 14,
+    color: '#002A1C',
+    fontFamily: 'WorkSans-Regular'
+  }
 });
-
-
-// .CreateAccount {
-//
-//   font-family: $defaultFont;
-//   color: #002A1C;
-//
-// &.container {
-//
-//     display: flex;
-//     flex-direction: column;
-//     background-color: white;
-//     align-items: center;
-//     border: 1 solid black;
-//     width: 250;
-//     height: 400;
-//   }
-//
-// &.logo {
-//
-//     marginTop: 15;
-//     width: 50;
-//     height: 50;
-//   }
-//
-// &.title {
-//
-//     marginTop: 5;
-//     margin-bottom: 0;
-//
-//     // didn't have to add this for "npm run start", but deployed script needed it
-//     // TODO -- find out why
-//
-//     fontSize: 1rem;
-//     font-weight: 500;
-//     line-height: 1.2;
-//   }
-//
-// &.firstParagraph {
-//     marginTop: auto;
-//     marginLeft: 23;
-//     marginRight: 23;
-//     fontSize: 0.7em;
-//   }
-//
-// &.warningMessage {
-//     margin: 10 30 10 30;
-//     fontSize: 0.7em;
-//     color: #EA2F57;
-//   }
-//
-// &.secondParagraph {
-//     marginLeft: 23;
-//     marginRight: 23;
-//     fontSize: 0.7em;
-//   }
-//
-// &.secondParagraphRedText {
-//     color: #EA2F57;
-//   }
-//
-// &.seedButton {
-//
-//     marginTop: auto;
-//     font-family: $monospaceFont;
-//
-//     width: 190;
-//     height: 60;
-//
-//     border: none;
-//     outline: none;
-//     background-color: #005143;
-//
-//     padding: 5 26 5 26;
-//     font-weight: 300;
-//     fontSize: 0.6em;
-//     color: white;
-//     white-space: normal;
-//     word-wrap: break-word;
-//
-//     -moz-border-radius: 4;
-//     -webkit-border-radius: 4;
-//     border-radius: 4;
-//   }
-//
-// &.tapToCopyMessage {
-//
-//     fontSize: x-small;
-//   }
-//
-// &.button {
-//
-//     marginTop: 10;
-//     margin-bottom: 15;
-//
-//     width: 190;
-//     height: 40;
-//     fontSize: small;
-//     border: none;
-//     outline: none;
-//     box-shadow: 0 2 #F6F6F6;
-//     background-color: #5DD0C2;
-//   }
-// }
