@@ -5,7 +5,8 @@ import AWS from "aws-sdk";
 export default async (event, context, callback) => {
 
   const ipfsObject = JSON.parse(event.body);
-  const ipfsHash = await storeToIpfs(ipfsObject, event, callback);
+  // const ipfsHash = await storeToIpfs(ipfsObject, event, callback);
+  const ipfsHash = "123";
   await storeToS3(ipfsObject, ipfsHash, event, callback);
 
   const response = {
