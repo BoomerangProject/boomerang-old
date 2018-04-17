@@ -16,9 +16,9 @@ contract("KudosWorkerTests", function([deployer, business, worker, user]) {
     kudosWorker = await KudosWorker.new();
   });
 
-  it("", async function() {
-
-
-  });
+  // it("", async function() {
+  //
+  //
+  // });
 
 });

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styles from './ImportAccountComponentStyle';
-import { View, Image, Text, TouchableOpacity, TextInput, ToastAndroid } from "react-native";
+import { KeyboardAvoidingView, View, Image, Text, TouchableOpacity, TextInput, ToastAndroid } from "react-native";
 
 class ImportAccountComponent extends Component {
 
   onChangeOfSeedText(seedTextValue) {
     // ToastAndroid.show(seedText, ToastAndroid.SHORT);
-    this.setState({ seedText: seedTextValue });
+    this.setState({seedText: seedTextValue});
   }
 
   onClickOfConfirmButton() {
@@ -25,28 +25,30 @@ class ImportAccountComponent extends Component {
 
     return (
 
-      <View style={styles.container}>
+      <KeyboardAvoidingView behavior='height' style={styles.container}>
 
         <Image style={styles.logo} source={require("../../images/kudos.png")}/>
 
         <Text style={styles.title}>Paste a seed to begin</Text>
 
-        <Text style={styles.seedLabel}>SEED</Text>
 
-        <View style={styles.seedTextContainer}>
-          <TextInput style={styles.seedText}
-                     maxLength={64}
-                     underlineColorAndroid={'transparent'}
-                     multiline={true}
-                     onChangeText={this.onChangeOfSeedText.bind(this)}/>
-        </View>
+          <Text style={styles.seedLabel}>SEED</Text>
 
-        <TouchableOpacity
-          style={styles.importAccountButtonContainer}
-          onPress={this.onClickOfConfirmButton.bind(this)}>
-          <Text style={styles.importAccountButton}>Confirm Seed</Text>
-        </TouchableOpacity>
-      </View>
+          <View style={styles.seedTextContainer}>
+            <TextInput style={styles.seedText}
+                       maxLength={64}
+                       underlineColorAndroid={'transparent'}
+                       multiline={true}
+                       onChangeText={this.onChangeOfSeedText.bind(this)}/>
+          </View>
+
+          <TouchableOpacity
+            style={styles.importAccountButtonContainer}
+            onPress={this.onClickOfConfirmButton.bind(this)}>
+            <Text style={styles.importAccountButton}>Confirm Seed</Text>
+          </TouchableOpacity>
+
+      </KeyboardAvoidingView>
     );
   }
 }

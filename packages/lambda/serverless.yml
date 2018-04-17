@@ -33,7 +33,7 @@ functions:
     events:
       - http:
           path: /storeExperience
-          method: get
+          method: post
   requestReview:
     handler: lib/handler.requestReview
     events:

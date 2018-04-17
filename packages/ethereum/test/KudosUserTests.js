@@ -12,7 +12,7 @@ require("chai")
 
 const Kudos = artifacts.require("Kudos");
 
-contract("kudosUserTests", function([deployer, business, worker, user]) {
+contract("kudosUserTests", function([deployerAddress, businessAddress, workerAddress, userAddress]) {
 
   let kudos;
 
@@ -40,18 +40,46 @@ contract("kudosUserTests", function([deployer, business, worker, user]) {
     return bs58.decode(ipfsHash).toString("hex").slice(4);
   }
 
-  it("user should be able to rate worker with signature", async function() {
+  it("put reviews", async function() {
 
-    var signature = signNonce(0, business);
+    const v = 1;
+    const r = 2;
+    const s = 3;
 
-    await kudos.rateExperience( signature.v,
-                                signature.r,
-                                signature.s,
-                                business,
-                                5,
-                                worker,
+    const userId = "myUserId";
+
+    await kudos.rateExperience( userAddress,
+                                v, r, s, userId.toString("hex"),
+                                businessAddress,
+                                3,
+                                workerAddress,
                                 5,
                                 ipfsHashInBytes("QmdXuenGKXGmSBdFZdfWqcHzZuDKiQ8eUZ1h5ZQHGNdVLy"),
-                                {from: user});
+                                {from: userAddress});
+
   });
+
+  // it("user should be able to rate worker with signature", async function() {
+  //
+  //   var signature = signNonce(0, businessAddress);
+  //
+  //   await kudos.rateExperience( signature.v,
+  //                               signature.r,
+  //                               signature.s,
+  //                               businessAddress,
+  //                               5,
+  //                               workerAddress,
+  //                               5,
+  //                               ipfsHashInBytes("QmdXuenGKXGmSBdFZdfWqcHzZuDKiQ8eUZ1h5ZQHGNdVLy"),
+  //                               {from: userAddress});
+  // });
 });
+
+
+// function rateExperience(  address _userAddress,
+//   uint8 _v, bytes32 _r, bytes32 _s, bytes32 _userId,
+//   address _businessAddress,
+//   uint256 _businessRating,
+//   address _workerAddress,
+//   uint256 _workerRating,
+//   bytes32 _transactionHash)
