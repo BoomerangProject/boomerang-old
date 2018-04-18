@@ -18,8 +18,7 @@ export default async (event, context, callback) => {
 
   try {
     await storeToS3(ipfsObject, ipfsHash);
-  }
-  catch (error) {
+  } catch (error) {
     return callback(null, s3errorResponse(error));
   }
 
@@ -36,19 +35,19 @@ export default async (event, context, callback) => {
 
 let storeToIpfs = async (ipfsObject) => {
 
-  const ipfs = new IPFS({host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http'});
+  return new Promise(function(resolve, reject) {
 
-  // return new Promise(function(resolve, reject) {
-  //
-  //   ipfs.addJSON(ipfsObject, (error, result) => {
-  //
-  //     if (error) {
-  //       return reject(error);
-  //     }
-  //
-  //     resolve(result);
-  //   });
-  // });
+    const ipfs = new IPFS({host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http'});
+
+    ipfs.addJSON(ipfsObject, function(error, result) {
+
+      if (error) {
+        return reject(error);
+      }
+
+      resolve(result);
+    });
+  });
 };
 
 
