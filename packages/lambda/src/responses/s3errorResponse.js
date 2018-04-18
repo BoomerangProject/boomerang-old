@@ -1,4 +1,4 @@
-const s3errorResponse = (error) => {
+const s3errorResponse = async (error) => {
 
   return {
     statusCode: 500,
