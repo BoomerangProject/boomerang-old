@@ -64,7 +64,7 @@ let storeToS3 = async (ipfsObject, ipfsHash) => {
       Body: JSON.stringify(ipfsObject)
     };
 
-    s3.putObject(params, function(error, data) {
+    s3.upload(params, function(error, data) {
 
       if (error) {
         console.log(error);
