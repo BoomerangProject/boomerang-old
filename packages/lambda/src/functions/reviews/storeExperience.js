@@ -11,13 +11,13 @@ export default async (event, context, callback) => {
   let ipfsHash;
 
   try {
-    ipfsHash = await storeToIpfs(ipfsObject, event, callback);
+    ipfsHash = await storeToIpfs(ipfsObject);
   } catch (error) {
     return callback(null, ipfsErrorResponse(error));
   }
 
   try {
-    await storeToS3(ipfsObject, ipfsHash, event, callback);
+    await storeToS3(ipfsObject, ipfsHash);
   }
   catch (error) {
     return callback(null, s3errorResponse(error));
@@ -34,44 +34,25 @@ export default async (event, context, callback) => {
   return callback(null, response);
 }
 
-let storeToIpfs = async (ipfsObject, event, callback) => {
+let storeToIpfs = async (ipfsObject) => {
 
-  let storeToIpfsPromise;
+  const ipfs = new IPFS({host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http'});
 
-  try {
+  return new Promise(function(resolve, reject) {
 
-    const ipfs = new IPFS({host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http'});
+    ipfs.addJSON(ipfsObject, (error, result) => {
 
-    storeToIpfsPromise = new Promise(function(resolve, reject) {
+      if (error) {
+        return reject(error);
+      }
 
-      ipfs.addJSON(ipfsObject, (error, result) => {
-
-        if (error) {
-          return reject(error);
-        }
-
-        resolve(result);
-      });
+      resolve(result);
     });
-
-  } catch (error) {
-
-    const response = {
-      statusCode: 500,
-      body: JSON.stringify({
-        message: `Unable to store experience on ipfs node. error: ${error}`,
-        input: event,
-      })
-    };
-
-    return callback(null, response);
-  }
-
-  return storeToIpfsPromise;
+  });
 };
 
 
-let storeToS3 = async (ipfsObject, ipfsHash, event, callback) => {
+let storeToS3 = async (ipfsObject, ipfsHash) => {
 
   return new Promise(function(resolve, reject) {
 
