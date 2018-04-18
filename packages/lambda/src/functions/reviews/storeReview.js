@@ -20,7 +20,13 @@ export default async (event, context, callback) => {
     await storeToS3(ipfsObject, ipfsHash);
   }
   catch (error) {
-    return callback(null, s3errorResponse(error));
+    return callback(null, {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: 'Unable to store review on S3.',
+        error: error
+      })
+    });
   }
 
   const response = {
