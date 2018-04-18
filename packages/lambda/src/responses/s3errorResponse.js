@@ -1,4 +1,4 @@
-const s3errorResponse = function(error){
+const s3errorResponse = (error) => {
 
   return {
     statusCode: 500,

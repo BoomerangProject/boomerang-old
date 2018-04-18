@@ -20,13 +20,7 @@ export default async (event, context, callback) => {
     await storeToS3(ipfsObject, ipfsHash);
   }
   catch (error) {
-    return callback(null, {
-      statusCode: 500,
-      body: JSON.stringify({
-        message: `Unable to store experience on S3. error: ${error}`,
-        input: event,
-      })
-    });
+    return callback(null, s3errorResponse(error));
   }
 
   const response = {
