@@ -8,13 +8,13 @@ export default async (event, context, callback) => {
 
   const ipfsObject = JSON.parse(event.body);
 
-  let ipfsHash = "123";
+  let ipfsHash;
 
-  // try {
-  //   ipfsHash = await storeToIpfs(ipfsObject);
-  // } catch (error) {
-  //   return callback(null, ipfsErrorResponse(error));
-  // }
+  try {
+    ipfsHash = await storeToIpfs(ipfsObject);
+  } catch (error) {
+    return callback(null, ipfsErrorResponse(error));
+  }
 
   try {
     await storeToS3(ipfsObject, ipfsHash);
