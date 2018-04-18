@@ -1,28 +1,27 @@
 'use strict';
 import IPFS from "ipfs-mini";
 import AWS from "aws-sdk";
+import s3errorResponse from "../../responses/s3errorResponse";
+import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
 
 export default async (event, context, callback) => {
 
   const ipfsObject = JSON.parse(event.body);
-  // const ipfsHash = await storeToIpfs(ipfsObject, event, callback);
-  const ipfsHash = "123";
+
+  let ipfsHash;
+
+  try {
+    ipfsHash = await storeToIpfs(ipfsObject, event, callback);
+  } catch (error) {
+    return callback(null, ipfsErrorResponse(error));
+  }
 
   try {
     await storeToS3(ipfsObject, ipfsHash, event, callback);
   }
   catch (error) {
-    const response = {
-      statusCode: 500,
-      body: JSON.stringify({
-        message: `Unable to store experience on S3. error: ${error}`,
-        input: event,
-      })
-    };
-    return callback(null, response);
+    return callback(null, s3errorResponse(error));
   }
-
-
 
   const response = {
     statusCode: 200,
@@ -34,7 +33,6 @@ export default async (event, context, callback) => {
 
   return callback(null, response);
 }
-;
 
 let storeToIpfs = async (ipfsObject, event, callback) => {
 
