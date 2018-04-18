@@ -42,10 +42,11 @@ let storeToIpfs = async (ipfsObject) => {
     ipfs.addJSON(ipfsObject, function(error, result) {
 
       if (error) {
+        console.log(error);
         return reject(error);
       }
 
-      resolve(result);
+      return resolve(result);
     });
   });
 };
@@ -66,10 +67,11 @@ let storeToS3 = async (ipfsObject, ipfsHash) => {
     s3.putObject(params, function(error, data) {
 
       if (error) {
+        console.log(error);
         return reject(error);
       }
 
-      resolve(data);
+      return resolve(data);
     });
 
   });
