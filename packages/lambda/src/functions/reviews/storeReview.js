@@ -56,7 +56,7 @@ let storeToS3 = async (ipfsObject, ipfsHash) => {
 
   return new Promise(function(resolve, reject) {
 
-    const s3 = new AWS.S3();
+    const s3 = new AWS.S3({region: 'us-east-1'});
 
     const params = {
       Bucket: "kudos-reviews",
