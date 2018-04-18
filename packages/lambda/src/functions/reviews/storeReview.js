@@ -59,7 +59,7 @@ let storeToS3 = async (ipfsObject, ipfsHash) => {
     const s3 = new AWS.S3();
 
     const params = {
-      Bucket: "kudos-experiences",
+      Bucket: "kudos-reviews",
       Key: ipfsHash,
       Body: JSON.stringify(ipfsObject)
     };
@@ -73,6 +73,5 @@ let storeToS3 = async (ipfsObject, ipfsHash) => {
 
       return resolve(data);
     });
-
   });
 };
