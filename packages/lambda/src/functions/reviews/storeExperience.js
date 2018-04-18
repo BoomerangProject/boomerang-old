@@ -7,7 +7,22 @@ export default async (event, context, callback) => {
   const ipfsObject = JSON.parse(event.body);
   // const ipfsHash = await storeToIpfs(ipfsObject, event, callback);
   const ipfsHash = "123";
-  await storeToS3(ipfsObject, ipfsHash, event, callback);
+
+  try {
+    await storeToS3(ipfsObject, ipfsHash, event, callback);
+  }
+  catch (error) {
+    const response = {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: `Unable to store experience on S3. error: ${error}`,
+        input: event,
+      })
+    };
+    return callback(null, response);
+  }
+
+
 
   const response = {
     statusCode: 200,
@@ -18,7 +33,8 @@ export default async (event, context, callback) => {
   };
 
   return callback(null, response);
-};
+}
+;
 
 let storeToIpfs = async (ipfsObject, event, callback) => {
 
@@ -26,7 +42,7 @@ let storeToIpfs = async (ipfsObject, event, callback) => {
 
   try {
 
-    const ipfs = new IPFS({ host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http' });
+    const ipfs = new IPFS({host: 'ec2-34-239-123-139.compute-1.amazonaws.com', port: 5001, protocol: 'http'});
 
     storeToIpfsPromise = new Promise(function(resolve, reject) {
 
@@ -59,43 +75,24 @@ let storeToIpfs = async (ipfsObject, event, callback) => {
 
 let storeToS3 = async (ipfsObject, ipfsHash, event, callback) => {
 
-  let storeToS3Promise;
+  return new Promise(function(resolve, reject) {
 
-  try {
+    const s3 = new AWS.S3();
 
-    storeToS3Promise = new Promise(function(resolve, reject) {
-
-      const s3 = new AWS.S3();
-
-      const params = {
-        Bucket : "kudos-experiences",
-        Key : ipfsHash,
-        Body : JSON.stringify(ipfsObject)
-      };
-
-      s3.putObject(params, function(error, data) {
-
-        if (error) {
-          return reject(error);
-        }
-
-        resolve(data);
-      });
-
-    });
-
-  } catch (error) {
-
-    const response = {
-      statusCode: 500,
-      body: JSON.stringify({
-        message: `Unable to store experience on S3. error: ${error}`,
-        input: event,
-      })
+    const params = {
+      Bucket: "kudos-experiences",
+      Key: ipfsHash,
+      Body: JSON.stringify(ipfsObject)
     };
 
-    return callback(null, response);
-  }
+    s3.putObject(params, function(error, data) {
 
-  return storeToS3Promise;
+      if (error) {
+        return reject(error);
+      }
+
+      resolve(data);
+    });
+
+  });
 };
