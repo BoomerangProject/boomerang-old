@@ -1,4 +1,4 @@
-const ipfsErrorResponse = function(error){
+const ipfsErrorResponse = (error) => {
 
   return {
     statusCode: 500,
