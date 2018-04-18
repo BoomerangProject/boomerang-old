@@ -1,4 +1,4 @@
-export default (error) => {
+const s3errorResponse = (error) => {
 
   return {
     statusCode: 500,
@@ -8,3 +8,5 @@ export default (error) => {
     })
   };
 };
+
+export default s3errorResponse;
