@@ -20,7 +20,8 @@ export default async (event, context, callback) => {
     await storeToS3(ipfsObject, ipfsHash);
   }
   catch (error) {
-    return callback(null, s3errorResponse(error));
+    const errorResponse = s3errorResponse(error);
+    return callback(null, errorResponse);
   }
 
   const response = {
