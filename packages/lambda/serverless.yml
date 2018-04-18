@@ -28,11 +28,11 @@ functions:
       - http:
           path: /rateExperience
           method: get
-  storeExperience:
-    handler: lib/handler.storeExperience
+  storeReview:
+    handler: lib/handler.storeReview
     events:
       - http:
-          path: /storeExperience
+          path: /storeReview
           method: post
   requestReview:
     handler: lib/handler.requestReview

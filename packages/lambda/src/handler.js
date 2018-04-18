@@ -1,7 +1,7 @@
 'use strict';
 import getNonceValue from "./functions/getNonceValue";
 import rateExperience from "./functions/reviews/rateExperience";
-import storeExperience from "./functions/reviews/storeExperience";
+import storeExperience from "./functions/reviews/storeReview";
 import requestReview from "./functions/reviewrequests/requestReview";
 import getPendingReviews from "./functions/reviewrequests/getPendingReviews";
 import updateRegistry from "./functions/registry/updateRegistry";
