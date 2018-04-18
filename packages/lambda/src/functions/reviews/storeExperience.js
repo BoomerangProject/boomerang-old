@@ -1,7 +1,7 @@
 'use strict';
 import IPFS from "ipfs-mini";
 import AWS from "aws-sdk";
-import s3errorResponse from "../../responses/s3errorResponse";
+const s3errorResponse = require("../../responses/s3errorResponse");
 import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
 
 export default async (event, context, callback) => {
