@@ -37,7 +37,7 @@ let storeToIpfs = async (ipfsObject) => {
 
   return new Promise(function(resolve, reject) {
 
-    const ipfs = new IPFS({host: 'ec2-54-172-136-192.compute-1.amazonaws.com', port: 5001, protocol: 'http'});
+    const ipfs = new IPFS({host: 'ec2-54-172-136-192.compute-1.amazonaws.com', port: 8080, protocol: 'http'});
 
     ipfs.addJSON(ipfsObject, function(error, result) {
 
