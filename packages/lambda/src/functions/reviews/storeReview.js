@@ -3,6 +3,7 @@ import IPFS from "ipfs-mini";
 import AWS from "aws-sdk";
 import s3errorResponse from "../../responses/s3errorResponse";
 import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
+import ipfsOkayResponse from "../../responses/ipfsOkayResponse";
 
 const s3 = new AWS.S3();
 const ipfs = new IPFS({host: 'ec2-54-172-136-192.compute-1.amazonaws.com', port: 5001, protocol: 'http'});
@@ -25,15 +26,7 @@ export default async (event, context, callback) => {
     return callback(null, s3errorResponse(error));
   }
 
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: `success, pinned ${ipfsHash}`,
-      input: event,
-    })
-  };
-
-  return callback(null, response);
+  return callback(null, ipfsOkayResponse);
 }
 
 let storeToIpfs = async (ipfsObject) => {
