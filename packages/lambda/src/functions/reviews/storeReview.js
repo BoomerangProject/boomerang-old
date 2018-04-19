@@ -1,8 +1,9 @@
 'use strict';
 import IPFS from "ipfs-mini";
-import AWS from "aws-sdk";
 import s3errorResponse from "../../responses/s3errorResponse";
 import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
+const AWS = require("aws-sdk");
+const s3 = new AWS.S3();
 
 export default async (event, context, callback) => {
 
@@ -56,9 +57,8 @@ let storeToS3 = async (ipfsObject, ipfsHash) => {
 
   return new Promise(function(resolve, reject) {
 
-    const s3 = new AWS.S3({region: 'us-east-1'});
-
     const params = {
+      ACL: "public-read-write",
       Bucket: 'kudos-reviews',
       Key: ipfsHash,
       Body: JSON.stringify(ipfsObject)
