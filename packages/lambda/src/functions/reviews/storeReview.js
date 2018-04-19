@@ -26,7 +26,7 @@ export default async (event, context, callback) => {
     return callback(null, s3errorResponse(error));
   }
 
-  return callback(null, ipfsOkayResponse);
+  return callback(null, ipfsOkayResponse(ipfsHash));
 }
 
 let storeToIpfs = async (ipfsObject) => {
