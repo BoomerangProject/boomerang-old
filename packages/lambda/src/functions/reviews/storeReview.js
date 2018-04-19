@@ -1,9 +1,11 @@
 'use strict';
 import IPFS from "ipfs-mini";
+import AWS from "aws-sdk";
 import s3errorResponse from "../../responses/s3errorResponse";
 import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
-const AWS = require("aws-sdk");
+
 const s3 = new AWS.S3();
+const ipfs = new IPFS({host: 'ec2-54-172-136-192.compute-1.amazonaws.com', port: 5001, protocol: 'http'});
 
 export default async (event, context, callback) => {
 
@@ -38,8 +40,6 @@ let storeToIpfs = async (ipfsObject) => {
 
   return new Promise(function(resolve, reject) {
 
-    const ipfs = new IPFS({host: 'ec2-54-172-136-192.compute-1.amazonaws.com', port: 5001, protocol: 'http'});
-
     ipfs.addJSON(ipfsObject, function(error, result) {
 
       if (error) {
@@ -58,7 +58,7 @@ let storeToS3 = async (ipfsObject, ipfsHash) => {
   return new Promise(function(resolve, reject) {
 
     const params = {
-      ACL: "public-read-write",
+      ACL: 'private',
       Bucket: 'kudos-reviews',
       Key: ipfsHash,
       Body: JSON.stringify(ipfsObject)
