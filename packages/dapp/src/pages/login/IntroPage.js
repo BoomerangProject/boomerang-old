@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
-import simpleContract from "../../services/ReviewsContractService";
 
 class IntroPage extends Component {
 
   onClickOfCreateWallet(event) {
-    alert(simpleContract.getValue());
   }
 
   onClickOfImportWallet(event) {

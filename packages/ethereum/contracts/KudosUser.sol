@@ -25,8 +25,8 @@ contract KudosUser is KudosActor {
                             bytes32 _transactionHash)
   public {
 
-    recordBusinessRating(_businessAddress, _userAddress, _businessRating, _transactionHash);
-    recordWorkerRating(_businessAddress, _workerAddress, _userAddress, _workerRating, _transactionHash);
+    recordBusinessRating(_userAddress, _businessAddress, _businessRating, _transactionHash);
+    recordWorkerRating(_userAddress, _businessAddress, _workerAddress, _workerRating, _transactionHash);
   }
 
   function recordBusinessRating(address _userAddress, address _businessAddress, uint256 _businessRating, bytes32 _transactionHash) internal {

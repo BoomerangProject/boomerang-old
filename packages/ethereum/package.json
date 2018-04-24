@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "binstring": "^0.2.1",
     "dotenv": "^5.0.1",
     "ganache-cli": "^6.0.3",
     "scrypt": "^6.0.3",

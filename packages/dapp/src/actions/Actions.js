@@ -1,5 +1,5 @@
-import ReviewsContractService from '../services/ReviewsContractService';
-import ReviewsFileService from '../services/ReviewsFileService';
+// import ReviewsContractService from '../services/ReviewsContractService';
+// import ReviewsFileService from '../services/ReviewsFileService';
 
 export function storeContractData(rating, reviewText) {
 
@@ -18,9 +18,9 @@ export const fetchContractData = () => {
 
     try {
 
-      const rating = await ReviewsContractService.getRating();
-      const reviewText = await ReviewsContractService.getReviewText();
-      dispatch(storeContractData(rating, reviewText));
+      // const rating = await ReviewsContractService.getRating();
+      // const reviewText = await ReviewsContractService.getReviewText();
+      // dispatch(storeContractData(rating, reviewText));
 
     } catch (error) {
       console.log("ERROR");
@@ -40,12 +40,12 @@ export const storeReview = (rating, reviewText) => {
 
     try {
 
-      const item = await ReviewsFileService.storeReview(rating, reviewText).then(function(result) {
-
-      console.log(result);
-
-
-      });
+      // const item = await ReviewsFileService.storeReview(rating, reviewText).then(function(result) {
+      //
+      // console.log(result);
+      //
+      //
+      // });
       dispatch(storeContractData(rating, reviewText));
 
     } catch (error) {
@@ -64,10 +64,10 @@ export const storeReviewOnContract = (rating, reviewText) => {
     dispatch(showProgressIndicator());
 
     try {
-      const item = await ReviewsContractService.storeReview(rating, reviewText).then(function(result) {
-        // result object contains import information about the transaction
-        console.log(result);
-      });
+      // const item = await ReviewsContractService.storeReview(rating, reviewText).then(function(result) {
+      //   // result object contains import information about the transaction
+      //   console.log(result);
+      // });
       dispatch(storeContractData(rating, reviewText));
 
     } catch (error) {

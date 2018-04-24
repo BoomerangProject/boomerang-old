@@ -22,7 +22,7 @@ const RootStack = StackNavigator(
     }
   },
   {
-    initialRouteName: 'NewUserComponent'
+    initialRouteName: 'AccountComponent'
   }
 );
 

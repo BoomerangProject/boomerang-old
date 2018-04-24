@@ -18,7 +18,7 @@ class ImportAccountComponent extends Component {
     //
     // localStorage.setItem("kudosAccountSeed", this.state.seedText);
     // localStorage.setItem("kudosAddress", ethUtil.privateToAddress(new Buffer(this.state.seedText, "hex")).toString("hex"));
-    // this.props.history.push("/account");
+    this.props.navigation.navigate('AccountComponent');
   }
 
   render() {

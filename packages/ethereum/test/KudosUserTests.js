@@ -2,6 +2,7 @@ const BigNumber = web3.BigNumber;
 const util = require('ethereumjs-util');
 const Web3Utils = require('web3-utils');
 const bs58 = require('bs58');
+const conv = require('binstring');
 
 const soliditySha3 = Web3Utils.soliditySha3;
 
@@ -18,7 +19,8 @@ contract("kudosUserTests", function([deployerAddress, businessAddress, workerAdd
 
   beforeEach(async function() {
 
-    kudos = await Kudos.new();
+    // kudos = await Kudos.new();
+    kudos = await Kudos.at('0x6d4630b95095a7b8cf8170421f5a8d821524332b');
   });
 
   class Signature {
@@ -36,8 +38,16 @@ contract("kudosUserTests", function([deployerAddress, businessAddress, workerAdd
     return new Signature(nonce, signer);
   }
 
+  // https://ethereum.stackexchange.com/questions/17094/how-to-store-ipfs-hash-using-bytes#17112
+
+  // IPFS hash is actually two concatenated pieces
+  // 1. multihash identifier, so the first two bytes indicate the hash function being used (0x12 is sha2)
+  // 2. the size (0x20 is 256-bits long)
+
+  // we are removing "1220" from the beginning of the string
   function ipfsHashInBytes(ipfsHash) {
-    return bs58.decode(ipfsHash).toString("hex").slice(4);
+    console.log(conv(bs58.decode(ipfsHash), { out:'hex' }).slice(4));
+    return "0x" + conv(bs58.decode(ipfsHash), { out:'hex' }).slice(4);
   }
 
   it("put reviews", async function() {
@@ -47,16 +57,31 @@ contract("kudosUserTests", function([deployerAddress, businessAddress, workerAdd
     const s = 3;
 
     const userId = "myUserId";
+    const myUserAddress = "0xfe996c9a9b7f29580c6b9ab92fc692065bf25f80";
+    const myWorkerAddress = "0x11c56a8b60a10323eb4402d698f9f97a0260d3d9";
+    const myBusinessAddress = "0xd0a287acbc9b2b4222c5ea38dc0f8f1031b0e5ce";
 
-    await kudos.rateExperience( userAddress,
-                                v, r, s, userId.toString("hex"),
-                                businessAddress,
-                                3,
-                                workerAddress,
-                                5,
-                                ipfsHashInBytes("QmdXuenGKXGmSBdFZdfWqcHzZuDKiQ8eUZ1h5ZQHGNdVLy"),
-                                {from: userAddress});
+    const ipfsHashes = [
 
+      "QmUtcVd69mZ2X4L4SKGvyygyZGH6sMaVbyCUm8TS4EEyre",
+      "QmTVbG3BQofEK1rA5aJhX7N948LwiaunQeTxtqD8KKzScZ",
+      "QmcX6Q2jDhCA1w3ozR4risKUJaWFUKDgBvsYzbGfnuNW7m",
+      "QmRppfBc19fp81ZioiM2Q3Vt9Viff4pyH4eDEB8sGFk8Yv"
+    ];
+
+
+    for (let i = 0; i < ipfsHashes.length; i++) {
+
+      await kudos.rateExperience( myUserAddress,
+        v, r, s, userId.toString("hex"),
+        myBusinessAddress,
+        3,
+        myWorkerAddress,
+        5,
+        ipfsHashInBytes(ipfsHashes[i]),
+        {from: deployerAddress});
+
+    }
   });
 
   // it("user should be able to rate worker with signature", async function() {

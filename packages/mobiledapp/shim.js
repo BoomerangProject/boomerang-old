@@ -14,6 +14,18 @@ if (typeof process === 'undefined') {
 process.browser = false
 if (typeof Buffer === 'undefined') global.Buffer = require('buffer').Buffer
 
+if (typeof btoa === 'undefined') {
+  global.btoa = function (str) {
+    return new Buffer(str, 'binary').toString('base64');
+  };
+}
+
+if (typeof atob === 'undefined') {
+  global.atob = function (b64Encoded) {
+    return new Buffer(b64Encoded, 'base64').toString('binary');
+  };
+}
+
 // global.location = global.location || { port: 80 }
 const isDev = typeof __DEV__ === 'boolean' && __DEV__
 process.env['NODE_ENV'] = isDev ? 'development' : 'production'
