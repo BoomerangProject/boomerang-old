@@ -20,7 +20,7 @@ contract("kudosUserTests", function([deployerAddress, businessAddress, workerAdd
   beforeEach(async function() {
 
     // kudos = await Kudos.new();
-    kudos = await Kudos.at('0x6d4630b95095a7b8cf8170421f5a8d821524332b');
+    kudos = await Kudos.at('0x59f7e5cea0beb5cb90ac263b1c3123b0acceda4f');
   });
 
   class Signature {

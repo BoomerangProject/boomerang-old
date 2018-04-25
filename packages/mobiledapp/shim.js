@@ -26,6 +26,8 @@ if (typeof atob === 'undefined') {
   };
 }
 
+global.URL = require('url').Url
+
 // global.location = global.location || { port: 80 }
 const isDev = typeof __DEV__ === 'boolean' && __DEV__
 process.env['NODE_ENV'] = isDev ? 'development' : 'production'

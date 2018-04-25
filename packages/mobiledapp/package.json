@@ -52,7 +52,8 @@
     "url": "^0.10.3",
     "util": "^0.10.3",
     "vm-browserify": "0.0.4",
-    "web3": "1.0.0-beta.34"
+    "web3": "1.0.0-beta.34",
+    "web3-providers-ws": "^1.0.0-beta.34"
   },
   "devDependencies": {
     "babel-jest": "22.4.3",
