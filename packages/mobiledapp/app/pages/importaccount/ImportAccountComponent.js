@@ -4,6 +4,10 @@ import { KeyboardAvoidingView, View, Image, Text, TouchableOpacity, TextInput, T
 
 class ImportAccountComponent extends Component {
 
+  static navigationOptions = {
+    header: null
+  };
+
   onChangeOfSeedText(seedTextValue) {
     // ToastAndroid.show(seedText, ToastAndroid.SHORT);
     this.setState({seedText: seedTextValue});

@@ -5,6 +5,7 @@ import NewUserComponent from "./app/pages/newuser/NewUserComponent";
 import CreateAccountComponent from "./app/pages/createaccount/CreateAccountComponent";
 import ImportAccountComponent from "./app/pages/importaccount/ImportAccountComponent";
 import AccountComponent from "./app/pages/account/AccountComponent";
+import ReviewComponent from "./app/pages/review/ReviewComponent";
 
 const RootStack = StackNavigator(
   {
@@ -19,10 +20,13 @@ const RootStack = StackNavigator(
     },
     AccountComponent: {
       screen: AccountComponent,
+    },
+    ReviewComponent: {
+      screen: ReviewComponent,
     }
   },
   {
-    initialRouteName: 'AccountComponent'
+    initialRouteName: 'NewUserComponent'
   }
 );
 

@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { View, Image, Text, FlatList, ToastAndroid, TouchableHighlight } from "react-native";
+import { View, Image, Text, FlatList, ToastAndroid, TouchableOpacity } from "react-native";
 import styles from './AccountComponentStyle';
 import kudosContract from '../../services/KudosContractService'
 import bs58 from 'bs58';
+import { default as localStorage } from 'react-native-sensitive-info';
 
 class AccountComponent extends Component {
 
   constructor(args) {
     super(args);
-    this.state = {reviews: []};
+    this.state = {reviewEvents: [], kudosAccountSeed: '', kudosAccountAddress: ''};
+    // this.state = {reviewEvents: []};
   }
 
   async componentDidMount() {
@@ -21,32 +23,49 @@ class AccountComponent extends Component {
     // }, console.log);
 
     kudosContract.getPastEvents('WorkerRating', {
-      filter: {_userAddress: userAddress},
-      fromBlock: 0,
-      toBlock: 'latest'
-    }).then((events) => {
+        filter: {_userAddress: userAddress},
+        fromBlock: 0,
+        toBlock: 'latest'
+      }, function(error, events) {
+
+        if (error) {
+          ToastAndroid.show(error.toString(), ToastAndroid.SHORT);
+          console.log(error.toString());
+        }
+      }
+    ).then((events) => {
 
       events.map((event) => {
 
-        let review = {};
-        review.ipfsHash = this.getIpfsHash(event);
-        review.key = event.id;
+        let reviewEvent = {};
+        reviewEvent.ipfsHash = this.getIpfsHashFromBytes(event);
+        reviewEvent.key = event.id;
 
         this.setState(prevState => ({
-          reviews: [...prevState.reviews, review]
+          reviewEvents: [...prevState.reviewEvents, reviewEvent]
         }));
       });
     });
+
+    const kudosAccountSeed = await localStorage.getItem('kudosAccountSeed', {
+      keychainService: 'kudosKeychain'
+      });
+    this.setState({kudosAccountSeed});
+
+    const kudosAccountAddress = await localStorage.getItem('kudosAccountAddress', {
+      keychainService: 'kudosKeychain'
+    });
+    this.setState({kudosAccountAddress});
   }
 
-  getIpfsHash(event) {
+  getIpfsHashFromBytes(event) {
     const ipfsHash = '1220' + event.returnValues._ipfsHash.slice(2);
     const bytes = Buffer.from(ipfsHash, 'hex');
     return bs58.encode(bytes);
   };
 
-  onClickOfReview(review) {
-    ToastAndroid.show("here", ToastAndroid.SHORT)
+  onClickOfReviewTile(reviewEvent) {
+    this.props.navigation.navigate('ReviewComponent', {reviewEvent});
   };
 
   render() {
@@ -57,16 +76,18 @@ class AccountComponent extends Component {
 
         <Image style={styles.logo} source={require("../../images/kudos.png")}/>
         <Text>Account</Text>
+        <Text>{'private key: ' + this.state.kudosAccountSeed}</Text>
+        <Text>{'account address: ' + this.state.kudosAccountAddress}</Text>
 
         <FlatList
-          data={this.state.reviews}
-          renderItem={({item}) =>
+          data={this.state.reviewEvents}
+          renderItem={({item: reviewEvent}) =>
 
             <View>
-              <TouchableHighlight
-                onPress={this.onClickOfReview(item)}>
-                <Text style={styles.address} key={item.key}>{item.ipfsHash}</Text>
-              </TouchableHighlight>
+              <TouchableOpacity
+                onPress={() => this.onClickOfReviewTile(reviewEvent)}>
+                <Text style={styles.address} key={reviewEvent.key}>{reviewEvent.ipfsHash}</Text>
+              </TouchableOpacity>
             </View>
           }
         />

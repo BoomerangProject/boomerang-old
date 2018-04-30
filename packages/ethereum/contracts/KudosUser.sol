@@ -4,16 +4,12 @@ import "./KudosActor.sol";
 
 contract KudosUser is KudosActor {
 
-  event BusinessRating( address indexed _businessAddress,
-                        address indexed _userAddress,
-                        uint256 _businessRating,
-                        bytes32 _ipfsHash);
-
-  event WorkerRating( address indexed _businessAddress,
-                      address indexed _workerAddress,
-                      address indexed _userAddress,
-                      uint256 _workerRating,
-                      bytes32 _ipfsHash);
+  event KudosExperience(  address indexed _userAddress,
+                          address indexed _workerAddress,
+                          address indexed _businessAddress,
+                          uint256 _businessRating,
+                          uint256 _workerRating,
+                          bytes32 _ipfsHash);
 
   // add: "withCorrectSignature(_businessAddress, _userId, _v, _r, _s)"
   function rateExperience(  address _userAddress,
@@ -25,33 +21,28 @@ contract KudosUser is KudosActor {
                             bytes32 _transactionHash)
   public {
 
-    recordBusinessRating(_userAddress, _businessAddress, _businessRating, _transactionHash);
-    recordWorkerRating(_userAddress, _businessAddress, _workerAddress, _workerRating, _transactionHash);
+    if (_businessRating >= 0 || _businessRating <= 5) {
+      updateBusinessRating(_userAddress, _businessAddress, _businessRating);
+    }
+
+    if (_workerRating >= 0 || _workerRating <= 5) {
+      updateWorkerRating(_userAddress, _businessAddress, _workerAddress, _workerRating);
+    }
+
+    KudosExperience(_userAddress, _workerAddress, _businessAddress, _businessRating, _workerRating, _transactionHash);
   }
 
-  function recordBusinessRating(address _userAddress, address _businessAddress, uint256 _businessRating, bytes32 _transactionHash) internal {
-
-    if (_businessRating < 1 || _businessRating > 5) {
-      revert();
-    }
+  function updateBusinessRating(address _userAddress, address _businessAddress, uint256 _businessRating) internal {
 
     numberOfBusinessRatings[_businessAddress] += 1;
     businessAverageRating[_businessAddress] = (businessAverageRating[_businessAddress] + _businessRating) / numberOfBusinessRatings[_businessAddress];
-    BusinessRating(_businessAddress, _userAddress, _businessRating, _transactionHash);
   }
 
-  function recordWorkerRating(address _userAddress, address _businessAddress, address _workerAddress, uint256 _workerRating, bytes32 _transactionHash) internal {
-
-    if (_workerRating < 1 || _workerRating > 5) {
-      revert();
-    }
+  function updateWorkerRating(address _userAddress, address _businessAddress, address _workerAddress, uint256 _workerRating) internal {
 
     numberOfWorkerRatings[_businessAddress][_workerAddress] += 1;
     workerAverageRating[_businessAddress][_workerAddress] = (workerAverageRating[_businessAddress][_workerAddress] + _workerRating) / numberOfWorkerRatings[_businessAddress][_workerAddress];
-    WorkerRating(_businessAddress, _workerAddress, _userAddress, _workerRating, _transactionHash);
   }
-
-
 
     modifier withCorrectSignatureFromBusiness(address _businessAddress, bytes32 _userId, uint8 _v, bytes32 _r, bytes32 _s) {
 

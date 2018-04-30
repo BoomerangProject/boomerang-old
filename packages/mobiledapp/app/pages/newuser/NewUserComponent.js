@@ -6,6 +6,10 @@ import ImportAccountComponent from "../importaccount/ImportAccountComponent";
 
 class NewUserComponent extends Component {
 
+  static navigationOptions = {
+    header: null
+  };
+
   onClickOfCreateAccountButton() {
     this.props.navigation.navigate('CreateAccountComponent');
   }
