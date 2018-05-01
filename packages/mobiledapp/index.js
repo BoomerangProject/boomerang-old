@@ -1,6 +1,6 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
 import { YellowBox } from 'react-native';
+import { start } from './App';
 
 YellowBox.ignoreWarnings([
   'Warning: isMounted(...) is deprecated',
@@ -8,4 +8,5 @@ YellowBox.ignoreWarnings([
   // 'Warning: componentWillReceiveProps is deprecated',
 ]);
 
-AppRegistry.registerComponent('mobiledapp', () => App);
+start();
+

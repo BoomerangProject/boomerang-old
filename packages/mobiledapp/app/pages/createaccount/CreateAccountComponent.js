@@ -7,10 +7,6 @@ import { default as localStorage } from 'react-native-sensitive-info';
 
 class CreateAccountComponent extends Component {
 
-  static navigationOptions = {
-    header: null
-  };
-
   constructor(props) {
     super(props);
     this.privateKey = crypto.randomBytes(32).toString("hex");

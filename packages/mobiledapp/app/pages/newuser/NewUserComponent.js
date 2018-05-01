@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Navigation } from 'react-native-navigation';
 import styles from './NewUserComponentStyle';
 import { Image, Text, View, TouchableOpacity } from "react-native";
 import CreateAccountComponent from "../createaccount/CreateAccountComponent";
@@ -6,16 +7,22 @@ import ImportAccountComponent from "../importaccount/ImportAccountComponent";
 
 class NewUserComponent extends Component {
 
-  static navigationOptions = {
-    header: null
-  };
-
   onClickOfCreateAccountButton() {
-    this.props.navigation.navigate('CreateAccountComponent');
+
+    Navigation.push(this.props.componentId, {
+      component: {
+        name: 'CreateAccountComponent'
+      }
+    });
   }
 
   onClickOfImportAccountButton() {
-    this.props.navigation.navigate('ImportAccountComponent');
+
+    Navigation.push(this.props.componentId, {
+      component: {
+        name: 'ImportAccountComponent'
+      }
+    });
   }
 
   render() {

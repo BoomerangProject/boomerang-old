@@ -1,40 +1,75 @@
 import './shim.js'
-import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
-import NewUserComponent from "./app/pages/newuser/NewUserComponent";
-import CreateAccountComponent from "./app/pages/createaccount/CreateAccountComponent";
-import ImportAccountComponent from "./app/pages/importaccount/ImportAccountComponent";
-import AccountComponent from "./app/pages/account/AccountComponent";
-import ReviewComponent from "./app/pages/review/ReviewComponent";
 
-const RootStack = StackNavigator(
-  {
-    NewUserComponent: {
-      screen: NewUserComponent,
-    },
-    CreateAccountComponent: {
-      screen: CreateAccountComponent,
-    },
-    ImportAccountComponent: {
-      screen: ImportAccountComponent,
-    },
-    AccountComponent: {
-      screen: AccountComponent,
-    },
-    ReviewComponent: {
-      screen: ReviewComponent,
-    }
-  },
-  {
-    initialRouteName: 'NewUserComponent'
-  }
-);
+import { Navigation } from 'react-native-navigation';
+import { registerScreens } from "./app/registerScreens";
 
-class App extends Component {
+export function start() {
+  registerScreens();
 
-  render() {
-    return <RootStack />;
-  }
+  Navigation.events().onAppLaunched(() => {
+
+  //   Navigation.setRoot({
+  //     stack: {
+  //       children: [
+  //         {
+  //           component: {
+  //             name: 'NewUserComponent'
+  //           }
+  //         }
+  //       ]
+  //     }
+  //   });
+
+
+    // Navigation.setRoot({
+    //   sideMenu: {
+    //     left: {
+    //       component: {
+    //         name: 'NewUserComponent',
+    //         passProps: {
+    //           text: 'This is a left side menu screen'
+    //         }
+    //       }
+    //     },
+    //     center: {
+    //       component: {
+    //         name: 'NewUserComponent'
+    //       },
+    //     },
+    //     right: {
+    //       component: {
+    //         name: 'NewUserComponent',
+    //         passProps: {
+    //           text: 'This is a right side menu screen'
+    //         }
+    //       }
+    //     }
+    //   }
+    // });
+
+    Navigation.setRoot({
+      bottomTabs: {
+        children: [
+          {
+            component: {
+              name: 'NewUserComponent',
+              passProps: {
+                text: 'This is tab 1',
+                myFunction: () => 'Hello from a function!',
+              },
+            },
+          },
+          {
+            component: {
+              name: 'CreateAccountComponent',
+              passProps: {
+                text: 'This is tab 2',
+              },
+            },
+          },
+        ],
+      },
+    });
+
+  });
 }
-
-export default App;
