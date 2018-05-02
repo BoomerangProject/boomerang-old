@@ -5,36 +5,29 @@ import "./KudosActor.sol";
 contract KudosBusiness is KudosActor {
 
   event RegisteredAsBusiness(address indexed _businessAddress);
-  event SetWorkerAsEmployee(address indexed _businessAddress, address indexed _workerAddress);
+  event BusinessHasApprovedWorker(address indexed _businessAddress, address indexed _workerAddress);
   event AddedToEmployeeList(address indexed _businessAddress, address indexed _workerAddress);
 
-  modifier onlyBusiness() {
-    require(isBusiness[msg.sender]);
-    _;
-  }
-
-  function registerAsBusiness() public {
-    isBusiness[msg.sender] = true;
+  function registerAsBusiness(address _businessAddress) public {
+    isBusiness[_businessAddress] = true;
     RegisteredAsBusiness(msg.sender);
 
     // any business registration init
   }
 
-  function addEmployee(address _workerAddress) onlyBusiness public {
+  function addEmployee(address _workerAddress) public {
 
-    setWorkerAsEmployee(_workerAddress);
+
+    businessHasApprovedWorker[msg.sender][_workerAddress] = true;
+    BusinessHasApprovedWorker(msg.sender, _workerAddress);
+
     addToEmployeeListIfWorkerApproves(_workerAddress);
 
     // any add employee init
   }
 
-  function setWorkerAsEmployee(address _workerAddress) internal {
-    isEmployee[msg.sender][_workerAddress] = true;
-    SetWorkerAsEmployee(msg.sender, _workerAddress);
-  }
-
   function addToEmployeeListIfWorkerApproves(address _workerAddress) internal {
-    if (isEmployer[_workerAddress][msg.sender]) {
+    if (workerHasApprovedBusiness[_workerAddress][msg.sender]) {
       employeeList[msg.sender].push(_workerAddress);
     }
   }

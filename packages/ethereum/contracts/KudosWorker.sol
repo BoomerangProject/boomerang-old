@@ -4,7 +4,7 @@ import "./KudosActor.sol";
 
 contract KudosWorker is KudosActor {
 
-  event SetBusinessAsEmployer(address indexed _businessAddress, address indexed _workerAddress);
+  event WorkerHasApprovedBusiness(address indexed _businessAddress, address indexed _workerAddress);
 
   event UserRating( address indexed _businessAddress,
                     address indexed _workerAddress,

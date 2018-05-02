@@ -2,35 +2,29 @@ import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity, ToastAndroid, Clipboard } from 'react-native';
 import crypto from 'crypto'
 import styles from './CreateAccountComponentStyle';
-import ethUtil from "ethereumjs-util";
-import { default as localStorage } from 'react-native-sensitive-info';
+import { storeSeed } from '../../services/LocalStorageService';
 
 class CreateAccountComponent extends Component {
 
   constructor(props) {
     super(props);
-    this.privateKey = crypto.randomBytes(32).toString("hex");
+    this.kudosAccountSeed = crypto.randomBytes(32).toString("hex");
   }
 
   async onClickOfSeedButton() {
-    await Clipboard.setString(this.privateKey);
+    await Clipboard.setString(this.kudosAccountSeed);
   }
 
   onClickOfConfirmButton() {
 
-    localStorage.setItem("kudosAccountSeed", this.privateKey, {
-      keychainService: 'kudosKeychain',
-      encrypt: true
+    storeSeed(this.kudosAccountSeed);
+
+    this.props.navigator.push({
+      screen: 'LoadingPageComponent',
+      navigatorStyle: {
+        navBarHidden: true
+      }
     });
-
-    const accountAddress = '0x' + ethUtil.privateToAddress(new Buffer(this.privateKey, "hex")).toString("hex");
-
-    localStorage.setItem("kudosAccountAddress", accountAddress, {
-      keychainService: 'kudosKeychain',
-      encrypt: true
-    });
-
-    this.props.navigation.navigate('AccountComponent');
   }
 
   render() {
@@ -54,7 +48,7 @@ class CreateAccountComponent extends Component {
         <TouchableOpacity
           style={styles.seedButtonContainer}
           onPress={this.onClickOfSeedButton.bind(this)}>
-          <Text style={styles.seedButton}>{this.privateKey}</Text>
+          <Text style={styles.seedButton}>{this.kudosAccountSeed}</Text>
         </TouchableOpacity>
 
         <Text style={styles.tapToCopyMessage}>Tap to copy</Text>

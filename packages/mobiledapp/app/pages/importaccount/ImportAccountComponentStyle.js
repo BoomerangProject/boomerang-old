@@ -20,7 +20,7 @@ module.exports = StyleSheet.create({
     marginTop: 8,
     marginBottom: 8,
     color: '#002A1C',
-    fontSize: 20,
+    fontSize: 22,
   },
   seedLabel: {
     marginTop: 'auto',
@@ -35,17 +35,18 @@ module.exports = StyleSheet.create({
     borderRadius: 4,
 
     width: 190,
-    height: 110,
+    height: 130,
     justifyContent: 'center',
     alignItems: 'center'
   },
   seedText: {
     fontFamily: 'RobotoMono-Regular',
     width: 150,
-    height: 80,
+    height: 100,
     color: 'white',
     fontSize: 14
   },
+
   importAccountButtonContainer: {
 
     marginTop: 'auto',

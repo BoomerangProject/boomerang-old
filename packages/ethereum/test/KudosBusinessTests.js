@@ -7,7 +7,7 @@ require("chai")
 
 const Kudos = artifacts.require("Kudos");
 
-contract("kudosTests", function([deployer, business, worker, secondWorker, thirdWorker, user]) {
+contract("KudosBusinessTests", function([deployer, business, worker, user]) {
 
   let kudos;
 
@@ -16,17 +16,17 @@ contract("kudosTests", function([deployer, business, worker, secondWorker, third
     kudos = await Kudos.new();
   });
 
-  // it("business should be able to register", async function() {
-  //
-  //   var isBusiness = await kudos.isBusiness(business);
-  //   isBusiness.should.equal(false);
-  //
-  //   await kudos.registerAsBusiness({from: business});
-  //
-  //   var isBusiness = await kudos.isBusiness(business);
-  //   isBusiness.should.equal(true);
-  // });
-  //
+  it("business should be able to register", async function() {
+
+    var isBusiness = await kudos.isBusiness(business);
+    isBusiness.should.equal(false);
+
+    await kudos.registerAsBusiness({from: business});
+
+    var isBusiness = await kudos.isBusiness(business);
+    isBusiness.should.equal(true);
+  });
+
   // it("registered business should be able to add employee", async function() {
   //
   //   await kudos.registerAsBusiness({from: business});

@@ -79,7 +79,8 @@ module.exports = StyleSheet.create({
 
     fontSize: 12,
     color: '#002A1C',
-    fontFamily: 'WorkSans-Regular'
+    fontFamily: 'WorkSans-Regular',
+    marginBottom: 'auto'
   },
 
   buttonContainer: {

@@ -6,70 +6,14 @@ import { registerScreens } from "./app/registerScreens";
 export function start() {
   registerScreens();
 
-  Navigation.events().onAppLaunched(() => {
-
-  //   Navigation.setRoot({
-  //     stack: {
-  //       children: [
-  //         {
-  //           component: {
-  //             name: 'NewUserComponent'
-  //           }
-  //         }
-  //       ]
-  //     }
-  //   });
-
-
-    // Navigation.setRoot({
-    //   sideMenu: {
-    //     left: {
-    //       component: {
-    //         name: 'NewUserComponent',
-    //         passProps: {
-    //           text: 'This is a left side menu screen'
-    //         }
-    //       }
-    //     },
-    //     center: {
-    //       component: {
-    //         name: 'NewUserComponent'
-    //       },
-    //     },
-    //     right: {
-    //       component: {
-    //         name: 'NewUserComponent',
-    //         passProps: {
-    //           text: 'This is a right side menu screen'
-    //         }
-    //       }
-    //     }
-    //   }
-    // });
-
-    Navigation.setRoot({
-      bottomTabs: {
-        children: [
-          {
-            component: {
-              name: 'NewUserComponent',
-              passProps: {
-                text: 'This is tab 1',
-                myFunction: () => 'Hello from a function!',
-              },
-            },
-          },
-          {
-            component: {
-              name: 'CreateAccountComponent',
-              passProps: {
-                text: 'This is tab 2',
-              },
-            },
-          },
-        ],
-      },
-    });
-
+  Navigation.startSingleScreenApp({
+    screen: {
+      screen: 'NewUserComponent',
+      title: 'Welcome', // title of the screen as appears in the nav bar (optional)
+      navigatorStyle: {
+        navBarHidden: true
+      }, // override the navigator style for the screen, see "Styling the navigator" below (optional)
+      navigatorButtons: {} // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
+    }
   });
 }

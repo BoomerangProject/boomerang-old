@@ -5,20 +5,26 @@ require("chai")
   .use(require("chai-bignumber")(BigNumber))
   .should();
 
-const KudosWorker = artifacts.require("KudosWorker");
+const Kudos = artifacts.require("Kudos");
 
 contract("KudosWorkerTests", function([deployer, business, worker, user]) {
 
-  let kudosWorker;
+  let kudos;
 
   beforeEach(async function() {
 
-    kudosWorker = await KudosWorker.new();
+    kudos = await Kudos.new();
   });
 
-  // it("", async function() {
+  // it("user", async function() {
   //
+  //   var isBusiness = await kudos.isBusiness(business);
+  //   isBusiness.should.equal(false);
   //
+  //   await kudos.registerAsBusiness({from: business});
+  //
+  //   var isBusiness = await kudos.isBusiness(business);
+  //   isBusiness.should.equal(true);
   // });
 
 });

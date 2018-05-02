@@ -5,5 +5,4 @@ contract Rewards {
 
   mapping(address => mapping(address => uint256)) public employeeRewardProgress;
   uint256 public employeeRewardGoal;
-
 }

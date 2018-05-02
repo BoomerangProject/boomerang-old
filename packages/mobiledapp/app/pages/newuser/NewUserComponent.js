@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Navigation } from 'react-native-navigation';
 import styles from './NewUserComponentStyle';
 import { Image, Text, View, TouchableOpacity } from "react-native";
 import CreateAccountComponent from "../createaccount/CreateAccountComponent";
@@ -9,18 +8,20 @@ class NewUserComponent extends Component {
 
   onClickOfCreateAccountButton() {
 
-    Navigation.push(this.props.componentId, {
-      component: {
-        name: 'CreateAccountComponent'
+    this.props.navigator.push({
+      screen: 'CreateAccountComponent',
+      navigatorStyle: {
+        navBarHidden: true
       }
     });
   }
 
   onClickOfImportAccountButton() {
 
-    Navigation.push(this.props.componentId, {
-      component: {
-        name: 'ImportAccountComponent'
+    this.props.navigator.push({
+      screen: 'ImportAccountComponent',
+      navigatorStyle: {
+        navBarHidden: true
       }
     });
   }

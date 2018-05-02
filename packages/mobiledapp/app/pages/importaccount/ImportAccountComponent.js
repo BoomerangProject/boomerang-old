@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import styles from './ImportAccountComponentStyle';
-import { KeyboardAvoidingView, View, Image, Text, TouchableOpacity, TextInput, ToastAndroid } from "react-native";
+import { KeyboardAvoidingView, View, Image, Text, TouchableOpacity, TextInput, ToastAndroid, Alert } from "react-native";
+import { storeSeed } from "../../services/LocalStorageService";
 
 class ImportAccountComponent extends Component {
+
+
+  constructor(args) {
+    super(args);
+    this.state = {seedText: ''};
+  }
 
   onChangeOfSeedText(seedTextValue) {
     // ToastAndroid.show(seedText, ToastAndroid.SHORT);
@@ -11,14 +18,24 @@ class ImportAccountComponent extends Component {
 
   onClickOfConfirmButton() {
 
-    // if (this.state.seedText === null || this.state.seedText.length !== 64) {
-    //   window.alert("seed text must be 64 hexadecimal characters");
-    //   return;
-    // }
-    //
-    // localStorage.setItem("kudosAccountSeed", this.state.seedText);
-    // localStorage.setItem("kudosAddress", ethUtil.privateToAddress(new Buffer(this.state.seedText, "hex")).toString("hex"));
-    this.props.navigation.navigate('AccountComponent');
+    if (this.state.seedText === null || this.state.seedText.length !== 64) {
+
+      Alert.alert('Invalid seed', 'seed text must be 64 hexadecimal characters',
+        [{text: 'OK', onPress: () => {}}],
+        { cancelable: false }
+      );
+
+      return;
+    }
+
+    storeSeed(this.kudosAccountSeed);
+
+    this.props.navigator.push({
+      screen: 'LoadingPageComponent',
+      navigatorStyle: {
+        navBarHidden: true
+      }
+    });
   }
 
   render() {
