@@ -7,6 +7,7 @@ import UserAccountComponent from "./pages/useraccount/UserAccountComponent";
 import WorkerAccountComponent from "./pages/workeraccount/WorkerAccountComponent";
 import BusinessAccountComponent from "./pages/businessaccount/BusinessAccount";
 import LoadingPageComponent from "./pages/loadingpage/LoadingPageComponent";
+import AccountTypeSelectionComponent from "./pages/accounttypeselection/AccountTypeSelectionComponent";
 
 export function registerScreens() {
 
@@ -18,4 +19,5 @@ export function registerScreens() {
   Navigation.registerComponent('WorkerAccountComponent', () => WorkerAccountComponent);
   Navigation.registerComponent('BusinessAccountComponent', () => BusinessAccountComponent);
   Navigation.registerComponent('LoadingPageComponent', () => LoadingPageComponent);
+  Navigation.registerComponent('AccountTypeSelectionComponent', () => AccountTypeSelectionComponent);
 }

@@ -50,7 +50,7 @@
       "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/Rewards.sol",
       "exportedSymbols": {
         "Rewards": [
-          836
+          792
         ]
       }
     },
@@ -64,7 +64,7 @@
             ".18"
           ]
         },
-        "id": 827,
+        "id": 783,
         "name": "PragmaDirective",
         "src": "0:24:8"
       },
@@ -80,17 +80,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            836
+            792
           ],
           "name": "Rewards",
-          "scope": 837
+          "scope": 793
         },
         "children": [
           {
             "attributes": {
               "constant": false,
               "name": "employeeRewardProgress",
-              "scope": 836,
+              "scope": 792,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => mapping(address => uint256))",
@@ -108,7 +108,7 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 828,
+                    "id": 784,
                     "name": "ElementaryTypeName",
                     "src": "57:7:8"
                   },
@@ -122,7 +122,7 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 829,
+                        "id": 785,
                         "name": "ElementaryTypeName",
                         "src": "76:7:8"
                       },
@@ -131,22 +131,22 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 830,
+                        "id": 786,
                         "name": "ElementaryTypeName",
                         "src": "87:7:8"
                       }
                     ],
-                    "id": 831,
+                    "id": 787,
                     "name": "Mapping",
                     "src": "68:27:8"
                   }
                 ],
-                "id": 832,
+                "id": 788,
                 "name": "Mapping",
                 "src": "49:47:8"
               }
             ],
-            "id": 833,
+            "id": 789,
             "name": "VariableDeclaration",
             "src": "49:77:8"
           },
@@ -154,7 +154,7 @@
             "attributes": {
               "constant": false,
               "name": "employeeRewardGoal",
-              "scope": 836,
+              "scope": 792,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -167,22 +167,22 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 834,
+                "id": 790,
                 "name": "ElementaryTypeName",
                 "src": "130:7:8"
               }
             ],
-            "id": 835,
+            "id": 791,
             "name": "VariableDeclaration",
             "src": "130:33:8"
           }
         ],
-        "id": 836,
+        "id": 792,
         "name": "ContractDefinition",
         "src": "26:140:8"
       }
     ],
-    "id": 837,
+    "id": 793,
     "name": "SourceUnit",
     "src": "0:166:8"
   },
@@ -192,5 +192,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-05-02T20:34:07.798Z"
+  "updatedAt": "2018-05-03T18:16:00.664Z"
 }

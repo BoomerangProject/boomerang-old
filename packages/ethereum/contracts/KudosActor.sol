@@ -6,7 +6,7 @@ contract KudosActor {
   mapping(address => bool) public isBusiness;
 
   mapping(address => mapping(address => bool)) public businessHasApprovedWorker;
-  mapping(address => address[]) public employeeList;
+  mapping(address => address[]) public workerList;
 
   mapping(address => uint256) public businessAverageRating;
   mapping(address => uint256) public numberOfBusinessRatings;
@@ -24,6 +24,9 @@ contract KudosActor {
   mapping(address => uint256) public userAverageRating;
   mapping(address => uint256) public numberOfUserRatings;
 
+
+  // business + worker
+  mapping(address => mapping(address => bool)) public isEmployed;
 
 
 //  mapping(address => mapping(bytes32 => uint256)) public nonce;

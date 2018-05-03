@@ -13,26 +13,7 @@
           "type": "address"
         }
       ],
-      "name": "numberOfWorkerRatings",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "isBusiness",
+      "name": "businessHasApprovedWorker",
       "outputs": [
         {
           "name": "",
@@ -55,7 +36,49 @@
           "type": "address"
         }
       ],
-      "name": "isEmployer",
+      "name": "numberOfWorkerRatings",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "businessList",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isBusiness",
       "outputs": [
         {
           "name": "",
@@ -98,37 +121,14 @@
         },
         {
           "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "employeeList",
-      "outputs": [
-        {
-          "name": "",
           "type": "address"
         }
       ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "address"
-        },
-        {
-          "name": "",
-          "type": "bytes32"
-        }
-      ],
-      "name": "nonce",
+      "name": "isEmployed",
       "outputs": [
         {
           "name": "",
-          "type": "uint256"
+          "type": "bool"
         }
       ],
       "payable": false,
@@ -148,6 +148,25 @@
         {
           "name": "",
           "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isWorker",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
         }
       ],
       "payable": false,
@@ -185,7 +204,7 @@
           "type": "address"
         }
       ],
-      "name": "isEmployee",
+      "name": "workerHasApprovedBusiness",
       "outputs": [
         {
           "name": "",
@@ -221,6 +240,29 @@
         {
           "name": "",
           "type": "address"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "workerList",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
         }
       ],
       "name": "userAverageRating",
@@ -235,18 +277,18 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b6106948061001e6000396000f3006060604052600436106100af576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630e2be266146100b45780631466d019146101205780631bb0d49a146101715780632f64550a146101e157806345561eff1461024d578063862e13c3146102cf5780639708c61f14610329578063b265c33d14610376578063c2cd7632146103c3578063ec5df15a14610433578063ffb3379314610480575b600080fd5b34156100bf57600080fd5b61010a600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506104cd565b6040518082815260200191505060405180910390f35b341561012b57600080fd5b610157600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506104f2565b604051808215151515815260200191505060405180910390f35b341561017c57600080fd5b6101c7600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610512565b604051808215151515815260200191505060405180910390f35b34156101ec57600080fd5b610237600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610541565b6040518082815260200191505060405180910390f35b341561025857600080fd5b61028d600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610566565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156102da57600080fd5b610313600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035600019169060200190919050506105b4565b6040518082815260200191505060405180910390f35b341561033457600080fd5b610360600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506105d9565b6040518082815260200191505060405180910390f35b341561038157600080fd5b6103ad600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506105f1565b6040518082815260200191505060405180910390f35b34156103ce57600080fd5b610419600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610609565b604051808215151515815260200191505060405180910390f35b341561043e57600080fd5b61046a600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610638565b6040518082815260200191505060405180910390f35b341561048b57600080fd5b6104b7600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610650565b6040518082815260200191505060405180910390f35b6007602052816000526040600020602052806000526040600020600091509150505481565b60006020528060005260406000206000915054906101000a900460ff1681565b60086020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b6006602052816000526040600020602052806000526040600020600091509150505481565b60046020528160005260406000208181548110151561058157fe5b90600052602060002090016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6005602052816000526040600020602052806000526040600020600091509150505481565b60026020528060005260406000206000915090505481565b600a6020528060005260406000206000915090505481565b60036020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60016020528060005260406000206000915090505481565b600960205280600052604060002060009150905054815600a165627a7a72305820b9b6f3b3dc043f54531e6bbb78cc663f05b5dfe5a3cc74057760748f1192d86f0029",
-  "deployedBytecode": "0x6060604052600436106100af576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630e2be266146100b45780631466d019146101205780631bb0d49a146101715780632f64550a146101e157806345561eff1461024d578063862e13c3146102cf5780639708c61f14610329578063b265c33d14610376578063c2cd7632146103c3578063ec5df15a14610433578063ffb3379314610480575b600080fd5b34156100bf57600080fd5b61010a600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506104cd565b6040518082815260200191505060405180910390f35b341561012b57600080fd5b610157600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506104f2565b604051808215151515815260200191505060405180910390f35b341561017c57600080fd5b6101c7600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610512565b604051808215151515815260200191505060405180910390f35b34156101ec57600080fd5b610237600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610541565b6040518082815260200191505060405180910390f35b341561025857600080fd5b61028d600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610566565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156102da57600080fd5b610313600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035600019169060200190919050506105b4565b6040518082815260200191505060405180910390f35b341561033457600080fd5b610360600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506105d9565b6040518082815260200191505060405180910390f35b341561038157600080fd5b6103ad600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506105f1565b6040518082815260200191505060405180910390f35b34156103ce57600080fd5b610419600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610609565b604051808215151515815260200191505060405180910390f35b341561043e57600080fd5b61046a600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610638565b6040518082815260200191505060405180910390f35b341561048b57600080fd5b6104b7600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610650565b6040518082815260200191505060405180910390f35b6007602052816000526040600020602052806000526040600020600091509150505481565b60006020528060005260406000206000915054906101000a900460ff1681565b60086020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b6006602052816000526040600020602052806000526040600020600091509150505481565b60046020528160005260406000208181548110151561058157fe5b90600052602060002090016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6005602052816000526040600020602052806000526040600020600091509150505481565b60026020528060005260406000206000915090505481565b600a6020528060005260406000206000915090505481565b60036020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60016020528060005260406000206000915090505481565b600960205280600052604060002060009150905054815600a165627a7a72305820b9b6f3b3dc043f54531e6bbb78cc663f05b5dfe5a3cc74057760748f1192d86f0029",
-  "sourceMap": "26:757:2:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "26:757:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;510:76;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;65:42;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;590:62;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;432:74;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;301:49;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;355:60;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;172:58;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;724:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;235:62;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;112:56;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;668:52;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;510:76;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;65:42::-;;;;;;;;;;;;;;;;;;;;;;:::o;590:62::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;432:74::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;301:49::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;355:60::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;172:58::-;;;;;;;;;;;;;;;;;:::o;724:54::-;;;;;;;;;;;;;;;;;:::o;235:62::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;112:56::-;;;;;;;;;;;;;;;;;:::o;668:52::-;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.4.18;\n\ncontract KudosActor {\n\n  // business\n  mapping(address => bool) public isBusiness;\n\n  mapping(address => uint256) public businessAverageRating;\n  mapping(address => uint256) public numberOfBusinessRatings;\n\n  mapping(address => mapping(address => bool)) public isEmployee;\n  mapping(address => address[]) public employeeList;\n\n  mapping(address => mapping(bytes32 => uint256)) public nonce;\n\n  // worker\n  mapping(address => mapping(address => uint256)) public workerAverageRating;\n  mapping(address => mapping(address => uint256)) public numberOfWorkerRatings;\n  mapping(address => mapping(address => bool)) public isEmployer;\n\n\n  // user\n  mapping(address => uint256) public userAverageRating;\n  mapping(address => uint256) public numberOfUserRatings;\n\n\n}",
+  "bytecode": "0x6060604052341561000f57600080fd5b61080b8061001e6000396000f3006060604052600436106100c5576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063067a0949146100ca5780630e2be2661461013a578063130ee376146101a65780631466d019146102285780632f64550a146102795780637b1d0c83146102e55780639708c61f14610355578063aa156645146103a2578063b265c33d146103f3578063e336379314610440578063ec5df15a146104b0578063f9011888146104fd578063ffb337931461057f575b600080fd5b34156100d557600080fd5b610120600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506105cc565b604051808215151515815260200191505060405180910390f35b341561014557600080fd5b610190600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506105fb565b6040518082815260200191505060405180910390f35b34156101b157600080fd5b6101e6600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610620565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561023357600080fd5b61025f600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061066e565b604051808215151515815260200191505060405180910390f35b341561028457600080fd5b6102cf600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061068e565b6040518082815260200191505060405180910390f35b34156102f057600080fd5b61033b600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506106b3565b604051808215151515815260200191505060405180910390f35b341561036057600080fd5b61038c600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506106e2565b6040518082815260200191505060405180910390f35b34156103ad57600080fd5b6103d9600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506106fa565b604051808215151515815260200191505060405180910390f35b34156103fe57600080fd5b61042a600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061071a565b6040518082815260200191505060405180910390f35b341561044b57600080fd5b610496600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610732565b604051808215151515815260200191505060405180910390f35b34156104bb57600080fd5b6104e7600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610761565b6040518082815260200191505060405180910390f35b341561050857600080fd5b61053d600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610779565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561058a57600080fd5b6105b6600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506107c7565b6040518082815260200191505060405180910390f35b60016020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b6009602052816000526040600020602052806000526040600020600091509150505481565b60076020528160005260406000208181548110151561063b57fe5b90600052602060002090016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60006020528060005260406000206000915054906101000a900460ff1681565b6008602052816000526040600020602052806000526040600020600091509150505481565b600c6020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60046020528060005260406000206000915090505481565b60056020528060005260406000206000915054906101000a900460ff1681565b600b6020528060005260406000206000915090505481565b60066020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60036020528060005260406000206000915090505481565b60026020528160005260406000208181548110151561079457fe5b90600052602060002090016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600a60205280600052604060002060009150905054815600a165627a7a72305820b018c5b4ace09096f3eb9c806c243800d0780541de52ac1bc86aeb93a97923d80029",
+  "deployedBytecode": "0x6060604052600436106100c5576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063067a0949146100ca5780630e2be2661461013a578063130ee376146101a65780631466d019146102285780632f64550a146102795780637b1d0c83146102e55780639708c61f14610355578063aa156645146103a2578063b265c33d146103f3578063e336379314610440578063ec5df15a146104b0578063f9011888146104fd578063ffb337931461057f575b600080fd5b34156100d557600080fd5b610120600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506105cc565b604051808215151515815260200191505060405180910390f35b341561014557600080fd5b610190600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506105fb565b6040518082815260200191505060405180910390f35b34156101b157600080fd5b6101e6600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610620565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561023357600080fd5b61025f600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061066e565b604051808215151515815260200191505060405180910390f35b341561028457600080fd5b6102cf600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061068e565b6040518082815260200191505060405180910390f35b34156102f057600080fd5b61033b600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506106b3565b604051808215151515815260200191505060405180910390f35b341561036057600080fd5b61038c600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506106e2565b6040518082815260200191505060405180910390f35b34156103ad57600080fd5b6103d9600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506106fa565b604051808215151515815260200191505060405180910390f35b34156103fe57600080fd5b61042a600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061071a565b6040518082815260200191505060405180910390f35b341561044b57600080fd5b610496600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610732565b604051808215151515815260200191505060405180910390f35b34156104bb57600080fd5b6104e7600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610761565b6040518082815260200191505060405180910390f35b341561050857600080fd5b61053d600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610779565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561058a57600080fd5b6105b6600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506107c7565b6040518082815260200191505060405180910390f35b60016020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b6009602052816000526040600020602052806000526040600020600091509150505481565b60076020528160005260406000208181548110151561063b57fe5b90600052602060002090016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60006020528060005260406000206000915054906101000a900460ff1681565b6008602052816000526040600020602052806000526040600020600091509150505481565b600c6020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60046020528060005260406000206000915090505481565b60056020528060005260406000206000915054906101000a900460ff1681565b600b6020528060005260406000206000915090505481565b60066020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60036020528060005260406000206000915090505481565b60026020528160005260406000208181548110151561079457fe5b90600052602060002090016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600a60205280600052604060002060009150905054815600a165627a7a72305820b018c5b4ace09096f3eb9c806c243800d0780541de52ac1bc86aeb93a97923d80029",
+  "sourceMap": "26:975:2:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:975:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;112:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;638:76;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;506:49;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;65:42;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;560:74;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;868:62;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;305:58;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;380:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;785:54;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;425:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;245:56;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;193:47;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;729:52;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;112:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;638:76::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;506:49::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;65:42::-;;;;;;;;;;;;;;;;;;;;;;:::o;560:74::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;868:62::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;305:58::-;;;;;;;;;;;;;;;;;:::o;380:40::-;;;;;;;;;;;;;;;;;;;;;;:::o;785:54::-;;;;;;;;;;;;;;;;;:::o;425:77::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;245:56::-;;;;;;;;;;;;;;;;;:::o;193:47::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;729:52::-;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\ncontract KudosActor {\n\n  // business\n  mapping(address => bool) public isBusiness;\n\n  mapping(address => mapping(address => bool)) public businessHasApprovedWorker;\n  mapping(address => address[]) public workerList;\n\n  mapping(address => uint256) public businessAverageRating;\n  mapping(address => uint256) public numberOfBusinessRatings;\n\n  // worker\n  mapping(address => bool) public isWorker;\n\n  mapping(address => mapping(address => bool)) public workerHasApprovedBusiness;\n  mapping(address => address[]) public businessList;\n\n  mapping(address => mapping(address => uint256)) public workerAverageRating;\n  mapping(address => mapping(address => uint256)) public numberOfWorkerRatings;\n\n  // user\n  mapping(address => uint256) public userAverageRating;\n  mapping(address => uint256) public numberOfUserRatings;\n\n\n  // business + worker\n  mapping(address => mapping(address => bool)) public isEmployed;\n\n\n//  mapping(address => mapping(bytes32 => uint256)) public nonce;\n}\n",
   "sourcePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosActor.sol",
   "ast": {
     "attributes": {
       "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosActor.sol",
       "exportedSymbols": {
         "KudosActor": [
-          277
+          286
         ]
       }
     },
@@ -276,17 +318,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            277
+            286
           ],
           "name": "KudosActor",
-          "scope": 278
+          "scope": 287
         },
         "children": [
           {
             "attributes": {
               "constant": false,
               "name": "isBusiness",
-              "scope": 277,
+              "scope": 286,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => bool)",
@@ -330,98 +372,8 @@
           {
             "attributes": {
               "constant": false,
-              "name": "businessAverageRating",
-              "scope": 277,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => uint256)",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => uint256)"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 226,
-                    "name": "ElementaryTypeName",
-                    "src": "120:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "name": "uint256",
-                      "type": "uint256"
-                    },
-                    "id": 227,
-                    "name": "ElementaryTypeName",
-                    "src": "131:7:2"
-                  }
-                ],
-                "id": 228,
-                "name": "Mapping",
-                "src": "112:27:2"
-              }
-            ],
-            "id": 229,
-            "name": "VariableDeclaration",
-            "src": "112:56:2"
-          },
-          {
-            "attributes": {
-              "constant": false,
-              "name": "numberOfBusinessRatings",
-              "scope": 277,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => uint256)",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => uint256)"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 230,
-                    "name": "ElementaryTypeName",
-                    "src": "180:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "name": "uint256",
-                      "type": "uint256"
-                    },
-                    "id": 231,
-                    "name": "ElementaryTypeName",
-                    "src": "191:7:2"
-                  }
-                ],
-                "id": 232,
-                "name": "Mapping",
-                "src": "172:27:2"
-              }
-            ],
-            "id": 233,
-            "name": "VariableDeclaration",
-            "src": "172:58:2"
-          },
-          {
-            "attributes": {
-              "constant": false,
-              "name": "isEmployee",
-              "scope": 277,
+              "name": "businessHasApprovedWorker",
+              "scope": 286,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => mapping(address => bool))",
@@ -439,9 +391,9 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 234,
+                    "id": 226,
                     "name": "ElementaryTypeName",
-                    "src": "243:7:2"
+                    "src": "120:7:2"
                   },
                   {
                     "attributes": {
@@ -453,39 +405,39 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 235,
+                        "id": 227,
                         "name": "ElementaryTypeName",
-                        "src": "262:7:2"
+                        "src": "139:7:2"
                       },
                       {
                         "attributes": {
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 236,
+                        "id": 228,
                         "name": "ElementaryTypeName",
-                        "src": "273:4:2"
+                        "src": "150:4:2"
                       }
                     ],
-                    "id": 237,
+                    "id": 229,
                     "name": "Mapping",
-                    "src": "254:24:2"
+                    "src": "131:24:2"
                   }
                 ],
-                "id": 238,
+                "id": 230,
                 "name": "Mapping",
-                "src": "235:44:2"
+                "src": "112:44:2"
               }
             ],
-            "id": 239,
+            "id": 231,
             "name": "VariableDeclaration",
-            "src": "235:62:2"
+            "src": "112:77:2"
           },
           {
             "attributes": {
               "constant": false,
-              "name": "employeeList",
-              "scope": 277,
+              "name": "workerList",
+              "scope": 286,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => address[] storage ref)",
@@ -503,9 +455,9 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 240,
+                    "id": 232,
                     "name": "ElementaryTypeName",
-                    "src": "309:7:2"
+                    "src": "201:7:2"
                   },
                   {
                     "attributes": {
@@ -518,40 +470,130 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 241,
+                        "id": 233,
                         "name": "ElementaryTypeName",
-                        "src": "320:7:2"
+                        "src": "212:7:2"
                       }
                     ],
-                    "id": 242,
+                    "id": 234,
                     "name": "ArrayTypeName",
-                    "src": "320:9:2"
+                    "src": "212:9:2"
                   }
                 ],
-                "id": 243,
+                "id": 235,
                 "name": "Mapping",
-                "src": "301:29:2"
+                "src": "193:29:2"
               }
             ],
-            "id": 244,
+            "id": 236,
             "name": "VariableDeclaration",
-            "src": "301:49:2"
+            "src": "193:47:2"
           },
           {
             "attributes": {
               "constant": false,
-              "name": "nonce",
-              "scope": 277,
+              "name": "businessAverageRating",
+              "scope": 286,
               "stateVariable": true,
               "storageLocation": "default",
-              "type": "mapping(address => mapping(bytes32 => uint256))",
+              "type": "mapping(address => uint256)",
               "value": null,
               "visibility": "public"
             },
             "children": [
               {
                 "attributes": {
-                  "type": "mapping(address => mapping(bytes32 => uint256))"
+                  "type": "mapping(address => uint256)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 237,
+                    "name": "ElementaryTypeName",
+                    "src": "253:7:2"
+                  },
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 238,
+                    "name": "ElementaryTypeName",
+                    "src": "264:7:2"
+                  }
+                ],
+                "id": 239,
+                "name": "Mapping",
+                "src": "245:27:2"
+              }
+            ],
+            "id": 240,
+            "name": "VariableDeclaration",
+            "src": "245:56:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "numberOfBusinessRatings",
+              "scope": 286,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => uint256)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => uint256)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 241,
+                    "name": "ElementaryTypeName",
+                    "src": "313:7:2"
+                  },
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 242,
+                    "name": "ElementaryTypeName",
+                    "src": "324:7:2"
+                  }
+                ],
+                "id": 243,
+                "name": "Mapping",
+                "src": "305:27:2"
+              }
+            ],
+            "id": 244,
+            "name": "VariableDeclaration",
+            "src": "305:58:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "isWorker",
+              "scope": 286,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => bool)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => bool)"
                 },
                 "children": [
                   {
@@ -561,179 +603,32 @@
                     },
                     "id": 245,
                     "name": "ElementaryTypeName",
-                    "src": "363:7:2"
+                    "src": "388:7:2"
                   },
                   {
                     "attributes": {
-                      "type": "mapping(bytes32 => uint256)"
+                      "name": "bool",
+                      "type": "bool"
                     },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "bytes32",
-                          "type": "bytes32"
-                        },
-                        "id": 246,
-                        "name": "ElementaryTypeName",
-                        "src": "382:7:2"
-                      },
-                      {
-                        "attributes": {
-                          "name": "uint256",
-                          "type": "uint256"
-                        },
-                        "id": 247,
-                        "name": "ElementaryTypeName",
-                        "src": "393:7:2"
-                      }
-                    ],
-                    "id": 248,
-                    "name": "Mapping",
-                    "src": "374:27:2"
-                  }
-                ],
-                "id": 249,
-                "name": "Mapping",
-                "src": "355:47:2"
-              }
-            ],
-            "id": 250,
-            "name": "VariableDeclaration",
-            "src": "355:60:2"
-          },
-          {
-            "attributes": {
-              "constant": false,
-              "name": "workerAverageRating",
-              "scope": 277,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => mapping(address => uint256))",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => mapping(address => uint256))"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 251,
+                    "id": 246,
                     "name": "ElementaryTypeName",
-                    "src": "440:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "type": "mapping(address => uint256)"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 252,
-                        "name": "ElementaryTypeName",
-                        "src": "459:7:2"
-                      },
-                      {
-                        "attributes": {
-                          "name": "uint256",
-                          "type": "uint256"
-                        },
-                        "id": 253,
-                        "name": "ElementaryTypeName",
-                        "src": "470:7:2"
-                      }
-                    ],
-                    "id": 254,
-                    "name": "Mapping",
-                    "src": "451:27:2"
+                    "src": "399:4:2"
                   }
                 ],
-                "id": 255,
+                "id": 247,
                 "name": "Mapping",
-                "src": "432:47:2"
+                "src": "380:24:2"
               }
             ],
-            "id": 256,
+            "id": 248,
             "name": "VariableDeclaration",
-            "src": "432:74:2"
+            "src": "380:40:2"
           },
           {
             "attributes": {
               "constant": false,
-              "name": "numberOfWorkerRatings",
-              "scope": 277,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "mapping(address => mapping(address => uint256))",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "type": "mapping(address => mapping(address => uint256))"
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "name": "address",
-                      "type": "address"
-                    },
-                    "id": 257,
-                    "name": "ElementaryTypeName",
-                    "src": "518:7:2"
-                  },
-                  {
-                    "attributes": {
-                      "type": "mapping(address => uint256)"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 258,
-                        "name": "ElementaryTypeName",
-                        "src": "537:7:2"
-                      },
-                      {
-                        "attributes": {
-                          "name": "uint256",
-                          "type": "uint256"
-                        },
-                        "id": 259,
-                        "name": "ElementaryTypeName",
-                        "src": "548:7:2"
-                      }
-                    ],
-                    "id": 260,
-                    "name": "Mapping",
-                    "src": "529:27:2"
-                  }
-                ],
-                "id": 261,
-                "name": "Mapping",
-                "src": "510:47:2"
-              }
-            ],
-            "id": 262,
-            "name": "VariableDeclaration",
-            "src": "510:76:2"
-          },
-          {
-            "attributes": {
-              "constant": false,
-              "name": "isEmployer",
-              "scope": 277,
+              "name": "workerHasApprovedBusiness",
+              "scope": 286,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => mapping(address => bool))",
@@ -751,9 +646,9 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 263,
+                    "id": 249,
                     "name": "ElementaryTypeName",
-                    "src": "598:7:2"
+                    "src": "433:7:2"
                   },
                   {
                     "attributes": {
@@ -765,39 +660,223 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 264,
+                        "id": 250,
                         "name": "ElementaryTypeName",
-                        "src": "617:7:2"
+                        "src": "452:7:2"
                       },
                       {
                         "attributes": {
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 265,
+                        "id": 251,
                         "name": "ElementaryTypeName",
-                        "src": "628:4:2"
+                        "src": "463:4:2"
                       }
                     ],
-                    "id": 266,
+                    "id": 252,
                     "name": "Mapping",
-                    "src": "609:24:2"
+                    "src": "444:24:2"
                   }
                 ],
-                "id": 267,
+                "id": 253,
                 "name": "Mapping",
-                "src": "590:44:2"
+                "src": "425:44:2"
               }
             ],
-            "id": 268,
+            "id": 254,
             "name": "VariableDeclaration",
-            "src": "590:62:2"
+            "src": "425:77:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "businessList",
+              "scope": 286,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => address[] storage ref)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => address[] storage ref)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 255,
+                    "name": "ElementaryTypeName",
+                    "src": "514:7:2"
+                  },
+                  {
+                    "attributes": {
+                      "length": null,
+                      "type": "address[] storage pointer"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 256,
+                        "name": "ElementaryTypeName",
+                        "src": "525:7:2"
+                      }
+                    ],
+                    "id": 257,
+                    "name": "ArrayTypeName",
+                    "src": "525:9:2"
+                  }
+                ],
+                "id": 258,
+                "name": "Mapping",
+                "src": "506:29:2"
+              }
+            ],
+            "id": 259,
+            "name": "VariableDeclaration",
+            "src": "506:49:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "workerAverageRating",
+              "scope": 286,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => mapping(address => uint256))",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => mapping(address => uint256))"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 260,
+                    "name": "ElementaryTypeName",
+                    "src": "568:7:2"
+                  },
+                  {
+                    "attributes": {
+                      "type": "mapping(address => uint256)"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 261,
+                        "name": "ElementaryTypeName",
+                        "src": "587:7:2"
+                      },
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 262,
+                        "name": "ElementaryTypeName",
+                        "src": "598:7:2"
+                      }
+                    ],
+                    "id": 263,
+                    "name": "Mapping",
+                    "src": "579:27:2"
+                  }
+                ],
+                "id": 264,
+                "name": "Mapping",
+                "src": "560:47:2"
+              }
+            ],
+            "id": 265,
+            "name": "VariableDeclaration",
+            "src": "560:74:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "numberOfWorkerRatings",
+              "scope": 286,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => mapping(address => uint256))",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => mapping(address => uint256))"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 266,
+                    "name": "ElementaryTypeName",
+                    "src": "646:7:2"
+                  },
+                  {
+                    "attributes": {
+                      "type": "mapping(address => uint256)"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 267,
+                        "name": "ElementaryTypeName",
+                        "src": "665:7:2"
+                      },
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 268,
+                        "name": "ElementaryTypeName",
+                        "src": "676:7:2"
+                      }
+                    ],
+                    "id": 269,
+                    "name": "Mapping",
+                    "src": "657:27:2"
+                  }
+                ],
+                "id": 270,
+                "name": "Mapping",
+                "src": "638:47:2"
+              }
+            ],
+            "id": 271,
+            "name": "VariableDeclaration",
+            "src": "638:76:2"
           },
           {
             "attributes": {
               "constant": false,
               "name": "userAverageRating",
-              "scope": 277,
+              "scope": 286,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => uint256)",
@@ -815,34 +894,34 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 269,
+                    "id": 272,
                     "name": "ElementaryTypeName",
-                    "src": "676:7:2"
+                    "src": "737:7:2"
                   },
                   {
                     "attributes": {
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 270,
+                    "id": 273,
                     "name": "ElementaryTypeName",
-                    "src": "687:7:2"
+                    "src": "748:7:2"
                   }
                 ],
-                "id": 271,
+                "id": 274,
                 "name": "Mapping",
-                "src": "668:27:2"
+                "src": "729:27:2"
               }
             ],
-            "id": 272,
+            "id": 275,
             "name": "VariableDeclaration",
-            "src": "668:52:2"
+            "src": "729:52:2"
           },
           {
             "attributes": {
               "constant": false,
               "name": "numberOfUserRatings",
-              "scope": 277,
+              "scope": 286,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => uint256)",
@@ -860,38 +939,102 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 273,
+                    "id": 276,
                     "name": "ElementaryTypeName",
-                    "src": "732:7:2"
+                    "src": "793:7:2"
                   },
                   {
                     "attributes": {
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 274,
+                    "id": 277,
                     "name": "ElementaryTypeName",
-                    "src": "743:7:2"
+                    "src": "804:7:2"
                   }
                 ],
-                "id": 275,
+                "id": 278,
                 "name": "Mapping",
-                "src": "724:27:2"
+                "src": "785:27:2"
               }
             ],
-            "id": 276,
+            "id": 279,
             "name": "VariableDeclaration",
-            "src": "724:54:2"
+            "src": "785:54:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "isEmployed",
+              "scope": 286,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => mapping(address => bool))",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => mapping(address => bool))"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 280,
+                    "name": "ElementaryTypeName",
+                    "src": "876:7:2"
+                  },
+                  {
+                    "attributes": {
+                      "type": "mapping(address => bool)"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 281,
+                        "name": "ElementaryTypeName",
+                        "src": "895:7:2"
+                      },
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 282,
+                        "name": "ElementaryTypeName",
+                        "src": "906:4:2"
+                      }
+                    ],
+                    "id": 283,
+                    "name": "Mapping",
+                    "src": "887:24:2"
+                  }
+                ],
+                "id": 284,
+                "name": "Mapping",
+                "src": "868:44:2"
+              }
+            ],
+            "id": 285,
+            "name": "VariableDeclaration",
+            "src": "868:62:2"
           }
         ],
-        "id": 277,
+        "id": 286,
         "name": "ContractDefinition",
-        "src": "26:757:2"
+        "src": "26:975:2"
       }
     ],
-    "id": 278,
+    "id": 287,
     "name": "SourceUnit",
-    "src": "0:783:2"
+    "src": "0:1002:2"
   },
   "compiler": {
     "name": "solc",
@@ -899,5 +1042,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-04-23T20:58:42.396Z"
+  "updatedAt": "2018-05-03T18:16:00.659Z"
 }

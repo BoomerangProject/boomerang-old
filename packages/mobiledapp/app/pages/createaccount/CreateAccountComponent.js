@@ -3,6 +3,7 @@ import { View, Image, Text, TouchableOpacity, ToastAndroid, Clipboard } from 're
 import crypto from 'crypto'
 import styles from './CreateAccountComponentStyle';
 import { storeSeed } from '../../services/LocalStorageService';
+import AccountTypeSelectionComponent from "../accounttypeselection/AccountTypeSelectionComponent";
 
 class CreateAccountComponent extends Component {
 
@@ -20,7 +21,7 @@ class CreateAccountComponent extends Component {
     storeSeed(this.kudosAccountSeed);
 
     this.props.navigator.push({
-      screen: 'LoadingPageComponent',
+      screen: 'AccountTypeSelectionComponent',
       navigatorStyle: {
         navBarHidden: true
       }
