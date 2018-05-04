@@ -8,5 +8,8 @@ YellowBox.ignoreWarnings([
   // 'Warning: componentWillReceiveProps is deprecated',
 ]);
 
+// prevent red screen from coming up
+console.reportErrorsAsExceptions = false;
+
 start();
 
