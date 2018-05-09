@@ -18,7 +18,8 @@ module.exports = {
     ropsten: {
       provider: new WalletProvider(wallet, "https://ropsten.infura.io/" + process.env.INFURA_ACCESS_TOKEN),
       network_id: "3",
-      gas: 4612388
+      gas: 4612388,
+      gasPrice: 80000000000
     }
   }
 };

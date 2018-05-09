@@ -1,5 +1,5 @@
-import ethUtil from "ethereumjs-util";
 import { default as localStorage } from 'react-native-sensitive-info';
+import web3 from "../services/Web3HttpService";
 
 export function storeSeed(seedArg) {
 
@@ -8,9 +8,9 @@ export function storeSeed(seedArg) {
     encrypt: true
   });
 
-  const accountAddress = '0x' + ethUtil.privateToAddress(new Buffer(seedArg, "hex")).toString("hex");
+  const account = web3.eth.accounts.privateKeyToAccount(seedArg);
 
-  localStorage.setItem("kudosAccountAddress", accountAddress, {
+  localStorage.setItem("kudosAccountAddress", account.address, {
     keychainService: 'kudosKeychain',
     encrypt: true
   });

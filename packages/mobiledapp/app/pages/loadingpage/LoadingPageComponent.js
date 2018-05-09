@@ -3,8 +3,9 @@ import styles from './LoadingPageComponentStyle';
 import { View, Image, Text, ActivityIndicator, ToastAndroid } from "react-native";
 import kudosContract from '../../services/KudosContractService'
 import { default as localStorage } from 'react-native-sensitive-info';
-import web3 from '../../services/Web3Service';
-import getBalance from '../../api/GetBalance';
+import GetBalanceRequester from '../../api/GetBalanceRequester';
+import IsBusinessRequester from '../../api/IsBusinessRequester';
+import RegisterAsBusinessRequester from '../../api/RegisterAsBusinessRequester';
 
 const visibleDotsArray = ['. ', '. .', '. . .', '. .', '. '];
 const hiddenDotsArray = ['. .', ' .', '', ' .', '. .'];
@@ -14,7 +15,10 @@ class LoadingPageComponent extends Component {
 
   constructor(args) {
     super(args);
-    this.state = {visibleDots: '', hiddenDots: '. . .'};
+    this.state = {visibleDots: '', hiddenDots: '. . .', isBusiness: false};
+    this.getBalanceRequester = new GetBalanceRequester();
+    this.isBusinessRequester = new IsBusinessRequester();
+    this.registerAsBusinessRequester = new RegisterAsBusinessRequester();
   }
 
   async componentDidMount() {
@@ -30,71 +34,76 @@ class LoadingPageComponent extends Component {
     switch (this.props.action) {
       case 'createUserAccount':
 
+        let myBalance;
+        try {
+          myBalance = await this.getBalanceRequester.makeRequest("0xdcee2f1da7262362a962d456280a928f4f90bb5e");
+          console.log("BaaAALANCE:: " + myBalance);
+        } catch (error) {
+
+          if (!error.message.toLowerCase().includes('abort')) {
+            // TODO - display some kind of error message
+          }
+        }
+
         break;
       case 'createWorkerAccount':
 
         break;
       case 'createBusinessAccount':
 
-        // const transactionReceipt = await kudosContract.methods.registerAsBusiness(kudosAccountAddress).send({from:''});
-        // ToastAndroid.show(transactionReceipt.toString(), ToastAndroid.SHORT);
-        // const isBusiness = await kudosContract.methods.isBusiness(kudosAccountAddress).call();
-        // ToastAndroid.show(isBusiness.toString(), ToastAndroid.SHORT);
 
-        const query = kudosContract.methods.registerAsBusiness(kudosAccountAddress);
-        const encodedABI = query.encodeABI();
-        const tx = {
-          from: "0xdcee2f1da7262362a962d456280a928f4f90bb5e",
-          to: "0xe28e955a6e6cb657114f2a9a3fc62c39455933c2",
-          gas: 4612388,
-          data: encodedABI,
-        };
+        const kudosAccountAddress = await localStorage.getItem('kudosAccountAddress', {
+          keychainService: 'kudosKeychain'
+        });
 
-        console.log(tx);
 
-        const privateKey = '4725d5a1c46923e72f04831eab9daf1ec657f256f5e4f139d4835b5197fcffc4';
+        await this.checkBusinessStatus(kudosAccountAddress);
 
-        const account = web3.eth.accounts.privateKeyToAccount(privateKey);
-        console.log("ACCCOUTN " + account.toString());
-
-        let myBalance;
+        let result;
         try {
-          myBalance = await getBalance();
-          console.log("BaaAALANCE:: " + myBalance);
+          result = await this.registerAsBusinessRequester.makeRequest(kudosAccountAddress);
+          console.log(JSON.stringify(result));
         } catch (error) {
-          console.log("there was a terrible error");
+
+          if (!error.message.toLowerCase().includes('abort')) {
+            // TODO - display some kind of error message
+            console.log(error);
+          }
         }
 
-
-        // web3.eth.accounts.signTransaction(tx, privateKey).then(signed => {
-        //
-        //   const tran = web3.eth
-        //     .sendSignedTransaction(signed.rawTransaction)
-        //     .on('confirmation', (confirmationNumber, receipt) => {
-        //       console.log('=> confirmation: ' + confirmationNumber);
-        //     })
-        //     .on('transactionHash', hash => {
-        //       console.log('=> hash');
-        //       console.log(hash);
-        //     })
-        //     .on('receipt', receipt => {
-        //       console.log('=> reciept');
-        //       console.log(receipt);
-        //     })
-        //     .on('error', console.error);
-        // });
+        await this.checkBusinessStatus(kudosAccountAddress);
 
         break;
     }
 
 
-    const kudosAccountAddress = await localStorage.getItem('kudosAccountAddress', {
-      keychainService: 'kudosKeychain'
-    });
   }
 
-  componentWillUnmount() {
+  async checkBusinessStatus(kudosAccountAddress) {
+
+    let result;
+    try {
+
+      result = await this.isBusinessRequester.makeRequest(kudosAccountAddress);
+
+      this.setState({ isBusiness: result.toString()});
+
+      console.log("isBusiness: " + result);
+    } catch (error) {
+
+      if (!error.message.toLowerCase().includes('abort')) {
+        // TODO - display some kind of error message
+        console.log(error);
+      }
+    }
+
+  }
+
+  async componentWillUnmount() {
     clearInterval(setIntervalId);
+    await this.getBalanceRequester.cancel();
+    await this.isBusinessRequester.cancel();
+    await this.registerAsBusinessRequester.cancel();
   }
 
   render() {
@@ -114,6 +123,9 @@ class LoadingPageComponent extends Component {
         </View>
 
         <View style={styles.spacer}/>
+
+        <Text>isBusiness: {this.state.isBusiness}</Text>
+
       </View>
     );
   }

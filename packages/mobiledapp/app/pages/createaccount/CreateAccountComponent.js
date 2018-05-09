@@ -9,7 +9,7 @@ class CreateAccountComponent extends Component {
 
   constructor(props) {
     super(props);
-    this.kudosAccountSeed = crypto.randomBytes(32).toString("hex");
+    this.kudosAccountSeed = '0x' + crypto.randomBytes(32).toString("hex");
   }
 
   async onClickOfSeedButton() {
@@ -49,7 +49,7 @@ class CreateAccountComponent extends Component {
         <TouchableOpacity
           style={styles.seedButtonContainer}
           onPress={this.onClickOfSeedButton.bind(this)}>
-          <Text style={styles.seedButton}>{this.kudosAccountSeed}</Text>
+          <Text style={styles.seedButton}>{this.kudosAccountSeed.slice(2)}</Text>
         </TouchableOpacity>
 
         <Text style={styles.tapToCopyMessage}>Tap to copy</Text>

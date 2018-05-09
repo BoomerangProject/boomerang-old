@@ -18,8 +18,8 @@ class UserPage extends Component {
     //   toBlock: 'latest'
     // }, console.log);
 
-    kudosContract.getPastEvents('WorkerRating', {
-      filter: {_userAddress: userAddress},
+    kudosContract.getPastEvents('RegisteredAsBusiness', {
+      // filter: {_userAddress: userAddress},
       fromBlock: 0,
       toBlock: 'latest'
     }).then((events) => {
@@ -39,10 +39,13 @@ class UserPage extends Component {
         {
           this.state.events.map(function(event) {
 
-            const ipfsHash = '1220' + event.returnValues._ipfsHash.slice(2);
-            console.log(ipfsHash);
-            const bytes = Buffer.from(ipfsHash, 'hex');
-            return <div key={event.id}>{bs58.encode(bytes)}</div>
+            // const ipfsHash = '1220' + event.returnValues._ipfsHash.slice(2);
+            // console.log(ipfsHash);
+            // const bytes = Buffer.from(ipfsHash, 'hex');
+            // return <div key={event.id}>{bs58.encode(bytes)}</div>
+
+            console.log(event);
+            return <div key={event.id}>{event.toString()}</div>
           })
         }
       </div>
