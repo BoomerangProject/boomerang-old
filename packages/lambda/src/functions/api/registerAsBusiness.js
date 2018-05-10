@@ -1,5 +1,5 @@
 'use strict';
-// import okayResponse from "../../responses/okayResponse";
+import okayResponse from "../../responses/okayResponse";
 // import errorResponse from "../../responses/errorResponse";
 // import storeToIpfs from '../../services/IpfsService';
 // import storeToS3 from "../../services/S3Service";
