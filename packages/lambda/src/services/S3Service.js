@@ -8,14 +8,6 @@ let storeToS3 = async (bucketName, ipfsHash, ipfsObject) => {
 
   return new Promise(function(resolve, reject) {
 
-    s3.listBuckets(function(error, data) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log(JSON.stringify(data));
-      }
-    });
-
     const params = {
       ACL: 'private',
       Bucket: bucketName,
