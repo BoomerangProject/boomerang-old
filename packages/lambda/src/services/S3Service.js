@@ -1,14 +1,14 @@
 'use strict';
 import AWS from "aws-sdk";
 
-const s3 = new AWS.S3();
+const s3 = new AWS.S3({apiVersion: '2006-03-01', region: 'us-east-1'});
 
 let storeToS3 = async (bucketName, ipfsHash, ipfsObject) => {
 
   return new Promise(function(resolve, reject) {
 
     const params = {
-      ACL: 'public-read-write',
+      ACL: 'private',
       Bucket: bucketName,
       Key: ipfsHash,
       Body: JSON.stringify(ipfsObject)
