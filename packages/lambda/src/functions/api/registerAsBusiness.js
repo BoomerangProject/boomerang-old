@@ -1,5 +1,5 @@
 'use strict';
-import okayResponse from "../../responses/okayResponse";
+// import okayResponse from "../../responses/okayResponse";
 // import errorResponse from "../../responses/errorResponse";
 // import storeToIpfs from '../../services/IpfsService';
 // import storeToS3 from "../../services/S3Service";
@@ -17,6 +17,8 @@ const getBusinessDescription = function(event) {
   const jsonBody = JSON.parse(event.body);
   return jsonBody.businessAddress;
 };
+
+
 
 export default async (event, context, callback) => {
 
@@ -48,6 +50,14 @@ export default async (event, context, callback) => {
   // } catch (error) {
   //   return callback(null, s3errorResponse(error));
   // }
+
+  const okayResponse = {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: `success`
+    })
+  };
+
 
   callback(null, okayResponse);
 };
