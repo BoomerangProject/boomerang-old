@@ -23,10 +23,8 @@
     "kudos-contract-objects": "^1.0.12",
     "scrypt": "^6.0.3",
     "serverless-plugin-include-dependencies": "^3.0.0",
-    "truffle-contract": "^3.0.4",
-    "truffle-wallet-provider": "0.0.5",
     "uuid": "^3.2.1",
-    "web3-utils": "^1.0.0-beta.33"
+    "web3": "^1.0.0-beta.34"
   },
   "devDependencies": {
     "axios": "^0.18.0",
