@@ -7,6 +7,7 @@ import getPendingReviews from "./functions/reviewrequests/getPendingReviews";
 import updateRegistry from "./functions/registry/updateRegistry";
 import getNonceForUpdatingRegistry from "./functions/registry/getNonceForUpdatingRegistry";
 import getUserAddress from "./functions/registry/getUserAddress";
+import registerAsBusiness from "./functions/api/registerAsBusiness";
 
 module.exports.getNonceValue = getNonceValue;
 module.exports.rateExperience = rateExperience;
@@ -16,3 +17,4 @@ module.exports.getPendingReviews = getPendingReviews;
 module.exports.updateRegistry = updateRegistry;
 module.exports.getUserAddress = getUserAddress;
 module.exports.getNonceForUpdatingRegistry = getNonceForUpdatingRegistry;
+module.exports.registerAsBusiness = registerAsBusiness;

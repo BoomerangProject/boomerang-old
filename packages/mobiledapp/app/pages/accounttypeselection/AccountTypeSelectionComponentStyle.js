@@ -11,7 +11,6 @@ module.exports = StyleSheet.create({
     alignItems: 'center'
   },
   logo: {
-    marginTop: 'auto',
     width: 50,
     height: 50
   },
@@ -24,7 +23,6 @@ module.exports = StyleSheet.create({
   },
   userAccountButtonContainer: {
 
-    marginTop: 65,
     width: '60%',
     height: 50,
     backgroundColor: '#5DD0C2',
@@ -59,8 +57,7 @@ module.exports = StyleSheet.create({
     height: 50,
     backgroundColor: '#5DD0C2',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 'auto'
+    justifyContent: 'center'
   },
   businessAccountButton: {
 

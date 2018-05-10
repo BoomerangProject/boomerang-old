@@ -64,3 +64,9 @@ functions:
       - http:
           path: /getNonceForUpdatingRegistry
           method: get
+  registerAsBusiness:
+    handler: lib/handler.registerAsBusiness
+    events:
+      - http:
+          path: /registerAsBusiness
+          method: post

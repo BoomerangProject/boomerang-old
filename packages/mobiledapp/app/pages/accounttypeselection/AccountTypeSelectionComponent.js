@@ -13,7 +13,13 @@ class AccountTypeSelectionComponent extends Component {
   }
 
   onClickOfBusinessAccount() {
-    this.goToLoadingPage('createBusinessAccount');
+
+    this.props.navigator.push({
+      screen: 'CreateBusinessAccountComponent',
+      navigatorStyle: {
+        navBarHidden: true
+      }
+    });
   }
 
   goToLoadingPage(action) {
@@ -34,8 +40,12 @@ class AccountTypeSelectionComponent extends Component {
 
       <View style={styles.container}>
 
+        <View style={{flex: 1}}/>
+
         <Image style={styles.logo} source={require("../../images/kudos.png")}/>
         <Text style={styles.title}>choose your account type</Text>
+
+        <View style={{flex: 1}}/>
 
         <TouchableOpacity
           style={styles.userAccountButtonContainer}
@@ -54,6 +64,8 @@ class AccountTypeSelectionComponent extends Component {
           onPress={this.onClickOfBusinessAccount.bind(this)}>
           <Text style={styles.businessAccountButton}>business</Text>
         </TouchableOpacity>
+
+        <View style={{flex: 2}}/>
       </View>
     );
   }

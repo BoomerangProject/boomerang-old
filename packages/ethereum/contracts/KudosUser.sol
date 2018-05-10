@@ -19,7 +19,7 @@ contract KudosUser is KudosActor {
                             address _businessAddress,
                             uint256 _workerRating,
                             uint256 _businessRating,
-                            bytes32 _transactionHash)
+                            bytes32 _ipfsHash)
   public {
 
     if (_businessRating >= 0 || _businessRating <= 5) {
@@ -30,7 +30,7 @@ contract KudosUser is KudosActor {
       updateWorkerRating(_workerAddress, _businessAddress, _workerRating);
     }
 
-    KudosExperience(_userAddress, _workerAddress, _businessAddress, _workerRating, _businessRating, _transactionHash);
+    KudosExperience(_userAddress, _workerAddress, _businessAddress, _workerRating, _businessRating, _ipfsHash);
   }
 
   function updateBusinessRating(address _businessAddress, uint256 _businessRating) internal {

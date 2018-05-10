@@ -7,7 +7,7 @@ contract KudosBusiness is KudosActor {
   event RegisteredAsBusiness(address indexed _businessAddress);
   event BusinessHasApprovedWorker(address indexed _businessAddress, address indexed _workerAddress);
 
-  function registerAsBusiness(address _businessAddress) public {
+  function registerAsBusiness(address _businessAddress, bytes32 _ipfsHash) public {
 
     isBusiness[_businessAddress] = true;
     RegisteredAsBusiness(_businessAddress);

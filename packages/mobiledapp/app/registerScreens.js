@@ -8,6 +8,8 @@ import WorkerAccountComponent from "./pages/workeraccount/WorkerAccountComponent
 import BusinessAccountComponent from "./pages/businessaccount/BusinessAccount";
 import LoadingPageComponent from "./pages/loadingpage/LoadingPageComponent";
 import AccountTypeSelectionComponent from "./pages/accounttypeselection/AccountTypeSelectionComponent";
+import CreateBusinessAccountComponent from "./pages/createbusinessaccount/CreateBusinessAccountComponent";
+import AddProfilePhotoComponent from "./pages/addprofilephoto/AddProfilePhotoComponent";
 
 export function registerScreens() {
 
@@ -20,4 +22,6 @@ export function registerScreens() {
   Navigation.registerComponent('BusinessAccountComponent', () => BusinessAccountComponent);
   Navigation.registerComponent('LoadingPageComponent', () => LoadingPageComponent);
   Navigation.registerComponent('AccountTypeSelectionComponent', () => AccountTypeSelectionComponent);
+  Navigation.registerComponent('CreateBusinessAccountComponent', () => CreateBusinessAccountComponent);
+  Navigation.registerComponent('AddProfilePhotoComponent', () => AddProfilePhotoComponent);
 }
