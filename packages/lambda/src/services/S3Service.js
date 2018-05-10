@@ -3,13 +3,13 @@ import AWS from "aws-sdk";
 
 const s3 = new AWS.S3();
 
-let storeToS3 = async (ipfsObject, ipfsHash) => {
+let storeToS3 = async (bucketName, ipfsHash, ipfsObject) => {
 
   return new Promise(function(resolve, reject) {
 
     const params = {
-      ACL: 'private',
-      Bucket: 'kudos-profiles',
+      ACL: 'public',
+      Bucket: bucketName,
       Key: ipfsHash,
       Body: JSON.stringify(ipfsObject)
     };
