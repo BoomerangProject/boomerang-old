@@ -20,34 +20,34 @@ const getBusinessDescription = function(event) {
 
 export default async (event, context, callback) => {
 
-  const businessName = getBusinessName(event);
-  const businessDescription = getBusinessDescription(event);
-
-  if (businessName == null || businessName.length < 1) {
-    callback(null, errorResponse);
-    return;
-  }
-
-  if (businessDescription == null || businessDescription.length < 1) {
-    callback(null, errorResponse);
-    return;
-  }
-
-  const ipfsObject = JSON.parse(event.body);
-
-  let ipfsHash;
-
-  try {
-    ipfsHash = await storeToIpfs(ipfsObject);
-  } catch (error) {
-    return callback(null, ipfsErrorResponse(error));
-  }
-
-  try {
-    await storeToS3(ipfsObject, ipfsHash);
-  } catch (error) {
-    return callback(null, s3errorResponse(error));
-  }
+  // const businessName = getBusinessName(event);
+  // const businessDescription = getBusinessDescription(event);
+  //
+  // if (businessName == null || businessName.length < 1) {
+  //   callback(null, errorResponse);
+  //   return;
+  // }
+  //
+  // if (businessDescription == null || businessDescription.length < 1) {
+  //   callback(null, errorResponse);
+  //   return;
+  // }
+  //
+  // const ipfsObject = JSON.parse(event.body);
+  //
+  // let ipfsHash;
+  //
+  // try {
+  //   ipfsHash = await storeToIpfs(ipfsObject);
+  // } catch (error) {
+  //   return callback(null, ipfsErrorResponse(error));
+  // }
+  //
+  // try {
+  //   await storeToS3(ipfsObject, ipfsHash);
+  // } catch (error) {
+  //   return callback(null, s3errorResponse(error));
+  // }
 
   callback(null, okayResponse);
 };
