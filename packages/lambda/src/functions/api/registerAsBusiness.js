@@ -45,6 +45,8 @@ export default async (event, context, callback) => {
     return callback(null, ipfsErrorResponse(error));
   }
 
+  console.log('ipfsHash: ' + ipfsHash);
+
   try {
     await storeToS3(ipfsObject, ipfsHash);
   } catch (error) {
