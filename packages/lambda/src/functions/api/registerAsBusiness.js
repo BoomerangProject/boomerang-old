@@ -1,10 +1,10 @@
 'use strict';
-import okayResponse from "../../responses/okayResponse";
-import errorResponse from "../../responses/errorResponse";
-import storeToIpfs from '../../services/IpfsService';
-import storeToS3 from "../../services/S3Service";
-import s3errorResponse from "../../responses/s3errorResponse";
-import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
+// import okayResponse from "../../responses/okayResponse";
+// import errorResponse from "../../responses/errorResponse";
+// import storeToIpfs from '../../services/IpfsService';
+// import storeToS3 from "../../services/S3Service";
+// import s3errorResponse from "../../responses/s3errorResponse";
+// import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
 
 const getBusinessName = function(event) {
 
