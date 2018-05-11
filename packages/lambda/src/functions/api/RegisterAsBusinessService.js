@@ -24,6 +24,7 @@ let registerAsBusiness = async (accountAddress, ipfsHash) => {
     web3.eth.sendSignedTransaction(signedTransaction.rawTransaction)
       .on('transactionHash', (transactionHash) => {
 
+        resolve(transactionHash);
         // console.log('transactionHash: ' + transactionHash)
       })
       .on('receipt', (receipt) => {
@@ -32,10 +33,10 @@ let registerAsBusiness = async (accountAddress, ipfsHash) => {
       .on('confirmation', (confirmationNumber, receipt) => {
         // console.log("confirmation number: " + confirmationNumber);
         // console.log("the receipt is " + receipt);
-
-        if (confirmationNumber > 5) {
-          resolve(receipt);
-        }
+        //
+        // if (confirmationNumber > 5) {
+        //   resolve(receipt);
+        // }
       })
       .on('error', (error) => {
         reject(error);

@@ -12,7 +12,7 @@ provider:
   stage: dev
   versionFunctions: false
   region: us-east-1
-  timeout: 1800
+  timeout: 300
 
 
 functions:

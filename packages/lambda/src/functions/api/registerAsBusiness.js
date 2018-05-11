@@ -69,12 +69,12 @@ export default async (event, context, callback) => {
 
   // ---
 
-  let transactionReceipt;
+  let transactionHash;
   try {
-    transactionReceipt = await registerAsBusiness(accountAddress, ipfsHash);
+    transactionHash = await registerAsBusiness(accountAddress, ipfsHash);
   } catch (error) {
     return callback(null, errorResponse('problem with smart contract call: ' + error));
   }
 
-  callback(null, apiOkayResponse(transactionReceipt));
+  callback(null, apiOkayResponse(transactionHash));
 };
