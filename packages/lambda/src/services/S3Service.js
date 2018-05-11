@@ -9,6 +9,7 @@ let storeToS3 = async (bucketName, ipfsHash, ipfsObject) => {
   return new Promise(function(resolve, reject) {
 
     const params = {
+      ACL: 'private',
       Bucket: bucketName,
       Key: ipfsHash,
       Body: JSON.stringify(ipfsObject)
