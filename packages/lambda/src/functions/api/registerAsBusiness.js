@@ -6,6 +6,7 @@ import storeToS3 from "../../services/S3Service";
 import registerAsBusiness from './RegisterAsBusinessService';
 import s3errorResponse from "../../responses/s3errorResponse";
 import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
+import apiOkayResponse from "../../responses/apiOkayResponse";
 
 const getAccountAddress = function(event) {
 
@@ -42,7 +43,7 @@ export default async (event, context, callback) => {
   }
 
   if (businessDescription == null || businessDescription.length < 1) {
-    callback(null, errorResponse());
+    callback(null, errorResponse('businessDescription is required'));
     return;
   }
 
@@ -68,13 +69,12 @@ export default async (event, context, callback) => {
 
   // ---
 
-  // try {
-  //   await registerAsBusiness(accountAddress, ipfsHash);
-  // } catch (error) {
-  //   return callback(null, errorResponse());
-  // }
+  let transactionReceipt;
+  try {
+    transactionReceipt = await registerAsBusiness(accountAddress, ipfsHash);
+  } catch (error) {
+    return callback(null, errorResponse('problem with smart contract call'));
+  }
 
-
-
-  callback(null, okayResponse);
+  callback(null, apiOkayResponse(transactionReceipt));
 };
