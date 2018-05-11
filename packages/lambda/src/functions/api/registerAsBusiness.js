@@ -18,8 +18,6 @@ const getBusinessDescription = function(event) {
   return jsonBody.businessDescription;
 };
 
-
-
 export default async (event, context, callback) => {
 
   const businessName = getBusinessName(event);
@@ -48,7 +46,7 @@ export default async (event, context, callback) => {
   console.log('ipfsHash: ' + ipfsHash);
 
   try {
-    await storeToS3('kudos-reviews', ipfsHash, ipfsObject);
+    await storeToS3('kudos-profiles', ipfsHash, ipfsObject);
   } catch (error) {
     return callback(null, s3errorResponse(error));
   }
