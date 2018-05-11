@@ -1,5 +1,5 @@
 'use strict';
-import KudosContractService from '../../services/KudosContractService';
+import KudosContractService from '../../services/KudosContractServiceOld';
 
 
 

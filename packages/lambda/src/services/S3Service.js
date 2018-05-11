@@ -2,13 +2,14 @@
 import AWS from "aws-sdk";
 
 // const s3 = new AWS.S3({apiVersion: '2006-03-01', region: 'us-east-1'});
-const s3 = new AWS.S3({apiVersion: '2006-03-01'});
+const s3 = new AWS.S3({apiVersion: '2006-03-01', endpoint: 'https://s3.us-east-1.amazonaws.com'});
 
 let storeToS3 = async (bucketName, ipfsHash, ipfsObject) => {
 
   return new Promise(function(resolve, reject) {
 
     const params = {
+      ACL: 'private',
       Bucket: bucketName,
       Key: ipfsHash,
       Body: JSON.stringify(ipfsObject)
