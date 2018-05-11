@@ -4,13 +4,13 @@ import "./KudosActor.sol";
 
 contract KudosBusiness is KudosActor {
 
-  event RegisteredAsBusiness(address indexed _businessAddress);
+  event RegisteredAsBusiness(address indexed _businessAddress, bytes32 _ipfsHash);
   event BusinessHasApprovedWorker(address indexed _businessAddress, address indexed _workerAddress);
 
   function registerAsBusiness(address _businessAddress, bytes32 _ipfsHash) public {
 
     isBusiness[_businessAddress] = true;
-    RegisteredAsBusiness(_businessAddress);
+    RegisteredAsBusiness(_businessAddress, _ipfsHash);
 
     // any business registration init
   }
