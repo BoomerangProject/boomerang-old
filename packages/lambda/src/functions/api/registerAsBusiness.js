@@ -3,8 +3,15 @@ import okayResponse from "../../responses/okayResponse";
 import errorResponse from "../../responses/errorResponse";
 import storeToIpfs from '../../services/IpfsService';
 import storeToS3 from "../../services/S3Service";
+import registerAsBusiness from './RegisterAsBusinessService';
 import s3errorResponse from "../../responses/s3errorResponse";
 import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
+
+const getAccountAddress = function(event) {
+
+  const jsonBody = JSON.parse(event.body);
+  return jsonBody.accountAddress;
+};
 
 const getBusinessName = function(event) {
 
@@ -20,18 +27,26 @@ const getBusinessDescription = function(event) {
 
 export default async (event, context, callback) => {
 
+  const accountAddress = getAccountAddress(event);
   const businessName = getBusinessName(event);
   const businessDescription = getBusinessDescription(event);
 
+  if (accountAddress == null || accountAddress.length < 1) {
+    callback(null, errorResponse('accountAddress is required'));
+    return;
+  }
+
   if (businessName == null || businessName.length < 1) {
-    callback(null, errorResponse);
+    callback(null, errorResponse('businessName is required'));
     return;
   }
 
   if (businessDescription == null || businessDescription.length < 1) {
-    callback(null, errorResponse);
+    callback(null, errorResponse());
     return;
   }
+
+  // ---
 
   const ipfsObject = JSON.parse(event.body);
 
@@ -50,6 +65,16 @@ export default async (event, context, callback) => {
   } catch (error) {
     return callback(null, s3errorResponse(error));
   }
+
+  // ---
+
+  // try {
+  //   await registerAsBusiness(accountAddress, ipfsHash);
+  // } catch (error) {
+  //   return callback(null, errorResponse());
+  // }
+
+
 
   callback(null, okayResponse);
 };
