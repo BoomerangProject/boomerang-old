@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, TextInput, Text, TouchableOpacity, ToastAndroid, Clipboard } from 'react-native';
 import styles from './CreateBusinessAccountComponentStyle';
+import { default as localStorage } from 'react-native-sensitive-info';
 
 class CreateBusinessAccountComponent extends Component {
 
@@ -19,16 +20,24 @@ class CreateBusinessAccountComponent extends Component {
     }
   }
 
-  onClickOfOkayButton() {
+  async onClickOfOkayButton() {
 
     if (this.okayButtonIsEnabled) {
 
-      this.props.navigator.push({
-        screen: 'AddProfilePhotoComponent',
-        navigatorStyle: {
-          navBarHidden: true
-        }
+      const accountAddress = await localStorage.getItem('kudosAccountAddress', {
+        keychainService: 'kudosKeychain'
       });
+
+      console.log("business account address: " + accountAddress);
+      console.log("business name: " + this.state.businessName);
+      console.log("business description: " + this.state.businessDescription);
+
+      // this.props.navigator.push({
+      //   screen: 'AddProfilePhotoComponent',
+      //   navigatorStyle: {
+      //     navBarHidden: true
+      //   }
+      // });
     }
   }
 

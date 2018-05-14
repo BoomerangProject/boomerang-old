@@ -5,7 +5,7 @@ import kudosContract from '../../services/KudosContractService'
 import { default as localStorage } from 'react-native-sensitive-info';
 import GetBalanceRequester from '../../api/GetBalanceRequester';
 import IsBusinessRequester from '../../api/IsBusinessRequester';
-import RegisterAsBusinessRequester from '../../api/RegisterAsBusinessRequester';
+import RegisterAsBusinessRequester from '../../api/RegisterAsBusinessRequesterOld';
 
 const visibleDotsArray = ['. ', '. .', '. . .', '. .', '. '];
 const hiddenDotsArray = ['. .', ' .', '', ' .', '. .'];

@@ -3,10 +3,10 @@ import okayResponse from "../../responses/okayResponse";
 import errorResponse from "../../responses/errorResponse";
 import storeToIpfs from '../../services/IpfsService';
 import storeToS3 from "../../services/S3Service";
-import registerAsBusiness from './RegisterAsBusinessService';
+import registerAsBusinessTransaction from './RegisterAsBusinessSigner';
 import s3errorResponse from "../../responses/s3errorResponse";
 import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
-import apiOkayResponse from "../../responses/apiOkayResponse";
+import signedTransactionResponse from "../../responses/smartContractReceiptResponse";
 
 const getAccountAddress = function(event) {
 
@@ -69,12 +69,12 @@ export default async (event, context, callback) => {
 
   // ---
 
-  let transactionHash;
+  let signedTransaction;
   try {
-    transactionHash = await registerAsBusiness(accountAddress, ipfsHash);
+    signedTransaction = await registerAsBusinessTransaction(accountAddress, ipfsHash);
   } catch (error) {
     return callback(null, errorResponse('problem with smart contract call: ' + error));
   }
 
-  callback(null, apiOkayResponse(transactionHash));
+  callback(null, signedTransactionResponse(signedTransaction));
 };
