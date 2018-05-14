@@ -10,6 +10,7 @@ import LoadingPageComponent from "./pages/loadingpage/LoadingPageComponent";
 import AccountTypeSelectionComponent from "./pages/accounttypeselection/AccountTypeSelectionComponent";
 import CreateBusinessAccountComponent from "./pages/createbusinessaccount/CreateBusinessAccountComponent";
 import AddProfilePhotoComponent from "./pages/addprofilephoto/AddProfilePhotoComponent";
+import CreateBusinessAccountLoadingPageComponent from "./pages/createbusinessaccountloadingpage/CreateBusinessAccountLoadingPageComponent";
 
 export function registerScreens() {
 
@@ -24,4 +25,5 @@ export function registerScreens() {
   Navigation.registerComponent('AccountTypeSelectionComponent', () => AccountTypeSelectionComponent);
   Navigation.registerComponent('CreateBusinessAccountComponent', () => CreateBusinessAccountComponent);
   Navigation.registerComponent('AddProfilePhotoComponent', () => AddProfilePhotoComponent);
+  Navigation.registerComponent('CreateBusinessAccountLoadingPageComponent', () => CreateBusinessAccountLoadingPageComponent);
 }

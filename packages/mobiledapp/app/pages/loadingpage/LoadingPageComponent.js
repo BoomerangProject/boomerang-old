@@ -75,8 +75,6 @@ class LoadingPageComponent extends Component {
 
         break;
     }
-
-
   }
 
   async checkBusinessStatus(kudosAccountAddress) {

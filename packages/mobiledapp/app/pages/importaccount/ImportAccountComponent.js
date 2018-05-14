@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './ImportAccountComponentStyle';
 import { KeyboardAvoidingView, View, Image, Text, TouchableOpacity, TextInput, ToastAndroid, Alert } from "react-native";
 import { storeSeed } from "../../services/LocalStorageService";
+import IsBusinessRequester from "../../api/IsBusinessRequester";
 
 class ImportAccountComponent extends Component {
 
@@ -9,6 +10,7 @@ class ImportAccountComponent extends Component {
   constructor(args) {
     super(args);
     this.state = {seedText: ''};
+    this.isBusinessRequester = new IsBusinessRequester();
   }
 
   onChangeOfSeedText(seedTextValue) {
@@ -16,26 +18,46 @@ class ImportAccountComponent extends Component {
     this.setState({seedText: seedTextValue});
   }
 
-  onClickOfConfirmButton() {
+  async onClickOfConfirmButton() {
 
-    if (this.state.seedText === null || this.state.seedText.length !== 64) {
+    const businessAccountAddress = this.state.seedText;
+    await this.checkBusinessStatus(businessAccountAddress);
 
-      Alert.alert('Invalid seed', 'seed text must be 64 hexadecimal characters',
-        [{text: 'OK', onPress: () => {}}],
-        { cancelable: false }
-      );
+    // if (this.state.seedText === null || .length !== 64) {
+    //
+    //   Alert.alert('Invalid seed', 'seed text must be 64 hexadecimal characters',
+    //     [{text: 'OK', onPress: () => {}}],
+    //     { cancelable: false }
+    //   );
+    //
+    //   return;
+    // }
+    //
+    // storeSeed(this.kudosAccountSeed);
+    //
+    // this.props.navigator.push({
+    //   screen: 'LoadingPageComponent',
+    //   navigatorStyle: {
+    //     navBarHidden: true
+    //   }
+    // });
+  }
 
-      return;
+
+
+
+  async checkBusinessStatus(kudosAccountAddress) {
+
+    let result;
+    try {
+
+      result = await this.isBusinessRequester.makeRequest(kudosAccountAddress);
+
+      console.log("isBusiness for " + kudosAccountAddress + ": " + result);
+    } catch (error) {
+
+      console.log(error);
     }
-
-    storeSeed(this.kudosAccountSeed);
-
-    this.props.navigator.push({
-      screen: 'LoadingPageComponent',
-      navigatorStyle: {
-        navBarHidden: true
-      }
-    });
   }
 
   render() {

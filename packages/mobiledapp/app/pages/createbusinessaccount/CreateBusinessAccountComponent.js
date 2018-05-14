@@ -24,20 +24,16 @@ class CreateBusinessAccountComponent extends Component {
 
     if (this.okayButtonIsEnabled) {
 
-      const accountAddress = await localStorage.getItem('kudosAccountAddress', {
-        keychainService: 'kudosKeychain'
+      this.props.navigator.push({
+        screen: 'CreateBusinessAccountLoadingPageComponent',
+        navigatorStyle: {
+          navBarHidden: true
+        },
+        passProps: {
+          businessName: this.state.businessName,
+          businessDescription: this.state.businessDescription
+        }
       });
-
-      console.log("business account address: " + accountAddress);
-      console.log("business name: " + this.state.businessName);
-      console.log("business description: " + this.state.businessDescription);
-
-      // this.props.navigator.push({
-      //   screen: 'AddProfilePhotoComponent',
-      //   navigatorStyle: {
-      //     navBarHidden: true
-      //   }
-      // });
     }
   }
 

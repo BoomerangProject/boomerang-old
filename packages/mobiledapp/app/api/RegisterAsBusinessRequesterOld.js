@@ -3,7 +3,7 @@ import web3 from "../services/Web3HttpService";
 import kudosContract from "../services/KudosContractService";
 import { default as localStorage } from 'react-native-sensitive-info';
 
-export default class RegisterAsBusinessRequester {
+export default class RegisterAsBusinessRequesterOld {
 
   async makeRequest(addressArg) {
 
