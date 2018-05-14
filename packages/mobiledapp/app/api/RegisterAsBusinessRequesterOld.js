@@ -20,7 +20,7 @@ export default class RegisterAsBusinessRequesterOld {
     const encodedABI = query.encodeABI();
     const tx = {
       from: "0xdcee2f1da7262362a962d456280a928f4f90bb5e",
-      to: "0xe28e955a6e6cb657114f2a9a3fc62c39455933c2",
+      to: "0x0576086e929976fe1E3d54146964000d7D752c64",
       gas: 4612388,
       data: encodedABI,
     };

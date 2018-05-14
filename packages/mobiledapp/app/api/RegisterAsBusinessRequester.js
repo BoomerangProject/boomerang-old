@@ -6,7 +6,6 @@ axios.defaults.baseURL = 'https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com
 
 export default class RegisterAsBusinessRequester {
 
-
   async makeRequest(businessAccountAddress, businessName, businessDescription) {
 
     this.isBusinessRequester = new IsBusinessRequester();
@@ -83,7 +82,7 @@ export default class RegisterAsBusinessRequester {
             console.log('confirmation #' + confirmationNumber + ': ' + isBusinessValue);
           });
 
-          if (confirmationNumber > 23) {
+          if (confirmationNumber > 5) {
             resolve(receipt);
           }
         })

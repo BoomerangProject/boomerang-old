@@ -5,28 +5,21 @@ export default class IsBusinessRequester {
 
   async makeRequest(addressArg) {
 
-    const result = await kudosContract.methods.isBusiness(addressArg).call();
-    return result;
+    return new Promise((resolve, reject) => {
 
-    // return new Promise((resolve, reject) => {
+      this.call = backoff.call(kudosContract.methods.isBusiness(addressArg).call, {}, (error, result) => {
 
+        if (error) {
+          return reject(error);
+        } else {
+          return resolve(result);
+        }
+      });
 
-
-
-
-      // this.call = backoff.call(kudosContract.methods.isBusiness(addressArg).call, {}, (error, result) => {
-      //
-      //   if (error) {
-      //     return reject(error);
-      //   } else {
-      //     return resolve(result);
-      //   }
-      // });
-      //
-      // this.call.setStrategy(new backoff.ExponentialStrategy());
-      // this.call.failAfter(12);
-      // this.call.start();
-    // });
+      this.call.setStrategy(new backoff.ExponentialStrategy());
+      this.call.failAfter(12);
+      this.call.start();
+    });
   }
 
   async cancel() {
