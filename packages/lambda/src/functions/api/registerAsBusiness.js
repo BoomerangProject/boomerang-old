@@ -1,5 +1,4 @@
 'use strict';
-import okayResponse from "../../responses/okayResponse";
 import errorResponse from "../../responses/errorResponse";
 import storeToIpfs from '../../services/IpfsService';
 import storeToS3 from "../../services/S3Service";
@@ -8,10 +7,10 @@ import s3errorResponse from "../../responses/s3errorResponse";
 import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
 import signedTransactionResponse from "../../responses/smartContractReceiptResponse";
 
-const getAccountAddress = function(event) {
+const getBusinessAccountAddress = function(event) {
 
   const jsonBody = JSON.parse(event.body);
-  return jsonBody.accountAddress;
+  return jsonBody.businessAccountAddress;
 };
 
 const getBusinessName = function(event) {
@@ -28,12 +27,12 @@ const getBusinessDescription = function(event) {
 
 export default async (event, context, callback) => {
 
-  const accountAddress = getAccountAddress(event);
+  const businessAccountAddress = getBusinessAccountAddress(event);
   const businessName = getBusinessName(event);
   const businessDescription = getBusinessDescription(event);
 
-  if (accountAddress == null || accountAddress.length < 1) {
-    callback(null, errorResponse('accountAddress is required'));
+  if (businessAccountAddress == null || businessAccountAddress.length < 1) {
+    callback(null, errorResponse('businessAccountAddress is required'));
     return;
   }
 
@@ -71,9 +70,9 @@ export default async (event, context, callback) => {
 
   let signedTransaction;
   try {
-    signedTransaction = await registerAsBusinessTransaction(accountAddress, ipfsHash);
+    signedTransaction = await registerAsBusinessTransaction(businessAccountAddress, ipfsHash);
   } catch (error) {
-    return callback(null, errorResponse('problem with smart contract call: ' + error));
+    return callback(null, errorResponse('problem with signing transaction: ' + error));
   }
 
   callback(null, signedTransactionResponse(signedTransaction));

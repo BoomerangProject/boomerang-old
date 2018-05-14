@@ -10,14 +10,14 @@ let registerAsBusinessTransaction = async (accountAddress, ipfsHash) => {
 
   const query = kudosContract.methods.registerAsBusiness(accountAddress, ipfsHashInBytes(ipfsHash));
   const encodedABI = query.encodeABI();
-  const tx = {
+  const transaction = {
     from: accountAddressOfPayer,
     to: kudosContractAddress,
     gas: 4612388,
     data: encodedABI
   };
 
-  const signedTransaction = await web3.eth.accounts.signTransaction(tx, privateKeyOfPayer);
+  const signedTransaction = await web3.eth.accounts.signTransaction(transaction, privateKeyOfPayer);
 
   return signedTransaction;
 };
