@@ -4,7 +4,7 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "copyGlobals": "cp ../KudosContractAddress.js ./lib/KudosContractAddress.js",
+    "copyGlobals": "cp ../KudosContractAddress.js ./src/KudosContractAddress.js",
     "deploy": "npm run copyGlobals && npm run compile && sls deploy --stage dev",
     "offline": "npm run copyGlobals && npm run compile && sls offline start",
     "compile": "babel ./src --out-dir ./lib",
