@@ -4,14 +4,32 @@ module.exports = StyleSheet.create({
 
   container: {
 
-
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: 'white',
+    alignItems: 'center'
   },
   logo: {
-    width: 40,
-    height: 40
+    marginTop: 'auto',
+    width: 50,
+    height: 50
   },
-  address: {
-
+  title: {
+    fontFamily: 'WorkSans-Regular',
+    marginTop: 8,
+    marginBottom: 8,
+    color: '#002A1C',
+    fontSize: 22,
+  },
+  fieldContainer: {
+    margin: 16,
+    justifyContent: 'flex-start'
+  },
+  field: {
+    fontSize: 12,
+    color: '#002A1C',
+    fontFamily: 'WorkSans-Regular',
   }
 });
 

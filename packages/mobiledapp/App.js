@@ -9,7 +9,7 @@ export function start() {
 
   Navigation.startSingleScreenApp({
     screen: {
-      screen: 'NewUserComponent',
+      screen: 'BusinessAccountComponent',
       title: 'Welcome', // title of the screen as appears in the nav bar (optional)
       navigatorStyle: {
         navBarHidden: true
