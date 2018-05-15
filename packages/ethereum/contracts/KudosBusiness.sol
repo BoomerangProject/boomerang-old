@@ -9,6 +9,8 @@ contract KudosBusiness is KudosActor {
 
   function registerAsBusiness(address _businessAddress, bytes32 _ipfsHash) public {
 
+    require(isBusiness[_businessAddress] == false);
+
     isBusiness[_businessAddress] = true;
     RegisteredAsBusiness(_businessAddress, _ipfsHash);
 

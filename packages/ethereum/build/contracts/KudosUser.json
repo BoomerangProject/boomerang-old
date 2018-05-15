@@ -359,7 +359,7 @@
       "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosUser.sol",
       "exportedSymbols": {
         "KudosUser": [
-          550
+          558
         ]
       }
     },
@@ -373,7 +373,7 @@
             ".18"
           ]
         },
-        "id": 410,
+        "id": 418,
         "name": "PragmaDirective",
         "src": "0:24:4"
       },
@@ -382,13 +382,13 @@
           "SourceUnit": 287,
           "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/KudosActor.sol",
           "file": "./KudosActor.sol",
-          "scope": 551,
+          "scope": 559,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 411,
+        "id": 419,
         "name": "ImportDirective",
         "src": "26:26:4"
       },
@@ -401,11 +401,11 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            550,
+            558,
             286
           ],
           "name": "KudosUser",
-          "scope": 551
+          "scope": 559
         },
         "children": [
           {
@@ -422,12 +422,12 @@
                   "referencedDeclaration": 286,
                   "type": "contract KudosActor"
                 },
-                "id": 412,
+                "id": 420,
                 "name": "UserDefinedTypeName",
                 "src": "76:10:4"
               }
             ],
-            "id": 413,
+            "id": 421,
             "name": "InheritanceSpecifier",
             "src": "76:10:4"
           },
@@ -444,7 +444,7 @@
                       "constant": false,
                       "indexed": true,
                       "name": "_userAddress",
-                      "scope": 427,
+                      "scope": 435,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -457,12 +457,12 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 414,
+                        "id": 422,
                         "name": "ElementaryTypeName",
                         "src": "116:7:4"
                       }
                     ],
-                    "id": 415,
+                    "id": 423,
                     "name": "VariableDeclaration",
                     "src": "116:28:4"
                   },
@@ -471,7 +471,7 @@
                       "constant": false,
                       "indexed": true,
                       "name": "_workerAddress",
-                      "scope": 427,
+                      "scope": 435,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -484,12 +484,12 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 416,
+                        "id": 424,
                         "name": "ElementaryTypeName",
                         "src": "172:7:4"
                       }
                     ],
-                    "id": 417,
+                    "id": 425,
                     "name": "VariableDeclaration",
                     "src": "172:30:4"
                   },
@@ -498,7 +498,7 @@
                       "constant": false,
                       "indexed": true,
                       "name": "_businessAddress",
-                      "scope": 427,
+                      "scope": 435,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -511,12 +511,12 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 418,
+                        "id": 426,
                         "name": "ElementaryTypeName",
                         "src": "230:7:4"
                       }
                     ],
-                    "id": 419,
+                    "id": 427,
                     "name": "VariableDeclaration",
                     "src": "230:32:4"
                   },
@@ -525,7 +525,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "_workerRating",
-                      "scope": 427,
+                      "scope": 435,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -538,12 +538,12 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 420,
+                        "id": 428,
                         "name": "ElementaryTypeName",
                         "src": "290:7:4"
                       }
                     ],
-                    "id": 421,
+                    "id": 429,
                     "name": "VariableDeclaration",
                     "src": "290:21:4"
                   },
@@ -552,7 +552,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "_businessRating",
-                      "scope": 427,
+                      "scope": 435,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -565,12 +565,12 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 422,
+                        "id": 430,
                         "name": "ElementaryTypeName",
                         "src": "339:7:4"
                       }
                     ],
-                    "id": 423,
+                    "id": 431,
                     "name": "VariableDeclaration",
                     "src": "339:23:4"
                   },
@@ -579,7 +579,7 @@
                       "constant": false,
                       "indexed": false,
                       "name": "_ipfsHash",
-                      "scope": 427,
+                      "scope": 435,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -592,22 +592,22 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 424,
+                        "id": 432,
                         "name": "ElementaryTypeName",
                         "src": "390:7:4"
                       }
                     ],
-                    "id": 425,
+                    "id": 433,
                     "name": "VariableDeclaration",
                     "src": "390:17:4"
                   }
                 ],
-                "id": 426,
+                "id": 434,
                 "name": "ParameterList",
                 "src": "113:295:4"
               }
             ],
-            "id": 427,
+            "id": 435,
             "name": "EventDefinition",
             "src": "92:317:4"
           },
@@ -621,7 +621,7 @@
               ],
               "name": "rateExperience",
               "payable": false,
-              "scope": 550,
+              "scope": 558,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -633,7 +633,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_userAddress",
-                      "scope": 481,
+                      "scope": 489,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -646,12 +646,12 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 428,
+                        "id": 436,
                         "name": "ElementaryTypeName",
                         "src": "593:7:4"
                       }
                     ],
-                    "id": 429,
+                    "id": 437,
                     "name": "VariableDeclaration",
                     "src": "593:20:4"
                   },
@@ -659,7 +659,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_workerAddress",
-                      "scope": 481,
+                      "scope": 489,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -672,12 +672,12 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 430,
+                        "id": 438,
                         "name": "ElementaryTypeName",
                         "src": "643:7:4"
                       }
                     ],
-                    "id": 431,
+                    "id": 439,
                     "name": "VariableDeclaration",
                     "src": "643:22:4"
                   },
@@ -685,7 +685,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_businessAddress",
-                      "scope": 481,
+                      "scope": 489,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -698,12 +698,12 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 432,
+                        "id": 440,
                         "name": "ElementaryTypeName",
                         "src": "695:7:4"
                       }
                     ],
-                    "id": 433,
+                    "id": 441,
                     "name": "VariableDeclaration",
                     "src": "695:24:4"
                   },
@@ -711,7 +711,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_workerRating",
-                      "scope": 481,
+                      "scope": 489,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -724,12 +724,12 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 434,
+                        "id": 442,
                         "name": "ElementaryTypeName",
                         "src": "749:7:4"
                       }
                     ],
-                    "id": 435,
+                    "id": 443,
                     "name": "VariableDeclaration",
                     "src": "749:21:4"
                   },
@@ -737,7 +737,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_businessRating",
-                      "scope": 481,
+                      "scope": 489,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -750,12 +750,12 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 436,
+                        "id": 444,
                         "name": "ElementaryTypeName",
                         "src": "800:7:4"
                       }
                     ],
-                    "id": 437,
+                    "id": 445,
                     "name": "VariableDeclaration",
                     "src": "800:23:4"
                   },
@@ -763,7 +763,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_ipfsHash",
-                      "scope": 481,
+                      "scope": 489,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -776,17 +776,17 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 438,
+                        "id": 446,
                         "name": "ElementaryTypeName",
                         "src": "853:7:4"
                       }
                     ],
-                    "id": 439,
+                    "id": 447,
                     "name": "VariableDeclaration",
                     "src": "853:17:4"
                   }
                 ],
-                "id": 440,
+                "id": 448,
                 "name": "ParameterList",
                 "src": "590:281:4"
               },
@@ -797,7 +797,7 @@
                   ]
                 },
                 "children": [],
-                "id": 441,
+                "id": 449,
                 "name": "ParameterList",
                 "src": "881:0:4"
               },
@@ -844,11 +844,11 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 437,
+                                  "referencedDeclaration": 445,
                                   "type": "uint256",
                                   "value": "_businessRating"
                                 },
-                                "id": 442,
+                                "id": 450,
                                 "name": "Identifier",
                                 "src": "892:15:4"
                               },
@@ -865,12 +865,12 @@
                                   "type": "int_const 0",
                                   "value": "0"
                                 },
-                                "id": 443,
+                                "id": 451,
                                 "name": "Literal",
                                 "src": "911:1:4"
                               }
                             ],
-                            "id": 444,
+                            "id": 452,
                             "name": "BinaryOperation",
                             "src": "892:20:4"
                           },
@@ -895,11 +895,11 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 437,
+                                  "referencedDeclaration": 445,
                                   "type": "uint256",
                                   "value": "_businessRating"
                                 },
-                                "id": 445,
+                                "id": 453,
                                 "name": "Identifier",
                                 "src": "916:15:4"
                               },
@@ -916,17 +916,17 @@
                                   "type": "int_const 5",
                                   "value": "5"
                                 },
-                                "id": 446,
+                                "id": 454,
                                 "name": "Literal",
                                 "src": "935:1:4"
                               }
                             ],
-                            "id": 447,
+                            "id": 455,
                             "name": "BinaryOperation",
                             "src": "916:20:4"
                           }
                         ],
-                        "id": 448,
+                        "id": 456,
                         "name": "BinaryOperation",
                         "src": "892:44:4"
                       },
@@ -964,11 +964,11 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 510,
+                                      "referencedDeclaration": 518,
                                       "type": "function (address,uint256)",
                                       "value": "updateBusinessRating"
                                     },
-                                    "id": 449,
+                                    "id": 457,
                                     "name": "Identifier",
                                     "src": "946:20:4"
                                   },
@@ -978,11 +978,11 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 433,
+                                      "referencedDeclaration": 441,
                                       "type": "address",
                                       "value": "_businessAddress"
                                     },
-                                    "id": 450,
+                                    "id": 458,
                                     "name": "Identifier",
                                     "src": "967:16:4"
                                   },
@@ -992,31 +992,31 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 437,
+                                      "referencedDeclaration": 445,
                                       "type": "uint256",
                                       "value": "_businessRating"
                                     },
-                                    "id": 451,
+                                    "id": 459,
                                     "name": "Identifier",
                                     "src": "985:15:4"
                                   }
                                 ],
-                                "id": 452,
+                                "id": 460,
                                 "name": "FunctionCall",
                                 "src": "946:55:4"
                               }
                             ],
-                            "id": 453,
+                            "id": 461,
                             "name": "ExpressionStatement",
                             "src": "946:55:4"
                           }
                         ],
-                        "id": 454,
+                        "id": 462,
                         "name": "Block",
                         "src": "938:70:4"
                       }
                     ],
-                    "id": 455,
+                    "id": 463,
                     "name": "IfStatement",
                     "src": "888:120:4"
                   },
@@ -1061,11 +1061,11 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 435,
+                                  "referencedDeclaration": 443,
                                   "type": "uint256",
                                   "value": "_workerRating"
                                 },
-                                "id": 456,
+                                "id": 464,
                                 "name": "Identifier",
                                 "src": "1018:13:4"
                               },
@@ -1082,12 +1082,12 @@
                                   "type": "int_const 0",
                                   "value": "0"
                                 },
-                                "id": 457,
+                                "id": 465,
                                 "name": "Literal",
                                 "src": "1035:1:4"
                               }
                             ],
-                            "id": 458,
+                            "id": 466,
                             "name": "BinaryOperation",
                             "src": "1018:18:4"
                           },
@@ -1112,11 +1112,11 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 435,
+                                  "referencedDeclaration": 443,
                                   "type": "uint256",
                                   "value": "_workerRating"
                                 },
-                                "id": 459,
+                                "id": 467,
                                 "name": "Identifier",
                                 "src": "1040:13:4"
                               },
@@ -1133,17 +1133,17 @@
                                   "type": "int_const 5",
                                   "value": "5"
                                 },
-                                "id": 460,
+                                "id": 468,
                                 "name": "Literal",
                                 "src": "1057:1:4"
                               }
                             ],
-                            "id": 461,
+                            "id": 469,
                             "name": "BinaryOperation",
                             "src": "1040:18:4"
                           }
                         ],
-                        "id": 462,
+                        "id": 470,
                         "name": "BinaryOperation",
                         "src": "1018:40:4"
                       },
@@ -1185,11 +1185,11 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 549,
+                                      "referencedDeclaration": 557,
                                       "type": "function (address,address,uint256)",
                                       "value": "updateWorkerRating"
                                     },
-                                    "id": 463,
+                                    "id": 471,
                                     "name": "Identifier",
                                     "src": "1068:18:4"
                                   },
@@ -1199,11 +1199,11 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 431,
+                                      "referencedDeclaration": 439,
                                       "type": "address",
                                       "value": "_workerAddress"
                                     },
-                                    "id": 464,
+                                    "id": 472,
                                     "name": "Identifier",
                                     "src": "1087:14:4"
                                   },
@@ -1213,11 +1213,11 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 433,
+                                      "referencedDeclaration": 441,
                                       "type": "address",
                                       "value": "_businessAddress"
                                     },
-                                    "id": 465,
+                                    "id": 473,
                                     "name": "Identifier",
                                     "src": "1103:16:4"
                                   },
@@ -1227,31 +1227,31 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 435,
+                                      "referencedDeclaration": 443,
                                       "type": "uint256",
                                       "value": "_workerRating"
                                     },
-                                    "id": 466,
+                                    "id": 474,
                                     "name": "Identifier",
                                     "src": "1121:13:4"
                                   }
                                 ],
-                                "id": 467,
+                                "id": 475,
                                 "name": "FunctionCall",
                                 "src": "1068:67:4"
                               }
                             ],
-                            "id": 468,
+                            "id": 476,
                             "name": "ExpressionStatement",
                             "src": "1068:67:4"
                           }
                         ],
-                        "id": 469,
+                        "id": 477,
                         "name": "Block",
                         "src": "1060:82:4"
                       }
                     ],
-                    "id": 470,
+                    "id": 478,
                     "name": "IfStatement",
                     "src": "1014:128:4"
                   },
@@ -1303,11 +1303,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 427,
+                              "referencedDeclaration": 435,
                               "type": "function (address,address,address,uint256,uint256,bytes32)",
                               "value": "KudosExperience"
                             },
-                            "id": 471,
+                            "id": 479,
                             "name": "Identifier",
                             "src": "1148:15:4"
                           },
@@ -1317,11 +1317,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 429,
+                              "referencedDeclaration": 437,
                               "type": "address",
                               "value": "_userAddress"
                             },
-                            "id": 472,
+                            "id": 480,
                             "name": "Identifier",
                             "src": "1164:12:4"
                           },
@@ -1331,11 +1331,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 431,
+                              "referencedDeclaration": 439,
                               "type": "address",
                               "value": "_workerAddress"
                             },
-                            "id": 473,
+                            "id": 481,
                             "name": "Identifier",
                             "src": "1178:14:4"
                           },
@@ -1345,11 +1345,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 433,
+                              "referencedDeclaration": 441,
                               "type": "address",
                               "value": "_businessAddress"
                             },
-                            "id": 474,
+                            "id": 482,
                             "name": "Identifier",
                             "src": "1194:16:4"
                           },
@@ -1359,11 +1359,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 435,
+                              "referencedDeclaration": 443,
                               "type": "uint256",
                               "value": "_workerRating"
                             },
-                            "id": 475,
+                            "id": 483,
                             "name": "Identifier",
                             "src": "1212:13:4"
                           },
@@ -1373,11 +1373,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 437,
+                              "referencedDeclaration": 445,
                               "type": "uint256",
                               "value": "_businessRating"
                             },
-                            "id": 476,
+                            "id": 484,
                             "name": "Identifier",
                             "src": "1227:15:4"
                           },
@@ -1387,31 +1387,31 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 439,
+                              "referencedDeclaration": 447,
                               "type": "bytes32",
                               "value": "_ipfsHash"
                             },
-                            "id": 477,
+                            "id": 485,
                             "name": "Identifier",
                             "src": "1244:9:4"
                           }
                         ],
-                        "id": 478,
+                        "id": 486,
                         "name": "FunctionCall",
                         "src": "1148:106:4"
                       }
                     ],
-                    "id": 479,
+                    "id": 487,
                     "name": "ExpressionStatement",
                     "src": "1148:106:4"
                   }
                 ],
-                "id": 480,
+                "id": 488,
                 "name": "Block",
                 "src": "881:378:4"
               }
             ],
-            "id": 481,
+            "id": 489,
             "name": "FunctionDefinition",
             "src": "567:692:4"
           },
@@ -1425,7 +1425,7 @@
               ],
               "name": "updateBusinessRating",
               "payable": false,
-              "scope": 550,
+              "scope": 558,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "internal"
@@ -1437,7 +1437,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_businessAddress",
-                      "scope": 510,
+                      "scope": 518,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1450,12 +1450,12 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 482,
+                        "id": 490,
                         "name": "ElementaryTypeName",
                         "src": "1293:7:4"
                       }
                     ],
-                    "id": 483,
+                    "id": 491,
                     "name": "VariableDeclaration",
                     "src": "1293:24:4"
                   },
@@ -1463,7 +1463,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_businessRating",
-                      "scope": 510,
+                      "scope": 518,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1476,17 +1476,17 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 484,
+                        "id": 492,
                         "name": "ElementaryTypeName",
                         "src": "1319:7:4"
                       }
                     ],
-                    "id": 485,
+                    "id": 493,
                     "name": "VariableDeclaration",
                     "src": "1319:23:4"
                   }
                 ],
-                "id": 486,
+                "id": 494,
                 "name": "ParameterList",
                 "src": "1292:51:4"
               },
@@ -1497,7 +1497,7 @@
                   ]
                 },
                 "children": [],
-                "id": 487,
+                "id": 495,
                 "name": "ParameterList",
                 "src": "1353:0:4"
               },
@@ -1536,7 +1536,7 @@
                                   "type": "mapping(address => uint256)",
                                   "value": "numberOfBusinessRatings"
                                 },
-                                "id": 488,
+                                "id": 496,
                                 "name": "Identifier",
                                 "src": "1360:23:4"
                               },
@@ -1546,16 +1546,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 483,
+                                  "referencedDeclaration": 491,
                                   "type": "address",
                                   "value": "_businessAddress"
                                 },
-                                "id": 489,
+                                "id": 497,
                                 "name": "Identifier",
                                 "src": "1384:16:4"
                               }
                             ],
-                            "id": 490,
+                            "id": 498,
                             "name": "IndexAccess",
                             "src": "1360:41:4"
                           },
@@ -1572,17 +1572,17 @@
                               "type": "int_const 1",
                               "value": "1"
                             },
-                            "id": 491,
+                            "id": 499,
                             "name": "Literal",
                             "src": "1405:1:4"
                           }
                         ],
-                        "id": 492,
+                        "id": 500,
                         "name": "Assignment",
                         "src": "1360:46:4"
                       }
                     ],
-                    "id": 493,
+                    "id": 501,
                     "name": "ExpressionStatement",
                     "src": "1360:46:4"
                   },
@@ -1619,7 +1619,7 @@
                                   "type": "mapping(address => uint256)",
                                   "value": "businessAverageRating"
                                 },
-                                "id": 494,
+                                "id": 502,
                                 "name": "Identifier",
                                 "src": "1412:21:4"
                               },
@@ -1629,16 +1629,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 483,
+                                  "referencedDeclaration": 491,
                                   "type": "address",
                                   "value": "_businessAddress"
                                 },
-                                "id": 495,
+                                "id": 503,
                                 "name": "Identifier",
                                 "src": "1434:16:4"
                               }
                             ],
-                            "id": 496,
+                            "id": 504,
                             "name": "IndexAccess",
                             "src": "1412:39:4"
                           },
@@ -1703,7 +1703,7 @@
                                               "type": "mapping(address => uint256)",
                                               "value": "businessAverageRating"
                                             },
-                                            "id": 497,
+                                            "id": 505,
                                             "name": "Identifier",
                                             "src": "1455:21:4"
                                           },
@@ -1713,16 +1713,16 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 483,
+                                              "referencedDeclaration": 491,
                                               "type": "address",
                                               "value": "_businessAddress"
                                             },
-                                            "id": 498,
+                                            "id": 506,
                                             "name": "Identifier",
                                             "src": "1477:16:4"
                                           }
                                         ],
-                                        "id": 499,
+                                        "id": 507,
                                         "name": "IndexAccess",
                                         "src": "1455:39:4"
                                       },
@@ -1732,21 +1732,21 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 485,
+                                          "referencedDeclaration": 493,
                                           "type": "uint256",
                                           "value": "_businessRating"
                                         },
-                                        "id": 500,
+                                        "id": 508,
                                         "name": "Identifier",
                                         "src": "1497:15:4"
                                       }
                                     ],
-                                    "id": 501,
+                                    "id": 509,
                                     "name": "BinaryOperation",
                                     "src": "1455:57:4"
                                   }
                                 ],
-                                "id": 502,
+                                "id": 510,
                                 "name": "TupleExpression",
                                 "src": "1454:59:4"
                               },
@@ -1770,7 +1770,7 @@
                                       "type": "mapping(address => uint256)",
                                       "value": "numberOfBusinessRatings"
                                     },
-                                    "id": 503,
+                                    "id": 511,
                                     "name": "Identifier",
                                     "src": "1516:23:4"
                                   },
@@ -1780,41 +1780,41 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 483,
+                                      "referencedDeclaration": 491,
                                       "type": "address",
                                       "value": "_businessAddress"
                                     },
-                                    "id": 504,
+                                    "id": 512,
                                     "name": "Identifier",
                                     "src": "1540:16:4"
                                   }
                                 ],
-                                "id": 505,
+                                "id": 513,
                                 "name": "IndexAccess",
                                 "src": "1516:41:4"
                               }
                             ],
-                            "id": 506,
+                            "id": 514,
                             "name": "BinaryOperation",
                             "src": "1454:103:4"
                           }
                         ],
-                        "id": 507,
+                        "id": 515,
                         "name": "Assignment",
                         "src": "1412:145:4"
                       }
                     ],
-                    "id": 508,
+                    "id": 516,
                     "name": "ExpressionStatement",
                     "src": "1412:145:4"
                   }
                 ],
-                "id": 509,
+                "id": 517,
                 "name": "Block",
                 "src": "1353:209:4"
               }
             ],
-            "id": 510,
+            "id": 518,
             "name": "FunctionDefinition",
             "src": "1263:299:4"
           },
@@ -1828,7 +1828,7 @@
               ],
               "name": "updateWorkerRating",
               "payable": false,
-              "scope": 550,
+              "scope": 558,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "internal"
@@ -1840,7 +1840,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_workerAddress",
-                      "scope": 549,
+                      "scope": 557,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1853,12 +1853,12 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 511,
+                        "id": 519,
                         "name": "ElementaryTypeName",
                         "src": "1594:7:4"
                       }
                     ],
-                    "id": 512,
+                    "id": 520,
                     "name": "VariableDeclaration",
                     "src": "1594:22:4"
                   },
@@ -1866,7 +1866,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_businessAddress",
-                      "scope": 549,
+                      "scope": 557,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1879,12 +1879,12 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 513,
+                        "id": 521,
                         "name": "ElementaryTypeName",
                         "src": "1618:7:4"
                       }
                     ],
-                    "id": 514,
+                    "id": 522,
                     "name": "VariableDeclaration",
                     "src": "1618:24:4"
                   },
@@ -1892,7 +1892,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_workerRating",
-                      "scope": 549,
+                      "scope": 557,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1905,17 +1905,17 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 515,
+                        "id": 523,
                         "name": "ElementaryTypeName",
                         "src": "1644:7:4"
                       }
                     ],
-                    "id": 516,
+                    "id": 524,
                     "name": "VariableDeclaration",
                     "src": "1644:21:4"
                   }
                 ],
-                "id": 517,
+                "id": 525,
                 "name": "ParameterList",
                 "src": "1593:73:4"
               },
@@ -1926,7 +1926,7 @@
                   ]
                 },
                 "children": [],
-                "id": 518,
+                "id": 526,
                 "name": "ParameterList",
                 "src": "1676:0:4"
               },
@@ -1975,7 +1975,7 @@
                                       "type": "mapping(address => mapping(address => uint256))",
                                       "value": "numberOfWorkerRatings"
                                     },
-                                    "id": 519,
+                                    "id": 527,
                                     "name": "Identifier",
                                     "src": "1683:21:4"
                                   },
@@ -1985,16 +1985,16 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 514,
+                                      "referencedDeclaration": 522,
                                       "type": "address",
                                       "value": "_businessAddress"
                                     },
-                                    "id": 520,
+                                    "id": 528,
                                     "name": "Identifier",
                                     "src": "1705:16:4"
                                   }
                                 ],
-                                "id": 522,
+                                "id": 530,
                                 "name": "IndexAccess",
                                 "src": "1683:39:4"
                               },
@@ -2004,16 +2004,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 512,
+                                  "referencedDeclaration": 520,
                                   "type": "address",
                                   "value": "_workerAddress"
                                 },
-                                "id": 521,
+                                "id": 529,
                                 "name": "Identifier",
                                 "src": "1723:14:4"
                               }
                             ],
-                            "id": 523,
+                            "id": 531,
                             "name": "IndexAccess",
                             "src": "1683:55:4"
                           },
@@ -2030,17 +2030,17 @@
                               "type": "int_const 1",
                               "value": "1"
                             },
-                            "id": 524,
+                            "id": 532,
                             "name": "Literal",
                             "src": "1742:1:4"
                           }
                         ],
-                        "id": 525,
+                        "id": 533,
                         "name": "Assignment",
                         "src": "1683:60:4"
                       }
                     ],
-                    "id": 526,
+                    "id": 534,
                     "name": "ExpressionStatement",
                     "src": "1683:60:4"
                   },
@@ -2087,7 +2087,7 @@
                                       "type": "mapping(address => mapping(address => uint256))",
                                       "value": "workerAverageRating"
                                     },
-                                    "id": 527,
+                                    "id": 535,
                                     "name": "Identifier",
                                     "src": "1749:19:4"
                                   },
@@ -2097,16 +2097,16 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 514,
+                                      "referencedDeclaration": 522,
                                       "type": "address",
                                       "value": "_businessAddress"
                                     },
-                                    "id": 528,
+                                    "id": 536,
                                     "name": "Identifier",
                                     "src": "1769:16:4"
                                   }
                                 ],
-                                "id": 530,
+                                "id": 538,
                                 "name": "IndexAccess",
                                 "src": "1749:37:4"
                               },
@@ -2116,16 +2116,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 512,
+                                  "referencedDeclaration": 520,
                                   "type": "address",
                                   "value": "_workerAddress"
                                 },
-                                "id": 529,
+                                "id": 537,
                                 "name": "Identifier",
                                 "src": "1787:14:4"
                               }
                             ],
-                            "id": 531,
+                            "id": 539,
                             "name": "IndexAccess",
                             "src": "1749:53:4"
                           },
@@ -2200,7 +2200,7 @@
                                                   "type": "mapping(address => mapping(address => uint256))",
                                                   "value": "workerAverageRating"
                                                 },
-                                                "id": 532,
+                                                "id": 540,
                                                 "name": "Identifier",
                                                 "src": "1806:19:4"
                                               },
@@ -2210,16 +2210,16 @@
                                                   "overloadedDeclarations": [
                                                     null
                                                   ],
-                                                  "referencedDeclaration": 514,
+                                                  "referencedDeclaration": 522,
                                                   "type": "address",
                                                   "value": "_businessAddress"
                                                 },
-                                                "id": 533,
+                                                "id": 541,
                                                 "name": "Identifier",
                                                 "src": "1826:16:4"
                                               }
                                             ],
-                                            "id": 534,
+                                            "id": 542,
                                             "name": "IndexAccess",
                                             "src": "1806:37:4"
                                           },
@@ -2229,16 +2229,16 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 512,
+                                              "referencedDeclaration": 520,
                                               "type": "address",
                                               "value": "_workerAddress"
                                             },
-                                            "id": 535,
+                                            "id": 543,
                                             "name": "Identifier",
                                             "src": "1844:14:4"
                                           }
                                         ],
-                                        "id": 536,
+                                        "id": 544,
                                         "name": "IndexAccess",
                                         "src": "1806:53:4"
                                       },
@@ -2248,21 +2248,21 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 516,
+                                          "referencedDeclaration": 524,
                                           "type": "uint256",
                                           "value": "_workerRating"
                                         },
-                                        "id": 537,
+                                        "id": 545,
                                         "name": "Identifier",
                                         "src": "1862:13:4"
                                       }
                                     ],
-                                    "id": 538,
+                                    "id": 546,
                                     "name": "BinaryOperation",
                                     "src": "1806:69:4"
                                   }
                                 ],
-                                "id": 539,
+                                "id": 547,
                                 "name": "TupleExpression",
                                 "src": "1805:71:4"
                               },
@@ -2296,7 +2296,7 @@
                                           "type": "mapping(address => mapping(address => uint256))",
                                           "value": "numberOfWorkerRatings"
                                         },
-                                        "id": 540,
+                                        "id": 548,
                                         "name": "Identifier",
                                         "src": "1879:21:4"
                                       },
@@ -2306,16 +2306,16 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 514,
+                                          "referencedDeclaration": 522,
                                           "type": "address",
                                           "value": "_businessAddress"
                                         },
-                                        "id": 541,
+                                        "id": 549,
                                         "name": "Identifier",
                                         "src": "1901:16:4"
                                       }
                                     ],
-                                    "id": 542,
+                                    "id": 550,
                                     "name": "IndexAccess",
                                     "src": "1879:39:4"
                                   },
@@ -2325,51 +2325,51 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 512,
+                                      "referencedDeclaration": 520,
                                       "type": "address",
                                       "value": "_workerAddress"
                                     },
-                                    "id": 543,
+                                    "id": 551,
                                     "name": "Identifier",
                                     "src": "1919:14:4"
                                   }
                                 ],
-                                "id": 544,
+                                "id": 552,
                                 "name": "IndexAccess",
                                 "src": "1879:55:4"
                               }
                             ],
-                            "id": 545,
+                            "id": 553,
                             "name": "BinaryOperation",
                             "src": "1805:129:4"
                           }
                         ],
-                        "id": 546,
+                        "id": 554,
                         "name": "Assignment",
                         "src": "1749:185:4"
                       }
                     ],
-                    "id": 547,
+                    "id": 555,
                     "name": "ExpressionStatement",
                     "src": "1749:185:4"
                   }
                 ],
-                "id": 548,
+                "id": 556,
                 "name": "Block",
                 "src": "1676:263:4"
               }
             ],
-            "id": 549,
+            "id": 557,
             "name": "FunctionDefinition",
             "src": "1566:373:4"
           }
         ],
-        "id": 550,
+        "id": 558,
         "name": "ContractDefinition",
         "src": "54:2563:4"
       }
     ],
-    "id": 551,
+    "id": 559,
     "name": "SourceUnit",
     "src": "0:2619:4"
   },
@@ -2379,5 +2379,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-05-11T19:04:57.194Z"
+  "updatedAt": "2018-05-15T13:54:19.693Z"
 }

@@ -1,6 +1,5 @@
 import axios from "axios";
 import web3 from "../services/Web3HttpService";
-import IsBusinessRequester from './IsBusinessRequester';
 
 axios.defaults.baseURL = 'https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev';
 
@@ -8,37 +7,25 @@ export default class RegisterAsBusinessRequester {
 
   async makeRequest(businessAccountAddress, businessName, businessDescription) {
 
-    this.isBusinessRequester = new IsBusinessRequester();
-    await this.checkBusinessStatus(businessAccountAddress);
+    let response;
 
-
-    const response = await this.getSignedTransaction(businessAccountAddress, businessName, businessDescription);
-
-    console.log('response');
-    console.log('-----------------------');
-    console.log(JSON.stringify(response));
-
-    const receipt = await this.sendSignedTransaction(response.data.signedTransaction, businessAccountAddress);
-    console.log('receipt');
-    console.log('-----------------------');
-    console.log(JSON.stringify(receipt));
-
-
-    await this.checkBusinessStatus(businessAccountAddress);
-  }
-
-  async checkBusinessStatus(kudosAccountAddress) {
-
-    let result;
     try {
-
-      result = await this.isBusinessRequester.makeRequest(kudosAccountAddress);
-
-      console.log("isBusiness for " + kudosAccountAddress + ": " + result);
+      response = await this.getSignedTransaction(businessAccountAddress, businessName, businessDescription);
     } catch (error) {
-
       console.log(error);
+      return new Promise((resolve, reject) => {reject(error);});
     }
+
+    let receipt;
+
+    try {
+      receipt = await this.sendSignedTransaction(response.data.signedTransaction);
+    } catch (error) {
+      console.log(error);
+      return new Promise((resolve, reject) => {reject(error);});
+    }
+
+    return new Promise((resolve, reject) => {resolve(receipt);});
   }
 
   async getSignedTransaction(businessAccountAddress, businessName, businessDescription) {
@@ -62,7 +49,7 @@ export default class RegisterAsBusinessRequester {
     });
   }
 
-  async sendSignedTransaction(signedTransaction, businessAccountAddress) {
+  async sendSignedTransaction(signedTransaction) {
 
     return new Promise((resolve, reject) => {
 
@@ -75,12 +62,7 @@ export default class RegisterAsBusinessRequester {
         })
         .on('confirmation', (confirmationNumber, receipt) => {
           console.log("confirmation number: " + confirmationNumber);
-
           // console.log("the receipt is " + receipt);
-
-          this.checkBusinessStatus(businessAccountAddress).then((isBusinessValue) => {
-            console.log('confirmation #' + confirmationNumber + ': ' + isBusinessValue);
-          });
 
           if (confirmationNumber > 5) {
             resolve(receipt);
@@ -94,7 +76,6 @@ export default class RegisterAsBusinessRequester {
   }
 
   async cancel() {
-
 
   }
 }

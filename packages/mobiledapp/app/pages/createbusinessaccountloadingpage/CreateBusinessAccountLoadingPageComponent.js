@@ -34,10 +34,17 @@ class CreateBusinessAccountLoadingPageComponent extends Component {
     console.log("business name: " + this.props.businessName);
     console.log("business description: " + this.props.businessDescription);
 
-    let result;
     try {
-      result = await this.registerAsBusinessRequester.makeRequest(businessAccountAddress, this.props.businessName, this.props.businessDescription);
-      console.log(JSON.stringify(result));
+
+      const result = await this.registerAsBusinessRequester.makeRequest(businessAccountAddress, this.props.businessName, this.props.businessDescription);
+
+      this.props.navigator.push({
+        screen: 'BusinessAccountComponent',
+        navigatorStyle: {
+          navBarHidden: true
+        }
+      });
+
     } catch (error) {
 
       if (!error.message.toLowerCase().includes('abort')) {

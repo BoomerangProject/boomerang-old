@@ -2,13 +2,14 @@ import './shim.js'
 
 import { Navigation } from 'react-native-navigation';
 import { registerScreens } from "./app/registerScreens";
+import BusinessAccountComponent from "./app/pages/businessaccount/BusinessAccountComponent";
 
 export function start() {
   registerScreens();
 
   Navigation.startSingleScreenApp({
     screen: {
-      screen: 'NewUserComponent',
+      screen: 'BusinessAccountComponent',
       title: 'Welcome', // title of the screen as appears in the nav bar (optional)
       navigatorStyle: {
         navBarHidden: true
