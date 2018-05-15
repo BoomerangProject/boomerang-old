@@ -4,8 +4,9 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "deploy": "npm run compile && sls deploy --stage dev",
-    "offline": "npm run compile && sls offline start",
+    "copyGlobals": "cp ../KudosContractAddress.js ./lib/KudosContractAddress.js",
+    "deploy": "npm run copyGlobals && npm run compile && sls deploy --stage dev",
+    "offline": "npm run copyGlobals && npm run compile && sls offline start",
     "compile": "babel ./src --out-dir ./lib",
     "compileRegistryPackage": "cd ../registry && npm run compile && cd ../lambda",
     "test": "npm run compileRegistryPackage && npm run compile && mocha --timeout 30000 --require babel-core/register --compilers js:babel-core/register --recursive || true"
