@@ -1,4 +1,4 @@
-import backoff from "backoff";
+import backoff from 'backoff';
 import web3 from "../services/Web3HttpService";
 import kudosContract from "../services/KudosContractService";
 import { default as localStorage } from 'react-native-sensitive-info';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './NewUserComponentStyle';
+import styles from './WelcomeComponentStyle';
 import { Image, Text, View, TouchableOpacity } from "react-native";
 import CreateAccountComponent from "../createaccount/CreateAccountComponent";
 import ImportAccountComponent from "../importaccount/ImportAccountComponent";
@@ -32,7 +32,7 @@ class NewUserComponent extends Component {
 
       <View style={styles.container}>
 
-        <Image style={styles.logo} source={require("../../images/kudos.png")}/>
+        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
         <Text style={styles.welcomeMessage}>Welcome to Kudos</Text>
 
         <TouchableOpacity

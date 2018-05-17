@@ -5,9 +5,11 @@ export default class KudosEventsRequester {
 
   async makeRequest(name, filter) {
 
+    let kudosContract = await getKudosContract();
+
     return new Promise((resolve, reject) => {
 
-      this.call = backoff.call(this.getPastEventsCall(), name, this.filterObject(filter), (error, result) => {
+      this.call = backoff.call(kudosContract.getPastEvents.bind(kudosContract), name, this.filterObject(filter), (error, result) => {
 
         if (error) {
           return reject(error);
@@ -16,16 +18,16 @@ export default class KudosEventsRequester {
         }
       });
 
+      this.call.on('backoff', async (number, delay) => {
+        console.log(number + ' ' + delay + 'ms');
+        let kudosContract = await getKudosContract();
+        this.call.function_ = kudosContract.getPastEvents.bind(kudosContract);
+      });
+
       this.call.setStrategy(new backoff.ExponentialStrategy());
       this.call.failAfter(12);
       this.call.start();
     });
-  }
-
-  getPastEventsCall() {
-
-    let kudosContract = getKudosContract();
-    return kudosContract.getPastEvents.bind(kudosContract);
   }
 
   filterObject(filter) {

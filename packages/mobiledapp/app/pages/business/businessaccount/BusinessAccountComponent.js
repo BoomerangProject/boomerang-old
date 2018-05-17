@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { View, Image, Text, ToastAndroid } from "react-native";
 import styles from './BusinessAccountComponentStyle';
-import KudosEventsRequester from "../../services/KudosEventsRequester";
-import IpfsFileRequester from "../../services/IpfsFileRequester";
+import KudosEventsRequester from "../../../api/KudosEventsRequester";
+import IpfsFileRequester from "../../../api/IpfsFileRequester";
 import bs58 from 'bs58';
+import BalanceComponent from "../../../views/balance/BalanceComponent";
+import ReviewsComponent from "../../../views/reviews/ReviewsComponent";
 
 class BusinessAccountComponent extends Component {
 
@@ -62,19 +64,14 @@ class BusinessAccountComponent extends Component {
 
       <View style={styles.container}>
 
-        <View style={{flex: 1}}/>
-
-        <Image style={styles.logo} source={require("../../images/kudos.png")}/>
-
-        <Text style={styles.title}>Business Account</Text>
-
         <View style={styles.fieldContainer}>
           <Text style={styles.field}>businessAccountAddress: {this.state.businessAccountAddress}</Text>
           <Text style={styles.field}>businessName: {this.state.businessName}</Text>
           <Text style={styles.field}>businessDescription: {this.state.businessDescription}</Text>
         </View>
 
-        <View style={{flex: 3}}/>
+        <BalanceComponent style={{marginTop: 64}}/>
+        <ReviewsComponent style={{marginTop: 64}}/>
       </View>
     );
   }

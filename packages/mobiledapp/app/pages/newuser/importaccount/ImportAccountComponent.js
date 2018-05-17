@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styles from './ImportAccountComponentStyle';
 import { KeyboardAvoidingView, View, Image, Text, TouchableOpacity, TextInput, ToastAndroid, Alert } from "react-native";
-import { storeSeed } from "../../services/LocalStorageService";
-import IsBusinessRequester from "../../api/IsBusinessRequester";
+import { storeSeed } from "../../../services/LocalStorageService";
+import IsBusinessRequester from "../../../api/IsBusinessRequester";
 
 class ImportAccountComponent extends Component {
 
@@ -66,7 +66,7 @@ class ImportAccountComponent extends Component {
 
       <KeyboardAvoidingView behavior='height' style={styles.container}>
 
-        <Image style={styles.logo} source={require("../../images/kudos.png")}/>
+        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
 
         <Text style={styles.title}>Paste a seed to begin</Text>
 

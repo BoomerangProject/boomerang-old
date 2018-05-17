@@ -23,7 +23,8 @@ module.exports = StyleSheet.create({
     fontSize: 22,
   },
   fieldContainer: {
-    margin: 16,
+    width: '100%',
+    padding: 16,
     justifyContent: 'flex-start'
   },
   field: {

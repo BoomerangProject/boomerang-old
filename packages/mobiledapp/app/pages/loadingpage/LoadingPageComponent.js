@@ -3,7 +3,7 @@ import styles from './LoadingPageComponentStyle';
 import { View, Image, Text, ActivityIndicator, ToastAndroid } from "react-native";
 import kudosContract from '../../services/KudosContractService'
 import { default as localStorage } from 'react-native-sensitive-info';
-import GetBalanceRequester from '../../api/GetBalanceRequester';
+import GetBalanceRequester from '../../api/EtherBalanceRequester';
 import IsBusinessRequester from '../../api/IsBusinessRequester';
 import RegisterAsBusinessRequester from '../../api/RegisterAsBusinessRequesterOld';
 
@@ -111,7 +111,7 @@ class LoadingPageComponent extends Component {
       <View style={styles.container}>
 
         <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={require("../../images/kudos.png")}/>
+          <Image style={styles.logo} source={require("../../../assets/images/kudos.png")}/>
         </View>
 
         <View style={styles.loadingTextContainer}>

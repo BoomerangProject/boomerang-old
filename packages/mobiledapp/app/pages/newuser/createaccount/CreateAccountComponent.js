@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity, ToastAndroid, Clipboard } from 'react-native';
 import crypto from 'crypto'
 import styles from './CreateAccountComponentStyle';
-import { storeSeed } from '../../services/LocalStorageService';
+import { storeSeed } from '../../../services/LocalStorageService';
 import AccountTypeSelectionComponent from "../accounttypeselection/AccountTypeSelectionComponent";
 
 class CreateAccountComponent extends Component {
@@ -33,7 +33,7 @@ class CreateAccountComponent extends Component {
     return (
       <View style={styles.container}>
 
-        <Image style={styles.logo} source={require("../../images/kudos.png")}/>
+        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
 
         <Text style={styles.title}>Your Kudos Account Seed</Text>
 

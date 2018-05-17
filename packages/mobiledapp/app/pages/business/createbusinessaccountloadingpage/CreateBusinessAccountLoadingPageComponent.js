@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './CreateBusinessAccountLoadingPageComponentStyle';
 import { View, Image, Text, ActivityIndicator, ToastAndroid } from "react-native";
 import { default as localStorage } from 'react-native-sensitive-info';
-import RegisterAsBusinessRequester from '../../api/RegisterAsBusinessRequester';
+import RegisterAsBusinessRequester from '../../../api/RegisterAsBusinessRequester';
 
 const visibleDotsArray = ['. ', '. .', '. . .', '. .', '. '];
 const hiddenDotsArray = ['. .', ' .', '', ' .', '. .'];
@@ -66,7 +66,7 @@ class CreateBusinessAccountLoadingPageComponent extends Component {
       <View style={styles.container}>
 
         <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={require("../../images/kudos.png")}/>
+          <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
         </View>
 
         <View style={styles.loadingTextContainer}>

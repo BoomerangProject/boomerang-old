@@ -34,7 +34,7 @@ class AddProfilePhotoComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Image style={styles.logo} source={require("../../images/kudos.png")}/>
+        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
 
         <Text style={styles.title}>Add Profile Photo</Text>
 

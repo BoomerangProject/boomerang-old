@@ -2,19 +2,36 @@ import './shim.js'
 
 import { Navigation } from 'react-native-navigation';
 import { registerScreens } from "./app/registerScreens";
-import BusinessAccountComponent from "./app/pages/businessaccount/BusinessAccountComponent";
+import BusinessAccountComponent from "./app/pages/business/businessaccount/BusinessAccountComponent";
 
 export function start() {
   registerScreens();
 
+  const navigatorStyle = {
+    navBarTextColor: '#002A1C',
+    navBarTextFontSize: 22,
+    navBarTextFontFamily: 'WorkSans-Regular',
+    navBarButtonColor: '#002A1C'
+  };
+
+  const startingScreen = 'NewUserComponent';
+  // const startingScreen = 'BusinessAccountComponent';
+
   Navigation.startSingleScreenApp({
     screen: {
-      screen: 'BusinessAccountComponent',
-      title: 'Welcome', // title of the screen as appears in the nav bar (optional)
-      navigatorStyle: {
-        navBarHidden: true
-      }, // override the navigator style for the screen, see "Styling the navigator" below (optional)
-      navigatorButtons: {} // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
+      screen: startingScreen,
+      title: 'kudos',
+      navigatorStyle,
+      leftButtons: [
+        {
+          id: 'sideMenu'
+        }
+      ]
+    },
+    drawer: {
+      left: {
+        screen: 'NavigationDrawerComponent'
+      }
     }
   });
 }

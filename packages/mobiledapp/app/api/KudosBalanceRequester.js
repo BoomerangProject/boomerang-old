@@ -1,7 +1,7 @@
-import backoff from "backoff";
-import web3 from "../services/Web3HttpService";
+import backoff from 'backoff';
+import kudosContract from '../services/KudosContractService';
 
-export default class GetBalanceRequester {
+export default class KudosBalanceRequester {
 
   async makeRequest(addressArg) {
 
