@@ -2,7 +2,7 @@ import './shim.js'
 
 import { Navigation } from 'react-native-navigation';
 import { registerScreens } from "./app/registerScreens";
-import BusinessAccountComponent from "./app/pages/business/businessaccount/BusinessAccountComponent";
+import BusinessAccountComponent from "./app/pages/accounts/business/businessaccount/BusinessAccountComponent";
 
 export function start() {
   registerScreens();
@@ -14,8 +14,8 @@ export function start() {
     navBarButtonColor: '#002A1C'
   };
 
-  const startingScreen = 'NewUserComponent';
-  // const startingScreen = 'BusinessAccountComponent';
+  // const startingScreen = 'NewUserComponent';
+  const startingScreen = 'BusinessAccountComponent';
 
   Navigation.startSingleScreenApp({
     screen: {

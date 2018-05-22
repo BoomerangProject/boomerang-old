@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, Text, FlatList, ToastAndroid, TouchableOpacity } from "react-native";
 import styles from './AccountComponentStyle';
-import kudosContract from '../../../services/KudosContractService'
+import kudosContract from '../../../services/KudosContractServiceOld'
 import bs58 from 'bs58';
 import { default as localStorage } from 'react-native-sensitive-info';
 
@@ -65,7 +65,13 @@ class AccountComponent extends Component {
   };
 
   onClickOfReviewTile(reviewEvent) {
-    this.props.navigation.navigate('ReviewComponent', {reviewEvent});
+
+    this.props.navigator.push({
+      screen: 'ReviewComponent',
+      passProps: {
+        reviewEvent
+      }
+    });
   };
 
   render() {

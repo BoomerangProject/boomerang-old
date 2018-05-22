@@ -33,6 +33,7 @@
     "events": "^1.1.1",
     "https-browserify": "0.0.1",
     "kudos-contract-objects": "^1.0.19",
+    "kudos-token-contract-objects": "^1.0.0",
     "native-base": "^2.4.3",
     "path-browserify": "0.0.0",
     "pbkdf2": "^3.0.16",

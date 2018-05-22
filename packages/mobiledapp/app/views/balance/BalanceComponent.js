@@ -2,30 +2,42 @@ import React, { Component } from 'react';
 import styles from './BalanceComponentStyle';
 import { View, TouchableHighlight, Text, ToastAndroid } from "react-native";
 import { default as localStorage } from 'react-native-sensitive-info';
-import IsBusinessRequester from "../../api/IsBusinessRequester";
-import GetBalanceRequester from "../../api/EtherBalanceRequester";
+import EtherBalanceRequester from "../../api/EtherBalanceRequester";
+import KudosBalanceRequester from "../../api/KudosBalanceRequester";
 
 class BalanceComponent extends Component {
 
   constructor(args) {
     super(args);
-    this.state = {balance: ''};
-    this.getBalanceRequester = new GetBalanceRequester();
-    this.isBusinessRequester = new IsBusinessRequester();
+    this.state = {balance: '', etherBalance: '', kudosBalance: ''};
+    this.etherBalanceRequester = new EtherBalanceRequester();
+    this.kudosBalanceRequester = new KudosBalanceRequester();
   }
 
   async componentDidMount() {
 
-    const kudosAccountAddress = await localStorage.getItem('kudosAccountAddress', {
-      keychainService: 'kudosKeychain'
-    });
+    // const kudosAccountAddress = await localStorage.getItem('kudosAccountAddress', {
+    //   keychainService: 'kudosKeychain'
+    // });
 
-    const balance = await this.isBusinessRequester.makeRequest(kudosAccountAddress);
-    this.setState({balance});
+    const kudosAccountAddress = '0xdcee2f1da7262362a962d456280a928f4f90bb5e';
+
+    const etherBalance = await this.etherBalanceRequester.makeRequest(kudosAccountAddress);
+    const kudosBalance = await this.kudosBalanceRequester.makeRequest(kudosAccountAddress);
+    this.setState({
+      balance: kudosBalance + ' KUDOS',
+      etherBalance: etherBalance,
+      kudosBalance: kudosBalance
+    });
   }
 
   onClickOfBalance() {
-    ToastAndroid.show('balance', ToastAndroid.SHORT);
+
+    if (this.state.balance.includes('ETH')) {
+      this.setState({balance: this.state.kudosBalance + ' KUDOS'})
+    } else {
+      this.setState({balance: this.state.etherBalance + ' ETH'})
+    }
   }
 
   render() {
@@ -38,7 +50,9 @@ class BalanceComponent extends Component {
           underlayColor='#FAFAFA'
           style={styles.balanceTextContainer}
           onPress={this.onClickOfBalance.bind(this)}>
-          <Text style={styles.balanceText}>{this.state.balance.toString()}</Text>
+          <View>
+            <Text style={styles.balanceText}>{this.state.balance}</Text>
+          </View>
         </TouchableHighlight>
       </View>
     );

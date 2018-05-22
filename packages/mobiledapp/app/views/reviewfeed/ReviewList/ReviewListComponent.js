@@ -1,0 +1,26 @@
+import React, { Component } from 'react';
+import styles from './ReviewListComponentStyle';
+import ReviewListItem from '../ReviewListItem/ReviewListItemComponent';
+import { View, FlatList, ListItem, TouchableHighlight, Text, ToastAndroid } from "react-native";
+import reviewFeedData from '../../../mockdata/MockReviewFeed';
+
+class ReviewsListComponent extends Component {
+
+  render() {
+
+    return (
+
+      <View style={styles.container}>
+
+        <View style={styles.header}/>
+
+        <FlatList
+          style={styles.flatListStyle}
+          data={reviewFeedData}
+          renderItem={({item}) => <ReviewListItem item={item}/>}/>
+      </View>
+    );
+  }
+}
+
+export default ReviewsListComponent;

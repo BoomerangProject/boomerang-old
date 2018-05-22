@@ -1,4 +1,4 @@
-import kudosContractAddress from '../KudosContractAddress';
+import { kudosContractAddress } from '../ContractAddresses';
 
 export default function kudosContract() {
 

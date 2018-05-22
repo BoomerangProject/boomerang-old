@@ -3,17 +3,24 @@ import NewUserComponent from "./pages/newuser/welcome/WelcomeComponent";
 import CreateAccountComponent from "./pages/newuser/createaccount/CreateAccountComponent";
 import ImportAccountComponent from "./pages/newuser/importaccount/ImportAccountComponent";
 import AccountComponent from "./pages/old/account/AccountComponent";
-import UserAccountComponent from "./pages/useraccount/UserAccountComponent";
-import WorkerAccountComponent from "./pages/workeraccount/WorkerAccountComponent";
-import BusinessAccountComponent from "./pages/business/businessaccount/BusinessAccountComponent";
+import UserAccountComponent from "./pages/accounts/user/UserAccountComponent";
+import WorkerAccountComponent from "./pages/accounts/worker/WorkerAccountComponent";
+import BusinessAccountComponent from "./pages/accounts/business/businessaccount/BusinessAccountComponent";
 import LoadingPageComponent from "./pages/loadingpage/LoadingPageComponent";
 import AccountTypeSelectionComponent from "./pages/newuser/accounttypeselection/AccountTypeSelectionComponent";
-import CreateBusinessAccountComponent from "./pages/business/createbusinessaccount/CreateBusinessAccountComponent";
+import CreateBusinessAccountComponent from "./pages/accounts/business/createbusinessaccount/CreateBusinessAccountComponent";
 import AddProfilePhotoComponent from "./pages/newuser/addprofilephoto/AddProfilePhotoComponent";
-import CreateBusinessAccountLoadingPageComponent from "./pages/business/createbusinessaccountloadingpage/CreateBusinessAccountLoadingPageComponent";
+import CreateBusinessAccountLoadingPageComponent from "./pages/accounts/business/createbusinessaccountloadingpage/CreateBusinessAccountLoadingPageComponent";
 import NavigationDrawerComponent from "./views/navigationdrawer/NavigationDrawerComponent";
-import ReviewsComponent from "./views/reviews/ReviewsComponent";
+import BusinessListComponent from "./views/businessdirectory/BusinessList/BusinessListComponent";
+import BusinessListItemComponent from "./views/businessdirectory/BusinessListItem/BusinessListItemComponent";
 import BalanceComponent from "./views/balance/BalanceComponent";
+import BusinessEmployeesComponent from "./pages/accounts/business/businessemployees/BusinessEmployeesComponent";
+import UserProfileComponent from "./pages/profiles/user/UserProfileComponent";
+import WorkerProfileComponent from "./pages/profiles/worker/WorkerProfileComponent";
+import BusinessProfileComponent from "./pages/profiles/business/BusinessProfileComponent";
+import ReviewListComponent from "./views/reviewfeed/ReviewList/ReviewListComponent";
+import ReviewListItemComponent from "./views/reviewfeed/ReviewListItem/ReviewListItemComponent";
 
 export function registerScreens() {
 
@@ -27,10 +34,18 @@ export function registerScreens() {
   Navigation.registerComponent('LoadingPageComponent', () => LoadingPageComponent);
   Navigation.registerComponent('AccountTypeSelectionComponent', () => AccountTypeSelectionComponent);
   Navigation.registerComponent('CreateBusinessAccountComponent', () => CreateBusinessAccountComponent);
+  Navigation.registerComponent('BusinessEmployeesComponent', () => BusinessEmployeesComponent);
   Navigation.registerComponent('AddProfilePhotoComponent', () => AddProfilePhotoComponent);
   Navigation.registerComponent('CreateBusinessAccountLoadingPageComponent', () => CreateBusinessAccountLoadingPageComponent);
   Navigation.registerComponent('NavigationDrawerComponent', () => NavigationDrawerComponent);
+  Navigation.registerComponent('UserProfileComponent', () => UserProfileComponent);
+  Navigation.registerComponent('WorkerProfileComponent', () => WorkerProfileComponent);
+  Navigation.registerComponent('BusinessProfileComponent', () => BusinessProfileComponent);
 
-  Navigation.registerComponent('ReviewsComponent', () => ReviewsComponent);
+  Navigation.registerComponent('ReviewListComponent', () => ReviewListComponent);
+  Navigation.registerComponent('ReviewListItemComponent', () => ReviewListItemComponent);
+
+  Navigation.registerComponent('BusinessListComponent', () => BusinessListComponent);
+  Navigation.registerComponent('BusinessListItemComponent', () => BusinessListItemComponent);
   Navigation.registerComponent('BalanceComponent', () => BalanceComponent);
 }

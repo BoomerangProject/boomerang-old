@@ -1,9 +1,11 @@
 import backoff from 'backoff';
-import kudosContract from "../services/KudosContractService";
+import { default as getKudosContract } from "../services/KudosContract";
 
 export default class IsBusinessRequester {
 
   async makeRequest(addressArg) {
+
+    let kudosContract = await getKudosContract();
 
     return new Promise((resolve, reject) => {
 
@@ -14,6 +16,12 @@ export default class IsBusinessRequester {
         } else {
           return resolve(result);
         }
+      });
+
+      this.call.on('backoff', async (number, delay) => {
+        console.log(number + ' ' + delay + 'ms');
+        let kudosContract = await getKudosContract();
+        this.call.function_ = kudosContract.getPastEvents.bind(kudosContract);
       });
 
       this.call.setStrategy(new backoff.ExponentialStrategy());

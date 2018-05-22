@@ -12,7 +12,7 @@ export default class EtherBalanceRequester {
         if (error) {
           return reject(error);
         } else {
-          return resolve(result);
+          return resolve(web3.utils.fromWei(result, 'ether'));
         }
       });
 

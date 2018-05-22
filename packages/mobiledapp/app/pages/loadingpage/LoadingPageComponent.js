@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './LoadingPageComponentStyle';
 import { View, Image, Text, ActivityIndicator, ToastAndroid } from "react-native";
-import kudosContract from '../../services/KudosContractService'
+import kudosContract from '../../services/KudosContractServiceOld'
 import { default as localStorage } from 'react-native-sensitive-info';
 import GetBalanceRequester from '../../api/EtherBalanceRequester';
 import IsBusinessRequester from '../../api/IsBusinessRequester';
@@ -16,7 +16,7 @@ class LoadingPageComponent extends Component {
   constructor(args) {
     super(args);
     this.state = {visibleDots: '', hiddenDots: '. . .', isBusiness: false};
-    this.getBalanceRequester = new GetBalanceRequester();
+    this.etherBalanceRequester = new GetBalanceRequester();
     this.isBusinessRequester = new IsBusinessRequester();
     this.registerAsBusinessRequester = new RegisterAsBusinessRequester();
   }
@@ -36,7 +36,7 @@ class LoadingPageComponent extends Component {
 
         let myBalance;
         try {
-          myBalance = await this.getBalanceRequester.makeRequest("0xdcee2f1da7262362a962d456280a928f4f90bb5e");
+          myBalance = await this.etherBalanceRequester.makeRequest("0xdcee2f1da7262362a962d456280a928f4f90bb5e");
           console.log("BaaAALANCE:: " + myBalance);
         } catch (error) {
 
@@ -99,7 +99,7 @@ class LoadingPageComponent extends Component {
 
   async componentWillUnmount() {
     clearInterval(setIntervalId);
-    await this.getBalanceRequester.cancel();
+    await this.etherBalanceRequester.cancel();
     await this.isBusinessRequester.cancel();
     await this.registerAsBusinessRequester.cancel();
   }

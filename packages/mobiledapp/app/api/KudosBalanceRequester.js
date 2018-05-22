@@ -1,5 +1,6 @@
 import backoff from 'backoff';
-import kudosContract from '../services/KudosContractService';
+import kudosTokenContract from '../services/KudosTokenContractService';
+import web3 from "../services/Web3HttpService";
 
 export default class KudosBalanceRequester {
 
@@ -7,12 +8,12 @@ export default class KudosBalanceRequester {
 
     return new Promise((resolve, reject) => {
 
-      this.call = backoff.call(web3.eth.getBalance, addressArg, (error, result) => {
+      this.call = backoff.call(kudosTokenContract.methods.balanceOf(addressArg).call, (error, result) => {
 
         if (error) {
           return reject(error);
         } else {
-          return resolve(result);
+          return resolve(web3.utils.fromWei(result, 'ether'));
         }
       });
 
