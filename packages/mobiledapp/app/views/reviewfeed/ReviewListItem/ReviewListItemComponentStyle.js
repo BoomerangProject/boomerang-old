@@ -14,13 +14,13 @@ module.exports = StyleSheet.create({
   },
   itemTile: {
     width: '100%',
-    height: 100,
+    height: 116,
     borderWidth: 1,
     borderLeftWidth: 0,
     borderRightWidth: 0,
     borderColor: '#CCD4D1',
-    paddingTop: 4,
-    paddingBottom: 4,
+    paddingTop: 16,
+    paddingBottom: 16,
     paddingLeft: 16,
     paddingRight: 16,
     backgroundColor: 'white',
@@ -46,21 +46,30 @@ module.exports = StyleSheet.create({
     fontSize: 10
   },
   rating: {
-    fontFamily: 'WorkSans-Regular',
+    fontFamily: 'RobotoMono-Regular',
     color: '#002A1C',
-    fontSize: 10
+    paddingRight: 4,
+    paddingLeft: 4,
+    fontSize: 16,
+    fontWeight: 'bold'
   },
   leftContainer: {
     width: '100%',
     alignItems: 'flex-start'
   },
   middleContainer: {
+    flexDirection: 'row',
     padding: 4,
     width: '100%',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   rightContainer: {
     width: '100%',
     alignItems: 'flex-end'
   },
+  borderBox: {
+    borderWidth: 1,
+    borderColor: '#CCD4D1'
+  }
 });

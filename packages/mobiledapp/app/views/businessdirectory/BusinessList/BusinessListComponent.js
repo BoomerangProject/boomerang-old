@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styles from './BusinessListComponentStyle';
-import ReviewListItem from '../BusinessListItem/BusinessListItemComponent';
+import BusinessListItem from '../BusinessListItem/BusinessListItemComponent';
 import { View, FlatList, ListItem, TouchableHighlight, Text, ToastAndroid } from "react-native";
 import businessListData from '../../../mockdata/MockBusinessList';
 
-class ReviewsListComponent extends Component {
+class BusinessListComponent extends Component {
 
   render() {
 
@@ -17,10 +17,10 @@ class ReviewsListComponent extends Component {
         <FlatList
           style={styles.flatListStyle}
           data={businessListData}
-          renderItem={({item}) => <ReviewListItem item={item} navigator={this.props.navigator}/>}/>
+          renderItem={({item}) => <BusinessListItem item={item} navigator={this.props.navigator}/>}/>
       </View>
     );
   }
 }
 
-export default ReviewsListComponent;
+export default BusinessListComponent;

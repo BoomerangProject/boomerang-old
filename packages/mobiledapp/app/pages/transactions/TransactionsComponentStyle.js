@@ -10,20 +10,21 @@ module.exports = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center'
   },
-  fieldContainer: {
+  businessInfoContainer: {
     width: '100%',
     padding: 16,
+    alignItems: 'flex-start',
     justifyContent: 'flex-start'
   },
-  field: {
-    fontSize: 10,
+  businessName: {
+    fontFamily: 'WorkSans-Regular',
     color: '#002A1C',
-    fontFamily: 'RobotoMono-Regular'
+    fontSize: 18,
+    fontWeight: 'bold'
   },
-  reviewInformation: {
-    marginTop: 16,
-    fontSize: 10,
+  businessDescription: {
+    fontFamily: 'WorkSans-Regular',
     color: '#002A1C',
-    fontFamily: 'RobotoMono-Regular'
-  }
+    fontSize: 14
+  },
 });

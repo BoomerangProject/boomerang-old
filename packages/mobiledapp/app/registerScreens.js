@@ -21,6 +21,9 @@ import WorkerProfileComponent from "./pages/profiles/worker/WorkerProfileCompone
 import BusinessProfileComponent from "./pages/profiles/business/BusinessProfileComponent";
 import ReviewListComponent from "./views/reviewfeed/ReviewList/ReviewListComponent";
 import ReviewListItemComponent from "./views/reviewfeed/ReviewListItem/ReviewListItemComponent";
+import ReviewComponent from "./pages/review/ReviewComponent"
+import TransactionLoadingButtonComponent from "./views/transactionloadingbutton/TransactionLoadingButtonComponent";
+import TransactionsComponent from "./pages/transactions/TransactionsComponent";
 
 export function registerScreens() {
 
@@ -48,4 +51,8 @@ export function registerScreens() {
   Navigation.registerComponent('BusinessListComponent', () => BusinessListComponent);
   Navigation.registerComponent('BusinessListItemComponent', () => BusinessListItemComponent);
   Navigation.registerComponent('BalanceComponent', () => BalanceComponent);
+
+  Navigation.registerComponent('ReviewComponent', () => ReviewComponent);
+  Navigation.registerComponent('TransactionLoadingButtonComponent', () => TransactionLoadingButtonComponent);
+  Navigation.registerComponent('TransactionsComponent', () => TransactionsComponent);
 }

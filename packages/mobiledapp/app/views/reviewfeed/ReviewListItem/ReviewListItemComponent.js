@@ -11,7 +11,12 @@ class ReviewListItemComponent extends Component {
   }
 
   onClick() {
-    ToastAndroid.show('tile click', ToastAndroid.SHORT);
+    this.props.navigator.push({
+      screen: 'ReviewComponent',
+      passProps: {
+        item: this.item
+      }
+    });
   }
 
   render() {
@@ -21,8 +26,8 @@ class ReviewListItemComponent extends Component {
       <View style={this.item.key === 'item1' ? [styles.container, {paddingTop: 1}] : styles.container}>
 
         <TouchableHighlight
+          style={{width: '100%'}}
           underlayColor='#FAFAFA'
-          style={styles.itemTile}
           onPress={this.onClick.bind(this)}>
 
           {this.item.reviewer === 'user' ? this.userReview() : this.workerReview()}
@@ -34,15 +39,17 @@ class ReviewListItemComponent extends Component {
 
   userReview() {
 
-    return (<View style={{flexDirection: 'column', width: '100%'}}>
+    return (<View style={styles.itemTile}>
 
       <View style={styles.leftContainer}>
-        <Text style={styles.userAddress}>{this.item.userAddress}</Text>
+        <View style={[styles.borderBox, {marginLeft: 16}]}>
+          <Text style={styles.userAddress}>{this.item.userAddress}</Text>
+        </View>
       </View>
 
       <View style={styles.middleContainer}>
         <Text style={styles.rating}>{this.item.rating}</Text>
-        <Icon name="long-arrow-right" size={14} color="#002A1C"/>
+        <Icon name="long-arrow-up" size={18} color="#002A1C"/>
       </View>
 
       <View style={styles.rightContainer}>
@@ -53,20 +60,22 @@ class ReviewListItemComponent extends Component {
   }
 
   workerReview() {
-    return (<View style={{flexDirection: 'column', width: '100%'}}>
+    return (<View style={styles.itemTile}>
 
-      <View style={styles.rightContainer}>
-        <Text style={styles.workerAddress}>{this.item.workerAddress}</Text>
-        <Text style={styles.businessAddress}>{this.item.businessAddress}</Text>
+      <View style={styles.leftContainer}>
+        <Text style={styles.userAddress}>{this.item.userAddress}</Text>
       </View>
 
       <View style={styles.middleContainer}>
         <Text style={styles.rating}>{this.item.rating}</Text>
-        <Icon name="long-arrow-left" size={14} color="#002A1C"/>
+        <Icon name="long-arrow-down" size={18} color="#002A1C"/>
       </View>
 
-      <View style={styles.leftContainer}>
-        <Text style={styles.userAddress}>{this.item.userAddress}</Text>
+      <View style={styles.rightContainer}>
+        <View style={[styles.borderBox, {marginRight: 16}]}>
+          <Text style={styles.workerAddress}>{this.item.workerAddress}</Text>
+          <Text style={styles.businessAddress}>{this.item.businessAddress}</Text>
+        </View>
       </View>
     </View>);
   }

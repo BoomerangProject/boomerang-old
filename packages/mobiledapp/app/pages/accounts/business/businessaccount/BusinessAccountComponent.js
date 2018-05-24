@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, Text, ToastAndroid } from "react-native";
+import { View, Button, Image, Text, ToastAndroid } from "react-native";
 import styles from './BusinessAccountComponentStyle';
 import KudosEventsRequester from "../../../../api/KudosEventsRequester";
 import IpfsFileRequester from "../../../../api/IpfsFileRequester";
@@ -10,29 +10,12 @@ import IsBusinessRequester from "../../../../api/IsBusinessRequester";
 
 class BusinessAccountComponent extends Component {
 
-  static navigatorButtons = {
-    rightButtons: [
-      {
-        id: 'edit', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
-        title: 'edit', // for a textual button, provide the button title (label)
-      }
-    ]
-  };
-
-
   constructor(props) {
     super(props);
     this.state = {businessAccountAddress: '', businessName: '', businessDescription: '', isBusiness: ''};
     this.kudosEventsRequester = new KudosEventsRequester();
     this.ipfsFileRequester = new IpfsFileRequester();
     this.isBusinessRequester = new IsBusinessRequester();
-
-    this.props.navigator.setOnNavigatorEvent((event) => {
-
-      if (event.id === 'edit') {
-        ToastAndroid.show('edit clicked', ToastAndroid.SHORT)
-      }
-    });
   }
 
   async componentDidMount() {
@@ -69,12 +52,16 @@ class BusinessAccountComponent extends Component {
       events = await this.kudosEventsRequester.makeRequest('RegisteredAsBusiness', {_businessAccountAddress: businessAccountAddress});
     } catch (error) {
       console.log(error);
-      return new Promise((resolve, reject) => {reject(error)});
+      return new Promise((resolve, reject) => {
+        reject(error)
+      });
     }
 
     const event = events[0];
     const ipfsHash = this.getIpfsHashFromBytes(event);
-    return new Promise((resolve, reject) => {resolve(ipfsHash)});
+    return new Promise((resolve, reject) => {
+      resolve(ipfsHash)
+    });
   }
 
   getIpfsHashFromBytes(event) {

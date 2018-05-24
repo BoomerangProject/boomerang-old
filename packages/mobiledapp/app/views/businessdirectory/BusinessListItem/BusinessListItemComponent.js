@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import styles from './BusinessListItemComponentStyle';
 import { View, TouchableHighlight, Text, ToastAndroid } from "react-native";
 
-class ReviewListItemComponent extends Component {
+class BusinessListItemComponent extends Component {
 
   constructor(props) {
     super(props);
     this.item = this.props.item;
+    this.navigator = this.props.navigator;
   }
 
   onClick() {
@@ -52,4 +53,4 @@ class ReviewListItemComponent extends Component {
   }
 }
 
-export default ReviewListItemComponent;
+export default BusinessListItemComponent;

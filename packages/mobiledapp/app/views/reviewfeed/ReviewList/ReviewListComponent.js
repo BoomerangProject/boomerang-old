@@ -17,7 +17,7 @@ class ReviewsListComponent extends Component {
         <FlatList
           style={styles.flatListStyle}
           data={reviewFeedData}
-          renderItem={({item}) => <ReviewListItem item={item}/>}/>
+          renderItem={({item}) => <ReviewListItem item={item} navigator={this.props.navigator}/>}/>
       </View>
     );
   }

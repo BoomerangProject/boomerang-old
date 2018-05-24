@@ -21,7 +21,7 @@ class BusinessProfileComponent extends Component {
           <Text style={styles.businessDescription}>{this.item.businessDescription}</Text>
         </View>
 
-        <ReviewListComponent />
+        <ReviewListComponent navigator={this.props.navigator} />
       </View>
     );
   }

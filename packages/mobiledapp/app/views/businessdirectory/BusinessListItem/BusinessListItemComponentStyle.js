@@ -13,6 +13,7 @@ module.exports = StyleSheet.create({
     backgroundColor: '#CCD4D1'
   },
   itemTile: {
+    flex: 1,
     width: '100%',
     height: 100,
     alignItems: 'center',
