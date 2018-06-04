@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 
 class NewUserComponent extends Component {
 
+  constructor(args) {
+    super(args);
+  }
+
   render() {
 
     return (

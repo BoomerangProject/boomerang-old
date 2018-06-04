@@ -4,7 +4,7 @@ import ReviewListItem from '../ReviewListItem/ReviewListItemComponent';
 import { View, FlatList, ListItem, TouchableHighlight, Text, ToastAndroid } from "react-native";
 import reviewFeedData from '../../../mockdata/MockReviewFeed';
 
-class ReviewsListComponent extends Component {
+class ReviewListComponent extends Component {
 
   render() {
 
@@ -23,4 +23,4 @@ class ReviewsListComponent extends Component {
   }
 }
 
-export default ReviewsListComponent;
+export default ReviewListComponent;

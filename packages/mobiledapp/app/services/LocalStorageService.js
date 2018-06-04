@@ -15,3 +15,12 @@ export function storeSeed(seedArg) {
     encrypt: true
   });
 }
+
+export function setItem(value) {
+
+}
+
+export function getItem(key) {
+
+}
+

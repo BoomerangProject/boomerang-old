@@ -13,7 +13,7 @@ class BusinessListItemComponent extends Component {
   onClick() {
 
     this.props.navigator.push({
-      screen: 'BusinessProfileComponent',
+      screen: 'BusinessProfilePage',
       passProps: {
         item: this.item
       }

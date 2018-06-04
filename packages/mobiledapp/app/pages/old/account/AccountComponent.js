@@ -67,7 +67,7 @@ class AccountComponent extends Component {
   onClickOfReviewTile(reviewEvent) {
 
     this.props.navigator.push({
-      screen: 'ReviewComponent',
+      screen: 'ReviewPage',
       passProps: {
         reviewEvent
       }

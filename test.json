@@ -1,25 +1,15 @@
 {
-  "address": "0xb098291cBF3A3da4c3CF7b3213D77992a09237FA",
-  "blockNumber": 3240583,
-  "transactionHash": "0xbcc9dc4d73036ca966758231775bb66d012c6527da5879dff145f33f77409604",
-  "transactionIndex": 2,
-  "blockHash": "0xca7d76130116f3ba138ceeaaa802cc9fb961c9c4afa7e40be22dfb63c609eac9",
-  "logIndex": 0,
-  "removed": false,
-  "id": "log_f5b174d3",
-  "returnValues": {
-    "0": "0xE86cAF4E3Df946A4ea9b3446C82F5733EA9a9aBd",
-    "1": "0x3f22010271ab1d2f6702555712b376c8ce1a8ec7c318a74abe0444b34de5aa0b",
-    "_businessAddress": "0xE86cAF4E3Df946A4ea9b3446C82F5733EA9a9aBd",
-    "_ipfsHash": "0x3f22010271ab1d2f6702555712b376c8ce1a8ec7c318a74abe0444b34de5aa0b"
-  },
-  "event": "RegisteredAsBusiness",
-  "signature": "0xb6d3c5fac11c800ac5fb34560b5352b2ea6d5501843d5920a5dd108085633a31",
-  "raw": {
-    "data": "0x3f22010271ab1d2f6702555712b376c8ce1a8ec7c318a74abe0444b34de5aa0b",
-    "topics": [
-      "0xb6d3c5fac11c800ac5fb34560b5352b2ea6d5501843d5920a5dd108085633a31",
-      "0x000000000000000000000000e86caf4e3df946a4ea9b3446c82f5733ea9a9abd"
-    ]
-  }
+  address: '0xb098291cBF3A3da4c3CF7b3213D77992a09237FA',
+  topics: [
+    '0xb6d3c5fac11c800ac5fb34560b5352b2ea6d5501843d5920a5dd108085633a31',
+    '0x000000000000000000000000a703a07e865cf141fa900fe9654562dbf567cddf'
+  ],
+  data: '0x4b5ab24e67a912620f974592aaeb4f5e86433900b9d3d78fd3bd10a4fc138014',
+  blockNumber: 3307637,
+  transactionHash: '0x3a50cabefc0e062d992a7655f6f8cb2acacd1269e6b56ddf6c6726e95c341f31',
+  transactionIndex: 11,
+  blockHash: '0x9ff5b04161697a237334402f2da527867e64872af569972063fb5503358b5a73',
+  logIndex: 3,
+  removed: false,
+  id: 'log_27a793f9'
 }

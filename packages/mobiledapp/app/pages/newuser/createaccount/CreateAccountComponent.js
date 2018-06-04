@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, Image, Text, TouchableOpacity, ToastAndroid, Clipboard } from 'react-native';
+import { Clipboard, Image, Text, ToastAndroid, TouchableOpacity, View } from 'react-native';
 import crypto from 'crypto'
 import styles from './CreateAccountComponentStyle';
 import { storeSeed } from '../../../services/LocalStorageService';
-import AccountTypeSelectionComponent from "../accounttypeselection/AccountTypeSelectionComponent";
+import Navigator from "../../../util/Navigator";
 
 class CreateAccountComponent extends Component {
 
@@ -17,15 +17,8 @@ class CreateAccountComponent extends Component {
   }
 
   onClickOfConfirmButton() {
-
     storeSeed(this.kudosAccountSeed);
-
-    this.props.navigator.push({
-      screen: 'AccountTypeSelectionComponent',
-      navigatorStyle: {
-        navBarHidden: true
-      }
-    });
+    Navigator.init(this).goToAccountTypeSelectionPage();
   }
 
   render() {

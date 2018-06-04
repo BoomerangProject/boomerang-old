@@ -12,7 +12,7 @@ class ReviewListItemComponent extends Component {
 
   onClick() {
     this.props.navigator.push({
-      screen: 'ReviewComponent',
+      screen: 'ReviewPage',
       passProps: {
         item: this.item
       }

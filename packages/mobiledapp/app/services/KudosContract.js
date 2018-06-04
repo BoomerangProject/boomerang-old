@@ -1,6 +1,6 @@
 import { kudosContractAddress } from '../ContractAddresses';
 
-export default function kudosContract() {
+export default async function getKudosContract() {
 
   const Web3 = require('web3');
   const KudosContractJson = require("kudos-contract-objects/Kudos");

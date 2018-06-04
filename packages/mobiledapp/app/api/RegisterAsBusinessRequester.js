@@ -1,31 +1,46 @@
 import axios from "axios";
 import web3 from "../services/Web3HttpService";
+import { NativeEventEmitter } from 'react-native';
+import PendingTransactionCount from "../util/PendingTransactionCount";
 
 axios.defaults.baseURL = 'https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev';
 
 export default class RegisterAsBusinessRequester {
 
-  async makeRequest(businessAccountAddress, businessName, businessDescription) {
+  constructor(businessAccountAddress, businessName, businessDescription) {
+
+    this.businessAccountAddress = businessAccountAddress;
+    this.businessName = businessName;
+    this.businessDescription = businessDescription;
+  }
+
+  async makeRequest() {
 
     let response;
 
     try {
-      response = await this.getSignedTransaction(businessAccountAddress, businessName, businessDescription);
+      response = await this.getSignedTransaction(this.businessAccountAddress, this.businessName, this.businessDescription);
     } catch (error) {
       console.log(error);
-      return new Promise((resolve, reject) => {reject(error);});
+      return new Promise((resolve, reject) => {
+        reject(error);
+      });
     }
 
-    let receipt;
+    let transactionHash;
 
     try {
-      receipt = await this.sendSignedTransaction(response.data.signedTransaction);
+      transactionHash = await this.sendSignedTransaction(response.data.signedTransaction);
     } catch (error) {
       console.log(error);
-      return new Promise((resolve, reject) => {reject(error);});
+      return new Promise((resolve, reject) => {
+        reject(error);
+      });
     }
 
-    return new Promise((resolve, reject) => {resolve(receipt);});
+    return new Promise((resolve, reject) => {
+      resolve(transactionHash);
+    });
   }
 
   async getSignedTransaction(businessAccountAddress, businessName, businessDescription) {
@@ -53,24 +68,23 @@ export default class RegisterAsBusinessRequester {
 
     return new Promise((resolve, reject) => {
 
-      web3.eth.sendSignedTransaction(signedTransaction.rawTransaction)
-        .on('transactionHash', (transactionHash) => {
-          console.log('transactionHash: ' + transactionHash)
-        })
-        .on('receipt', (receipt) => {
-          console.log('receipt: ' + JSON.stringify(receipt))
-        })
+      const promiEvent = web3.eth.sendSignedTransaction(signedTransaction.rawTransaction);
+
+      promiEvent.once('transactionHash', (transactionHash) => {
+
+        PendingTransactionCount.increment();
+        return resolve(transactionHash);
+      })
         .on('confirmation', (confirmationNumber, receipt) => {
-          console.log("confirmation number: " + confirmationNumber);
-          // console.log("the receipt is " + receipt);
 
           if (confirmationNumber > 5) {
-            resolve(receipt);
+            PendingTransactionCount.decrement();
+            promiEvent.off('confirmation');
           }
         })
-        .on('error', (error) => {
-          reject(error);
+        .once('error', (error) => {
           console.log('web3 error: ' + error);
+          return reject(error);
         });
     });
   }

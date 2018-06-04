@@ -36,9 +36,9 @@ class ImportAccountComponent extends Component {
     // storeSeed(this.kudosAccountSeed);
     //
     // this.props.navigator.push({
-    //   screen: 'LoadingPageComponent',
+    //   screen: 'LoadingPage',
     //   navigatorStyle: {
-    //     navBarHidden: true
+    //     navBarHidden: false
     //   }
     // });
   }

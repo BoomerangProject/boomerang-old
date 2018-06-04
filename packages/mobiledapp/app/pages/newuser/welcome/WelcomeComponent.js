@@ -1,29 +1,22 @@
 import React, { Component } from 'react';
 import styles from './WelcomeComponentStyle';
-import { Image, Text, View, TouchableOpacity } from "react-native";
-import CreateAccountComponent from "../createaccount/CreateAccountComponent";
-import ImportAccountComponent from "../importaccount/ImportAccountComponent";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import PendingTransactionCount from "../../../util/PendingTransactionCount";
+import Navigator from "../../../util/Navigator";
 
-class NewUserComponent extends Component {
+class WelcomeComponent extends Component {
+
+  constructor(args) {
+    super(args);
+    PendingTransactionCount.reset();
+  }
 
   onClickOfCreateAccountButton() {
-
-    this.props.navigator.push({
-      screen: 'CreateAccountComponent',
-      navigatorStyle: {
-        navBarHidden: true
-      }
-    });
+    Navigator.init(this).goToCreateAccountPage();
   }
 
   onClickOfImportAccountButton() {
-
-    this.props.navigator.push({
-      screen: 'ImportAccountComponent',
-      navigatorStyle: {
-        navBarHidden: true
-      }
-    });
+    Navigator.init(this).goToImportAccountPage();
   }
 
   render() {
@@ -53,4 +46,4 @@ class NewUserComponent extends Component {
   }
 }
 
-export default NewUserComponent;
+export default WelcomeComponent;

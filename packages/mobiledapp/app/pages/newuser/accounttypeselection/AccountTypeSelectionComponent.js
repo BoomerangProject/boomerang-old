@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './AccountTypeSelectionComponentStyle';
 import { Image, Text, View, TouchableOpacity } from "react-native";
+import Navigator from "../../../util/Navigator";
 
 class AccountTypeSelectionComponent extends Component {
 
@@ -13,20 +14,14 @@ class AccountTypeSelectionComponent extends Component {
   }
 
   onClickOfBusinessAccount() {
-
-    this.props.navigator.push({
-      screen: 'CreateBusinessAccountComponent',
-      navigatorStyle: {
-        navBarHidden: true
-      }
-    });
+    Navigator.init(this).goToCreateBusinessAccountPage();
   }
 
   goToLoadingPage(action) {
     this.props.navigator.push({
-      screen: 'LoadingPageComponent',
+      screen: 'LoadingPage',
       navigatorStyle: {
-        navBarHidden: true
+        navBarHidden: false
       },
       passProps: {
         action

@@ -1,0 +1,15 @@
+{
+  "testID": "WelcomeComponent",
+  "navigator": {
+    "navigatorID": "navigatorID1_nav",
+    "screenInstanceID": "screenInstanceID2",
+    "navigatorEventID": "screenInstanceID2_events",
+    "navigatorEventHandler": null,
+    "navigatorEventHandlers": [],
+    "navigatorEventSubscription": null
+  },
+  "screenInstanceID": "screenInstanceID2",
+  "navigatorID": "navigatorID1_nav",
+  "navigatorEventID": "screenInstanceID2_events",
+  "rootTag": 11
+}

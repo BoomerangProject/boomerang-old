@@ -1,40 +1,27 @@
 import React, { Component } from 'react';
-import { View, Button, Image, Text, ToastAndroid } from "react-native";
+import { Button, Image, Text, ToastAndroid, View } from "react-native";
 import styles from './BusinessEmployeesComponentStyle';
+import Navigator from '../../../../util/Navigator';
+import WorkerListRequester from "../../../../api/WorkerListRequester";
+import { default as localStorage } from 'react-native-sensitive-info';
 
 class BusinessEmployeesComponent extends Component {
 
   constructor(props) {
     super(props);
-
-    this.navigatorButtons = {
-      rightButtons: [
-        {
-          id: 'transactions',
-          component: 'TransactionLoadingButtonComponent',
-          passProps: {
-            navigator: this.props.navigator,
-          }
-        }
-      ]
-    };
-
-    this.props.navigator.setButtons(this.navigatorButtons);
+    this.workerListRequester = new WorkerListRequester();
   }
 
-  visible = true;
-  onClickOfShowHideButton() {
+  async onClickOfAddEmployeeButton() {
+    Navigator.init(this).goToAddEmployeePage();
 
-    if (this.visible) {
-      this.props.navigator.setButtons({rightButtons:[]});
-    } else {
-      this.props.navigator.setButtons(this.navigatorButtons);
-    }
+    const kudosAccountAddress = await localStorage.getItem('kudosAccountAddress', {
+      keychainService: 'kudosKeychain'
+    });
 
-    this.visible = !this.visible;
-  }
 
-  onClickOfAddEmployeeButton() {
+    const something = await this.workerListRequester.makeRequest(kudosAccountAddress);
+    console.log('something: ' + something);
 
   }
 
@@ -44,25 +31,16 @@ class BusinessEmployeesComponent extends Component {
 
       <View style={styles.container}>
 
-        <View style={{flex:1}}/>
+        <View style={{flex: 1}}/>
 
         <Button
           onPress={this.onClickOfAddEmployeeButton.bind(this)}
           title="add employee"
         />
 
-        <View style={{flex:1}}/>
+        <View style={{flex: 1}}/>
 
-        <Button
-          onPress={this.onClickOfShowHideButton.bind(this)}
-          title="show/hide"
-        />
-
-        <View style={{flex:1}}/>
-
-        <View style={{flex:1}}/>
-
-
+        <View style={{flex: 1}}/>
       </View>
     );
   }
