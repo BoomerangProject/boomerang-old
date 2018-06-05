@@ -43,13 +43,13 @@ export default class RegisterAsBusinessRequester {
     });
   }
 
-  async getSignedTransaction(businessAccountAddress, businessName, businessDescription) {
+  async getSignedTransaction(businessAddress, businessName, businessDescription) {
 
     return new Promise(function(resolve, reject) {
 
       return axios.post('/registerAsBusiness', {
 
-        businessAccountAddress: businessAddress,
+        businessAddress: businessAddress,
         businessName,
         businessDescription
 

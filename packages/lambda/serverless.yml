@@ -70,3 +70,9 @@ functions:
       - http:
           path: /registerAsBusiness
           method: post
+  addWorker:
+    handler: lib/handler.addWorker
+    events:
+      - http:
+          path: /addWorker
+          method: post
