@@ -51,7 +51,7 @@ class NavigatorImpl {
   }
 
   goToBusinessEmployeesPage(props) {
-    this.goToPage('BusinessEmployeesPage', 'employees', props);
+    this.resetToPage('BusinessEmployeesPage', 'employees', props);
   }
 
   goToAddEmployeePage() {
@@ -78,6 +78,17 @@ class NavigatorImpl {
 
   goToPage(screenName, title, props) {
     this.navigator.push({
+      title,
+      leftButtons: this.hamburgerButton(),
+      rightButtons: this.transactionsButton(),
+      screen: screenName,
+      navigatorStyle,
+      passProps: props
+    });
+  }
+
+  resetToPage(screenName, title, props) {
+    this.navigator.resetTo({
       title,
       leftButtons: this.hamburgerButton(),
       rightButtons: this.transactionsButton(),

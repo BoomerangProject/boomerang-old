@@ -1,7 +1,7 @@
 import backoff from 'backoff';
 import getKudosContract from "../services/KudosContract";
 
-export default class WorkerListRequester {
+export default class AddWorkerRequester {
 
   constructor(workerAddress, businessAddress) {
     this.workerAddress = workerAddress;

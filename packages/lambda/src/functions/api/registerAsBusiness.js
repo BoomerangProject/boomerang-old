@@ -7,10 +7,10 @@ import s3errorResponse from "../../responses/s3errorResponse";
 import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
 import signedTransactionResponse from "../../responses/smartContractReceiptResponse";
 
-const getBusinessAccountAddress = function(event) {
+const getBusinessAddress = function(event) {
 
   const jsonBody = JSON.parse(event.body);
-  return jsonBody.businessAccountAddress;
+  return jsonBody.businessAddress;
 };
 
 const getBusinessName = function(event) {
@@ -27,12 +27,12 @@ const getBusinessDescription = function(event) {
 
 export default async (event, context, callback) => {
 
-  const businessAccountAddress = getBusinessAccountAddress(event);
+  const businessAddress = getBusinessAddress(event);
   const businessName = getBusinessName(event);
   const businessDescription = getBusinessDescription(event);
 
-  if (businessAccountAddress == null || businessAccountAddress.length < 1) {
-    callback(null, errorResponse('businessAccountAddress is required'));
+  if (businessAddress == null || businessAddress.length < 1) {
+    callback(null, errorResponse('businessAddress is required'));
     return;
   }
 
@@ -70,7 +70,7 @@ export default async (event, context, callback) => {
 
   let signedTransaction;
   try {
-    signedTransaction = await registerAsBusinessTransaction(businessAccountAddress, ipfsHash);
+    signedTransaction = await registerAsBusinessTransaction(businessAddress, ipfsHash);
   } catch (error) {
     return callback(null, errorResponse('problem with signing transaction: ' + error));
   }

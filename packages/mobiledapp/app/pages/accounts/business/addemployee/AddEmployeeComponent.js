@@ -3,6 +3,7 @@ import { View, Image, TextInput, Text, TouchableOpacity, ToastAndroid, Clipboard
 import styles from './AddEmployeeComponentStyle';
 import Navigator from "../../../../util/Navigator";
 import AddWorkerRequester from "../../../../api/AddWorkerRequester";
+import { default as localStorage } from 'react-native-sensitive-info';
 
 class AddEmployeeComponent extends Component {
 
@@ -25,7 +26,11 @@ class AddEmployeeComponent extends Component {
 
     if (this.okayButtonIsEnabled) {
 
-      const addWorkerRequester = new AddWorkerRequester(this.state.workerAddress);
+      const businessAddress = await localStorage.getItem('kudosAccountAddress', {
+        keychainService: 'kudosKeychain'
+      });
+
+      const addWorkerRequester = new AddWorkerRequester(businessAddress, this.state.workerAddress);
 
       const props = {
         requester: addWorkerRequester,
@@ -39,11 +44,12 @@ class AddEmployeeComponent extends Component {
   }
 
   onSuccess(transactionHash) {
-
+    console.log('transactionHash: ' + transactionHash);
+    Navigator.init(this).goBack();
   }
 
   onFailure(error) {
-
+    console.log(error.message);
   }
 
   okayButton() {

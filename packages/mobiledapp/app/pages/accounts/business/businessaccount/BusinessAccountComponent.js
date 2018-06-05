@@ -20,7 +20,7 @@ class BusinessAccountComponent extends Component {
 
   async componentDidMount() {
 
-    // const businessAccountAddress = await localStorage.getItem('kudosAccountAddress', {
+    // const businessAddress = await localStorage.getItem('kudosAccountAddress', {
     //   keychainService: 'kudosKeychain'
     // });
 
@@ -36,7 +36,7 @@ class BusinessAccountComponent extends Component {
     console.log('isBusiness: ' + isBusiness);
 
     this.setState({
-      businessAccountAddress: businessProfile.businessAccountAddress,
+      businessAddress: businessProfile.businessAddress,
       businessName: businessProfile.businessName,
       businessDescription: businessProfile.businessDescription,
       isBusiness: isBusiness
@@ -77,7 +77,7 @@ class BusinessAccountComponent extends Component {
       <View style={styles.container}>
 
         <View style={styles.fieldContainer}>
-          <Text style={styles.field}>businessAccountAddress: {this.state.businessAccountAddress}</Text>
+          <Text style={styles.field}>businessAccountAddress: {this.state.businessAddress}</Text>
           <Text style={styles.field}>businessName: {this.state.businessName}</Text>
           <Text style={styles.field}>businessDescription: {this.state.businessDescription}</Text>
         </View>

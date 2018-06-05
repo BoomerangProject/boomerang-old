@@ -22,7 +22,10 @@ module.exports = StyleSheet.create({
   },
   workerAddressTextInput: {
     width: '75%',
-    marginBottom: 32
+    marginBottom: 32,
+    fontSize: 12,
+    color: '#002A1C',
+    fontFamily: 'RobotoMono-Regular',
   },
   okayButtonContainer: {
 

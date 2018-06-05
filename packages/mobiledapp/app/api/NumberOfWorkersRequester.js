@@ -1,10 +1,10 @@
 import backoff from 'backoff';
 import getKudosContract from "../services/KudosContract";
 
-export default class WorkerListRequester {
+export default class NumberOfWorkersRequester {
 
-  constructor(workerAddress) {
-    this.workerAddress = workerAddress;
+  constructor(businessAddress) {
+    this.businessAddress = businessAddress;
   }
 
   async makeRequest() {
@@ -13,7 +13,10 @@ export default class WorkerListRequester {
 
     return new Promise((resolve, reject) => {
 
-      this.call = backoff.call(kudosContract.methods.workerList(this.workerAddress).call, (error, result) => {
+      this.call = backoff.call(kudosContract.methods.getWorkerListLength(this.businessAddress).call, (error, result) => {
+
+        console.log(result);
+        console.log(result.toString());
 
         if (error) {
           return reject(error);

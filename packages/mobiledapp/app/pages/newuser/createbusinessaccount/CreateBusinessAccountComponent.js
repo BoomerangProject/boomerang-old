@@ -48,8 +48,6 @@ class CreateBusinessAccountComponent extends Component {
   onSuccess(transactionHash) {
     console.log('transactionHash: ' + transactionHash);
 
-    Navigator.init(this).goBack();
-
     const props = {
       businessName: this.state.businessName,
       businessDescription: this.state.businessDescription

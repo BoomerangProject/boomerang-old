@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "bs58": "^4.0.1",
-    "kudos-contract-objects": "^1.0.19",
+    "kudos-contract-objects": "^1.0.20",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",

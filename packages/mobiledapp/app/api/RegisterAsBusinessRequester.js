@@ -7,9 +7,9 @@ axios.defaults.baseURL = 'https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com
 
 export default class RegisterAsBusinessRequester {
 
-  constructor(businessAccountAddress, businessName, businessDescription) {
+  constructor(businessAddress, businessName, businessDescription) {
 
-    this.businessAccountAddress = businessAccountAddress;
+    this.businessAddress = businessAddress;
     this.businessName = businessName;
     this.businessDescription = businessDescription;
   }
@@ -19,7 +19,7 @@ export default class RegisterAsBusinessRequester {
     let response;
 
     try {
-      response = await this.getSignedTransaction(this.businessAccountAddress, this.businessName, this.businessDescription);
+      response = await this.getSignedTransaction(this.businessAddress, this.businessName, this.businessDescription);
     } catch (error) {
       console.log(error);
       return new Promise((resolve, reject) => {
@@ -49,7 +49,7 @@ export default class RegisterAsBusinessRequester {
 
       return axios.post('/registerAsBusiness', {
 
-        businessAccountAddress,
+        businessAccountAddress: businessAddress,
         businessName,
         businessDescription
 
