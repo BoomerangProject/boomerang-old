@@ -39,18 +39,18 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b61013d8061001e6000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806305af341f146100515780630e1478dc146100bd575b600080fd5b341561005c57600080fd5b6100a7600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100e6565b6040518082815260200191505060405180910390f35b34156100c857600080fd5b6100d061010b565b6040518082815260200191505060405180910390f35b6000602052816000526040600020602052806000526040600020600091509150505481565b600154815600a165627a7a72305820bffc3c726d47dbe9176f439dd96005538d2bbcf7d03801650247107059a13e870029",
-  "deployedBytecode": "0x60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806305af341f146100515780630e1478dc146100bd575b600080fd5b341561005c57600080fd5b6100a7600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100e6565b6040518082815260200191505060405180910390f35b34156100c857600080fd5b6100d061010b565b6040518082815260200191505060405180910390f35b6000602052816000526040600020602052806000526040600020600091509150505481565b600154815600a165627a7a72305820bffc3c726d47dbe9176f439dd96005538d2bbcf7d03801650247107059a13e870029",
+  "bytecode": "0x6060604052341561000f57600080fd5b61013d8061001e6000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806305af341f146100515780630e1478dc146100bd575b600080fd5b341561005c57600080fd5b6100a7600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100e6565b6040518082815260200191505060405180910390f35b34156100c857600080fd5b6100d061010b565b6040518082815260200191505060405180910390f35b6000602052816000526040600020602052806000526040600020600091509150505481565b600154815600a165627a7a72305820066c633a592b90fdad1dddb6ec06652373e541737f4a61a9231b95ee812f40360029",
+  "deployedBytecode": "0x60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806305af341f146100515780630e1478dc146100bd575b600080fd5b341561005c57600080fd5b6100a7600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100e6565b6040518082815260200191505060405180910390f35b34156100c857600080fd5b6100d061010b565b6040518082815260200191505060405180910390f35b6000602052816000526040600020602052806000526040600020600091509150505481565b600154815600a165627a7a72305820066c633a592b90fdad1dddb6ec06652373e541737f4a61a9231b95ee812f40360029",
   "sourceMap": "26:140:8:-;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "26:140:8:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;49:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;130:33;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;49:77;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;130:33::-;;;;:::o",
   "source": "pragma solidity ^0.4.18;\n\ncontract Rewards {\n\n\n  mapping(address => mapping(address => uint256)) public employeeRewardProgress;\n  uint256 public employeeRewardGoal;\n}",
-  "sourcePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/Rewards.sol",
+  "sourcePath": "/Users/panda/projects/kudos/packages/kudos-contracts/contracts/Rewards.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/panda/projects/kudos/packages/ethereum/contracts/Rewards.sol",
+      "absolutePath": "/Users/panda/projects/kudos/packages/kudos-contracts/contracts/Rewards.sol",
       "exportedSymbols": {
         "Rewards": [
-          805
+          818
         ]
       }
     },
@@ -64,7 +64,7 @@
             ".18"
           ]
         },
-        "id": 796,
+        "id": 809,
         "name": "PragmaDirective",
         "src": "0:24:8"
       },
@@ -80,17 +80,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            805
+            818
           ],
           "name": "Rewards",
-          "scope": 806
+          "scope": 819
         },
         "children": [
           {
             "attributes": {
               "constant": false,
               "name": "employeeRewardProgress",
-              "scope": 805,
+              "scope": 818,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => mapping(address => uint256))",
@@ -108,7 +108,7 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 797,
+                    "id": 810,
                     "name": "ElementaryTypeName",
                     "src": "57:7:8"
                   },
@@ -122,7 +122,7 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 798,
+                        "id": 811,
                         "name": "ElementaryTypeName",
                         "src": "76:7:8"
                       },
@@ -131,22 +131,22 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 799,
+                        "id": 812,
                         "name": "ElementaryTypeName",
                         "src": "87:7:8"
                       }
                     ],
-                    "id": 800,
+                    "id": 813,
                     "name": "Mapping",
                     "src": "68:27:8"
                   }
                 ],
-                "id": 801,
+                "id": 814,
                 "name": "Mapping",
                 "src": "49:47:8"
               }
             ],
-            "id": 802,
+            "id": 815,
             "name": "VariableDeclaration",
             "src": "49:77:8"
           },
@@ -154,7 +154,7 @@
             "attributes": {
               "constant": false,
               "name": "employeeRewardGoal",
-              "scope": 805,
+              "scope": 818,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -167,22 +167,22 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 803,
+                "id": 816,
                 "name": "ElementaryTypeName",
                 "src": "130:7:8"
               }
             ],
-            "id": 804,
+            "id": 817,
             "name": "VariableDeclaration",
             "src": "130:33:8"
           }
         ],
-        "id": 805,
+        "id": 818,
         "name": "ContractDefinition",
         "src": "26:140:8"
       }
     ],
-    "id": 806,
+    "id": 819,
     "name": "SourceUnit",
     "src": "0:166:8"
   },
@@ -192,5 +192,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-05-15T13:54:19.696Z"
+  "updatedAt": "2018-06-05T15:50:30.412Z"
 }
