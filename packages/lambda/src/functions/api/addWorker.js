@@ -35,6 +35,7 @@ export default async (event, context, callback) => {
       from: accountAddressOfPayer,
       to: kudosContractAddress,
       gas: 4612388,
+      gasPrice: 80000000000,
       data: encodedABI
     };
 

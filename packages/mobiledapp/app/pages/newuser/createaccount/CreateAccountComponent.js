@@ -42,7 +42,7 @@ class CreateAccountComponent extends Component {
         <TouchableOpacity
           style={styles.seedButtonContainer}
           onPress={this.onClickOfSeedButton.bind(this)}>
-          <Text style={styles.seedButton}>{this.kudosAccountSeed.slice(2)}</Text>
+          <Text style={styles.seedButton}>{this.kudosAccountSeed.substring(2)}</Text>
         </TouchableOpacity>
 
         <Text style={styles.tapToCopyMessage}>Tap to copy</Text>

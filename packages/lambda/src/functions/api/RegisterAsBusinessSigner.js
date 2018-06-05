@@ -14,6 +14,7 @@ let registerAsBusinessTransaction = async (accountAddress, ipfsHash) => {
     from: accountAddressOfPayer,
     to: kudosContractAddress,
     gas: 4612388,
+    gasPrice: 80000000000,
     data: encodedABI
   };
 

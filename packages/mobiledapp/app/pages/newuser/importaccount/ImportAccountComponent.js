@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import styles from './ImportAccountComponentStyle';
 import { KeyboardAvoidingView, View, Image, Text, TouchableOpacity, TextInput, ToastAndroid, Alert } from "react-native";
 import { storeSeed } from "../../../services/LocalStorageService";
-import IsBusinessRequester from "../../../api/IsBusinessRequester";
+import Navigator from "../../../util/Navigator";
 
 class ImportAccountComponent extends Component {
-
 
   constructor(args) {
     super(args);
     this.state = {seedText: ''};
-    this.isBusinessRequester = new IsBusinessRequester();
   }
 
   onChangeOfSeedText(seedTextValue) {
@@ -20,44 +18,18 @@ class ImportAccountComponent extends Component {
 
   async onClickOfConfirmButton() {
 
-    const businessAccountAddress = this.state.seedText;
-    await this.checkBusinessStatus(businessAccountAddress);
+    if (this.state.seedText == undefined || this.state.seedText.length !== 64) {
 
-    // if (this.state.seedText === null || .length !== 64) {
-    //
-    //   Alert.alert('Invalid seed', 'seed text must be 64 hexadecimal characters',
-    //     [{text: 'OK', onPress: () => {}}],
-    //     { cancelable: false }
-    //   );
-    //
-    //   return;
-    // }
-    //
-    // storeSeed(this.kudosAccountSeed);
-    //
-    // this.props.navigator.push({
-    //   screen: 'LoadingPage',
-    //   navigatorStyle: {
-    //     navBarHidden: false
-    //   }
-    // });
-  }
+      Alert.alert('Invalid seed', 'seed text must be 64 hexadecimal characters',
+        [{text: 'OK', onPress: () => {}}],
+        { cancelable: false }
+      );
 
-
-
-
-  async checkBusinessStatus(kudosAccountAddress) {
-
-    let result;
-    try {
-
-      result = await this.isBusinessRequester.makeRequest(kudosAccountAddress);
-
-      console.log("isBusiness for " + kudosAccountAddress + ": " + result);
-    } catch (error) {
-
-      console.log(error);
+      return;
     }
+
+    storeSeed(this.state.seedText);
+    Navigator.init(this).goToBusinessEmployeesPage();
   }
 
   render() {
