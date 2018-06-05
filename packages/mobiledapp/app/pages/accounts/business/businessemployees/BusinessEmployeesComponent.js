@@ -12,17 +12,17 @@ class BusinessEmployeesComponent extends Component {
     this.workerListRequester = new WorkerListRequester();
   }
 
-  async onClickOfAddEmployeeButton() {
-    Navigator.init(this).goToAddEmployeePage();
-
+  async componentDidMount() {
     const kudosAccountAddress = await localStorage.getItem('kudosAccountAddress', {
       keychainService: 'kudosKeychain'
     });
 
-
     const something = await this.workerListRequester.makeRequest(kudosAccountAddress);
     console.log('something: ' + something);
+  }
 
+  async onClickOfAddEmployeeButton() {
+    Navigator.init(this).goToAddEmployeePage();
   }
 
   render() {

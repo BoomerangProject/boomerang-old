@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Image, TextInput, Text, TouchableOpacity, ToastAndroid, Clipboard } from 'react-native';
 import styles from './AddEmployeeComponentStyle';
 import Navigator from "../../../../util/Navigator";
+import AddWorkerRequester from "../../../../api/AddWorkerRequester";
 
 class AddEmployeeComponent extends Component {
 
@@ -24,13 +25,25 @@ class AddEmployeeComponent extends Component {
 
     if (this.okayButtonIsEnabled) {
 
+      const addWorkerRequester = new AddWorkerRequester(this.state.workerAddress);
+
       const props = {
-        workerAddress: this.state.workerAddress
+        requester: addWorkerRequester,
+        loadingMessage: 'Adding Employee',
+        onSuccess: this.onSuccess.bind(this),
+        onFailure: this.onFailure.bind(this)
       };
 
-      ToastAndroid.show('you clicked the okay button', ToastAndroid.SHORT);
-      Navigator.init(this).goBack();
+      Navigator.init(this).goToLoadingPage(props);
     }
+  }
+
+  onSuccess(transactionHash) {
+
+  }
+
+  onFailure(error) {
+
   }
 
   okayButton() {

@@ -46,14 +46,9 @@ class CreateBusinessAccountComponent extends Component {
   }
 
   onSuccess(transactionHash) {
-    ToastAndroid.show('we have success: ' + transactionHash, ToastAndroid.SHORT);
-
-    console.log('this is undefined? ' + (this == undefined).toString());
-    console.log('this.props is undefined? ' + (this.props == undefined).toString());
-    console.log('this.props.navigator is undefined? ' + (this.props.navigator == undefined).toString());
+    console.log('transactionHash: ' + transactionHash);
 
     Navigator.init(this).goBack();
-
 
     const props = {
       businessName: this.state.businessName,

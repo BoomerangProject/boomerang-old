@@ -3,8 +3,9 @@ import getKudosContract from "../services/KudosContract";
 
 export default class WorkerListRequester {
 
-  constructor(workerAddress) {
+  constructor(workerAddress, businessAddress) {
     this.workerAddress = workerAddress;
+    this.businessAddress = businessAddress;
   }
 
   async makeRequest() {
@@ -13,12 +14,11 @@ export default class WorkerListRequester {
 
     return new Promise((resolve, reject) => {
 
-      this.call = backoff.call(kudosContract.methods.workerList(this.workerAddress).call, (error, result) => {
+      this.call = backoff.call(kudosContract.methods.addWorker(this.workerAddress, this.businessAddress).call, (error, result) => {
 
         if (error) {
           return reject(error);
         } else {
-
           return resolve(result);
         }
       });

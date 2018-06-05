@@ -8,6 +8,10 @@ contract KudosActor {
   mapping(address => mapping(address => bool)) public businessHasApprovedWorker;
   mapping(address => address[]) public workerList;
 
+  function getWorkerListLength(address businessAddress) public constant returns(uint count) {
+    return workerList[businessAddress].length;
+  }
+
   mapping(address => uint256) public businessAverageRating;
   mapping(address => uint256) public numberOfBusinessRatings;
 
