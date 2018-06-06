@@ -1,4 +1,4 @@
-import web3 from "services/Web3HttpService";
+import web3 from "./services/Web3HttpService";
 import { payerAddress } from "./ContractAddresses";
 
 export async function getEthereumNonce() {
