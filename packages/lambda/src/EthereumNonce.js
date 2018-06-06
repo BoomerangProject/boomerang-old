@@ -3,8 +3,8 @@ import { payerAddress } from "./ContractAddresses";
 
 export async function getEthereumNonce() {
 
-  const numberOfMinedTransactions = web3.eth.getTransactionCount(payerAddress);
-  const numberOfPendingTransactions = web3.eth.getTransactionCount(payerAddress, 'pending');
+  const numberOfMinedTransactions = await web3.eth.getTransactionCount(payerAddress);
+  const numberOfPendingTransactions = await web3.eth.getTransactionCount(payerAddress, 'pending');
 
   return numberOfMinedTransactions + numberOfPendingTransactions;
 }
