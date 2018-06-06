@@ -50,7 +50,11 @@ class NavigatorImpl {
     this.goToPageWithoutNavbar('LoadingPage', props);
   }
 
-  goToBusinessEmployeesPage(props) {
+   goToBusinessEmployeesPage(props) {
+    this.goToPage('BusinessEmployeesPage', 'employees', props);
+  }
+
+  resetToBusinessEmployeesPage(props) {
     this.resetToPage('BusinessEmployeesPage', 'employees', props);
   }
 

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ipfsNodeEndpoint } from '../Endpoints';
 
 export default class IpfsFileRequester {
 
@@ -7,7 +8,7 @@ export default class IpfsFileRequester {
     return new Promise((resolve, reject) => {
 
       const axiosClient = axios.create({
-        baseURL: 'http://ec2-54-172-136-192.compute-1.amazonaws.com:8080'
+        baseURL: ipfsNodeEndpoint
       });
 
       axiosClient.get(`/ipfs/${ipfsHash}`)

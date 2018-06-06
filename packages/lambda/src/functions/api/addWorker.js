@@ -4,10 +4,11 @@ import signedTransactionResponse from "../../responses/smartContractReceiptRespo
 
 import web3 from "../../services/Web3HttpService";
 import kudosContract from "../../services/KudosContractService";
-import { kudosContractAddress } from '../../ContractAddresses';
+import { kudosContractAddress, payerAddress } from '../../ContractAddresses';
+import { getEthereumNonce } from '../../EthereumNonce';
+
 
 const privateKeyOfPayer = '0x4725d5a1c46923e72f04831eab9daf1ec657f256f5e4f139d4835b5197fcffc4';
-const accountAddressOfPayer = '0xdcee2f1da7262362a962d456280a928f4f90bb5e';
 
 const getWorkerAddress = function(event) {
 
@@ -25,6 +26,7 @@ export default async (event, context, callback) => {
 
   const workerAddress = getWorkerAddress(event);
   const businessAddress = getBusinessAddress(event);
+  const nonceValue = await getEthereumNonce();
 
   let signedTransaction;
   try {
@@ -32,11 +34,12 @@ export default async (event, context, callback) => {
     const query = kudosContract.methods.addWorker(workerAddress, businessAddress);
     const encodedABI = query.encodeABI();
     const transaction = {
-      from: accountAddressOfPayer,
+      from: payerAddress,
       to: kudosContractAddress,
       gas: 4612388,
       gasPrice: 80000000000,
-      data: encodedABI
+      data: encodedABI,
+      nonce: nonceValue
     };
 
     signedTransaction = await web3.eth.accounts.signTransaction(transaction, privateKeyOfPayer);

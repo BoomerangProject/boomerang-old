@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Button, Image, Text, ToastAndroid, View } from "react-native";
 import styles from './BusinessEmployeesComponentStyle';
 import Navigator from '../../../../util/Navigator';
-import NumberOfWorkersRequester from "../../../../api/NumberOfWorkersRequester";
+import NumberOfWorkersRequester from "../../../../api/read/NumberOfWorkersRequester";
 import { default as localStorage } from 'react-native-sensitive-info';
+import BusinessHasApprovedWorkerRequester from "../../../../api/read/BusinessHasApprovedWorkerRequester";
 
 class BusinessEmployeesComponent extends Component {
 
@@ -19,8 +20,14 @@ class BusinessEmployeesComponent extends Component {
 
     this.numberOfWorkersRequester = new NumberOfWorkersRequester(businessAddress);
 
-    const something = await this.numberOfWorkersRequester.makeRequest();
-    console.log('something: ' + something);
+    const numberOfWorkers = await this.numberOfWorkersRequester.makeRequest();
+    // console.log('numberOfWorkers: ' + numberOfWorkers);
+
+
+    this.businessHasApprovedWorkerRequester = new BusinessHasApprovedWorkerRequester(businessAddress, '0x11c56a8b60a10323eb4402d698f9f97a0260d3d9');
+
+    const hasBusinessApprovedWorker = await this.businessHasApprovedWorkerRequester.makeRequest();
+    // console.log('hasBusinessApprovedWorker: ' + hasBusinessApprovedWorker);
   }
 
   async onClickOfAddEmployeeButton() {

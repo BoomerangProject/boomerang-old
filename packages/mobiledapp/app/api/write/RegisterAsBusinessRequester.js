@@ -1,9 +1,8 @@
 import axios from "axios";
-import web3 from "../services/Web3HttpService";
+import web3 from "../../services/Web3HttpService";
 import { NativeEventEmitter } from 'react-native';
-import PendingTransactionCount from "../util/PendingTransactionCount";
-
-axios.defaults.baseURL = 'https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev';
+import PendingTransactionCount from "../../util/PendingTransactions";
+import { awsEndpoint } from '../../Endpoints';
 
 export default class RegisterAsBusinessRequester {
 
@@ -45,9 +44,13 @@ export default class RegisterAsBusinessRequester {
 
   async getSignedTransaction(businessAddress, businessName, businessDescription) {
 
+    const axiosClient = axios.create({
+      baseURL: awsEndpoint
+    });
+
     return new Promise(function(resolve, reject) {
 
-      return axios.post('/registerAsBusiness', {
+      return axiosClient.post('/registerAsBusiness', {
 
         businessAddress: businessAddress,
         businessName,
@@ -72,13 +75,14 @@ export default class RegisterAsBusinessRequester {
 
       promiEvent.once('transactionHash', (transactionHash) => {
 
-        PendingTransactionCount.increment();
+        PendingTransactionCount.add(transactionHash);
         return resolve(transactionHash);
       })
         .on('confirmation', (confirmationNumber, receipt) => {
 
           if (confirmationNumber > 5) {
-            PendingTransactionCount.decrement();
+
+            PendingTransactionCount.remove(receipt.transactionHash);
             promiEvent.off('confirmation');
           }
         })

@@ -1,10 +1,10 @@
 import axios from "axios";
-import web3 from "../services/Web3HttpService";
+import web3 from "../../services/Web3HttpService";
 import { NativeEventEmitter } from 'react-native';
-import PendingTransactionCount from "../util/PendingTransactionCount";
-
-axios.defaults.baseURL = 'https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev';
-
+import PendingTransactionCount from "../../util/PendingTransactions";
+import getKudosContract from "../../services/KudosContract";
+import backoff from "backoff";
+import { awsEndpoint } from "../../Endpoints";
 
 export default class AddWorkerRequester {
 
@@ -46,7 +46,11 @@ export default class AddWorkerRequester {
 
     return new Promise(function(resolve, reject) {
 
-      return axios.post('/addWorker', {
+      const axiosClient = axios.create({
+        baseURL: awsEndpoint
+      });
+
+      return axiosClient.post('/addWorker', {
 
         workerAddress: workerAddress,
         businessAddress: businessAddress
@@ -70,13 +74,14 @@ export default class AddWorkerRequester {
 
       promiEvent.once('transactionHash', (transactionHash) => {
 
-        PendingTransactionCount.increment();
+        PendingTransactionCount.add(transactionHash);
         return resolve(transactionHash);
       })
         .on('confirmation', (confirmationNumber, receipt) => {
 
           if (confirmationNumber > 5) {
-            PendingTransactionCount.decrement();
+
+            PendingTransactionCount.remove(receipt.transactionHash);
             promiEvent.off('confirmation');
           }
         })
@@ -86,6 +91,32 @@ export default class AddWorkerRequester {
         });
     });
   }
+
+
+  // async sendSignedTransaction(signedTransaction) {
+  //
+  //   return new Promise((resolve, reject) => {
+  //
+  //     this.call = backoff.call(kudosContract.methods.isBusiness(addressArg).call, (error, result) => {
+  //
+  //       if (error) {
+  //         return reject(error);
+  //       } else {
+  //         return resolve(result);
+  //       }
+  //     });
+  //
+  //     this.call.on('backoff', async (number, delay) => {
+  //       console.log(number + ' ' + delay + 'ms');
+  //       let kudosContract = await getKudosContract();
+  //       this.call.function_ = kudosContract.getPastEvents.bind(kudosContract);
+  //     });
+  //
+  //     this.call.setStrategy(new backoff.ExponentialStrategy());
+  //     this.call.failAfter(12);
+  //     this.call.start();
+  //   });
+  // }
 
   async cancel() {
 

@@ -1,5 +1,5 @@
 import backoff from 'backoff';
-import getKudosContract from "../services/KudosContract";
+import getKudosContract from "../../services/KudosContract";
 
 export default class IsBusinessRequester {
 

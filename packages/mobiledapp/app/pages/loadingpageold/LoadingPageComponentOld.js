@@ -4,7 +4,7 @@ import { View, Image, Text, ActivityIndicator, ToastAndroid } from "react-native
 import kudosContract from '../../services/KudosContractServiceOld'
 import { default as localStorage } from 'react-native-sensitive-info';
 import GetBalanceRequester from '../../api/EtherBalanceRequester';
-import IsBusinessRequester from '../../api/IsBusinessRequester';
+import IsBusinessRequester from '../../api/read/IsBusinessRequester';
 import RegisterAsBusinessRequester from '../../api/RegisterAsBusinessRequesterOld';
 
 const visibleDotsArray = ['. ', '. .', '. . .', '. .', '. '];

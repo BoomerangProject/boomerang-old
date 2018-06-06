@@ -16,11 +16,27 @@ export function storeSeed(seedArg) {
   });
 }
 
-export function setItem(value) {
+export async function setItem(key, value) {
 
+  return localStorage.setItem(key, value, {
+    keychainService: 'kudosKeychain',
+    encrypt: true
+  });
 }
 
-export function getItem(key) {
+export async function getItem(key) {
 
+  return localStorage.getItem(key, {
+    keychainService: 'kudosKeychain'
+  });
+}
+
+export async function getArrayItem(key) {
+
+  const value = await localStorage.getItem(key, {
+    keychainService: 'kudosKeychain'
+  });
+
+  return JSON.parse(value);
 }
 

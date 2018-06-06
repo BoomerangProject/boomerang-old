@@ -29,7 +29,7 @@ class ImportAccountComponent extends Component {
     }
 
     storeSeed(this.state.seedText);
-    Navigator.init(this).goToBusinessEmployeesPage();
+    Navigator.init(this).resetToBusinessEmployeesPage();
   }
 
   render() {

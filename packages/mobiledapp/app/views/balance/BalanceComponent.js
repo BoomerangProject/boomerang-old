@@ -3,7 +3,7 @@ import styles from './BalanceComponentStyle';
 import { View, TouchableHighlight, Text, ToastAndroid } from "react-native";
 import { default as localStorage } from 'react-native-sensitive-info';
 import EtherBalanceRequester from "../../api/EtherBalanceRequester";
-import KudosBalanceRequester from "../../api/KudosBalanceRequester";
+import KudosBalanceRequester from "../../api/read/KudosBalanceRequester";
 
 class BalanceComponent extends Component {
 

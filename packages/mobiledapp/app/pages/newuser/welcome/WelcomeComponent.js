@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import styles from './WelcomeComponentStyle';
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import PendingTransactionCount from "../../../util/PendingTransactionCount";
+import PendingTransactions from "../../../util/PendingTransactions";
 import Navigator from "../../../util/Navigator";
 
 class WelcomeComponent extends Component {
 
   constructor(args) {
     super(args);
-    PendingTransactionCount.reset();
+    PendingTransactions.reset();
   }
 
   onClickOfCreateAccountButton() {

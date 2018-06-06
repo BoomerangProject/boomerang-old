@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Image, TextInput, Text, TouchableOpacity, ToastAndroid, Clipboard } from 'react-native';
 import styles from './AddEmployeeComponentStyle';
 import Navigator from "../../../../util/Navigator";
-import AddWorkerRequester from "../../../../api/AddWorkerRequester";
+import AddWorkerRequester from "../../../../api/write/AddWorkerRequester";
 import { default as localStorage } from 'react-native-sensitive-info';
 
 class AddEmployeeComponent extends Component {
@@ -45,7 +45,7 @@ class AddEmployeeComponent extends Component {
 
   onSuccess(transactionHash) {
     console.log('transactionHash: ' + transactionHash);
-    Navigator.init(this).goBack();
+    Navigator.init(this).resetToBusinessEmployeesPage();
   }
 
   onFailure(error) {

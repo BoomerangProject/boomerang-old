@@ -1,6 +1,6 @@
 import backoff from 'backoff';
-import kudosTokenContract from '../services/KudosTokenContractService';
-import web3 from "../services/Web3HttpService";
+import kudosTokenContract from '../../services/KudosTokenContractService';
+import web3 from "../../services/Web3HttpService";
 
 export default class KudosBalanceRequester {
 

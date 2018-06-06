@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import styles from './NavigationDrawerComponentStyle';
 import { Image, Text, View, TouchableHighlight, ToastAndroid } from "react-native";
+import Navigator from "../../util/Navigator";
 
 class NavigationDrawerComponent extends Component {
 
   onClickOfEmployeesButton() {
-    ToastAndroid.show('employees', ToastAndroid.SHORT);
+    Navigator.init(this).goToBusinessEmployeesPage();
+    this.closeDrawer();
   }
 
   onClickOfAnalyticsButton() {
@@ -22,6 +24,10 @@ class NavigationDrawerComponent extends Component {
 
   onClickOfSignOutRewardsButton() {
     ToastAndroid.show('sign out', ToastAndroid.SHORT);
+  }
+
+  closeDrawer() {
+    this.props.navigator.toggleDrawer({side: 'left', to: 'closed'});
   }
 
   render() {

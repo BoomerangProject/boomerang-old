@@ -8,23 +8,19 @@ module.exports = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: 'white',
-    alignItems: 'center'
+    padding: 16
   },
-  businessInfoContainer: {
-    width: '100%',
-    padding: 16,
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start'
-  },
-  businessName: {
+  title: {
     fontFamily: 'WorkSans-Regular',
+    marginTop: 16,
+    marginBottom: 8,
     color: '#002A1C',
     fontSize: 18,
-    fontWeight: 'bold'
   },
-  businessDescription: {
-    fontFamily: 'WorkSans-Regular',
+  transactionText: {
+    fontFamily: 'RobotoMono-Regular',
     color: '#002A1C',
-    fontSize: 14
+    fontSize: 8,
+    marginTop: 4
   },
 });

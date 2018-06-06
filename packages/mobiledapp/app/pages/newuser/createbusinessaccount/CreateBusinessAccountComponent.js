@@ -3,7 +3,7 @@ import { View, Image, TextInput, Text, TouchableOpacity, ToastAndroid, Clipboard
 import styles from './CreateBusinessAccountComponentStyle';
 import { default as localStorage } from 'react-native-sensitive-info';
 import Navigator from "../../../util/Navigator";
-import RegisterAsBusinessRequester from "../../../api/RegisterAsBusinessRequester";
+import RegisterAsBusinessRequester from "../../../api/write/RegisterAsBusinessRequester";
 
 class CreateBusinessAccountComponent extends Component {
 
@@ -53,7 +53,7 @@ class CreateBusinessAccountComponent extends Component {
       businessDescription: this.state.businessDescription
     };
 
-    Navigator.init(this).goToBusinessEmployeesPage(props);
+    Navigator.init(this).resetToBusinessEmployeesPage(props);
   }
 
   onFailure(error) {

@@ -6,7 +6,7 @@ import IpfsFileRequester from "../../../../api/IpfsFileRequester";
 import bs58 from 'bs58';
 import BalanceComponent from "../../../../views/balance/BalanceComponent";
 import BusinessListComponent from "../../../../views/businessdirectory/BusinessList/BusinessListComponent";
-import IsBusinessRequester from "../../../../api/IsBusinessRequester";
+import IsBusinessRequester from "../../../../api/read/IsBusinessRequester";
 
 class BusinessAccountComponent extends Component {
 
