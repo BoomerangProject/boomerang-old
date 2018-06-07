@@ -26,7 +26,6 @@ export default async (event, context, callback) => {
 
   const workerAddress = getWorkerAddress(event);
   const businessAddress = getBusinessAddress(event);
-  const nonceValue = await getEthereumNonce();
 
   let signedTransaction;
   try {
@@ -38,8 +37,7 @@ export default async (event, context, callback) => {
       to: kudosContractAddress,
       gas: 4612388,
       gasPrice: 80000000000,
-      data: encodedABI,
-      nonce: nonceValue
+      data: encodedABI
     };
 
     signedTransaction = await web3.eth.accounts.signTransaction(transaction, privateKeyOfPayer);
@@ -48,5 +46,5 @@ export default async (event, context, callback) => {
     return callback(null, errorResponse('problem with signing transaction: ' + error));
   }
 
-  callback(null, signedTransactionResponse(signedTransaction, nonceValue));
+  callback(null, signedTransactionResponse(signedTransaction));
 };

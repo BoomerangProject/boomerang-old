@@ -69,14 +69,11 @@ export default async (event, context, callback) => {
   // ---
 
   let signedTransaction;
-  let nonceValue;
   try {
-    const array = await registerAsBusinessTransaction(businessAddress, ipfsHash);
-    signedTransaction = array[0];
-    nonceValue = array[1];
+    signedTransaction = await registerAsBusinessTransaction(businessAddress, ipfsHash);
   } catch (error) {
     return callback(null, errorResponse('problem with signing transaction: ' + error));
   }
 
-  callback(null, signedTransactionResponse(signedTransaction, nonceValue));
+  callback(null, signedTransactionResponse(signedTransaction));
 };

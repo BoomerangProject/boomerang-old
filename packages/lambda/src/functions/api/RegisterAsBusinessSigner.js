@@ -10,20 +10,18 @@ let registerAsBusinessTransaction = async (accountAddress, ipfsHash) => {
 
   const query = kudosContract.methods.registerAsBusiness(accountAddress, ipfsHashInBytes(ipfsHash));
   const encodedABI = query.encodeABI();
-  const nonceValue = await getEthereumNonce();
 
   const transaction = {
     from: payerAddress,
     to: kudosContractAddress,
     gas: 4612388,
     gasPrice: 80000000000,
-    data: encodedABI,
-    nonce: nonceValue
+    data: encodedABI
   };
 
   const signedTransaction = await web3.eth.accounts.signTransaction(transaction, privateKeyOfPayer);
 
-  return [signedTransaction, nonceValue];
+  return signedTransaction;
 };
 
 export default registerAsBusinessTransaction;
