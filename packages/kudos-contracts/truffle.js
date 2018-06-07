@@ -27,6 +27,13 @@ module.exports = {
       network_id: "4",
       gas: 4612388,
       gasPrice: 80000000000
+    },
+
+    kovan: {
+      provider: new WalletProvider(wallet, "https://kovan.infura.io/" + process.env.INFURA_ACCESS_TOKEN),
+      network_id: "42",
+      gas: 4612388,
+      gasPrice: 80000000000
     }
   }
 };

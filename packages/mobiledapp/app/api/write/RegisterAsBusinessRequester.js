@@ -19,7 +19,7 @@ export default class RegisterAsBusinessRequester {
 
     try {
       response = await this.getSignedTransaction(this.businessAddress, this.businessName, this.businessDescription);
-      console.log('nonceValue: ' + response.nonceValue);
+      console.log('nonceValue: ' + response.data.nonceValue);
     } catch (error) {
       console.log(error);
       return new Promise((resolve, reject) => {

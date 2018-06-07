@@ -19,7 +19,7 @@ export default class AddWorkerRequester {
 
     try {
       response = await this.getSignedTransaction(this.workerAddress, this.businessAddress);
-      console.log('nonceValue: ' + response.nonceValue);
+      console.log('nonceValue: ' + response.data.nonceValue);
     } catch (error) {
       console.log(error);
       return new Promise((resolve, reject) => {

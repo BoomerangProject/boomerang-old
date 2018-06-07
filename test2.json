@@ -2,22 +2,23 @@
   "data": {
     "message": "success",
     "signedTransaction": {
-      "messageHash": "0x8d1167d96708d47fe2d8bf3b38bd4c1ad2035093aed9e92ed43c4ffeaaefeab8",
+      "messageHash": "0x40d8a1218cdf229051359041b35590c67952a8c6f71c620fe5d8301446dcaf07",
       "v": "0x2b",
-      "r": "0x9e109114c84f1a00b113757628c16e993d8e5d50a5624fecaadd33579e94efda",
-      "s": "0x762c3ebfd60624052abcd4eb2661a0f5df10a4a31c28829ccfcd2350815ae704",
-      "rawTransaction": "0xf8ab819e8512a05f200083466124945aea1d2c27f2faf0ef4f2e168923842e4336e46180b8443bf0cbf4000000000000000000000000ffda329ae64a5a40a4d46c8033f5f35a598e6dca0000000000000000000000008e3d7a5bcf45de8038ab3428f590d20ca571003d2ba09e109114c84f1a00b113757628c16e993d8e5d50a5624fecaadd33579e94efdaa0762c3ebfd60624052abcd4eb2661a0f5df10a4a31c28829ccfcd2350815ae704"
-    }
+      "r": "0x61bec1a3ea46f86037dcbd8cf733512f26f38f5d78dc8cc1c32175b253beffdb",
+      "s": "0x42cd0c33095a61242b0be15e3fd06ef1a229b9f4a8f69cbead64cd09b98e4dd9",
+      "rawTransaction": "0xf8ab819e8512a05f200083466124945aea1d2c27f2faf0ef4f2e168923842e4336e46180b844fe71510300000000000000000000000064c8075af1e3247da78090f6ab9f10cb276ce00dfcc03d1cec7643096c2ae62018c6e90a3192e3b3f22815a2470a53891cdc628a2ba061bec1a3ea46f86037dcbd8cf733512f26f38f5d78dc8cc1c32175b253beffdba042cd0c33095a61242b0be15e3fd06ef1a229b9f4a8f69cbead64cd09b98e4dd9"
+    },
+    "nonceValue": 158
   },
   "status": 200,
   "headers": {
-    "via": "1.1 216670b4a81ce002b21916d95dc32d06.cloudfront.net (CloudFront)",
-    "x-amz-apigw-id": "IHccGFiNoAMFs1Q=",
-    "x-amz-cf-id": "RUkY4CLeyLEcufHsRtTE5DWMmhvm7r6XD_Rbn8EezpdOCeTkm_Wsxw==",
-    "date": "Thu, 07 Jun 2018 14:28:42 GMT",
-    "x-amzn-trace-id": "Root=1-5b19411a-8d0c28c4c182f4d45690044c",
-    "x-amzn-requestid": "13dfedef-6a5f-11e8-a86e-2790cd4f36c4",
-    "content-length": "651",
+    "via": "1.1 707d06343c7b07a529839efb71fdb71b.cloudfront.net (CloudFront)",
+    "x-amz-apigw-id": "IHeMmEV8IAMF3Fg=",
+    "x-amz-cf-id": "XPtbX6ElEkjk1wgykUaHbzUY8Nh9RGJ-WV1_sy8irPE_PZNVrnnB_A==",
+    "date": "Thu, 07 Jun 2018 14:40:42 GMT",
+    "x-amzn-trace-id": "Root=1-5b1943ea-59d4a4ebea1ac40bf9a3a12c",
+    "x-amzn-requestid": "c103173a-6a60-11e8-a5dd-853c48ebbc26",
+    "content-length": "668",
     "x-cache": "Miss from cloudfront",
     "content-type": "application/json"
   },
@@ -34,8 +35,8 @@
     },
     "method": "post",
     "baseURL": "https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev",
-    "url": "https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev/addWorker",
-    "data": "{\"workerAddress\":\"0xffDA329Ae64a5a40A4d46c8033f5F35A598E6DCA\",\"businessAddress\":\"0x8e3d7a5bcf45de8038ab3428f590d20ca571003d\"}"
+    "url": "https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev/registerAsBusiness",
+    "data": "{\"businessAddress\":\"0x64c8075AF1E3247da78090F6AB9F10Cb276Ce00d\",\"businessName\":\"sdsddsdsdsd\",\"businessDescription\":\"sds\"}"
   },
   "request": {
     "UNSENT": 0,
@@ -51,19 +52,19 @@
     "_aborted": false,
     "_hasError": false,
     "_method": "POST",
-    "_response": "{\"message\":\"success\",\"signedTransaction\":{\"messageHash\":\"0x8d1167d96708d47fe2d8bf3b38bd4c1ad2035093aed9e92ed43c4ffeaaefeab8\",\"v\":\"0x2b\",\"r\":\"0x9e109114c84f1a00b113757628c16e993d8e5d50a5624fecaadd33579e94efda\",\"s\":\"0x762c3ebfd60624052abcd4eb2661a0f5df10a4a31c28829ccfcd2350815ae704\",\"rawTransaction\":\"0xf8ab819e8512a05f200083466124945aea1d2c27f2faf0ef4f2e168923842e4336e46180b8443bf0cbf4000000000000000000000000ffda329ae64a5a40a4d46c8033f5f35a598e6dca0000000000000000000000008e3d7a5bcf45de8038ab3428f590d20ca571003d2ba09e109114c84f1a00b113757628c16e993d8e5d50a5624fecaadd33579e94efdaa0762c3ebfd60624052abcd4eb2661a0f5df10a4a31c28829ccfcd2350815ae704\"}}",
-    "_url": "https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev/addWorker",
+    "_response": "{\"message\":\"success\",\"signedTransaction\":{\"messageHash\":\"0x40d8a1218cdf229051359041b35590c67952a8c6f71c620fe5d8301446dcaf07\",\"v\":\"0x2b\",\"r\":\"0x61bec1a3ea46f86037dcbd8cf733512f26f38f5d78dc8cc1c32175b253beffdb\",\"s\":\"0x42cd0c33095a61242b0be15e3fd06ef1a229b9f4a8f69cbead64cd09b98e4dd9\",\"rawTransaction\":\"0xf8ab819e8512a05f200083466124945aea1d2c27f2faf0ef4f2e168923842e4336e46180b844fe71510300000000000000000000000064c8075af1e3247da78090f6ab9f10cb276ce00dfcc03d1cec7643096c2ae62018c6e90a3192e3b3f22815a2470a53891cdc628a2ba061bec1a3ea46f86037dcbd8cf733512f26f38f5d78dc8cc1c32175b253beffdba042cd0c33095a61242b0be15e3fd06ef1a229b9f4a8f69cbead64cd09b98e4dd9\"},\"nonceValue\":158}",
+    "_url": "https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev/registerAsBusiness",
     "_timedOut": false,
     "_trackingName": "unknown",
     "_incrementalEvents": false,
     "responseHeaders": {
-      "via": "1.1 216670b4a81ce002b21916d95dc32d06.cloudfront.net (CloudFront)",
-      "x-amz-apigw-id": "IHccGFiNoAMFs1Q=",
-      "x-amz-cf-id": "RUkY4CLeyLEcufHsRtTE5DWMmhvm7r6XD_Rbn8EezpdOCeTkm_Wsxw==",
-      "date": "Thu, 07 Jun 2018 14:28:42 GMT",
-      "x-amzn-trace-id": "Root=1-5b19411a-8d0c28c4c182f4d45690044c",
-      "x-amzn-requestid": "13dfedef-6a5f-11e8-a86e-2790cd4f36c4",
-      "content-length": "651",
+      "via": "1.1 707d06343c7b07a529839efb71fdb71b.cloudfront.net (CloudFront)",
+      "x-amz-apigw-id": "IHeMmEV8IAMF3Fg=",
+      "x-amz-cf-id": "XPtbX6ElEkjk1wgykUaHbzUY8Nh9RGJ-WV1_sy8irPE_PZNVrnnB_A==",
+      "date": "Thu, 07 Jun 2018 14:40:42 GMT",
+      "x-amzn-trace-id": "Root=1-5b1943ea-59d4a4ebea1ac40bf9a3a12c",
+      "x-amzn-requestid": "c103173a-6a60-11e8-a5dd-853c48ebbc26",
+      "content-length": "668",
       "x-cache": "Miss from cloudfront",
       "content-type": "application/json"
     },
@@ -75,17 +76,17 @@
     "_responseType": "",
     "_sent": true,
     "_lowerCaseResponseHeaders": {
-      "via": "1.1 216670b4a81ce002b21916d95dc32d06.cloudfront.net (CloudFront)",
-      "x-amz-apigw-id": "IHccGFiNoAMFs1Q=",
-      "x-amz-cf-id": "RUkY4CLeyLEcufHsRtTE5DWMmhvm7r6XD_Rbn8EezpdOCeTkm_Wsxw==",
-      "date": "Thu, 07 Jun 2018 14:28:42 GMT",
-      "x-amzn-trace-id": "Root=1-5b19411a-8d0c28c4c182f4d45690044c",
-      "x-amzn-requestid": "13dfedef-6a5f-11e8-a86e-2790cd4f36c4",
-      "content-length": "651",
+      "via": "1.1 707d06343c7b07a529839efb71fdb71b.cloudfront.net (CloudFront)",
+      "x-amz-apigw-id": "IHeMmEV8IAMF3Fg=",
+      "x-amz-cf-id": "XPtbX6ElEkjk1wgykUaHbzUY8Nh9RGJ-WV1_sy8irPE_PZNVrnnB_A==",
+      "date": "Thu, 07 Jun 2018 14:40:42 GMT",
+      "x-amzn-trace-id": "Root=1-5b1943ea-59d4a4ebea1ac40bf9a3a12c",
+      "x-amzn-requestid": "c103173a-6a60-11e8-a5dd-853c48ebbc26",
+      "content-length": "668",
       "x-cache": "Miss from cloudfront",
       "content-type": "application/json"
     },
     "_subscriptions": [],
-    "responseURL": "https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev/addWorker"
+    "responseURL": "https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev/registerAsBusiness"
   }
 }
