@@ -13,20 +13,25 @@ class TransactionLoadingButtonComponent extends Component {
   }
 
   async componentDidMount() {
+    this.isNotMounted = false;
     this.moveDotToTheRight();
 
+    this.showOrHideButton();
     this.setIntervalId = setInterval(async () => {
-
-      const pendingTransactions = await getArrayItem('pendingTransactions');
-      this.showOrHideButton(pendingTransactions.length)
-
+      this.showOrHideButton()
     }, 1000);
   }
 
 
-  showOrHideButton(numberOfPendingTransactions) {
+  async showOrHideButton() {
 
-    if (numberOfPendingTransactions === 0) {
+    const pendingTransactions = await getArrayItem('pendingTransactions');
+
+    if (this.isNotMounted) {
+      return;
+    }
+
+    if (pendingTransactions.length === 0) {
       this.setState({showButton: false});
     } else {
       this.setState({showButton: true});
@@ -35,6 +40,7 @@ class TransactionLoadingButtonComponent extends Component {
 
 
   componentWillUnmount() {
+    this.isNotMounted = true;
     clearInterval(this.setIntervalId);
   }
 

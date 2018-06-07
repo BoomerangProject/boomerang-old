@@ -1,10 +1,11 @@
-const signedTransactionResponse = (signedTransaction) => {
+const signedTransactionResponse = (signedTransaction, nonceValue) => {
 
   return {
     statusCode: 200,
     body: JSON.stringify({
       message: `success`,
-      signedTransaction: signedTransaction
+      signedTransaction: signedTransaction,
+      nonceValue: nonceValue
     })
   };
 };

@@ -23,7 +23,7 @@ let registerAsBusinessTransaction = async (accountAddress, ipfsHash) => {
 
   const signedTransaction = await web3.eth.accounts.signTransaction(transaction, privateKeyOfPayer);
 
-  return signedTransaction;
+  return [signedTransaction, nonceValue];
 };
 
 export default registerAsBusinessTransaction;

@@ -48,5 +48,5 @@ export default async (event, context, callback) => {
     return callback(null, errorResponse('problem with signing transaction: ' + error));
   }
 
-  callback(null, signedTransactionResponse(signedTransaction));
+  callback(null, signedTransactionResponse(signedTransaction, nonceValue));
 };
