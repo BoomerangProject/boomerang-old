@@ -1,47 +1,12 @@
-import backoff from 'backoff';
-import getKudosContract from "../../services/KudosContract";
+import KudosReadRequester from "./KudosReadRequester";
 
-export default class BusinessHasApprovedWorkerRequester {
+export default class BusinessHasApprovedWorkerRequester extends KudosReadRequester {
 
   constructor(businessAddress, workerAddress) {
-    this.businessAddress = businessAddress;
-    this.workerAddress = workerAddress;
-  }
 
-  async makeRequest() {
+    const apiMethod = 'businessHasApprovedWorker';
+    const apiMethodParameters = [businessAddress, workerAddress];
 
-    let kudosContract = await getKudosContract();
-
-    return new Promise((resolve, reject) => {
-
-      this.call = backoff.call(kudosContract.methods.businessHasApprovedWorker(this.businessAddress, this.workerAddress).call, (error, result) => {
-
-        if (error) {
-          return reject(error);
-        } else {
-
-          return resolve(result);
-        }
-      });
-
-      this.call.on('backoff', async (number, delay) => {
-        console.log(number + ' ' + delay + 'ms');
-        let kudosContract = await getKudosContract();
-        this.call.function_ = kudosContract.getPastEvents.bind(kudosContract);
-      });
-
-      this.call.setStrategy(new backoff.ExponentialStrategy());
-      this.call.failAfter(12);
-      this.call.start();
-    });
-  }
-
-  async cancel() {
-
-    if (this.call == undefined || this.call.abort == undefined) {
-      return;
-    }
-
-    this.call.abort();
+    super(apiMethod, apiMethodParameters);
   }
 }

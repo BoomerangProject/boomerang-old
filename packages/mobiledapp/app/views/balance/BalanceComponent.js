@@ -4,6 +4,7 @@ import { View, TouchableHighlight, Text, ToastAndroid } from "react-native";
 import { default as localStorage } from 'react-native-sensitive-info';
 import EtherBalanceRequester from "../../api/EtherBalanceRequester";
 import KudosBalanceRequester from "../../api/read/KudosBalanceRequester";
+import web3 from "../../services/Web3HttpService";
 
 class BalanceComponent extends Component {
 
@@ -11,7 +12,7 @@ class BalanceComponent extends Component {
     super(args);
     this.state = {balance: '', etherBalance: '', kudosBalance: ''};
     this.etherBalanceRequester = new EtherBalanceRequester();
-    this.kudosBalanceRequester = new KudosBalanceRequester();
+
   }
 
   async componentDidMount() {
@@ -21,9 +22,13 @@ class BalanceComponent extends Component {
     // });
 
     const kudosAccountAddress = '0xdcee2f1da7262362a962d456280a928f4f90bb5e';
+    this.kudosBalanceRequester = new KudosBalanceRequester(kudosAccountAddress);
 
     const etherBalance = await this.etherBalanceRequester.makeRequest(kudosAccountAddress);
-    const kudosBalance = await this.kudosBalanceRequester.makeRequest(kudosAccountAddress);
+
+    const kudosRawBalance = await this.kudosBalanceRequester.makeRequest(kudosAccountAddress);
+    const kudosBalance = web3.utils.fromWei(kudosRawBalance, 'ether');
+
     this.setState({
       balance: kudosBalance + ' KUDOS',
       etherBalance: etherBalance,

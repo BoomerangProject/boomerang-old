@@ -17,7 +17,7 @@ export default class PendingTransactions {
       }
       setItem('pendingTransactions', JSON.stringify(pendingTransactions));
 
-      console.log("(add) numberOfPendingTransactions: " + pendingTransactions.length);
+      console.log("(adding " + transactionHash + ")\nnumberOfPendingTransactions: " + pendingTransactions.length);
     });
   }
   
@@ -39,7 +39,7 @@ export default class PendingTransactions {
       }
       setItem('pendingTransactions', JSON.stringify(pendingTransactions));
 
-      console.log("(remove) numberOfPendingTransactions: " + pendingTransactions.length);
+      console.log("(removing " + transactionHash + ")\nnumberOfPendingTransactions: " + pendingTransactions.length);
     });
   }
 

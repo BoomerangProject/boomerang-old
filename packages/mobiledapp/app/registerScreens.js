@@ -49,7 +49,7 @@ export function registerScreens() {
 
   Navigation.registerComponent('BusinessListComponent', () => BusinessListComponent);
   Navigation.registerComponent('BusinessListItemComponent', () => BusinessListItemComponent);
-  Navigation.registerComponent('BalancePage', () => BalanceComponent);
+  Navigation.registerComponent('BalanceComponent', () => BalanceComponent);
 
   Navigation.registerComponent('ReviewPage', () => ReviewComponent);
   Navigation.registerComponent('TransactionLoadingButtonComponent', () => TransactionLoadingButtonComponent);

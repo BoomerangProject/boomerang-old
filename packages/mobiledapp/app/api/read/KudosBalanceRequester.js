@@ -1,34 +1,12 @@
-import backoff from 'backoff';
-import kudosTokenContract from '../../services/KudosTokenContractService';
-import web3 from "../../services/Web3HttpService";
+import KudosTokenReadRequester from "./KudosTokenReadRequester";
 
-export default class KudosBalanceRequester {
+export default class KudosBalanceRequester extends KudosTokenReadRequester {
 
-  async makeRequest(addressArg) {
+  constructor(address) {
 
-    return new Promise((resolve, reject) => {
+    const apiMethod = 'balanceOf';
+    const apiMethodParameters = [address];
 
-      this.call = backoff.call(kudosTokenContract.methods.balanceOf(addressArg).call, (error, result) => {
-
-        if (error) {
-          return reject(error);
-        } else {
-          return resolve(web3.utils.fromWei(result, 'ether'));
-        }
-      });
-
-      this.call.setStrategy(new backoff.ExponentialStrategy());
-      this.call.failAfter(12);
-      this.call.start();
-    });
-  }
-
-  async cancel() {
-
-    if (this.call == undefined || this.call.abort == undefined) {
-      return;
-    }
-
-    this.call.abort();
+    super(apiMethod, apiMethodParameters);
   }
 }

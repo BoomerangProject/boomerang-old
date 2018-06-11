@@ -5,6 +5,7 @@ import Navigator from '../../../../util/Navigator';
 import NumberOfWorkersRequester from "../../../../api/read/NumberOfWorkersRequester";
 import { default as localStorage } from 'react-native-sensitive-info';
 import BusinessHasApprovedWorkerRequester from "../../../../api/read/BusinessHasApprovedWorkerRequester";
+import BalanceComponent from "../../../../views/balance/BalanceComponent";
 
 class BusinessEmployeesComponent extends Component {
 
@@ -21,13 +22,13 @@ class BusinessEmployeesComponent extends Component {
     this.numberOfWorkersRequester = new NumberOfWorkersRequester(businessAddress);
 
     const numberOfWorkers = await this.numberOfWorkersRequester.makeRequest();
-    // console.log('numberOfWorkers: ' + numberOfWorkers);
+    console.log('numberOfWorkers: ' + numberOfWorkers);
 
 
     this.businessHasApprovedWorkerRequester = new BusinessHasApprovedWorkerRequester(businessAddress, '0x11c56a8b60a10323eb4402d698f9f97a0260d3d9');
 
     const hasBusinessApprovedWorker = await this.businessHasApprovedWorkerRequester.makeRequest();
-    // console.log('hasBusinessApprovedWorker: ' + hasBusinessApprovedWorker);
+    console.log('hasBusinessApprovedWorker: ' + hasBusinessApprovedWorker);
   }
 
   async onClickOfAddEmployeeButton() {
@@ -48,6 +49,7 @@ class BusinessEmployeesComponent extends Component {
         />
 
         <View style={{flex: 1}}/>
+        <BalanceComponent/>
 
         <View style={{flex: 1}}/>
       </View>
