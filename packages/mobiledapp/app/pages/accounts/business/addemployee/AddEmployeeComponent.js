@@ -30,7 +30,7 @@ class AddEmployeeComponent extends Component {
         keychainService: 'kudosKeychain'
       });
 
-      const addWorkerRequester = new AddWorkerRequester(businessAddress, this.state.workerAddress);
+      const addWorkerRequester = new AddWorkerRequester(this.state.workerAddress, businessAddress);
 
       const props = {
         requester: addWorkerRequester,

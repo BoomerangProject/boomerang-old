@@ -25,6 +25,8 @@ class BusinessEmployeesComponent extends Component {
     console.log('numberOfWorkers: ' + numberOfWorkers);
 
 
+    console.log('businessAddress: ' + businessAddress);
+
     this.businessHasApprovedWorkerRequester = new BusinessHasApprovedWorkerRequester(businessAddress, '0x11c56a8b60a10323eb4402d698f9f97a0260d3d9');
 
     const hasBusinessApprovedWorker = await this.businessHasApprovedWorkerRequester.makeRequest();

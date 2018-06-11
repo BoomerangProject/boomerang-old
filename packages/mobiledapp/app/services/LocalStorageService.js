@@ -8,7 +8,7 @@ export function storeSeed(seedArg) {
     encrypt: true
   });
 
-  const account = web3.eth.accounts.privateKeyToAccount(seedArg);
+  const account = web3.eth.accounts.privateKeyToAccount('0x' + seedArg);
 
   localStorage.setItem("kudosAccountAddress", account.address, {
     keychainService: 'kudosKeychain',

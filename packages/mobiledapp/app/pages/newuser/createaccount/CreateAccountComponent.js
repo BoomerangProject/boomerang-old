@@ -9,7 +9,7 @@ class CreateAccountComponent extends Component {
 
   constructor(props) {
     super(props);
-    this.kudosAccountSeed = '0x' + crypto.randomBytes(32).toString("hex");
+    this.kudosAccountSeed = crypto.randomBytes(32).toString("hex");
   }
 
   async onClickOfSeedButton() {
