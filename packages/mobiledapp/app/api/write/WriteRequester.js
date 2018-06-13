@@ -14,70 +14,68 @@ export default class WriteRequester {
 
   async makeRequest() {
 
-    const exponentialBackoff = backoff.exponential();
+    return new Promise((resolve, reject) => {
 
-    exponentialBackoff.failAfter(10);
+      const exponentialBackoff = backoff.exponential();
 
-    exponentialBackoff.on('backoff', async (number, delay) => {
-      console.log(number + ' ' + delay + 'ms');
-    });
+      exponentialBackoff.failAfter(10);
 
-    exponentialBackoff.on('ready', async (number, delay) => {
+      exponentialBackoff.on('backoff', async (number, delay) => {
+        console.log(number + ' ' + delay + 'ms');
+      });
 
-      let response;
+      exponentialBackoff.on('ready', async (number, delay) => {
 
-      try {
-        response = await this.getSignedTransaction();
-      } catch (error) {
-        console.log('error getting the signed transaction\n\n' + error);
-        exponentialBackoff.backoff();
-        return;
-      }
+        let response;
 
-      let transactionHash;
+        try {
+          response = await this.getSignedTransaction();
+        } catch (error) {
+          console.log('error getting the signed transaction\n\n' + error);
+          exponentialBackoff.backoff();
+          return;
+        }
 
-      try {
+        let transactionHash;
 
-        const promiEvent = web3.eth.sendSignedTransaction(response.data.signedTransaction.rawTransaction);
+        try {
 
-        promiEvent.once('transactionHash', (transactionHashValue) => {
+          const promiEvent = web3.eth.sendSignedTransaction(response.data.signedTransaction.rawTransaction);
 
-          PendingTransactionCount.add(transactionHashValue);
-          transactionHash = transactionHashValue;
-        })
-          .on('confirmation', (confirmationNumber, receipt) => {
+          promiEvent.once('transactionHash', (transactionHashValue) => {
 
-            if (confirmationNumber > 5) {
-              PendingTransactionCount.remove(transactionHash);
-              promiEvent.off('confirmation');
-            }
+            PendingTransactionCount.add(transactionHashValue);
+            transactionHash = transactionHashValue;
+            return resolve(transactionHash);
           })
-          .once('error', (error) => {
-            console.log('error, transaction was not mined:\n\n' + error);
-            PendingTransactionCount.remove(transactionHash);
-            exponentialBackoff.backoff();
-            return;
-          });
+            .on('confirmation', (confirmationNumber, receipt) => {
 
-      } catch (error) {
-        console.log('problem sending signed transaction:\n\n' + error);
-        exponentialBackoff.backoff();
-        return;
-      }
+              if (confirmationNumber > 5) {
+                PendingTransactionCount.remove(transactionHash);
+                promiEvent.off('confirmation');
+              }
+            })
+            .once('error', (error) => {
+              console.log('error, transaction was not mined:\n\n' + error);
+              PendingTransactionCount.remove(transactionHash);
+              exponentialBackoff.backoff();
+              return;
+            });
 
-      return new Promise((resolve, reject) => {
-        resolve(transactionHash);
+        } catch (error) {
+          console.log('problem sending signed transaction:\n\n' + error);
+          exponentialBackoff.backoff();
+          return;
+        }
       });
-    });
 
-    exponentialBackoff.on('fail', (error) => {
-      console.log('exponentialBackoff failed:\n\n' + error);
-      return new Promise((resolve, reject) => {
-        reject(error);
+      exponentialBackoff.on('fail', (error) => {
+        console.log('exponentialBackoff failed:\n\n' + error);
+        return reject(error);
       });
-    });
 
-    exponentialBackoff.backoff();
+      exponentialBackoff.backoff();
+    });
   }
 
   async getSignedTransaction() {

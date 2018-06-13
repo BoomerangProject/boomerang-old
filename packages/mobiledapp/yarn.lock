@@ -4242,9 +4242,9 @@ klaw@^1.0.0:
   optionalDependencies:
     graceful-fs "^4.1.9"
 
-kudos-contract-objects@^1.0.21:
-  version "1.0.21"
-  resolved "https://registry.yarnpkg.com/kudos-contract-objects/-/kudos-contract-objects-1.0.21.tgz#a350a16f797ebaae1392c9bdaf0ecb1967dc350a"
+kudos-contract-objects@^1.0.22:
+  version "1.0.22"
+  resolved "https://registry.yarnpkg.com/kudos-contract-objects/-/kudos-contract-objects-1.0.22.tgz#2c0999391bae042c7caf51c141b00005d1eb4da8"
 
 kudos-token-contract-objects@^1.0.0:
   version "1.0.0"

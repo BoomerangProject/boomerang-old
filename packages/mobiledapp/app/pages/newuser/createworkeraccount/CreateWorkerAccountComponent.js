@@ -31,7 +31,8 @@ export default class CreateWorkerAccountComponent extends Component {
       });
 
       const workerName = this.state.workerName;
-      const registerAsWorkerRequester = new RegisterAsWorkerRequester(workerName, workerAddress);
+      const businessAddress = '0xfad1472d56f1a6f9c204ac555cc8baee0e5409be';
+      const registerAsWorkerRequester = new RegisterAsWorkerRequester(workerAddress, businessAddress, workerName);
 
       const props = {
         requester: registerAsWorkerRequester,

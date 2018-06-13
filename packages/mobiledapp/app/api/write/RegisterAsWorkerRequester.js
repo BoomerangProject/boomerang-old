@@ -2,12 +2,13 @@ import WriteRequester from './WriteRequester';
 
 export default class RegisterAsWorkerRequester extends WriteRequester {
 
-  constructor(workerAddress, workerName) {
+  constructor(workerAddress, businessAddress, workerName) {
 
     const apiMethod = '/registerAsWorker';
 
     const apiMethodParameters = {
       workerAddress: workerAddress,
+      businessAddress: businessAddress,
       workerName: workerName
     };
 

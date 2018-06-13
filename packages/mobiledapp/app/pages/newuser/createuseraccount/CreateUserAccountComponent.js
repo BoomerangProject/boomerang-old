@@ -31,7 +31,7 @@ export default class CreateUserAccountComponent extends Component {
       });
 
       const userName = this.state.userName;
-      const registerAsUserRequester = new RegisterAsUserRequester(userName, userAddress);
+      const registerAsUserRequester = new RegisterAsUserRequester(userAddress, userName);
 
       const props = {
         requester: registerAsUserRequester,

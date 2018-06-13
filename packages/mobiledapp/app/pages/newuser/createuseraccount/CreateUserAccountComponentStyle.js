@@ -20,7 +20,7 @@ module.exports = StyleSheet.create({
     marginTop: 8,
     fontSize: 22
   },
-  workerNameTextInput: {
+  userNameTextInput: {
     width: '75%',
     marginBottom: 32
   },
