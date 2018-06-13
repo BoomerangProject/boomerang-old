@@ -16,7 +16,7 @@ contract KudosWorker is KudosActor {
   function registerAsWorker(address _workerAddress, address _businessAddress, bytes32 _ipfsHash) public {
 
     addBusiness(_workerAddress, _businessAddress);
-    RegisteredAsWorker(_workerAddress, _businessAddress, _ipfsHash);
+    RegisteredAsWorker(_workerAddress, _ipfsHash);
   }
 
   function addBusiness(address _workerAddress, address _businessAddress) public {
