@@ -12,13 +12,13 @@ import ipfsHashInBytes from "../../util/IpfsHashStringToBytesConverter";
 const getUserName = function(event) {
 
   const jsonBody = JSON.parse(event.body);
-  return jsonBody.workerName;
+  return jsonBody.userName;
 };
 
 const getUserAddress = function(event) {
 
   const jsonBody = JSON.parse(event.body);
-  return jsonBody.businessAddress;
+  return jsonBody.userAddress;
 };
 
 export default async (event, context, callback) => {

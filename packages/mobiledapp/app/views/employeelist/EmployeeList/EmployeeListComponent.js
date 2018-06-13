@@ -16,9 +16,9 @@ class EmployeeListComponent extends Component {
       {key: 'item1', employeeName: 'billy'},
       {key: 'item2', employeeName: 'hailee'},
       {key: 'item3', employeeName: 'emily'},
-      {key: 'item1', employeeName: 'pete'},
-      {key: 'item2', employeeName: 'jonnie'},
-      {key: 'item3', employeeName: 'shhteven'}
+      {key: 'item4', employeeName: 'pete'},
+      {key: 'item5', employeeName: 'jonnie'},
+      {key: 'item6', employeeName: 'shhteven'}
     ];
 
     return (

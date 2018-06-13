@@ -43,6 +43,14 @@ class NavigatorImpl {
     this.goToPageWithoutNavbar('AccountTypeSelectionPage');
   }
 
+  goToCreateUserAccountPage() {
+    this.goToPageWithoutNavbar('CreateUserAccountPage');
+  }
+
+  goToCreateWorkerAccountPage() {
+    this.goToPageWithoutNavbar('CreateWorkerAccountPage');
+  }
+
   goToCreateBusinessAccountPage() {
     this.goToPageWithoutNavbar('CreateBusinessAccountPage');
   }

@@ -6,11 +6,11 @@ import Navigator from "../../../util/Navigator";
 class AccountTypeSelectionComponent extends Component {
 
   onClickOfUserAccount() {
-    this.goToLoadingPage('createUserAccount');
+    Navigator.init(this).goToCreateUserAccountPage();
   }
 
   onClickOfWorkerAccount() {
-    this.goToLoadingPage('createWorkerAccount');
+    Navigator.init(this).goToCreateWorkerAccountPage();
   }
 
   onClickOfBusinessAccount() {

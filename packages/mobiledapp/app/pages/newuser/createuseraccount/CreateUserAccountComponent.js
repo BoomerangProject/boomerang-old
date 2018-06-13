@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { View, Image, TextInput, Text, TouchableOpacity, ToastAndroid, Clipboard } from 'react-native';
-import styles from './CreateWorkerAccountComponentStyle';
+import styles from './CreateUserAccountComponentStyle';
 import { default as localStorage } from 'react-native-sensitive-info';
 import Navigator from "../../../util/Navigator";
-import RegisterAsWorkerRequester from "../../../api/write/RegisterAsWorkerRequester";
+import RegisterAsUserRequester from "../../../api/write/RegisterAsUserRequester";
 
-export default class CreateWorkerAccountComponent extends Component {
+export default class CreateUserAccountComponent extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {workerName: ''};
+    this.state = {userName: ''};
     this.okayButtonIsEnabled = false;
   }
 
   componentWillUpdate(nextProps, nextState) {
 
-    if (nextState.workerName.length > 0) {
+    if (nextState.userName.length > 0) {
       this.okayButtonIsEnabled = true;
     } else {
       this.okayButtonIsEnabled = false;
@@ -26,15 +26,15 @@ export default class CreateWorkerAccountComponent extends Component {
 
     if (this.okayButtonIsEnabled) {
 
-      const workerAddress = await localStorage.getItem('kudosAccountAddress', {
+      const userAddress = await localStorage.getItem('kudosAccountAddress', {
         keychainService: 'kudosKeychain'
       });
 
-      const workerName = this.state.workerName;
-      const registerAsWorkerRequester = new RegisterAsWorkerRequester(workerName, workerAddress);
+      const userName = this.state.userName;
+      const registerAsUserRequester = new RegisterAsUserRequester(userName, userAddress);
 
       const props = {
-        requester: registerAsWorkerRequester,
+        requester: registerAsUserRequester,
         loadingMessage: 'Creating Account',
         onSuccess: this.onSuccess.bind(this),
         onFailure: this.onFailure.bind(this)
@@ -48,7 +48,7 @@ export default class CreateWorkerAccountComponent extends Component {
     console.log('transactionHash: ' + transactionHash);
 
     const props = {
-      workerName: this.state.workerName
+      userName: this.state.userName
     };
 
     Navigator.init(this).resetToBusinessEmployeesPage(props);
@@ -86,13 +86,13 @@ export default class CreateWorkerAccountComponent extends Component {
 
         <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
 
-        <Text style={styles.title}>Create Worker Account</Text>
+        <Text style={styles.title}>Create User Account</Text>
 
         <View style={{flex: 1}}/>
 
-        <TextInput style={styles.workerNameTextInput}
+        <TextInput style={styles.userNameTextInput}
                    placeholder="name"
-                   onChangeText={(workerName) => this.setState({workerName})}/>
+                   onChangeText={(userName) => this.setState({userName})}/>
 
         <View style={{flex: 2}}/>
 

@@ -7,6 +7,8 @@ import UserAccountComponent from "./pages/accounts/user/UserAccountComponent";
 import WorkerAccountComponent from "./pages/accounts/worker/WorkerAccountComponent";
 import BusinessAccountComponent from "./pages/accounts/business/businessaccount/BusinessAccountComponent";
 import AccountTypeSelectionComponent from "./pages/newuser/accounttypeselection/AccountTypeSelectionComponent";
+import CreateUserAccountComponent from "./pages/newuser/createuseraccount/CreateUserAccountComponent";
+import CreateWorkerAccountComponent from "./pages/newuser/createworkeraccount/CreateWorkerAccountComponent";
 import CreateBusinessAccountComponent from "./pages/newuser/createbusinessaccount/CreateBusinessAccountComponent";
 import AddProfilePhotoComponent from "./pages/newuser/addprofilephoto/AddProfilePhotoComponent";
 import LoadingPageComponent from "./pages/loadingpage/LoadingPageComponent";
@@ -35,6 +37,8 @@ export function registerScreens() {
   Navigation.registerComponent('WorkerAccountPage', () => WorkerAccountComponent);
   Navigation.registerComponent('BusinessAccountPage', () => BusinessAccountComponent);
   Navigation.registerComponent('AccountTypeSelectionPage', () => AccountTypeSelectionComponent);
+  Navigation.registerComponent('CreateUserAccountPage', () => CreateUserAccountComponent);
+  Navigation.registerComponent('CreateWorkerAccountPage', () => CreateWorkerAccountComponent);
   Navigation.registerComponent('CreateBusinessAccountPage', () => CreateBusinessAccountComponent);
   Navigation.registerComponent('BusinessEmployeesPage', () => BusinessEmployeesComponent);
   Navigation.registerComponent('AddProfilePhotoPage', () => AddProfilePhotoComponent);

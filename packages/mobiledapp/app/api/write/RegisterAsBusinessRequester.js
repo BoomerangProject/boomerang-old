@@ -10,7 +10,6 @@ export default class RegisterAsBusinessRequester extends WriteRequester {
       businessAddress: businessAddress,
       businessName: businessName,
       businessDescription: businessDescription
-
     };
 
     super(apiMethod, apiMethodParameters);
