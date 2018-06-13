@@ -10,7 +10,6 @@ class EmployeeListItemComponent extends Component {
   }
 
   onClick() {
-
     ToastAndroid.show('employee tile clicked', ToastAndroid.SHORT);
   }
 
@@ -18,14 +17,14 @@ class EmployeeListItemComponent extends Component {
 
     return (
 
-      <View style={this.item.key === 'item1' ? [styles.container, {paddingTop: 1}] : styles.container}>
+      <View style={styles.container}>
 
         <TouchableHighlight
-          style={{width: '100%'}}
+          style={styles.itemTile}
           underlayColor='#FAFAFA'
           onPress={this.onClick.bind(this)}>
 
-          <Text>{this.item.employeeName}</Text>
+          <Text style={styles.employeeName}>{this.item.employeeName}</Text>
         </TouchableHighlight>
       </View>
     );

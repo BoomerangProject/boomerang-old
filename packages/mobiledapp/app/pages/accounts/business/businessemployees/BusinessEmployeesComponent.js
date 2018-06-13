@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Button, Image, Text, ToastAndroid, View } from "react-native";
+import { Button, Image, Text, ToastAndroid, TouchableHighlight, View } from "react-native";
 import styles from './BusinessEmployeesComponentStyle';
 import Navigator from '../../../../util/Navigator';
 import NumberOfWorkersRequester from "../../../../api/read/NumberOfWorkersRequester";
 import { default as localStorage } from 'react-native-sensitive-info';
 import BusinessHasApprovedWorkerRequester from "../../../../api/read/BusinessHasApprovedWorkerRequester";
-import BalanceComponent from "../../../../views/balance/BalanceComponent";
+import EmployeeListComponent from "../../../../views/employeelist/EmployeeList/EmployeeListComponent";
 
 class BusinessEmployeesComponent extends Component {
 
@@ -33,10 +33,6 @@ class BusinessEmployeesComponent extends Component {
     console.log('hasBusinessApprovedWorker: ' + hasBusinessApprovedWorker);
   }
 
-  async onClickOfAddEmployeeButton() {
-    Navigator.init(this).goToAddEmployeePage();
-  }
-
   render() {
 
     return (
@@ -45,13 +41,7 @@ class BusinessEmployeesComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Button
-          onPress={this.onClickOfAddEmployeeButton.bind(this)}
-          title="add employee"
-        />
-
-        <View style={{flex: 1}}/>
-        <BalanceComponent/>
+        <EmployeeListComponent navigator={this.props.navigator}/>
 
         <View style={{flex: 1}}/>
       </View>

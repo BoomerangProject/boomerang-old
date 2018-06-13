@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './NavigationDrawerComponentStyle';
 import { Image, Text, View, TouchableHighlight, ToastAndroid } from "react-native";
 import Navigator from "../../util/Navigator";
+import { getItem, clearSeed } from "../../services/LocalStorageService";
 
 class NavigationDrawerComponent extends Component {
 
@@ -22,8 +23,16 @@ class NavigationDrawerComponent extends Component {
     ToastAndroid.show('loyalty rewards', ToastAndroid.SHORT);
   }
 
-  onClickOfSignOutRewardsButton() {
-    ToastAndroid.show('sign out', ToastAndroid.SHORT);
+  onClickOfTransactionsButton() {
+    Navigator.init(this).goToTransactionsPage();
+    this.closeDrawer();
+  }
+
+  async onClickOfSignOutButton() {
+
+    await clearSeed();
+    Navigator.init(this).goToWelcomePage();
+    this.closeDrawer();
   }
 
   closeDrawer() {
@@ -68,8 +77,15 @@ class NavigationDrawerComponent extends Component {
 
         <TouchableHighlight
           underlayColor='#FAFAFA'
+          style={styles.transactionsButtonContainer}
+          onPress={this.onClickOfTransactionsButton.bind(this)}>
+          <Text style={styles.transactionsButton}>transactions</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          underlayColor='#FAFAFA'
           style={styles.signOutButtonContainer}
-          onPress={this.onClickOfSignOutRewardsButton.bind(this)}>
+          onPress={this.onClickOfSignOutButton.bind(this)}>
           <Text style={styles.signOutButton}>sign out</Text>
         </TouchableHighlight>
 

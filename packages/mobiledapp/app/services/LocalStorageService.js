@@ -40,3 +40,15 @@ export async function getArrayItem(key) {
   return JSON.parse(value);
 }
 
+export async function clearSeed() {
+
+  localStorage.deleteItem("kudosAccountSeed", {
+    keychainService: 'kudosKeychain',
+    encrypt: true
+  });
+
+  localStorage.deleteItem("kudosAccountAddress", {
+    keychainService: 'kudosKeychain',
+    encrypt: true
+  });
+}

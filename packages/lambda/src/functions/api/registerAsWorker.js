@@ -2,11 +2,24 @@
 import errorResponse from "../../responses/errorResponse";
 import storeToIpfs from '../../services/IpfsService';
 import storeToS3 from "../../services/S3Service";
+import registerAsBusinessTransaction from './RegisterAsBusinessSigner';
 import s3errorResponse from "../../responses/s3errorResponse";
 import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
 import signedTransactionResponse from "../../responses/smartContractReceiptResponse";
-import ipfsHashInBytes from '../../util/IpfsHashStringToBytesConverter';
-import signTransaction from './TransactionSigner';
+import signTransaction from "./TransactionSigner";
+import ipfsHashInBytes from "../../util/IpfsHashStringToBytesConverter";
+
+const getWorkerName = function(event) {
+
+  const jsonBody = JSON.parse(event.body);
+  return jsonBody.workerName;
+};
+
+const getWorkerAddress = function(event) {
+
+  const jsonBody = JSON.parse(event.body);
+  return jsonBody.workerAddress;
+};
 
 const getBusinessAddress = function(event) {
 
@@ -14,36 +27,24 @@ const getBusinessAddress = function(event) {
   return jsonBody.businessAddress;
 };
 
-const getBusinessName = function(event) {
-
-  const jsonBody = JSON.parse(event.body);
-  return jsonBody.businessName;
-};
-
-const getBusinessDescription = function(event) {
-
-  const jsonBody = JSON.parse(event.body);
-  return jsonBody.businessDescription;
-};
-
 export default async (event, context, callback) => {
 
+  const workerName = getWorkerName(event);
+  const workerAddress = getWorkerAddress(event);
   const businessAddress = getBusinessAddress(event);
-  const businessName = getBusinessName(event);
-  const businessDescription = getBusinessDescription(event);
+
+  if (workerName == null || workerName.length < 1) {
+    callback(null, errorResponse('workerName is required'));
+    return;
+  }
+
+  if (workerAddress == null || workerAddress.length < 1) {
+    callback(null, errorResponse('workerAddress is required'));
+    return;
+  }
 
   if (businessAddress == null || businessAddress.length < 1) {
     callback(null, errorResponse('businessAddress is required'));
-    return;
-  }
-
-  if (businessName == null || businessName.length < 1) {
-    callback(null, errorResponse('businessName is required'));
-    return;
-  }
-
-  if (businessDescription == null || businessDescription.length < 1) {
-    callback(null, errorResponse('businessDescription is required'));
     return;
   }
 
@@ -71,7 +72,7 @@ export default async (event, context, callback) => {
 
   let signedTransaction;
   try {
-    signedTransaction = await signTransaction('registerAsBusiness', [businessAddress, ipfsHashInBytes(ipfsHash)]);
+    signedTransaction = await signTransaction('registerAsWorker', [workerAddress, businessAddress, ipfsHashInBytes(ipfsHash)]);
   } catch (error) {
     return callback(null, errorResponse('problem with signing transaction: ' + error));
   }

@@ -4,6 +4,7 @@ import "./KudosActor.sol";
 
 contract KudosUser is KudosActor {
 
+  event RegisteredAsUser(address indexed _userAddress, bytes32 _ipfsHash);
   event KudosExperience(  address indexed _userAddress,
                           address indexed _workerAddress,
                           address indexed _businessAddress,
@@ -33,6 +34,12 @@ contract KudosUser is KudosActor {
     KudosExperience(_userAddress, _workerAddress, _businessAddress, _workerRating, _businessRating, _ipfsHash);
   }
 
+
+  function registerAsUser(address _userAddress, bytes32 _ipfsHash) public {
+
+    RegisteredAsUser(_userAddress, _ipfsHash);
+  }
+
   function updateBusinessRating(address _businessAddress, uint256 _businessRating) internal {
 
     numberOfBusinessRatings[_businessAddress] += 1;
@@ -44,8 +51,6 @@ contract KudosUser is KudosActor {
     numberOfWorkerRatings[_businessAddress][_workerAddress] += 1;
     workerAverageRating[_businessAddress][_workerAddress] = (workerAverageRating[_businessAddress][_workerAddress] + _workerRating) / numberOfWorkerRatings[_businessAddress][_workerAddress];
   }
-
-
 
 
 //    modifier withCorrectSignatureFromBusiness(address _businessAddress, bytes32 _userId, uint8 _v, bytes32 _r, bytes32 _s) {

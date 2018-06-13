@@ -17,7 +17,7 @@ class NavigatorImpl {
     return [{id: 'sideMenu'}];
   }
 
-  transactionsButton() {
+  transactionsButton(screenName) {
 
     return [
       {
@@ -25,6 +25,7 @@ class NavigatorImpl {
         component: 'TransactionLoadingButtonComponent',
         passProps: {
           navigator: this.navigator,
+          screenName: screenName
         }
       }
     ];
@@ -59,11 +60,15 @@ class NavigatorImpl {
   }
 
   goToAddEmployeePage() {
-    this.goToPageWithoutNavbar('AddEmployeePage');
+    this.goToPage('AddEmployeePage');
   }
 
-  goToAddEmployeeLoadingPage() {
-    this.goToPageWithoutNavbar('AddEmployeeLoadingPage');
+  goToWelcomePage() {
+    this.goToPageWithoutNavbar('WelcomePage');
+  }
+
+  goToTransactionsPage() {
+    this.goToPageWithBackButton('TransactionsPage');
   }
 
   goBack() {
@@ -84,7 +89,17 @@ class NavigatorImpl {
     this.navigator.push({
       title,
       leftButtons: this.hamburgerButton(),
-      rightButtons: this.transactionsButton(),
+      rightButtons: this.transactionsButton(screenName),
+      screen: screenName,
+      navigatorStyle,
+      passProps: props
+    });
+  }
+
+  goToPageWithBackButton(screenName, title, props) {
+    this.navigator.push({
+      title,
+      rightButtons: this.transactionsButton(screenName),
       screen: screenName,
       navigatorStyle,
       passProps: props
@@ -95,7 +110,7 @@ class NavigatorImpl {
     this.navigator.resetTo({
       title,
       leftButtons: this.hamburgerButton(),
-      rightButtons: this.transactionsButton(),
+      rightButtons: this.transactionsButton(screenName),
       screen: screenName,
       navigatorStyle,
       passProps: props

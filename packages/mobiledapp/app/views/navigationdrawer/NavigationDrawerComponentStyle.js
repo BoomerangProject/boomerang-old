@@ -17,7 +17,7 @@ module.exports = StyleSheet.create({
   },
   employeesButtonContainer: {
 
-    marginTop: 65,
+    marginTop: 48,
     width: '100%',
     height: 50,
     borderWidth: 1,
@@ -87,9 +87,27 @@ module.exports = StyleSheet.create({
     color: '#002A1C',
     fontFamily: 'WorkSans-Regular'
   },
+  transactionsButtonContainer: {
+
+    width: '100%',
+    height: 50,
+    borderWidth: 1,
+    borderTopWidth: 0,
+    borderLeftWidth: 0,
+    borderRightWidth: 0,
+    borderColor: '#CCD4D1',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  transactionsButton: {
+
+    fontSize: 14,
+    color: '#002A1C',
+    fontFamily: 'WorkSans-Regular'
+  },
   signOutButtonContainer: {
 
-    marginTop: 65,
+    marginTop: 36,
     width: '100%',
     height: 50,
     borderWidth: 1,

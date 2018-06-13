@@ -70,6 +70,18 @@ functions:
       - http:
           path: /registerAsBusiness
           method: post
+  registerAsWorker:
+    handler: lib/handler.registerAsWorker
+    events:
+      - http:
+          path: /registerAsWorker
+          method: post
+  registerAsUser:
+    handler: lib/handler.registerAsUser
+    events:
+      - http:
+          path: /registerAsUser
+          method: post
   addWorker:
     handler: lib/handler.addWorker
     events:

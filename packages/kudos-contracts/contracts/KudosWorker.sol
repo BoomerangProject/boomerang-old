@@ -4,6 +4,7 @@ import "./KudosActor.sol";
 
 contract KudosWorker is KudosActor {
 
+  event RegisteredAsWorker(address indexed _workerAddress, bytes32 _ipfsHash);
   event WorkerHasApprovedBusiness(address indexed _workerAddress, address indexed _businessAddress);
 
   event UserRating( address indexed _userAddress,
@@ -11,6 +12,12 @@ contract KudosWorker is KudosActor {
                     address indexed _businessAddress,
                     uint256 _userRating,
                     bytes32 _ipfsHash);
+
+  function registerAsWorker(address _workerAddress, address _businessAddress, bytes32 _ipfsHash) public {
+
+    addBusiness(_workerAddress, _businessAddress);
+    RegisteredAsWorker(_workerAddress, _businessAddress, _ipfsHash);
+  }
 
   function addBusiness(address _workerAddress, address _businessAddress) public {
 

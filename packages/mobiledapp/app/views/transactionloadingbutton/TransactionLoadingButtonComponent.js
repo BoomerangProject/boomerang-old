@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './TransactionLoadingButtonComponentStyle';
 import { DeviceEventEmitter, View, TouchableHighlight, ActivityIndicator, Text, Image, ToastAndroid, Animated, Easing } from "react-native";
 import { getArrayItem } from '../../services/LocalStorageService';
+import Navigator from '../../util/Navigator';
 
 class TransactionLoadingButtonComponent extends Component {
 
@@ -26,6 +27,10 @@ class TransactionLoadingButtonComponent extends Component {
   async showOrHideButton() {
 
     const pendingTransactions = await getArrayItem('pendingTransactions');
+
+    if (this.props.screenName === 'TransactionsPage') {
+      return;
+    }
 
     if (this.isNotMounted) {
       return;
@@ -63,10 +68,7 @@ class TransactionLoadingButtonComponent extends Component {
   }
 
   onClick() {
-
-    this.props.navigator.push({
-      screen: 'TransactionsPage'
-    });
+    Navigator.init(this).goToTransactionsPage();
   }
 
   render() {

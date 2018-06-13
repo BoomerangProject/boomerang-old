@@ -8,7 +8,8 @@ module.exports = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: 'white',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
