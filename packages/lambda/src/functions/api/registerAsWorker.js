@@ -21,17 +21,10 @@ const getWorkerAddress = function(event) {
   return jsonBody.workerAddress;
 };
 
-const getBusinessAddress = function(event) {
-
-  const jsonBody = JSON.parse(event.body);
-  return jsonBody.businessAddress;
-};
-
 export default async (event, context, callback) => {
 
   const workerName = getWorkerName(event);
   const workerAddress = getWorkerAddress(event);
-  const businessAddress = getBusinessAddress(event);
 
   if (workerName == null || workerName.length < 1) {
     callback(null, errorResponse('workerName is required'));
@@ -40,11 +33,6 @@ export default async (event, context, callback) => {
 
   if (workerAddress == null || workerAddress.length < 1) {
     callback(null, errorResponse('workerAddress is required'));
-    return;
-  }
-
-  if (businessAddress == null || businessAddress.length < 1) {
-    callback(null, errorResponse('businessAddress is required'));
     return;
   }
 
@@ -72,7 +60,7 @@ export default async (event, context, callback) => {
 
   let signedTransaction;
   try {
-    signedTransaction = await signTransaction('registerAsWorker', [workerAddress, businessAddress, ipfsHashInBytes(ipfsHash)]);
+    signedTransaction = await signTransaction('registerAsWorker', [workerAddress, ipfsHashInBytes(ipfsHash)]);
   } catch (error) {
     return callback(null, errorResponse('problem with signing transaction: ' + error));
   }

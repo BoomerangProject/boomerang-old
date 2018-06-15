@@ -16,8 +16,8 @@ export default class CreateAccountComponent extends Component {
     await Clipboard.setString(this.kudosAccountSeed);
   }
 
-  onClickOfConfirmButton() {
-    storeSeed(this.kudosAccountSeed);
+  async onClickOfConfirmButton() {
+    await storeSeed(this.kudosAccountSeed);
     Navigator.init(this).pushAccountTypeSelectionPage();
   }
 
@@ -42,7 +42,7 @@ export default class CreateAccountComponent extends Component {
         <TouchableOpacity
           style={styles.seedButtonContainer}
           onPress={this.onClickOfSeedButton.bind(this)}>
-          <Text style={styles.seedButton}>{this.kudosAccountSeed.substring(2)}</Text>
+          <Text style={styles.seedButton}>{this.kudosAccountSeed}</Text>
         </TouchableOpacity>
 
         <Text style={styles.tapToCopyMessage}>Tap to copy</Text>

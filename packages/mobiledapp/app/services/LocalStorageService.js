@@ -8,6 +8,7 @@ export async function storeSeed(seedArg) {
   const account = await web3.eth.accounts.privateKeyToAccount('0x' + seedArg);
 
   await setItem('kudosAccountAddress', account.address);
+  console.log('kudosAccountAddress: ' + account.address);
 
   return account.address;
 }
