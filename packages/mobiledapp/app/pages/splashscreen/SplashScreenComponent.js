@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './SplashScreenComponentStyle';
 import { View, Image } from 'react-native';
-import { isUserAccount, isWorkerAccount, isBusinessAccount, isLoggedIn } from '../../services/LocalStorageService';
+import { isLoggedIn, getItem } from '../../services/LocalStorageService';
 import Navigator from '../../util/Navigator';
 
 export default class SplashScreenComponent extends Component {
@@ -15,31 +15,8 @@ export default class SplashScreenComponent extends Component {
     const userIsLoggedIn = await isLoggedIn();
 
     if (userIsLoggedIn) {
-
-      const isUser = await isUserAccount();
-      const isWorker = await isWorkerAccount();
-      const isBusiness = await isBusinessAccount();
-
-      if ( (isUser && isWorker) || (isWorker && isBusiness) || (isUser && isBusiness) ) {
-
-        Navigator.init(this).resetToAccountTypeSelectionPage();
-        return;
-      }
-
-      if (isUser) {
-
-        Navigator.init(this).resetToUserAccountPage();
-
-      } else if (isWorker) {
-
-        Navigator.init(this).resetToWorkerAccountPage();
-
-      } else if (isBusiness) {
-
-        Navigator.init(this).resetToBusinessAccountPage();
-        // Navigator.init(this).resetToBusinessEmployeesPage();
-      }
-
+      const kudosAccountAddress = await getItem('kudosAccountAddress');
+      await Navigator.init(this).goToAccountPage(kudosAccountAddress);
     } else {
       Navigator.init(this).resetToWelcomePage();
     }

@@ -15,9 +15,14 @@ module.exports = StyleSheet.create({
     width: 75,
     height: 75
   },
-  employeesButtonContainer: {
-
+  divider: {
     marginTop: 48,
+    borderColor: '#CCD4D1',
+    height: 1,
+    width: '100%'
+  },
+  employeesButtonContainer: {
+    marginTop: -1,
     width: '100%',
     height: 50,
     borderWidth: 1,
@@ -38,7 +43,7 @@ module.exports = StyleSheet.create({
     width: '100%',
     height: 50,
     borderWidth: 1,
-    borderTopWidth: 0,
+    marginTop: -1,
     borderLeftWidth: 0,
     borderRightWidth: 0,
     borderColor: '#CCD4D1',

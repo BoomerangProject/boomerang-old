@@ -50,30 +50,10 @@ export async function isLoggedIn() {
   return (value === 'true');
 }
 
-export async function isUserAccount() {
-
-  const value = await getItem('isUser');
-  return (value === 'true');
-}
-
-export async function isWorkerAccount() {
-
-  const value = await getItem('isWorker');
-  return (value === 'true');
-}
-
-export async function isBusinessAccount() {
-
-  const value = await getItem('isBusiness');
-  return (value === 'true');
-}
-
 export async function clearSeed() {
 
   await deleteItem('kudosAccountSeed');
   await deleteItem('kudosAccountAddress');
   await setItem('isLoggedIn', 'false');
-  await deleteItem('isUser');
-  await deleteItem('isWorker');
-  await deleteItem('isBusiness');
+  await deleteItem('userRole');
 }

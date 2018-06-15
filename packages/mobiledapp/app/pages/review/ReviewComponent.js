@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, Text, ScrollView, ToastAndroid } from 'react-native';
 import styles from './ReviewComponentStyle';
-import IpfsFileRequester from '../../api/IpfsFileRequester';
+import IpfsFileRequesterOld from '../../api/IpfsFileRequesterOld';
 import prettyPrint from '../../util/PrettyPrinter';
 
 export default class ReviewComponent extends Component {
@@ -10,7 +10,7 @@ export default class ReviewComponent extends Component {
     super(args);
     this.item = this.props.item;
     this.state = {reviewInformation: ''};
-    this.ipfsFileRequester = new IpfsFileRequester();
+    this.ipfsFileRequester = new IpfsFileRequesterOld();
   }
 
   async componentDidMount() {

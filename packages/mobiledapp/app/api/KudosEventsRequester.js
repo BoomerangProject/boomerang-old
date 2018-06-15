@@ -1,5 +1,5 @@
 import backoff from 'backoff';
-import getKudosContract from '../services/KudosContractWS';
+import getKudosContract from '../services/KudosContract';
 
 export default class KudosEventsRequester {
 

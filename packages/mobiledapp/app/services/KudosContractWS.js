@@ -1,4 +1,5 @@
 import { kudosContractAddress } from '../ContractAddresses';
+import { web3WebsocketsProvider } from '../Endpoints';
 
 export default async function getKudosContract() {
 
@@ -7,7 +8,7 @@ export default async function getKudosContract() {
   const KudosContractJson = require('kudos-contract-objects/Kudos');
 
   const options = {timeout: 30000};
-  const websocketProvider = new Web3WsProvider('wss://ropsten.infura.io/ws', options);
+  const websocketProvider = new Web3WsProvider(web3WebsocketsProvider, options);
 
   const web3 = new Web3(websocketProvider);
 

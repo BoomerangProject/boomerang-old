@@ -8,57 +8,28 @@ module.exports = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: 'white',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   },
-  logo: {
-    marginTop: 'auto',
-    width: 50,
-    height: 50
+  profileContainer: {
+
+    paddingTop: 16,
+    paddingLeft: 8,
+    paddingRight: 8,
+    paddingBottom: 16,
+    borderWidth: 1,
+    borderColor: '#002A1C',
+    width: '90%',
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: 'white',
+    alignItems: 'flex-start',
+    justifyContent: 'center'
   },
-  title: {
+  profileText: {
     fontFamily: 'WorkSans-Regular',
+    marginTop: 4,
     color: '#002A1C',
-    fontSize: 22,
-  },
-  fieldContainer: {
-    width: '100%',
-    padding: 16,
-    justifyContent: 'flex-start'
-  },
-  field: {
-    fontSize: 12,
-    color: '#002A1C',
-    fontFamily: 'WorkSans-Regular',
+    fontSize: 10,
   }
 });
-
-
-// .Account {
-//
-//   font-family: $defaultFont;
-//   color: #002A1C;
-//
-// &.container {
-//
-//     display: flex;
-//     flex-direction: column;
-//     background-color: white;
-//     align-items: center;
-//     border: 1px solid black;
-//     width: 250px;
-//     height: 400px;
-//   }
-//
-// &.logo {
-//
-//     margin-top: 15px;
-//     width: 50px;
-//     height: 50px;
-//   }
-//
-// &.Address {
-//
-//     margin-top: 15px;
-//     font-size: x-small;
-//   }
-// }

@@ -6,6 +6,19 @@ import { getItem, clearSeed } from '../../services/LocalStorageService';
 
 export default class NavigationDrawerComponent extends Component {
 
+  constructor(args) {
+    super(args);
+    this.state = {userRole: ''};
+  }
+
+  async componentDidMount() {
+    const userRole = await getItem('userRole');
+
+    console.log('USERORLE: ' + userRole);
+
+    this.setState({userRole});
+  }
+
   onClickOfEmployeesButton() {
     Navigator.init(this).pushBusinessEmployeesPage();
     this.closeDrawer();
@@ -47,12 +60,20 @@ export default class NavigationDrawerComponent extends Component {
 
         <Image style={styles.logo} source={require('../../../assets/images/kudos.png')}/>
 
-        <TouchableHighlight
-          underlayColor='#FAFAFA'
-          style={styles.employeesButtonContainer}
-          onPress={this.onClickOfEmployeesButton.bind(this)}>
-          <Text style={styles.employeesButton}>employees</Text>
-        </TouchableHighlight>
+        <View style={{flex: 1}}/>
+
+        <View style={styles.divider}/>
+
+        {this.state.userRole === 'business' &&
+
+          <TouchableHighlight
+            underlayColor='#FAFAFA'
+            style={styles.employeesButtonContainer}
+            onPress={this.onClickOfEmployeesButton.bind(this)}>
+            <Text style={styles.employeesButton}>employees</Text>
+          </TouchableHighlight>
+        }
+
 
         <TouchableHighlight
           underlayColor='#FAFAFA'
@@ -89,7 +110,7 @@ export default class NavigationDrawerComponent extends Component {
           <Text style={styles.signOutButton}>sign out</Text>
         </TouchableHighlight>
 
-        <View style={{flex:1}}/>
+        <View style={{flex: 1}}/>
       </View>
     );
   }

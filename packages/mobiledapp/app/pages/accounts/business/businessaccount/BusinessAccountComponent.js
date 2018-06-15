@@ -1,78 +1,25 @@
 import React, { Component } from 'react';
-import { View, Button, Image, Text, ToastAndroid } from 'react-native';
+import { View, Text } from 'react-native';
 import styles from './BusinessAccountComponentStyle';
-import KudosEventsRequester from '../../../../api/KudosEventsRequester';
-import IpfsFileRequester from '../../../../api/IpfsFileRequester';
-import bs58 from 'bs58';
-import BalanceComponent from '../../../../views/balance/BalanceComponent';
-import BusinessListComponent from '../../../../views/businessdirectory/BusinessList/BusinessListComponent';
-import IsBusinessRequester from '../../../../api/read/IsBusinessRequester';
 import { getItem, setItem } from "../../../../services/LocalStorageService";
+import IpfsFileRequester from '../../../../api/IpfsFileRequester';
 
 export default class BusinessAccountComponent extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {businessAccountAddress: '', businessName: '', businessDescription: '', isBusiness: ''};
-    this.kudosEventsRequester = new KudosEventsRequester();
-    this.ipfsFileRequester = new IpfsFileRequester();
-    this.isBusinessRequester = new IsBusinessRequester();
+  constructor(args) {
+    super(args);
+    this.state = {businessAddress: '', businessName: '', businessDescription: ''};
   }
 
   async componentDidMount() {
-
     await setItem('isLoggedIn', 'true');
-    await setItem('isBusiness', 'true');
 
-    // const businessAddress = await localStorage.getItem('kudosAccountAddress', {
-    //   keychainService: 'kudosKeychain'
-    // });
+    const businessAddress = await getItem('kudosAccountAddress');
+    this.ipfsFileRequester = new IpfsFileRequester('BusinessProfileUpdated', {_businessAddress: businessAddress});
 
-    const businessAccountAddress = '0xE86cAF4E3Df946A4ea9b3446C82F5733EA9a9aBd';
-
-    const ipfsHash = await this.getIpfsHash(businessAccountAddress);
-    console.log('ipfsHash: ' + ipfsHash);
-
-    const businessProfile = await this.ipfsFileRequester.makeRequest(ipfsHash);
-    console.log('businessProfile: ' + JSON.stringify(businessProfile));
-
-    const isBusiness = await this.isBusinessRequester.makeRequest(businessAccountAddress);
-    console.log('isBusiness: ' + isBusiness);
-
-    this.setState({
-      businessAddress: businessProfile.businessAddress,
-      businessName: businessProfile.businessName,
-      businessDescription: businessProfile.businessDescription,
-      isBusiness: isBusiness
-    });
-
+    const file = await this.ipfsFileRequester.makeRequest();
+    this.setState({businessAddress: file.businessAddress, businessName: file.businessName, businessDescription: file.businessDescription});
   }
-
-  async getIpfsHash(businessAccountAddress) {
-
-    let events;
-
-    try {
-      events = await this.kudosEventsRequester.makeRequest('RegisteredAsBusiness', {_businessAccountAddress: businessAccountAddress});
-    } catch (error) {
-      console.log(error);
-      return new Promise((resolve, reject) => {
-        reject(error)
-      });
-    }
-
-    const event = events[0];
-    const ipfsHash = this.getIpfsHashFromBytes(event);
-    return new Promise((resolve, reject) => {
-      resolve(ipfsHash)
-    });
-  }
-
-  getIpfsHashFromBytes(event) {
-    const ipfsHash = '1220' + event.returnValues._ipfsHash.slice(2);
-    const bytes = Buffer.from(ipfsHash, 'hex');
-    return bs58.encode(bytes);
-  };
 
   render() {
 
@@ -80,15 +27,15 @@ export default class BusinessAccountComponent extends Component {
 
       <View style={styles.container}>
 
-        <View style={styles.fieldContainer}>
-          <Text style={styles.field}>businessAccountAddress: {this.state.businessAddress}</Text>
-          <Text style={styles.field}>businessName: {this.state.businessName}</Text>
-          <Text style={styles.field}>businessDescription: {this.state.businessDescription}</Text>
+        <View style={{flex:1}}/>
+
+        <View style={styles.profileContainer}>
+          <Text style={styles.profileText}>businessAddress: {this.state.businessAddress}</Text>
+          <Text style={styles.profileText}>businessName: {this.state.businessName}</Text>
+          <Text style={styles.profileText}>businessDescription: {this.state.businessDescription}</Text>
         </View>
 
-        <BalanceComponent/>
-        <View style={{height: 16}}/>
-        <BusinessListComponent navigator={this.props.navigator}/>
+        <View style={{flex:5}}/>
       </View>
     );
   }

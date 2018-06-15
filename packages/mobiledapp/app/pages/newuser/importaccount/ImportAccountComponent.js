@@ -3,22 +3,31 @@ import styles from './ImportAccountComponentStyle';
 import { KeyboardAvoidingView, View, Image, Text, TouchableOpacity, TextInput, ToastAndroid, Alert } from 'react-native';
 import { storeSeed } from '../../../services/LocalStorageService';
 import Navigator from '../../../util/Navigator';
-import IsUserRequester from "../../../api/read/IsUserRequester";
-import IsWorkerRequester from "../../../api/read/IsWorkerRequester";
-import IsBusinessRequester from "../../../api/read/IsBusinessRequester";
+
+import ActivityIndicatorButtonComponent from "../../../views/activityindicatorbutton/ActivityIndicatorButtonComponent";
 
 export default class ImportAccountComponent extends Component {
 
   constructor(args) {
     super(args);
-    this.state = {seedText: ''};
+    this.state = {seedText: '', showActivityIndicator: false};
   }
 
   onChangeOfSeedText(seedTextValue) {
     this.setState({seedText: seedTextValue});
   }
 
+  showActivityIndicator() {
+    this.setState({showActivityIndicator: true});
+  }
+
+  hideActivityIndicator() {
+    this.setState({showActivityIndicator: false});
+  }
+
   async onClickOfConfirmButton() {
+
+    this.showActivityIndicator();
 
     if (this.state.seedText == undefined || this.state.seedText.length !== 64) {
 
@@ -27,23 +36,13 @@ export default class ImportAccountComponent extends Component {
         { cancelable: false }
       );
 
+      this.hideActivityIndicator();
       return;
     }
 
     const kudosAccountAddress = await storeSeed(this.state.seedText);
-
-    this.isUserRequester = new IsUserRequester(kudosAccountAddress);
-    this.isWorkerRequester = new IsWorkerRequester(kudosAccountAddress);
-    this.isBusinessRequester = new IsBusinessRequester(kudosAccountAddress);
-
-
-    const isUser = this.isUserRequester.makeRequest();
-    const isWorker = this.isWorkerRequester.makeRequest();
-    const isBusiness = this.isBusinessRequester.makeRequest();
-
-    ToastAndroid.show(isUser.toString() + '\n' + isWorker.toString() + '\n' + isBusiness.toString(), ToastAndroid.SHORT);
-
-    // Navigator.init(this).resetToBusinessEmployeesPage();
+    await Navigator.init(this).goToAccountPage(kudosAccountAddress);
+    this.hideActivityIndicator();
   }
 
   render() {
@@ -56,7 +55,6 @@ export default class ImportAccountComponent extends Component {
 
         <Text style={styles.title}>Paste a seed to begin</Text>
 
-
           <Text style={styles.seedLabel}>SEED</Text>
 
           <View style={styles.seedTextContainer}>
@@ -67,11 +65,10 @@ export default class ImportAccountComponent extends Component {
                        onChangeText={this.onChangeOfSeedText.bind(this)}/>
           </View>
 
-          <TouchableOpacity
-            style={styles.importAccountButtonContainer}
-            onPress={this.onClickOfConfirmButton.bind(this)}>
-            <Text style={styles.importAccountButton}>Confirm Seed</Text>
-          </TouchableOpacity>
+        <ActivityIndicatorButtonComponent
+          showActivityIndicator={this.state.showActivityIndicator}
+          onClick={this.onClickOfConfirmButton.bind(this)}
+        />
 
       </KeyboardAvoidingView>
     );

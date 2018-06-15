@@ -1,4 +1,10 @@
 import navigatorStyle from './NavigatorStyle';
+import { ToastAndroid } from 'react-native';
+import IsUserRequester from '../api/read/IsUserRequester';
+import IsWorkerRequester from '../api/read/IsWorkerRequester';
+import IsBusinessRequester from '../api/read/IsBusinessRequester';
+import { getItem, setItem } from '../services/LocalStorageService';
+
 
 export default class Navigator {
 
@@ -91,14 +97,57 @@ class NavigatorImpl {
     this.pushPage({screenName: 'TransactionsPage', backButton: true});
   }
 
-  resetToAccountTypeSelectionPage() {
-    this.resetToPage({screenName: 'AccountTypeSelectionPage', navBarHidden: true});
+  pushAccountTypeSelectionPage() {
+    this.pushPage({screenName: 'AccountTypeSelectionPage', navBarHidden: true});
   }
 
   goBack() {
     this.navigator.pop();
   }
 
+  async goToAccountPage(kudosAccountAddress) {
+
+    const isUserRequester = new IsUserRequester(kudosAccountAddress);
+    const isWorkerRequester = new IsWorkerRequester(kudosAccountAddress);
+    const isBusinessRequester = new IsBusinessRequester(kudosAccountAddress);
+
+    const isUser = await isUserRequester.makeRequest();
+    const isWorker = await isWorkerRequester.makeRequest();
+    const isBusiness = await isBusinessRequester.makeRequest();
+
+    ToastAndroid.show(isUser.toString() + '\n' + isWorker.toString() + '\n' + isBusiness.toString(), ToastAndroid.SHORT);
+
+    if ((isUser && isWorker) || (isWorker && isBusiness) || (isUser && isBusiness)) {
+      this.pushAccountTypeSelectionPage();
+      return;
+    }
+
+    if (isUser) {
+
+      await setItem('userRole', 'user');
+      const userRoleValue = await getItem('userRole');
+      console.log('userRoleValue: ' + userRoleValue.toString());
+      this.resetToUserAccountPage();
+
+    } else if (isWorker) {
+
+      await setItem('userRole', 'worker');
+      const userRoleValue = await getItem('userRole');
+      console.log('userRoleValue: ' + userRoleValue.toString());
+      this.resetToWorkerAccountPage();
+
+    } else if (isBusiness) {
+
+      await setItem('userRole', 'business');
+      const userRoleValue = await getItem('userRole');
+      console.log('userRoleValue: ' + userRoleValue.toString());
+      this.resetToBusinessAccountPage();
+      // Navigator.init(this).resetToBusinessEmployeesPage();
+
+    } else {
+      ToastAndroid.show('account not found!', ToastAndroid.SHORT);
+    }
+  }
 
 
   pushPage(arg) {
