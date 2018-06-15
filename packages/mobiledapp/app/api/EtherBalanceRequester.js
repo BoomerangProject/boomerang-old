@@ -1,5 +1,5 @@
 import backoff from 'backoff';
-import web3 from "../services/Web3HttpService";
+import web3 from '../services/Web3HttpService';
 
 export default class EtherBalanceRequester {
 

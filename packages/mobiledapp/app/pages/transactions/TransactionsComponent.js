@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, Image, Text, ToastAndroid } from "react-native";
+import { View, Image, Text, ToastAndroid } from 'react-native';
 import styles from './TransactionsComponentStyle';
 import { getArrayItem } from '../../services/LocalStorageService';
 
-class TransactionsComponent extends Component {
+export default class TransactionsComponent extends Component {
 
   constructor(args) {
     super(args);
@@ -35,5 +35,3 @@ class TransactionsComponent extends Component {
     );
   }
 }
-
-export default TransactionsComponent;

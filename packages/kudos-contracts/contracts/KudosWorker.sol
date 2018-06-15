@@ -4,7 +4,7 @@ import "./KudosActor.sol";
 
 contract KudosWorker is KudosActor {
 
-  event RegisteredAsWorker(address indexed _workerAddress, bytes32 _ipfsHash);
+  event WorkerProfileUpdated(address indexed _workerAddress, bytes32 _ipfsHash);
   event WorkerHasApprovedBusiness(address indexed _workerAddress, address indexed _businessAddress);
 
   event UserRating( address indexed _userAddress,
@@ -13,10 +13,15 @@ contract KudosWorker is KudosActor {
                     uint256 _userRating,
                     bytes32 _ipfsHash);
 
-  function registerAsWorker(address _workerAddress, address _businessAddress, bytes32 _ipfsHash) public {
+  function registerAsWorker(address _workerAddress, bytes32 _ipfsHash) public {
 
-    addBusiness(_workerAddress, _businessAddress);
-    RegisteredAsWorker(_workerAddress, _ipfsHash);
+    require(isWorker[_workerAddress] == false);
+    isWorker[_workerAddress] = true;
+    WorkerProfileUpdated(_workerAddress, _ipfsHash);
+  }
+
+  function updateWorkerProfile(address _workerAddress, bytes32 _ipfsHash) public {
+    WorkerProfileUpdated(_workerAddress, _ipfsHash);
   }
 
   function addBusiness(address _workerAddress, address _businessAddress) public {
@@ -27,7 +32,6 @@ contract KudosWorker is KudosActor {
     if (businessHasApprovedWorker[_businessAddress][_workerAddress] && !isEmployed[_businessAddress][_workerAddress]) {
       isEmployed[_businessAddress][_workerAddress] = true;
       workerList[_businessAddress].push(_workerAddress);
-      isWorker[_workerAddress] = true;
     }
 
     // any add business init

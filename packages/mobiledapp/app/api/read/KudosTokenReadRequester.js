@@ -1,5 +1,5 @@
-import backoff from "backoff";
-import getKudosTokenContract from "../../services/KudosTokenContract";
+import backoff from 'backoff';
+import getKudosTokenContract from '../../services/KudosTokenContract';
 
 export default class KudosTokenReadRequester {
 

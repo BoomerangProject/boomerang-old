@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { View, Button, Image, Text, ToastAndroid } from "react-native";
+import { View, Button, Image, Text, ToastAndroid } from 'react-native';
 import styles from './BusinessAccountComponentStyle';
-import KudosEventsRequester from "../../../../api/KudosEventsRequester";
-import IpfsFileRequester from "../../../../api/IpfsFileRequester";
+import KudosEventsRequester from '../../../../api/KudosEventsRequester';
+import IpfsFileRequester from '../../../../api/IpfsFileRequester';
 import bs58 from 'bs58';
-import BalanceComponent from "../../../../views/balance/BalanceComponent";
-import BusinessListComponent from "../../../../views/businessdirectory/BusinessList/BusinessListComponent";
-import IsBusinessRequester from "../../../../api/read/IsBusinessRequester";
+import BalanceComponent from '../../../../views/balance/BalanceComponent';
+import BusinessListComponent from '../../../../views/businessdirectory/BusinessList/BusinessListComponent';
+import IsBusinessRequester from '../../../../api/read/IsBusinessRequester';
+import { getItem, setItem } from "../../../../services/LocalStorageService";
 
-class BusinessAccountComponent extends Component {
+export default class BusinessAccountComponent extends Component {
 
   constructor(props) {
     super(props);
@@ -19,6 +20,9 @@ class BusinessAccountComponent extends Component {
   }
 
   async componentDidMount() {
+
+    await setItem('isLoggedIn', 'true');
+    await setItem('isBusiness', 'true');
 
     // const businessAddress = await localStorage.getItem('kudosAccountAddress', {
     //   keychainService: 'kudosKeychain'
@@ -89,5 +93,3 @@ class BusinessAccountComponent extends Component {
     );
   }
 }
-
-export default BusinessAccountComponent;

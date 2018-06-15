@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styles from './EmployeeListItemComponentStyle';
-import { View, TouchableHighlight, Text, ToastAndroid } from "react-native";
+import { View, TouchableHighlight, Text, ToastAndroid } from 'react-native';
 
-class EmployeeListItemComponent extends Component {
+export default class EmployeeListItemComponent extends Component {
 
   constructor(props) {
     super(props);
@@ -30,5 +30,3 @@ class EmployeeListItemComponent extends Component {
     );
   }
 }
-
-export default EmployeeListItemComponent;

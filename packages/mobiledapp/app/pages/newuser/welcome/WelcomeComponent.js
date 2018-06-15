@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import styles from './WelcomeComponentStyle';
-import { Image, Text, TouchableOpacity, View } from "react-native";
-import PendingTransactions from "../../../util/PendingTransactions";
-import Navigator from "../../../util/Navigator";
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import PendingTransactions from '../../../util/PendingTransactions';
+import Navigator from '../../../util/Navigator';
+import { getItem } from '../../../services/LocalStorageService';
 
-class WelcomeComponent extends Component {
+export default class WelcomeComponent extends Component {
 
   constructor(args) {
     super(args);
-    PendingTransactions.reset();
+    PendingTransactions.init();
   }
 
   onClickOfCreateAccountButton() {
-    Navigator.init(this).goToCreateAccountPage();
+    Navigator.init(this).pushCreateAccountPage();
   }
 
   onClickOfImportAccountButton() {
-    Navigator.init(this).goToImportAccountPage();
+    Navigator.init(this).pushImportAccountPage();
   }
 
   render() {
@@ -25,7 +26,7 @@ class WelcomeComponent extends Component {
 
       <View style={styles.container}>
 
-        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
         <Text style={styles.welcomeMessage}>Welcome to Kudos</Text>
 
         <TouchableOpacity
@@ -45,5 +46,3 @@ class WelcomeComponent extends Component {
     );
   }
 }
-
-export default WelcomeComponent;

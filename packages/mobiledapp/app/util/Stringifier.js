@@ -3,7 +3,7 @@ const numberOfSpacesToIndent = 2;
 var seen = [];
 
 function replacerFunction(key, val) {
-  if (val != null && typeof val == "object") {
+  if (val != null && typeof val == 'object') {
     if (seen.indexOf(val) >= 0) {
       return;
     }

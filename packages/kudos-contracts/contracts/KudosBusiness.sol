@@ -4,17 +4,18 @@ import "./KudosActor.sol";
 
 contract KudosBusiness is KudosActor {
 
-  event RegisteredAsBusiness(address indexed _businessAddress, bytes32 _ipfsHash);
+  event BusinessProfileUpdated(address indexed _businessAddress, bytes32 _ipfsHash);
   event BusinessHasApprovedWorker(address indexed _businessAddress, address indexed _workerAddress);
 
   function registerAsBusiness(address _businessAddress, bytes32 _ipfsHash) public {
 
     require(isBusiness[_businessAddress] == false);
-
     isBusiness[_businessAddress] = true;
-    RegisteredAsBusiness(_businessAddress, _ipfsHash);
+    BusinessProfileUpdated(_businessAddress, _ipfsHash);
+  }
 
-    // any business registration init
+  function updateBusinessProfile(address _businessAddress, bytes32 _ipfsHash) public {
+    BusinessProfileUpdated(_businessAddress, _ipfsHash);
   }
 
   function addWorker(address _workerAddress, address _businessAddress) public {
@@ -27,8 +28,6 @@ contract KudosBusiness is KudosActor {
       workerList[_businessAddress].push(_workerAddress);
       isWorker[_workerAddress] = true;
     }
-
-    // any add employee init
   }
 
   function getEmployeeAddress(address _businessAddress, uint _index) public view returns (address) {

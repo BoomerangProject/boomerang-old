@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styles from './BalanceComponentStyle';
-import { View, TouchableHighlight, Text, ToastAndroid } from "react-native";
-import { default as localStorage } from 'react-native-sensitive-info';
-import EtherBalanceRequester from "../../api/EtherBalanceRequester";
-import KudosBalanceRequester from "../../api/read/KudosBalanceRequester";
-import web3 from "../../services/Web3HttpService";
+import { View, TouchableHighlight, Text, ToastAndroid } from 'react-native';
+import { getItem } from '../../services/LocalStorageService';
+import EtherBalanceRequester from '../../api/EtherBalanceRequester';
+import KudosBalanceRequester from '../../api/read/KudosBalanceRequester';
+import web3 from '../../services/Web3HttpService';
 
-class BalanceComponent extends Component {
+export default class BalanceComponent extends Component {
 
   constructor(args) {
     super(args);
@@ -17,9 +17,7 @@ class BalanceComponent extends Component {
 
   async componentDidMount() {
 
-    // const kudosAccountAddress = await localStorage.getItem('kudosAccountAddress', {
-    //   keychainService: 'kudosKeychain'
-    // });
+    // const kudosAccountAddress = await getItem('kudosAccountAddress');
 
     const kudosAccountAddress = '0xdcee2f1da7262362a962d456280a928f4f90bb5e';
     this.kudosBalanceRequester = new KudosBalanceRequester(kudosAccountAddress);
@@ -63,5 +61,3 @@ class BalanceComponent extends Component {
     );
   }
 }
-
-export default BalanceComponent;

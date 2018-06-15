@@ -1,19 +1,15 @@
 import { default as localStorage } from 'react-native-sensitive-info';
-import web3 from "../services/Web3HttpService";
+import web3 from '../services/Web3HttpService';
 
-export function storeSeed(seedArg) {
+export async function storeSeed(seedArg) {
 
-  localStorage.setItem("kudosAccountSeed", seedArg, {
-    keychainService: 'kudosKeychain',
-    encrypt: true
-  });
+  await setItem('kudosAccountSeed', seedArg);
 
-  const account = web3.eth.accounts.privateKeyToAccount('0x' + seedArg);
+  const account = await web3.eth.accounts.privateKeyToAccount('0x' + seedArg);
 
-  localStorage.setItem("kudosAccountAddress", account.address, {
-    keychainService: 'kudosKeychain',
-    encrypt: true
-  });
+  await setItem('kudosAccountAddress', account.address);
+
+  return account.address;
 }
 
 export async function setItem(key, value) {
@@ -31,6 +27,13 @@ export async function getItem(key) {
   });
 }
 
+export async function deleteItem(key) {
+
+  return localStorage.deleteItem(key, {
+    keychainService: 'kudosKeychain'
+  });
+}
+
 export async function getArrayItem(key) {
 
   const value = await localStorage.getItem(key, {
@@ -40,15 +43,36 @@ export async function getArrayItem(key) {
   return JSON.parse(value);
 }
 
+export async function isLoggedIn() {
+
+  const value = await getItem('isLoggedIn');
+  return (value === 'true');
+}
+
+export async function isUserAccount() {
+
+  const value = await getItem('isUser');
+  return (value === 'true');
+}
+
+export async function isWorkerAccount() {
+
+  const value = await getItem('isWorker');
+  return (value === 'true');
+}
+
+export async function isBusinessAccount() {
+
+  const value = await getItem('isBusiness');
+  return (value === 'true');
+}
+
 export async function clearSeed() {
 
-  localStorage.deleteItem("kudosAccountSeed", {
-    keychainService: 'kudosKeychain',
-    encrypt: true
-  });
-
-  localStorage.deleteItem("kudosAccountAddress", {
-    keychainService: 'kudosKeychain',
-    encrypt: true
-  });
+  await deleteItem('kudosAccountSeed');
+  await deleteItem('kudosAccountAddress');
+  await setItem('isLoggedIn', 'false');
+  await deleteItem('isUser');
+  await deleteItem('isWorker');
+  await deleteItem('isBusiness');
 }

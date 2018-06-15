@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, Image, Text, FlatList, ToastAndroid, TouchableOpacity } from "react-native";
+import { View, Image, Text, FlatList, ToastAndroid, TouchableOpacity } from 'react-native';
 import styles from './AccountComponentStyle';
 import kudosContract from '../../../services/KudosContractServiceOld'
 import bs58 from 'bs58';
-import { default as localStorage } from 'react-native-sensitive-info';
+import { getItem } from '../../../services/LocalStorageService';
 
-class AccountComponent extends Component {
+export default class AccountComponent extends Component {
 
   constructor(args) {
     super(args);
@@ -15,7 +15,7 @@ class AccountComponent extends Component {
 
   async componentDidMount() {
 
-    const userAddress = "0xfe996c9a9b7f29580c6b9ab92fc692065bf25f80";
+    const userAddress = '0xfe996c9a9b7f29580c6b9ab92fc692065bf25f80';
 
     // kudosContract.events.WorkerRating({
     //   fromBlock: 0,
@@ -47,14 +47,10 @@ class AccountComponent extends Component {
       });
     });
 
-    const kudosAccountSeed = await localStorage.getItem('kudosAccountSeed', {
-      keychainService: 'kudosKeychain'
-      });
+    const kudosAccountSeed = await getItem('kudosAccountSeed');
     this.setState({kudosAccountSeed});
 
-    const kudosAccountAddress = await localStorage.getItem('kudosAccountAddress', {
-      keychainService: 'kudosKeychain'
-    });
+    const kudosAccountAddress = await getItem('kudosAccountAddress');
     this.setState({kudosAccountAddress});
   }
 
@@ -80,7 +76,7 @@ class AccountComponent extends Component {
 
       <View style={styles.container}>
 
-        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
         <Text>Account</Text>
         <Text>{'private key: ' + this.state.kudosAccountSeed}</Text>
         <Text>{'account address: ' + this.state.kudosAccountAddress}</Text>
@@ -101,5 +97,3 @@ class AccountComponent extends Component {
     );
   }
 }
-
-export default AccountComponent;

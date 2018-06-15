@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { View, Image, TextInput, Text, TouchableOpacity, ToastAndroid, Clipboard } from 'react-native';
 import styles from './CreateBusinessAccountComponentStyle';
-import { default as localStorage } from 'react-native-sensitive-info';
-import Navigator from "../../../util/Navigator";
-import RegisterAsBusinessRequester from "../../../api/write/RegisterAsBusinessRequester";
+import { getItem } from '../../../services/LocalStorageService';
+import Navigator from '../../../util/Navigator';
+import RegisterAsBusinessRequester from '../../../api/write/RegisterAsBusinessRequester';
 
-class CreateBusinessAccountComponent extends Component {
+export default class CreateBusinessAccountComponent extends Component {
 
   constructor(props) {
     super(props);
@@ -26,9 +26,7 @@ class CreateBusinessAccountComponent extends Component {
 
     if (this.okayButtonIsEnabled) {
 
-      const businessAccountAddress = await localStorage.getItem('kudosAccountAddress', {
-        keychainService: 'kudosKeychain'
-      });
+      const businessAccountAddress = await getItem('kudosAccountAddress');
 
       const businessName = this.state.businessName;
       const businessDescription = this.state.businessDescription;
@@ -41,7 +39,7 @@ class CreateBusinessAccountComponent extends Component {
         onFailure: this.onFailure.bind(this)
       };
 
-      Navigator.init(this).goToLoadingPage(props);
+      Navigator.init(this).pushLoadingPage(props);
     }
   }
 
@@ -53,7 +51,7 @@ class CreateBusinessAccountComponent extends Component {
       businessDescription: this.state.businessDescription
     };
 
-    Navigator.init(this).resetToBusinessEmployeesPage(props);
+    Navigator.init(this).resetToBusinessAccountPage(props);
   }
 
   onFailure(error) {
@@ -86,18 +84,18 @@ class CreateBusinessAccountComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
 
         <Text style={styles.title}>Create Kudos Business</Text>
 
         <View style={{flex: 1}}/>
 
         <TextInput style={styles.businessNameTextInput}
-                   placeholder="name"
+                   placeholder='name'
                    onChangeText={(businessName) => this.setState({businessName})}/>
 
         <TextInput style={styles.businessDescriptionTextInput}
-                   placeholder="description"
+                   placeholder='description'
                    onChangeText={(businessDescription) => this.setState({businessDescription})}/>
 
         <View style={{flex: 2}}/>
@@ -107,5 +105,3 @@ class CreateBusinessAccountComponent extends Component {
     );
   }
 }
-
-export default CreateBusinessAccountComponent;

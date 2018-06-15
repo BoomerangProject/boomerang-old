@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, Image, Text, ToastAndroid } from "react-native";
+import { View, Image, Text, ToastAndroid } from 'react-native';
 import styles from './BusinessProfileComponentStyle';
-import ReviewListComponent from "../../../views/reviewfeed/ReviewList/ReviewListComponent";
+import ReviewListComponent from '../../../views/reviewfeed/ReviewList/ReviewListComponent';
 
-class BusinessProfileComponent extends Component {
+export default class BusinessProfileComponent extends Component {
 
   constructor(args) {
     super(args);
@@ -26,5 +26,3 @@ class BusinessProfileComponent extends Component {
     );
   }
 }
-
-export default BusinessProfileComponent;

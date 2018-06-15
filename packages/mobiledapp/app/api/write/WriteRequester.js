@@ -1,8 +1,8 @@
-import web3 from "../../services/Web3HttpService";
-import PendingTransactionCount from "../../util/PendingTransactions";
-import backoff from "backoff";
-import axios from "axios";
-import { awsEndpoint } from "../../Endpoints";
+import web3 from '../../services/Web3HttpService';
+import PendingTransactionCount from '../../util/PendingTransactions';
+import backoff from 'backoff';
+import axios from 'axios';
+import { awsEndpoint } from '../../Endpoints';
 
 export default class WriteRequester {
 

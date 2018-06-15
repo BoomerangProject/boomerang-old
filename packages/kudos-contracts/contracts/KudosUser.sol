@@ -4,7 +4,7 @@ import "./KudosActor.sol";
 
 contract KudosUser is KudosActor {
 
-  event RegisteredAsUser(address indexed _userAddress, bytes32 _ipfsHash);
+  event UserProfileUpdated(address indexed _userAddress, bytes32 _ipfsHash);
   event KudosExperience(  address indexed _userAddress,
                           address indexed _workerAddress,
                           address indexed _businessAddress,
@@ -37,7 +37,13 @@ contract KudosUser is KudosActor {
 
   function registerAsUser(address _userAddress, bytes32 _ipfsHash) public {
 
-    RegisteredAsUser(_userAddress, _ipfsHash);
+    require(isUser[_userAddress] == false);
+    isUser[_userAddress] = true;
+    UserProfileUpdated(_userAddress, _ipfsHash);
+  }
+
+  function updateUserProfile(address _userAddress, bytes32 _ipfsHash) public {
+    UserProfileUpdated(_userAddress, _ipfsHash);
   }
 
   function updateBusinessRating(address _businessAddress, uint256 _businessRating) internal {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styles from './BusinessListItemComponentStyle';
-import { View, TouchableHighlight, Text, ToastAndroid } from "react-native";
+import { View, TouchableHighlight, Text, ToastAndroid } from 'react-native';
 
-class BusinessListItemComponent extends Component {
+export default class BusinessListItemComponent extends Component {
 
   constructor(props) {
     super(props);
@@ -52,5 +52,3 @@ class BusinessListItemComponent extends Component {
     );
   }
 }
-
-export default BusinessListItemComponent;

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { View, Image, TextInput, Text, TouchableOpacity, ToastAndroid, Clipboard } from 'react-native';
 import styles from './AddEmployeeComponentStyle';
-import Navigator from "../../../../util/Navigator";
-import AddWorkerRequester from "../../../../api/write/AddWorkerRequester";
-import { default as localStorage } from 'react-native-sensitive-info';
+import Navigator from '../../../../util/Navigator';
+import AddWorkerRequester from '../../../../api/write/AddWorkerRequester';
+import { getItem } from '../../../../services/LocalStorageService';
 
-class AddEmployeeComponent extends Component {
+export default class AddEmployeeComponent extends Component {
 
   constructor(props) {
     super(props);
@@ -26,9 +26,7 @@ class AddEmployeeComponent extends Component {
 
     if (this.okayButtonIsEnabled) {
 
-      const businessAddress = await localStorage.getItem('kudosAccountAddress', {
-        keychainService: 'kudosKeychain'
-      });
+      const businessAddress = await getItem('kudosAccountAddress');
 
       const addWorkerRequester = new AddWorkerRequester(this.state.workerAddress, businessAddress);
 
@@ -39,7 +37,7 @@ class AddEmployeeComponent extends Component {
         onFailure: this.onFailure.bind(this)
       };
 
-      Navigator.init(this).goToLoadingPage(props);
+      Navigator.init(this).pushLoadingPage(props);
     }
   }
 
@@ -72,14 +70,14 @@ class AddEmployeeComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Image style={styles.logo} source={require("../../../../../assets/images/kudos.png")}/>
+        <Image style={styles.logo} source={require('../../../../../assets/images/kudos.png')}/>
 
         <Text style={styles.title}>Add Employee</Text>
 
         <View style={{flex: 1}}/>
 
         <TextInput style={styles.workerAddressTextInput}
-                   placeholder="employee address"
+                   placeholder='employee address'
                    onChangeText={(workerAddress) => this.setState({workerAddress})}/>
 
         <View style={{flex: 2}}/>
@@ -89,5 +87,3 @@ class AddEmployeeComponent extends Component {
     );
   }
 }
-
-export default AddEmployeeComponent;

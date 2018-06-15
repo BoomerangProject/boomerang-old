@@ -28,6 +28,7 @@ contract KudosActor {
   mapping(address => uint256) public userAverageRating;
   mapping(address => uint256) public numberOfUserRatings;
 
+  mapping(address => bool) public isUser;
 
   // business + worker
   mapping(address => mapping(address => bool)) public isEmployed;

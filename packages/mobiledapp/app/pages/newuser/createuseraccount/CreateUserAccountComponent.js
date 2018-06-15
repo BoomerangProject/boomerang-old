@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, Image, TextInput, Text, TouchableOpacity, ToastAndroid, Clipboard } from 'react-native';
 import styles from './CreateUserAccountComponentStyle';
-import { default as localStorage } from 'react-native-sensitive-info';
-import Navigator from "../../../util/Navigator";
-import RegisterAsUserRequester from "../../../api/write/RegisterAsUserRequester";
+import { getItem } from '../../../services/LocalStorageService';
+import Navigator from '../../../util/Navigator';
+import RegisterAsUserRequester from '../../../api/write/RegisterAsUserRequester';
 
 export default class CreateUserAccountComponent extends Component {
 
@@ -26,9 +26,7 @@ export default class CreateUserAccountComponent extends Component {
 
     if (this.okayButtonIsEnabled) {
 
-      const userAddress = await localStorage.getItem('kudosAccountAddress', {
-        keychainService: 'kudosKeychain'
-      });
+      const userAddress = await getItem('kudosAccountAddress');
 
       const userName = this.state.userName;
       const registerAsUserRequester = new RegisterAsUserRequester(userAddress, userName);
@@ -40,7 +38,7 @@ export default class CreateUserAccountComponent extends Component {
         onFailure: this.onFailure.bind(this)
       };
 
-      Navigator.init(this).goToLoadingPage(props);
+      Navigator.init(this).pushLoadingPage(props);
     }
   }
 
@@ -51,7 +49,7 @@ export default class CreateUserAccountComponent extends Component {
       userName: this.state.userName
     };
 
-    Navigator.init(this).resetToBusinessEmployeesPage(props);
+    Navigator.init(this).resetToUserAccountPage(props);
   }
 
   onFailure(error) {
@@ -84,14 +82,14 @@ export default class CreateUserAccountComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
 
         <Text style={styles.title}>Create User Account</Text>
 
         <View style={{flex: 1}}/>
 
         <TextInput style={styles.userNameTextInput}
-                   placeholder="name"
+                   placeholder='name'
                    onChangeText={(userName) => this.setState({userName})}/>
 
         <View style={{flex: 2}}/>

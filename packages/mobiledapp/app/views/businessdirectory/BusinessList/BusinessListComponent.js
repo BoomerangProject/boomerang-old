@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styles from './BusinessListComponentStyle';
 import BusinessListItem from '../BusinessListItem/BusinessListItemComponent';
-import { View, FlatList, ListItem, TouchableHighlight, Text, ToastAndroid } from "react-native";
+import { View, FlatList, ListItem, TouchableHighlight, Text, ToastAndroid } from 'react-native';
 import businessListData from '../../../mockdata/MockBusinessList';
 
-class BusinessListComponent extends Component {
+export default class BusinessListComponent extends Component {
 
   render() {
 
@@ -22,5 +22,3 @@ class BusinessListComponent extends Component {
     );
   }
 }
-
-export default BusinessListComponent;

@@ -1,4 +1,4 @@
-import KudosTokenReadRequester from "./KudosTokenReadRequester";
+import KudosTokenReadRequester from './KudosTokenReadRequester';
 
 export default class KudosBalanceRequester extends KudosTokenReadRequester {
 

@@ -6,7 +6,6 @@ export default class PendingTransactions {
 
     getItem('pendingTransactions').then((arg) => {
 
-
       let pendingTransactions;
 
       if (arg == undefined) {
@@ -17,7 +16,7 @@ export default class PendingTransactions {
       }
       setItem('pendingTransactions', JSON.stringify(pendingTransactions));
 
-      console.log("(adding " + transactionHash + ")\nnumberOfPendingTransactions: " + pendingTransactions.length);
+      console.log('(adding ' + transactionHash + ')\nnumberOfPendingTransactions: ' + pendingTransactions.length);
     });
   }
   
@@ -39,11 +38,11 @@ export default class PendingTransactions {
       }
       setItem('pendingTransactions', JSON.stringify(pendingTransactions));
 
-      console.log("(removing " + transactionHash + ")\nnumberOfPendingTransactions: " + pendingTransactions.length);
+      console.log('(removing ' + transactionHash + ')\nnumberOfPendingTransactions: ' + pendingTransactions.length);
     });
   }
 
-  static reset() {
+  static init() {
 
     // TODO -- remove this, handle it by calling rest calls for the transactions stored, should be storing array of transaction hashes
     setItem('pendingTransactions', JSON.stringify([]));

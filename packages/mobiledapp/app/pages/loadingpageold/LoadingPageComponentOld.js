@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styles from './LoadingPageComponentStyleOld';
-import { View, Image, Text, ActivityIndicator, ToastAndroid } from "react-native";
-import kudosContract from '../../services/KudosContractServiceOld'
-import { default as localStorage } from 'react-native-sensitive-info';
+import { View, Image, Text, ActivityIndicator, ToastAndroid } from 'react-native';
+import { getItem } from '../../services/LocalStorageService';
 import GetBalanceRequester from '../../api/EtherBalanceRequester';
 import IsBusinessRequester from '../../api/read/IsBusinessRequester';
 import RegisterAsBusinessRequester from '../../api/RegisterAsBusinessRequesterOld';
@@ -11,7 +10,7 @@ const visibleDotsArray = ['. ', '. .', '. . .', '. .', '. '];
 const hiddenDotsArray = ['. .', ' .', '', ' .', '. .'];
 let setIntervalId;
 
-class LoadingPageComponent extends Component {
+export default class LoadingPageComponent extends Component {
 
   constructor(args) {
     super(args);
@@ -36,8 +35,8 @@ class LoadingPageComponent extends Component {
 
         let myBalance;
         try {
-          myBalance = await this.etherBalanceRequester.makeRequest("0xdcee2f1da7262362a962d456280a928f4f90bb5e");
-          console.log("BaaAALANCE:: " + myBalance);
+          myBalance = await this.etherBalanceRequester.makeRequest('0xdcee2f1da7262362a962d456280a928f4f90bb5e');
+          console.log('BaaAALANCE:: ' + myBalance);
         } catch (error) {
 
           if (!error.message.toLowerCase().includes('abort')) {
@@ -52,9 +51,7 @@ class LoadingPageComponent extends Component {
       case 'createBusinessAccount':
 
 
-        const kudosAccountAddress = await localStorage.getItem('kudosAccountAddress', {
-          keychainService: 'kudosKeychain'
-        });
+        const kudosAccountAddress = await getItem('kudosAccountAddress');
 
 
         await this.checkBusinessStatus(kudosAccountAddress);
@@ -86,7 +83,7 @@ class LoadingPageComponent extends Component {
 
       this.setState({ isBusiness: result.toString()});
 
-      console.log("isBusiness: " + result);
+      console.log('isBusiness: ' + result);
     } catch (error) {
 
       if (!error.message.toLowerCase().includes('abort')) {
@@ -111,7 +108,7 @@ class LoadingPageComponent extends Component {
       <View style={styles.container}>
 
         <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={require("../../../assets/images/kudos.png")}/>
+          <Image style={styles.logo} source={require('../../../assets/images/kudos.png')}/>
         </View>
 
         <View style={styles.loadingTextContainer}>
@@ -128,5 +125,3 @@ class LoadingPageComponent extends Component {
     );
   }
 }
-
-export default LoadingPageComponent;

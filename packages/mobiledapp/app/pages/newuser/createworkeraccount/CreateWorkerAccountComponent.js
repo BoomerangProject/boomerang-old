@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, Image, TextInput, Text, TouchableOpacity, ToastAndroid, Clipboard } from 'react-native';
 import styles from './CreateWorkerAccountComponentStyle';
-import { default as localStorage } from 'react-native-sensitive-info';
-import Navigator from "../../../util/Navigator";
-import RegisterAsWorkerRequester from "../../../api/write/RegisterAsWorkerRequester";
+import { getItem } from '../../../services/LocalStorageService';
+import Navigator from '../../../util/Navigator';
+import RegisterAsWorkerRequester from '../../../api/write/RegisterAsWorkerRequester';
 
 export default class CreateWorkerAccountComponent extends Component {
 
@@ -26,9 +26,7 @@ export default class CreateWorkerAccountComponent extends Component {
 
     if (this.okayButtonIsEnabled) {
 
-      const workerAddress = await localStorage.getItem('kudosAccountAddress', {
-        keychainService: 'kudosKeychain'
-      });
+      const workerAddress = await getItem('kudosAccountAddress');
 
       const workerName = this.state.workerName;
       const businessAddress = '0xfad1472d56f1a6f9c204ac555cc8baee0e5409be';
@@ -41,7 +39,7 @@ export default class CreateWorkerAccountComponent extends Component {
         onFailure: this.onFailure.bind(this)
       };
 
-      Navigator.init(this).goToLoadingPage(props);
+      Navigator.init(this).pushLoadingPage(props);
     }
   }
 
@@ -52,7 +50,7 @@ export default class CreateWorkerAccountComponent extends Component {
       workerName: this.state.workerName
     };
 
-    Navigator.init(this).resetToBusinessEmployeesPage(props);
+    Navigator.init(this).resetToWorkerAccountPage(props);
   }
 
   onFailure(error) {
@@ -85,14 +83,14 @@ export default class CreateWorkerAccountComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
 
         <Text style={styles.title}>Create Worker Account</Text>
 
         <View style={{flex: 1}}/>
 
         <TextInput style={styles.workerNameTextInput}
-                   placeholder="name"
+                   placeholder='name'
                    onChangeText={(workerName) => this.setState({workerName})}/>
 
         <View style={{flex: 2}}/>

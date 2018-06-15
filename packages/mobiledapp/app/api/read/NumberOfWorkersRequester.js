@@ -1,4 +1,4 @@
-import KudosReadRequester from "./KudosReadRequester";
+import KudosReadRequester from './KudosReadRequester';
 
 export default class NumberOfWorkersRequester extends KudosReadRequester {
 

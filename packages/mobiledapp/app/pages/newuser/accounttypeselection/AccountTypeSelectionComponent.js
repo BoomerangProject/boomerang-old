@@ -1,32 +1,40 @@
 import React, { Component } from 'react';
 import styles from './AccountTypeSelectionComponentStyle';
-import { Image, Text, View, TouchableOpacity } from "react-native";
-import Navigator from "../../../util/Navigator";
+import { Image, Text, View, TouchableOpacity } from 'react-native';
+import Navigator from '../../../util/Navigator';
+import { isLoggedIn } from '../../../services/LocalStorageService';
 
-class AccountTypeSelectionComponent extends Component {
+export default class AccountTypeSelectionComponent extends Component {
 
-  onClickOfUserAccount() {
-    Navigator.init(this).goToCreateUserAccountPage();
+  async componentWillMount() {
+    this.isLoggedIn = await isLoggedIn();
   }
 
-  onClickOfWorkerAccount() {
-    Navigator.init(this).goToCreateWorkerAccountPage();
+  async onClickOfUserAccount() {
+
+    if (this.isLoggedIn) {
+      Navigator.init(this).resetToUserAccountPage();
+    } else {
+      Navigator.init(this).pushCreateUserAccountPage();
+    }
   }
 
-  onClickOfBusinessAccount() {
-    Navigator.init(this).goToCreateBusinessAccountPage();
+  async onClickOfWorkerAccount() {
+
+    if (this.isLoggedIn) {
+      Navigator.init(this).resetToWorkerAccountPage();
+    } else {
+      Navigator.init(this).pushCreateWorkerAccountPage();
+    }
   }
 
-  goToLoadingPage(action) {
-    this.props.navigator.push({
-      screen: 'LoadingPage',
-      navigatorStyle: {
-        navBarHidden: false
-      },
-      passProps: {
-        action
-      }
-    });
+  async onClickOfBusinessAccount() {
+
+    if (this.isLoggedIn) {
+      Navigator.init(this).resetToBusinessAccountPage();
+    } else {
+      Navigator.init(this).pushCreateBusinessAccountPage();
+    }
   }
 
   render() {
@@ -37,7 +45,7 @@ class AccountTypeSelectionComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
         <Text style={styles.title}>choose your account type</Text>
 
         <View style={{flex: 1}}/>
@@ -65,5 +73,3 @@ class AccountTypeSelectionComponent extends Component {
     );
   }
 }
-
-export default AccountTypeSelectionComponent;

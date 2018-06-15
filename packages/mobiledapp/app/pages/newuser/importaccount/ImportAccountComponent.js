@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import styles from './ImportAccountComponentStyle';
-import { KeyboardAvoidingView, View, Image, Text, TouchableOpacity, TextInput, ToastAndroid, Alert } from "react-native";
-import { storeSeed } from "../../../services/LocalStorageService";
-import Navigator from "../../../util/Navigator";
+import { KeyboardAvoidingView, View, Image, Text, TouchableOpacity, TextInput, ToastAndroid, Alert } from 'react-native';
+import { storeSeed } from '../../../services/LocalStorageService';
+import Navigator from '../../../util/Navigator';
+import IsUserRequester from "../../../api/read/IsUserRequester";
+import IsWorkerRequester from "../../../api/read/IsWorkerRequester";
+import IsBusinessRequester from "../../../api/read/IsBusinessRequester";
 
-class ImportAccountComponent extends Component {
+export default class ImportAccountComponent extends Component {
 
   constructor(args) {
     super(args);
@@ -12,7 +15,6 @@ class ImportAccountComponent extends Component {
   }
 
   onChangeOfSeedText(seedTextValue) {
-    // ToastAndroid.show(seedText, ToastAndroid.SHORT);
     this.setState({seedText: seedTextValue});
   }
 
@@ -28,8 +30,20 @@ class ImportAccountComponent extends Component {
       return;
     }
 
-    storeSeed(this.state.seedText);
-    Navigator.init(this).resetToBusinessEmployeesPage();
+    const kudosAccountAddress = await storeSeed(this.state.seedText);
+
+    this.isUserRequester = new IsUserRequester(kudosAccountAddress);
+    this.isWorkerRequester = new IsWorkerRequester(kudosAccountAddress);
+    this.isBusinessRequester = new IsBusinessRequester(kudosAccountAddress);
+
+
+    const isUser = this.isUserRequester.makeRequest();
+    const isWorker = this.isWorkerRequester.makeRequest();
+    const isBusiness = this.isBusinessRequester.makeRequest();
+
+    ToastAndroid.show(isUser.toString() + '\n' + isWorker.toString() + '\n' + isBusiness.toString(), ToastAndroid.SHORT);
+
+    // Navigator.init(this).resetToBusinessEmployeesPage();
   }
 
   render() {
@@ -38,7 +52,7 @@ class ImportAccountComponent extends Component {
 
       <KeyboardAvoidingView behavior='height' style={styles.container}>
 
-        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
 
         <Text style={styles.title}>Paste a seed to begin</Text>
 
@@ -63,5 +77,3 @@ class ImportAccountComponent extends Component {
     );
   }
 }
-
-export default ImportAccountComponent;

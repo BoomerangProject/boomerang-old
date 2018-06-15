@@ -1,26 +1,24 @@
 import backoff from 'backoff';
-import web3 from "../services/Web3HttpService";
-import kudosContract from "../services/KudosContractServiceOld";
-import { default as localStorage } from 'react-native-sensitive-info';
+import web3 from '../services/Web3HttpService';
+import kudosContract from '../services/KudosContractServiceOld';
+import { getItem } from '../services/LocalStorageService';
 
 export default class RegisterAsBusinessRequesterOld {
 
   async makeRequest(addressArg) {
 
-    const privateKey = await localStorage.getItem('kudosAccountSeed', {
-      keychainService: 'kudosKeychain'
-    });
+    const privateKey = await getItem('kudosAccountSeed');
 
     const account = web3.eth.accounts.privateKeyToAccount(privateKey);
-    console.log("private key: " + account.privateKey);
-    console.log("account address: " + account.address);
+    console.log('private key: ' + account.privateKey);
+    console.log('account address: ' + account.address);
 
 
     const query = kudosContract.methods.registerAsBusiness(addressArg);
     const encodedABI = query.encodeABI();
     const tx = {
-      from: "0xdcee2f1da7262362a962d456280a928f4f90bb5e",
-      to: "0x0576086e929976fe1E3d54146964000d7D752c64",
+      from: '0xdcee2f1da7262362a962d456280a928f4f90bb5e',
+      to: '0x0576086e929976fe1E3d54146964000d7D752c64',
       gas: 4612388,
       data: encodedABI,
     };
@@ -39,8 +37,8 @@ export default class RegisterAsBusinessRequesterOld {
           // console.log('receipt: ' + receipt)
         })
         .on('confirmation', (confirmationNumber, receipt) => {
-          // console.log("confirmation number: " + confirmationNumber);
-          // console.log("the receipt is " + receipt);
+          // console.log('confirmation number: ' + confirmationNumber);
+          // console.log('the receipt is ' + receipt);
 
           if (confirmationNumber > 5) {
             resolve(receipt);
@@ -51,7 +49,7 @@ export default class RegisterAsBusinessRequesterOld {
           console.log(error);
         });
 
-      // this.call = backoff.call(web3.eth.sendSignedTransaction(signedTransaction.rawTransaction).on('confirmation', function(confNumber, receipt){ console.log("confirmation number: " + confirmationNumber); }), {}, (error, result) => {
+      // this.call = backoff.call(web3.eth.sendSignedTransaction(signedTransaction.rawTransaction).on('confirmation', function(confNumber, receipt){ console.log('confirmation number: ' + confirmationNumber); }), {}, (error, result) => {
       //
       //   if (error) {
       //     return reject(error);
@@ -69,7 +67,7 @@ export default class RegisterAsBusinessRequesterOld {
   async onConfirmation(confirmationNumber, receipt) {
 
     console.log();
-    console.log("confirmation number: " + confirmationNumber);
+    console.log('confirmation number: ' + confirmationNumber);
   }
 
   async cancel() {

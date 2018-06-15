@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styles from './LoadingPageComponentStyle';
-import { ActivityIndicator, Image, Text, ToastAndroid, View } from "react-native";
+import { ActivityIndicator, Image, Text, ToastAndroid, View } from 'react-native';
 
 const visibleDotsArray = ['. ', '. .', '. . .', '. .', '. '];
 const hiddenDotsArray = ['. .', ' .', '', ' .', '. .'];
 let setIntervalId;
 
-class LoadingPageComponent extends Component {
+export default class LoadingPageComponent extends Component {
 
   constructor(args) {
     super(args);
@@ -47,7 +47,7 @@ class LoadingPageComponent extends Component {
       <View style={styles.container}>
 
         <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={require("../../../assets/images/kudos.png")}/>
+          <Image style={styles.logo} source={require('../../../assets/images/kudos.png')}/>
         </View>
 
         <View style={styles.loadingTextContainer}>
@@ -61,5 +61,3 @@ class LoadingPageComponent extends Component {
     );
   }
 }
-
-export default LoadingPageComponent;

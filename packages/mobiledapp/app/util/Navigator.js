@@ -31,97 +31,113 @@ class NavigatorImpl {
     ];
   }
 
-  goToCreateAccountPage() {
-    this.goToPageWithoutNavbar('CreateAccountPage');
+  resetToUserAccountPage() {
+    this.resetToPage({screenName: 'UserAccountPage'});
   }
 
-  goToImportAccountPage() {
-    this.goToPageWithoutNavbar('ImportAccountPage');
+  resetToWorkerAccountPage() {
+    this.resetToPage({screenName: 'WorkerAccountPage'});
   }
 
-  goToAccountTypeSelectionPage() {
-    this.goToPageWithoutNavbar('AccountTypeSelectionPage');
+  resetToBusinessAccountPage() {
+    this.resetToPage({screenName: 'BusinessAccountPage'});
   }
 
-  goToCreateUserAccountPage() {
-    this.goToPageWithoutNavbar('CreateUserAccountPage');
+  pushCreateAccountPage() {
+    this.pushPage({screenName: 'CreateAccountPage', navBarHidden: true});
   }
 
-  goToCreateWorkerAccountPage() {
-    this.goToPageWithoutNavbar('CreateWorkerAccountPage');
+  pushImportAccountPage() {
+    this.pushPage({screenName: 'ImportAccountPage', navBarHidden: true});
   }
 
-  goToCreateBusinessAccountPage() {
-    this.goToPageWithoutNavbar('CreateBusinessAccountPage');
+  pushAccountTypeSelectionPage() {
+    this.pushPage({screenName: 'AccountTypeSelectionPage', navBarHidden: true});
   }
 
-  goToLoadingPage(props) {
-    this.goToPageWithoutNavbar('LoadingPage', props);
+  pushCreateUserAccountPage() {
+    this.pushPage({screenName: 'CreateUserAccountPage', navBarHidden: true});
   }
 
-   goToBusinessEmployeesPage(props) {
-    this.goToPage('BusinessEmployeesPage', 'employees', props);
+  pushCreateWorkerAccountPage() {
+    this.pushPage({screenName: 'CreateWorkerAccountPage', navBarHidden: true});
+  }
+
+  pushCreateBusinessAccountPage() {
+    this.pushPage({screenName: 'CreateBusinessAccountPage', navBarHidden: true});
+  }
+
+  pushLoadingPage(props) {
+    this.pushPage({screenName: 'LoadingPage', navBarHidden: true, props: props});
+  }
+
+  pushBusinessEmployeesPage(props) {
+    this.pushPage({screenName: 'BusinessEmployeesPage', title: 'employees', props: props});
   }
 
   resetToBusinessEmployeesPage(props) {
-    this.resetToPage('BusinessEmployeesPage', 'employees', props);
+    this.resetToPage({screenName: 'BusinessEmployeesPage', title: 'employees', props: props});
   }
 
-  goToAddEmployeePage() {
-    this.goToPage('AddEmployeePage');
+  pushAddEmployeePage() {
+    this.pushPage({screenName: 'AddEmployeePage'});
   }
 
-  goToWelcomePage() {
-    this.goToPageWithoutNavbar('WelcomePage');
+  resetToWelcomePage() {
+    this.resetToPage({screenName: 'WelcomePage', navBarHidden: true});
   }
 
-  goToTransactionsPage() {
-    this.goToPageWithBackButton('TransactionsPage');
+  pushTransactionsPage() {
+    this.pushPage({screenName: 'TransactionsPage', backButton: true});
+  }
+
+  resetToAccountTypeSelectionPage() {
+    this.resetToPage({screenName: 'AccountTypeSelectionPage', navBarHidden: true});
   }
 
   goBack() {
     this.navigator.pop();
   }
 
-  goToPageWithoutNavbar(screenName, props) {
-    this.navigator.push({
-      screen: screenName,
-      navigatorStyle: {
-        navBarHidden: true
-      },
-      passProps: props
-    });
+
+
+  pushPage(arg) {
+
+    const paramsObject = this.getParamsObject(arg);
+    this.navigator.push(paramsObject);
   }
 
-  goToPage(screenName, title, props) {
-    this.navigator.push({
-      title,
-      leftButtons: this.hamburgerButton(),
-      rightButtons: this.transactionsButton(screenName),
-      screen: screenName,
-      navigatorStyle,
-      passProps: props
-    });
+  resetToPage(arg) {
+    const paramsObject = this.getParamsObject(arg);
+    this.navigator.resetTo(paramsObject);
   }
 
-  goToPageWithBackButton(screenName, title, props) {
-    this.navigator.push({
-      title,
-      rightButtons: this.transactionsButton(screenName),
-      screen: screenName,
-      navigatorStyle,
-      passProps: props
-    });
-  }
+  getParamsObject({screenName, title, props, navBarHidden = false, backButton = false} = {}) {
 
-  resetToPage(screenName, title, props) {
-    this.navigator.resetTo({
-      title,
-      leftButtons: this.hamburgerButton(),
-      rightButtons: this.transactionsButton(screenName),
+    // console.log('screenName: ' + screenName);
+    // console.log('title: ' + title);
+    // console.log('props: ' + JSON.stringify(props));
+    // console.log('navBarHidden: ' + navBarHidden);
+    // console.log('backButton: ' + backButton);
+
+    const paramsObject = {
       screen: screenName,
-      navigatorStyle,
+      title: title,
       passProps: props
-    });
+    };
+
+    if (navBarHidden) {
+      paramsObject.navigatorStyle = {navBarHidden: true};
+    } else {
+
+      if (!backButton) {
+        paramsObject.leftButtons = this.hamburgerButton();
+      }
+
+      paramsObject.rightButtons = this.transactionsButton(screenName);
+      paramsObject.navigatorStyle = navigatorStyle;
+    }
+
+    return paramsObject;
   }
 }

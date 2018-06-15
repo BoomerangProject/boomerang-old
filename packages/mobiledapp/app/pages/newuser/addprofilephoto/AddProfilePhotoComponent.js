@@ -3,7 +3,7 @@ import { View, Image, TextInput, Text, TouchableOpacity, ToastAndroid, Clipboard
 import styles from './AddProfilePhotoComponentStyle';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-class AddProfilePhotoComponent extends Component {
+export default class AddProfilePhotoComponent extends Component {
 
   constructor(props) {
     super(props);
@@ -34,7 +34,7 @@ class AddProfilePhotoComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
 
         <Text style={styles.title}>Add Profile Photo</Text>
 
@@ -44,7 +44,7 @@ class AddProfilePhotoComponent extends Component {
           <View
             style={styles.addProfilePhotoButton}
             onPress={this.onClickOfAddProfileButton.bind(this)}>
-            <Icon name={'plus-circle'} size={70} color="#5DD0C2"/>
+            <Icon name={'plus-circle'} size={70} color='#5DD0C2'/>
           </View>
         </TouchableOpacity>
 
@@ -60,5 +60,3 @@ class AddProfilePhotoComponent extends Component {
     );
   }
 }
-
-export default AddProfilePhotoComponent;

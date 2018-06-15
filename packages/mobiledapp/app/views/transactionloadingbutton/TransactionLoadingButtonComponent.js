@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styles from './TransactionLoadingButtonComponentStyle';
-import { DeviceEventEmitter, View, TouchableHighlight, ActivityIndicator, Text, Image, ToastAndroid, Animated, Easing } from "react-native";
+import { DeviceEventEmitter, View, TouchableHighlight, ActivityIndicator, Text, Image, ToastAndroid, Animated, Easing } from 'react-native';
 import { getArrayItem } from '../../services/LocalStorageService';
 import Navigator from '../../util/Navigator';
 
-class TransactionLoadingButtonComponent extends Component {
+export default class TransactionLoadingButtonComponent extends Component {
 
   constructor(args) {
     super(args);
@@ -36,7 +36,7 @@ class TransactionLoadingButtonComponent extends Component {
       return;
     }
 
-    if (pendingTransactions.length === 0) {
+    if (pendingTransactions == undefined || pendingTransactions.length === 0) {
       this.setState({showButton: false});
     } else {
       this.setState({showButton: true});
@@ -68,7 +68,7 @@ class TransactionLoadingButtonComponent extends Component {
   }
 
   onClick() {
-    Navigator.init(this).goToTransactionsPage();
+    Navigator.init(this).pushTransactionsPage();
   }
 
   render() {
@@ -96,5 +96,3 @@ class TransactionLoadingButtonComponent extends Component {
     );
   }
 }
-
-export default TransactionLoadingButtonComponent;

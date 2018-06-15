@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styles from './ReviewListItemComponentStyle';
-import { View, TouchableHighlight, Text, ToastAndroid } from "react-native";
+import { View, TouchableHighlight, Text, ToastAndroid } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-class ReviewListItemComponent extends Component {
+export default class ReviewListItemComponent extends Component {
 
   constructor(props) {
     super(props);
@@ -49,7 +49,7 @@ class ReviewListItemComponent extends Component {
 
       <View style={styles.middleContainer}>
         <Text style={styles.rating}>{this.item.rating}</Text>
-        <Icon name="long-arrow-up" size={18} color="#002A1C"/>
+        <Icon name='long-arrow-up' size={18} color='#002A1C'/>
       </View>
 
       <View style={styles.rightContainer}>
@@ -68,7 +68,7 @@ class ReviewListItemComponent extends Component {
 
       <View style={styles.middleContainer}>
         <Text style={styles.rating}>{this.item.rating}</Text>
-        <Icon name="long-arrow-down" size={18} color="#002A1C"/>
+        <Icon name='long-arrow-down' size={18} color='#002A1C'/>
       </View>
 
       <View style={styles.rightContainer}>
@@ -80,5 +80,3 @@ class ReviewListItemComponent extends Component {
     </View>);
   }
 }
-
-export default ReviewListItemComponent;

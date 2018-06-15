@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Button, Image, Text, ToastAndroid, TouchableHighlight, View } from "react-native";
+import { Button, Image, Text, ToastAndroid, TouchableHighlight, View } from 'react-native';
 import styles from './BusinessEmployeesComponentStyle';
 import Navigator from '../../../../util/Navigator';
-import NumberOfWorkersRequester from "../../../../api/read/NumberOfWorkersRequester";
-import { default as localStorage } from 'react-native-sensitive-info';
-import BusinessHasApprovedWorkerRequester from "../../../../api/read/BusinessHasApprovedWorkerRequester";
-import EmployeeListComponent from "../../../../views/employeelist/EmployeeList/EmployeeListComponent";
+import NumberOfWorkersRequester from '../../../../api/read/NumberOfWorkersRequester';
+import { getItem } from '../../../../services/LocalStorageService';
+import BusinessHasApprovedWorkerRequester from '../../../../api/read/BusinessHasApprovedWorkerRequester';
+import EmployeeListComponent from '../../../../views/employeelist/EmployeeList/EmployeeListComponent';
 
-class BusinessEmployeesComponent extends Component {
+export default class BusinessEmployeesComponent extends Component {
 
   constructor(props) {
     super(props);
@@ -15,9 +15,7 @@ class BusinessEmployeesComponent extends Component {
 
   async componentDidMount() {
 
-    const businessAddress = await localStorage.getItem('kudosAccountAddress', {
-      keychainService: 'kudosKeychain'
-    });
+    const businessAddress = await getItem('kudosAccountAddress');
 
     this.numberOfWorkersRequester = new NumberOfWorkersRequester(businessAddress);
 
@@ -48,5 +46,3 @@ class BusinessEmployeesComponent extends Component {
     );
   }
 }
-
-export default BusinessEmployeesComponent;

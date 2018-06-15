@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Image, Text, ScrollView, ToastAndroid } from "react-native";
+import { View, Image, Text, ScrollView, ToastAndroid } from 'react-native';
 import styles from './ReviewComponentStyle';
-import IpfsFileRequester from "../../api/IpfsFileRequester";
+import IpfsFileRequester from '../../api/IpfsFileRequester';
 import prettyPrint from '../../util/PrettyPrinter';
 
-class ReviewComponent extends Component {
+export default class ReviewComponent extends Component {
 
   constructor(args) {
     super(args);
@@ -41,5 +41,3 @@ class ReviewComponent extends Component {
     );
   }
 }
-
-export default ReviewComponent;

@@ -1,92 +1,30 @@
 {
-  "data": {
-    "message": "success",
-    "signedTransaction": {
-      "messageHash": "0x40d8a1218cdf229051359041b35590c67952a8c6f71c620fe5d8301446dcaf07",
-      "v": "0x2b",
-      "r": "0x61bec1a3ea46f86037dcbd8cf733512f26f38f5d78dc8cc1c32175b253beffdb",
-      "s": "0x42cd0c33095a61242b0be15e3fd06ef1a229b9f4a8f69cbead64cd09b98e4dd9",
-      "rawTransaction": "0xf8ab819e8512a05f200083466124945aea1d2c27f2faf0ef4f2e168923842e4336e46180b844fe71510300000000000000000000000064c8075af1e3247da78090f6ab9f10cb276ce00dfcc03d1cec7643096c2ae62018c6e90a3192e3b3f22815a2470a53891cdc628a2ba061bec1a3ea46f86037dcbd8cf733512f26f38f5d78dc8cc1c32175b253beffdba042cd0c33095a61242b0be15e3fd06ef1a229b9f4a8f69cbead64cd09b98e4dd9"
-    },
-    "nonceValue": 158
-  },
-  "status": 200,
-  "headers": {
-    "via": "1.1 707d06343c7b07a529839efb71fdb71b.cloudfront.net (CloudFront)",
-    "x-amz-apigw-id": "IHeMmEV8IAMF3Fg=",
-    "x-amz-cf-id": "XPtbX6ElEkjk1wgykUaHbzUY8Nh9RGJ-WV1_sy8irPE_PZNVrnnB_A==",
-    "date": "Thu, 07 Jun 2018 14:40:42 GMT",
-    "x-amzn-trace-id": "Root=1-5b1943ea-59d4a4ebea1ac40bf9a3a12c",
-    "x-amzn-requestid": "c103173a-6a60-11e8-a5dd-853c48ebbc26",
-    "content-length": "668",
-    "x-cache": "Miss from cloudfront",
-    "content-type": "application/json"
-  },
-  "config": {
-    "transformRequest": {},
-    "transformResponse": {},
-    "timeout": 0,
-    "xsrfCookieName": "XSRF-TOKEN",
-    "xsrfHeaderName": "X-XSRF-TOKEN",
-    "maxContentLength": -1,
-    "headers": {
-      "Accept": "application/json, text/plain, */*",
-      "Content-Type": "application/json;charset=utf-8"
-    },
-    "method": "post",
-    "baseURL": "https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev",
-    "url": "https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev/registerAsBusiness",
-    "data": "{\"businessAddress\":\"0x64c8075AF1E3247da78090F6AB9F10Cb276Ce00d\",\"businessName\":\"sdsddsdsdsd\",\"businessDescription\":\"sds\"}"
-  },
-  "request": {
-    "UNSENT": 0,
-    "OPENED": 1,
-    "HEADERS_RECEIVED": 2,
-    "LOADING": 3,
-    "DONE": 4,
-    "readyState": 4,
-    "status": 200,
-    "timeout": 0,
-    "withCredentials": true,
-    "upload": {},
-    "_aborted": false,
-    "_hasError": false,
-    "_method": "POST",
-    "_response": "{\"message\":\"success\",\"signedTransaction\":{\"messageHash\":\"0x40d8a1218cdf229051359041b35590c67952a8c6f71c620fe5d8301446dcaf07\",\"v\":\"0x2b\",\"r\":\"0x61bec1a3ea46f86037dcbd8cf733512f26f38f5d78dc8cc1c32175b253beffdb\",\"s\":\"0x42cd0c33095a61242b0be15e3fd06ef1a229b9f4a8f69cbead64cd09b98e4dd9\",\"rawTransaction\":\"0xf8ab819e8512a05f200083466124945aea1d2c27f2faf0ef4f2e168923842e4336e46180b844fe71510300000000000000000000000064c8075af1e3247da78090f6ab9f10cb276ce00dfcc03d1cec7643096c2ae62018c6e90a3192e3b3f22815a2470a53891cdc628a2ba061bec1a3ea46f86037dcbd8cf733512f26f38f5d78dc8cc1c32175b253beffdba042cd0c33095a61242b0be15e3fd06ef1a229b9f4a8f69cbead64cd09b98e4dd9\"},\"nonceValue\":158}",
-    "_url": "https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev/registerAsBusiness",
-    "_timedOut": false,
-    "_trackingName": "unknown",
-    "_incrementalEvents": false,
-    "responseHeaders": {
-      "via": "1.1 707d06343c7b07a529839efb71fdb71b.cloudfront.net (CloudFront)",
-      "x-amz-apigw-id": "IHeMmEV8IAMF3Fg=",
-      "x-amz-cf-id": "XPtbX6ElEkjk1wgykUaHbzUY8Nh9RGJ-WV1_sy8irPE_PZNVrnnB_A==",
-      "date": "Thu, 07 Jun 2018 14:40:42 GMT",
-      "x-amzn-trace-id": "Root=1-5b1943ea-59d4a4ebea1ac40bf9a3a12c",
-      "x-amzn-requestid": "c103173a-6a60-11e8-a5dd-853c48ebbc26",
-      "content-length": "668",
-      "x-cache": "Miss from cloudfront",
-      "content-type": "application/json"
-    },
-    "_requestId": null,
-    "_headers": {
-      "accept": "application/json, text/plain, */*",
-      "content-type": "application/json;charset=utf-8"
-    },
-    "_responseType": "",
-    "_sent": true,
-    "_lowerCaseResponseHeaders": {
-      "via": "1.1 707d06343c7b07a529839efb71fdb71b.cloudfront.net (CloudFront)",
-      "x-amz-apigw-id": "IHeMmEV8IAMF3Fg=",
-      "x-amz-cf-id": "XPtbX6ElEkjk1wgykUaHbzUY8Nh9RGJ-WV1_sy8irPE_PZNVrnnB_A==",
-      "date": "Thu, 07 Jun 2018 14:40:42 GMT",
-      "x-amzn-trace-id": "Root=1-5b1943ea-59d4a4ebea1ac40bf9a3a12c",
-      "x-amzn-requestid": "c103173a-6a60-11e8-a5dd-853c48ebbc26",
-      "content-length": "668",
-      "x-cache": "Miss from cloudfront",
-      "content-type": "application/json"
-    },
-    "_subscriptions": [],
-    "responseURL": "https://eok6kkf6l6.execute-api.us-east-1.amazonaws.com/dev/registerAsBusiness"
+  "leftButtons": [
+    {
+      "id": "sideMenu"
+    }
+  ],
+  "rightButtons": [
+    {
+      "id": "transactions",
+      "component": "TransactionLoadingButtonComponent",
+      "passProps": {
+        "navigator": {
+          "navigatorID": "navigatorID1_nav",
+          "screenInstanceID": "screenInstanceID2",
+          "navigatorEventID": "screenInstanceID2_events",
+          "navigatorEventHandler": null,
+          "navigatorEventHandlers": [],
+          "navigatorEventSubscription": null
+        }
+      }
+    }
+  ],
+  "navigatorStyle": {
+    "navBarTextColor": "#002A1C",
+    "navBarTextFontSize": 16,
+    "navBarTextFontFamily": "WorkSans-Regular",
+    "navBarButtonColor": "#002A1C",
+    "navBarHidden": false
   }
 }

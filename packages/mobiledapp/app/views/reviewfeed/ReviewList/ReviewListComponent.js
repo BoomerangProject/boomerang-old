@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styles from './ReviewListComponentStyle';
 import ReviewListItem from '../ReviewListItem/ReviewListItemComponent';
-import { View, FlatList, ListItem, TouchableHighlight, Text, ToastAndroid } from "react-native";
+import { View, FlatList, ListItem, TouchableHighlight, Text, ToastAndroid } from 'react-native';
 import reviewFeedData from '../../../mockdata/MockReviewFeed';
 
-class ReviewListComponent extends Component {
+export default class ReviewListComponent extends Component {
 
   render() {
 
@@ -22,5 +22,3 @@ class ReviewListComponent extends Component {
     );
   }
 }
-
-export default ReviewListComponent;

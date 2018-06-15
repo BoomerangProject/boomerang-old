@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import styles from './EmployeeListComponentStyle';
 import EmployeeListItemComponent from '../EmployeeListItem/EmployeeListItemComponent';
-import { View, FlatList, ListItem, TouchableHighlight, Text, ToastAndroid } from "react-native";
-import Navigator from "../../../util/Navigator";
+import { View, FlatList, ListItem, TouchableHighlight, Text, ToastAndroid } from 'react-native';
+import Navigator from '../../../util/Navigator';
 
-class EmployeeListComponent extends Component {
+export default class EmployeeListComponent extends Component {
 
   onClickOfAddEmployeeButton() {
-    Navigator.init(this).goToAddEmployeePage();
+    Navigator.init(this).pushAddEmployeePage();
   }
 
   render() {
@@ -46,5 +46,3 @@ class EmployeeListComponent extends Component {
     );
   }
 }
-
-export default EmployeeListComponent;

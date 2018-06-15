@@ -3,13 +3,13 @@ import { Clipboard, Image, Text, ToastAndroid, TouchableOpacity, View } from 're
 import crypto from 'crypto'
 import styles from './CreateAccountComponentStyle';
 import { storeSeed } from '../../../services/LocalStorageService';
-import Navigator from "../../../util/Navigator";
+import Navigator from '../../../util/Navigator';
 
-class CreateAccountComponent extends Component {
+export default class CreateAccountComponent extends Component {
 
   constructor(props) {
     super(props);
-    this.kudosAccountSeed = crypto.randomBytes(32).toString("hex");
+    this.kudosAccountSeed = crypto.randomBytes(32).toString('hex');
   }
 
   async onClickOfSeedButton() {
@@ -18,7 +18,7 @@ class CreateAccountComponent extends Component {
 
   onClickOfConfirmButton() {
     storeSeed(this.kudosAccountSeed);
-    Navigator.init(this).goToAccountTypeSelectionPage();
+    Navigator.init(this).pushAccountTypeSelectionPage();
   }
 
   render() {
@@ -26,7 +26,7 @@ class CreateAccountComponent extends Component {
     return (
       <View style={styles.container}>
 
-        <Image style={styles.logo} source={require("../../../../assets/images/kudos.png")}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
 
         <Text style={styles.title}>Your Kudos Account Seed</Text>
 
@@ -56,5 +56,3 @@ class CreateAccountComponent extends Component {
     );
   }
 }
-
-export default CreateAccountComponent;

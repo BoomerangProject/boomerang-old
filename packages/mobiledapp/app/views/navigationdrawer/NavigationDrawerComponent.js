@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import styles from './NavigationDrawerComponentStyle';
-import { Image, Text, View, TouchableHighlight, ToastAndroid } from "react-native";
-import Navigator from "../../util/Navigator";
-import { getItem, clearSeed } from "../../services/LocalStorageService";
+import { Image, Text, View, TouchableHighlight, ToastAndroid } from 'react-native';
+import Navigator from '../../util/Navigator';
+import { getItem, clearSeed } from '../../services/LocalStorageService';
 
-class NavigationDrawerComponent extends Component {
+export default class NavigationDrawerComponent extends Component {
 
   onClickOfEmployeesButton() {
-    Navigator.init(this).goToBusinessEmployeesPage();
+    Navigator.init(this).pushBusinessEmployeesPage();
     this.closeDrawer();
   }
 
@@ -24,14 +24,14 @@ class NavigationDrawerComponent extends Component {
   }
 
   onClickOfTransactionsButton() {
-    Navigator.init(this).goToTransactionsPage();
+    Navigator.init(this).pushTransactionsPage();
     this.closeDrawer();
   }
 
   async onClickOfSignOutButton() {
 
     await clearSeed();
-    Navigator.init(this).goToWelcomePage();
+    Navigator.init(this).resetToWelcomePage();
     this.closeDrawer();
   }
 
@@ -45,7 +45,7 @@ class NavigationDrawerComponent extends Component {
 
       <View style={styles.container}>
 
-        <Image style={styles.logo} source={require("../../../assets/images/kudos.png")}/>
+        <Image style={styles.logo} source={require('../../../assets/images/kudos.png')}/>
 
         <TouchableHighlight
           underlayColor='#FAFAFA'
@@ -94,5 +94,3 @@ class NavigationDrawerComponent extends Component {
     );
   }
 }
-
-export default NavigationDrawerComponent;
