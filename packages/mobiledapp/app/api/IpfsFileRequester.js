@@ -14,6 +14,11 @@ export default class IpfsFileRequester {
   async makeRequest() {
 
     const ipfsHash = await this.getIpfsHash();
+
+    if (ipfsHash == undefined) {
+      return;
+    }
+
     const file = await this.getFileFromIpfsNode(ipfsHash);
     return file;
   }
@@ -31,6 +36,10 @@ export default class IpfsFileRequester {
       }
 
       // console.log('these are the events: \n\n' + JSON.stringify(events));
+
+      if (events == undefined || events.length < 1) {
+        return;
+      }
 
       const event = events[0];
       const ipfsHash = this.getIpfsHashFromBytes(event);

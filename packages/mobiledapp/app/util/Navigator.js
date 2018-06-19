@@ -4,6 +4,7 @@ import IsUserRequester from '../api/read/IsUserRequester';
 import IsWorkerRequester from '../api/read/IsWorkerRequester';
 import IsBusinessRequester from '../api/read/IsBusinessRequester';
 import { getItem, setItem } from '../services/LocalStorageService';
+import { Navigation } from "react-native-navigation";
 
 
 export default class Navigator {
@@ -37,16 +38,16 @@ class NavigatorImpl {
     ];
   }
 
-  resetToUserAccountPage() {
-    this.resetToPage({screenName: 'UserAccountPage'});
+  startNewAppToUserHomePage() {
+    this.startNewApp({screenName: 'UserHomePage'}, 'user');
   }
 
-  resetToWorkerAccountPage() {
-    this.resetToPage({screenName: 'WorkerAccountPage'});
+  startNewAppToWorkerHomePage() {
+    this.startNewApp({screenName: 'WorkerHomePage'}, 'worker');
   }
 
-  resetToBusinessAccountPage() {
-    this.resetToPage({screenName: 'BusinessAccountPage'});
+  startNewAppToBusinessHomePage() {
+    this.startNewApp({screenName: 'BusinessHomePage'}, 'business');
   }
 
   pushCreateAccountPage() {
@@ -85,6 +86,30 @@ class NavigatorImpl {
     this.resetToPage({screenName: 'BusinessEmployeesPage', title: 'employees', props: props});
   }
 
+  pushWorkerEmployersPage(props) {
+    this.pushPage({screenName: 'WorkerEmployersPage', title: 'employers', props: props});
+  }
+
+  pushBusinessAnalyticsPage(props) {
+    this.pushPage({screenName: 'BusinessAnalyticsPage', title: 'business analytics', props: props});
+  }
+
+  pushDefinePerformanceRewardsPage(props) {
+    this.pushPage({screenName: 'DefinePerformanceRewardsPage', title: 'performance rewards', props: props});
+  }
+
+  pushDefineLoyaltyRewardsPage(props) {
+    this.pushPage({screenName: 'DefineLoyaltyRewardsPage', title: 'loyalty rewards', props: props});
+  }
+
+  pushWorkerPerformanceRewardsPage(props) {
+    this.pushPage({screenName: 'WorkerPerformanceRewardsPage', title: 'performance rewards', props: props});
+  }
+
+  pushUserLoyaltyRewardsPage(props) {
+    this.pushPage({screenName: 'UserLoyaltyRewardsPage', title: 'loyalty rewards', props: props});
+  }
+
   pushAddEmployeePage() {
     this.pushPage({screenName: 'AddEmployeePage'});
   }
@@ -95,10 +120,6 @@ class NavigatorImpl {
 
   pushTransactionsPage() {
     this.pushPage({screenName: 'TransactionsPage', backButton: true});
-  }
-
-  pushAccountTypeSelectionPage() {
-    this.pushPage({screenName: 'AccountTypeSelectionPage', navBarHidden: true});
   }
 
   goBack() {
@@ -123,27 +144,12 @@ class NavigatorImpl {
     }
 
     if (isUser) {
-
-      await setItem('userRole', 'user');
-      const userRoleValue = await getItem('userRole');
-      console.log('userRoleValue: ' + userRoleValue.toString());
-      this.resetToUserAccountPage();
-
+      this.startNewAppToUserHomePage();
     } else if (isWorker) {
-
-      await setItem('userRole', 'worker');
-      const userRoleValue = await getItem('userRole');
-      console.log('userRoleValue: ' + userRoleValue.toString());
-      this.resetToWorkerAccountPage();
-
+      this.startNewAppToWorkerHomePage();
     } else if (isBusiness) {
-
-      await setItem('userRole', 'business');
-      const userRoleValue = await getItem('userRole');
-      console.log('userRoleValue: ' + userRoleValue.toString());
-      this.resetToBusinessAccountPage();
+      this.startNewAppToBusinessHomePage();
       // Navigator.init(this).resetToBusinessEmployeesPage();
-
     } else {
       ToastAndroid.show('account not found!', ToastAndroid.SHORT);
     }
@@ -151,7 +157,6 @@ class NavigatorImpl {
 
 
   pushPage(arg) {
-
     const paramsObject = this.getParamsObject(arg);
     this.navigator.push(paramsObject);
   }
@@ -159,6 +164,21 @@ class NavigatorImpl {
   resetToPage(arg) {
     const paramsObject = this.getParamsObject(arg);
     this.navigator.resetTo(paramsObject);
+  }
+
+  startNewApp(arg, userRole) {
+
+    const paramsObject = this.getParamsObject(arg);
+
+    Navigation.startSingleScreenApp({
+      screen: paramsObject,
+      drawer: {
+        left: {
+          screen: 'NavigationDrawerComponent',
+          passProps: {userRole: userRole}
+        }
+      }
+    });
   }
 
   getParamsObject({screenName, title, props, navBarHidden = false, backButton = false} = {}) {

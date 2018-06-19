@@ -49,7 +49,7 @@ export default class CreateUserAccountComponent extends Component {
       userName: this.state.userName
     };
 
-    Navigator.init(this).resetToUserAccountPage(props);
+    Navigator.init(this).startNewAppToUserHomePage(props);
   }
 
   onFailure(error) {

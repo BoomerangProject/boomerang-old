@@ -55,5 +55,4 @@ export async function clearSeed() {
   await deleteItem('kudosAccountSeed');
   await deleteItem('kudosAccountAddress');
   await setItem('isLoggedIn', 'false');
-  await deleteItem('userRole');
 }

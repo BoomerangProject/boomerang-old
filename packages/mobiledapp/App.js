@@ -6,7 +6,8 @@ import { registerScreens } from "./app/registerScreens";
 export function start() {
   registerScreens();
 
-  const startingScreen = 'SplashScreenPage';
+  // const startingScreen = 'SplashScreenPage';
+  const startingScreen = 'DefinePerformanceRewardsPage';
   // const startingScreen = 'WelcomePage';
   // const startingScreen = 'BusinessAccountPage';
   // const startingScreen = 'BusinessEmployeesPage';

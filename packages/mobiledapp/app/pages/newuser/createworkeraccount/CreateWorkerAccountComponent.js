@@ -50,7 +50,7 @@ export default class CreateWorkerAccountComponent extends Component {
       workerName: this.state.workerName
     };
 
-    Navigator.init(this).resetToWorkerAccountPage(props);
+    Navigator.init(this).startNewAppToWorkerHomePage(props);
   }
 
   onFailure(error) {

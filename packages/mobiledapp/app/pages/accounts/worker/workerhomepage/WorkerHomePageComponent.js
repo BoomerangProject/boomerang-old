@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import styles from './WorkerAccountComponentStyle';
-import { getItem, setItem } from "../../../services/LocalStorageService";
-import IpfsFileRequester from '../../../api/IpfsFileRequester';
+import styles from './WorkerHomePageComponentStyle';
+import { getItem, setItem } from "../../../../services/LocalStorageService";
+import IpfsFileRequester from '../../../../api/IpfsFileRequester';
 
 export default class WorkerAccountComponent extends Component {
 

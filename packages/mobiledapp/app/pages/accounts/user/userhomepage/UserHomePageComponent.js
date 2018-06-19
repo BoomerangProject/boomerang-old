@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import styles from './UserAccountComponentStyle';
-import { getItem, setItem } from "../../../services/LocalStorageService";
-import IpfsFileRequester from '../../../api/IpfsFileRequester';
+import styles from './UserHomePageComponentStyle';
+import { getItem, setItem } from "../../../../services/LocalStorageService";
+import IpfsFileRequester from '../../../../api/IpfsFileRequester';
 
 export default class UserAccountComponent extends Component {
 

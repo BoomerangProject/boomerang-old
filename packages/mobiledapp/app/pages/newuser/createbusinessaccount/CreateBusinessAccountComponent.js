@@ -51,7 +51,7 @@ export default class CreateBusinessAccountComponent extends Component {
       businessDescription: this.state.businessDescription
     };
 
-    Navigator.init(this).resetToBusinessAccountPage(props);
+    Navigator.init(this).startNewAppToBusinessHomePage(props);
   }
 
   onFailure(error) {

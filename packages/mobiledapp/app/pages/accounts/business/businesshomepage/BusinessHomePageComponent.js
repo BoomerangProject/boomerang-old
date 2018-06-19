@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import styles from './BusinessAccountComponentStyle';
+import styles from './BusinessHomePageComponentStyle';
 import { getItem, setItem } from "../../../../services/LocalStorageService";
 import IpfsFileRequester from '../../../../api/IpfsFileRequester';
 

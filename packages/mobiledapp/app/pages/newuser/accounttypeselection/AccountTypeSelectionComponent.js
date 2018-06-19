@@ -13,7 +13,7 @@ export default class AccountTypeSelectionComponent extends Component {
   async onClickOfUserAccount() {
 
     if (this.isLoggedIn) {
-      Navigator.init(this).resetToUserAccountPage();
+      Navigator.init(this).startNewAppToUserHomePage();
     } else {
       Navigator.init(this).pushCreateUserAccountPage();
     }
@@ -22,7 +22,7 @@ export default class AccountTypeSelectionComponent extends Component {
   async onClickOfWorkerAccount() {
 
     if (this.isLoggedIn) {
-      Navigator.init(this).resetToWorkerAccountPage();
+      Navigator.init(this).startNewAppToWorkerHomePage();
     } else {
       Navigator.init(this).pushCreateWorkerAccountPage();
     }
@@ -31,7 +31,7 @@ export default class AccountTypeSelectionComponent extends Component {
   async onClickOfBusinessAccount() {
 
     if (this.isLoggedIn) {
-      Navigator.init(this).resetToBusinessAccountPage();
+      Navigator.init(this).startNewAppToBusinessHomePage();
     } else {
       Navigator.init(this).pushCreateBusinessAccountPage();
     }

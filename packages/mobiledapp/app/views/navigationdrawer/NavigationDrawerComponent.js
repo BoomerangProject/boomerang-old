@@ -2,38 +2,43 @@ import React, { Component } from 'react';
 import styles from './NavigationDrawerComponentStyle';
 import { Image, Text, View, TouchableHighlight, ToastAndroid } from 'react-native';
 import Navigator from '../../util/Navigator';
-import { getItem, clearSeed } from '../../services/LocalStorageService';
+import { clearSeed } from '../../services/LocalStorageService';
 
 export default class NavigationDrawerComponent extends Component {
-
-  constructor(args) {
-    super(args);
-    this.state = {userRole: ''};
-  }
-
-  async componentDidMount() {
-    const userRole = await getItem('userRole');
-
-    console.log('USERORLE: ' + userRole);
-
-    this.setState({userRole});
-  }
 
   onClickOfEmployeesButton() {
     Navigator.init(this).pushBusinessEmployeesPage();
     this.closeDrawer();
   }
 
+  onClickOfEmployersButton() {
+    Navigator.init(this).pushWorkerEmployersPage();
+    this.closeDrawer();
+  }
+
   onClickOfAnalyticsButton() {
-    ToastAndroid.show('analytics', ToastAndroid.SHORT);
+    Navigator.init(this).pushBusinessAnalyticsPage();
+    this.closeDrawer();
+  }
+
+  onClickOfDefinePerformanceRewardsButton() {
+    Navigator.init(this).pushDefinePerformanceRewardsPage();
+    this.closeDrawer();
+  }
+
+  onClickOfDefineLoyaltyRewardsButton() {
+    Navigator.init(this).pushDefineLoyaltyRewardsPage();
+    this.closeDrawer();
   }
 
   onClickOfPerformanceRewardsButton() {
-    ToastAndroid.show('performance rewards', ToastAndroid.SHORT);
+    Navigator.init(this).pushWorkerPerformanceRewardsPage();
+    this.closeDrawer();
   }
 
   onClickOfLoyaltyRewardsButton() {
-    ToastAndroid.show('loyalty rewards', ToastAndroid.SHORT);
+    Navigator.init(this).pushUserLoyaltyRewardsPage();
+    this.closeDrawer();
   }
 
   onClickOfTransactionsButton() {
@@ -52,6 +57,84 @@ export default class NavigationDrawerComponent extends Component {
     this.props.navigator.toggleDrawer({side: 'left', to: 'closed'});
   }
 
+  employeesButton() {
+    return (
+      <TouchableHighlight
+        underlayColor='#FAFAFA'
+        style={styles.navigationButtonContainer}
+        onPress={this.onClickOfEmployeesButton.bind(this)}>
+        <Text style={styles.navigationButton}>employees</Text>
+      </TouchableHighlight>
+    );
+  }
+
+  analyticsButton() {
+    return (
+      <TouchableHighlight
+        underlayColor='#FAFAFA'
+        style={styles.navigationButtonContainer}
+        onPress={this.onClickOfAnalyticsButton.bind(this)}>
+        <Text style={styles.navigationButton}>analytics</Text>
+      </TouchableHighlight>
+    );
+  }
+
+  definePerformanceRewardsButton() {
+    return (
+      <TouchableHighlight
+        underlayColor='#FAFAFA'
+        style={styles.navigationButtonContainer}
+        onPress={this.onClickOfDefinePerformanceRewardsButton.bind(this)}>
+        <Text style={styles.navigationButton}>performance rewards</Text>
+      </TouchableHighlight>
+    );
+  }
+
+  defineLoyaltyRewardsButton() {
+    return (
+      <TouchableHighlight
+        underlayColor='#FAFAFA'
+        style={styles.navigationButtonContainer}
+        onPress={this.onClickOfDefineLoyaltyRewardsButton.bind(this)}>
+        <Text style={styles.navigationButton}>loyalty rewards</Text>
+      </TouchableHighlight>
+    );
+  }
+
+  employersButton() {
+    return (
+      <TouchableHighlight
+        underlayColor='#FAFAFA'
+        style={styles.navigationButtonContainer}
+        onPress={this.onClickOfEmployersButton.bind(this)}>
+        <Text style={styles.navigationButton}>employers</Text>
+      </TouchableHighlight>
+    );
+  }
+
+  performanceRewardsButton() {
+    return (
+      <TouchableHighlight
+        underlayColor='#FAFAFA'
+        style={styles.navigationButtonContainer}
+        onPress={this.onClickOfPerformanceRewardsButton.bind(this)}>
+        <Text style={styles.navigationButton}>performance rewards</Text>
+      </TouchableHighlight>
+    );
+  }
+
+  loyaltyRewardsButton() {
+    return (
+      <TouchableHighlight
+        underlayColor='#FAFAFA'
+        style={styles.navigationButtonContainer}
+        onPress={this.onClickOfLoyaltyRewardsButton.bind(this)}>
+        <Text style={styles.navigationButton}>loyalty rewards</Text>
+      </TouchableHighlight>
+    );
+  }
+
+
   render() {
 
     return (
@@ -64,53 +147,31 @@ export default class NavigationDrawerComponent extends Component {
 
         <View style={styles.divider}/>
 
-        {this.state.userRole === 'business' &&
+        {this.props.userRole === 'business' && this.employeesButton()}
+        {this.props.userRole === 'business' && this.analyticsButton()}
+        {this.props.userRole === 'business' && this.definePerformanceRewardsButton()}
+        {this.props.userRole === 'business' && this.defineLoyaltyRewardsButton()}
 
-          <TouchableHighlight
-            underlayColor='#FAFAFA'
-            style={styles.employeesButtonContainer}
-            onPress={this.onClickOfEmployeesButton.bind(this)}>
-            <Text style={styles.employeesButton}>employees</Text>
-          </TouchableHighlight>
-        }
+        {this.props.userRole === 'worker' && this.employersButton()}
+        {this.props.userRole === 'worker' && this.performanceRewardsButton()}
 
-
-        <TouchableHighlight
-          underlayColor='#FAFAFA'
-          style={styles.analyticsButtonContainer}
-          onPress={this.onClickOfAnalyticsButton.bind(this)}>
-          <Text style={styles.analyticsButton}>analytics</Text>
-        </TouchableHighlight>
+        {this.props.userRole === 'user' && this.loyaltyRewardsButton()}
 
         <TouchableHighlight
           underlayColor='#FAFAFA'
-          style={styles.performanceRewardsButtonContainer}
-          onPress={this.onClickOfPerformanceRewardsButton.bind(this)}>
-          <Text style={styles.performanceRewardsButton}>performance rewards</Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight
-          underlayColor='#FAFAFA'
-          style={styles.loyaltyRewardsButtonContainer}
-          onPress={this.onClickOfLoyaltyRewardsButton.bind(this)}>
-          <Text style={styles.loyaltyRewardsButton}>loyalty rewards</Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight
-          underlayColor='#FAFAFA'
-          style={styles.transactionsButtonContainer}
+          style={styles.navigationButtonContainer}
           onPress={this.onClickOfTransactionsButton.bind(this)}>
-          <Text style={styles.transactionsButton}>transactions</Text>
+          <Text style={styles.navigationButton}>transactions</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
           underlayColor='#FAFAFA'
-          style={styles.signOutButtonContainer}
+          style={styles.navigationButtonContainer}
           onPress={this.onClickOfSignOutButton.bind(this)}>
-          <Text style={styles.signOutButton}>sign out</Text>
+          <Text style={styles.navigationButton}>sign out</Text>
         </TouchableHighlight>
 
-        <View style={{flex: 1}}/>
+        <View style={{flex: 2}}/>
       </View>
     );
   }
