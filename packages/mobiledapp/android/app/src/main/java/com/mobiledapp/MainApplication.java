@@ -16,6 +16,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.horcrux.svg.SvgPackage;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -32,7 +33,8 @@ public class MainApplication extends NavigationApplication implements ReactAppli
      return Arrays.<ReactPackage>asList(
             new RNSensitiveInfoPackage(),
             new RandomBytesPackage(),
-            new VectorIconsPackage()
+            new VectorIconsPackage(),
+            new SvgPackage()
      );
   }
 
