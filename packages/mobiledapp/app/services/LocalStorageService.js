@@ -50,7 +50,7 @@ export async function isLoggedIn() {
   return (value === 'true');
 }
 
-export async function clearSeed() {
+export async function logOut() {
 
   await deleteItem('kudosAccountSeed');
   await deleteItem('kudosAccountAddress');

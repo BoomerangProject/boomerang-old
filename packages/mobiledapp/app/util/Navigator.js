@@ -3,7 +3,7 @@ import { ToastAndroid } from 'react-native';
 import IsUserRequester from '../api/read/IsUserRequester';
 import IsWorkerRequester from '../api/read/IsWorkerRequester';
 import IsBusinessRequester from '../api/read/IsBusinessRequester';
-import { getItem, setItem } from '../services/LocalStorageService';
+import { getItem, logOut, setItem } from '../services/LocalStorageService';
 import { Navigation } from "react-native-navigation";
 
 
@@ -94,20 +94,20 @@ class NavigatorImpl {
     this.pushPage({screenName: 'BusinessAnalyticsPage', title: 'business analytics', props: props});
   }
 
-  pushDefinePerformanceRewardsPage(props) {
-    this.pushPage({screenName: 'DefinePerformanceRewardsPage', title: 'performance rewards', props: props});
+  pushDefineWorkerRewardsPage(props) {
+    this.pushPage({screenName: 'DefineWorkerRewardsPage', title: 'employee rewards', props: props});
   }
 
-  pushDefineLoyaltyRewardsPage(props) {
-    this.pushPage({screenName: 'DefineLoyaltyRewardsPage', title: 'loyalty rewards', props: props});
+  pushDefineUserRewardsPage(props) {
+    this.pushPage({screenName: 'DefineUserRewardsPage', title: 'customer rewards', props: props});
   }
 
-  pushWorkerPerformanceRewardsPage(props) {
-    this.pushPage({screenName: 'WorkerPerformanceRewardsPage', title: 'performance rewards', props: props});
+  pushWorkerRewardsPage(props) {
+    this.pushPage({screenName: 'WorkerRewardsPage', title: 'employee rewards', props: props});
   }
 
-  pushUserLoyaltyRewardsPage(props) {
-    this.pushPage({screenName: 'UserLoyaltyRewardsPage', title: 'loyalty rewards', props: props});
+  pushUserRewardsPage(props) {
+    this.pushPage({screenName: 'UserRewardsPage', title: 'customer rewards', props: props});
   }
 
   pushAddEmployeePage() {
@@ -152,6 +152,8 @@ class NavigatorImpl {
       // Navigator.init(this).resetToBusinessEmployeesPage();
     } else {
       ToastAndroid.show('account not found!', ToastAndroid.SHORT);
+      await logOut();
+      this.resetToWelcomePage();
     }
   }
 

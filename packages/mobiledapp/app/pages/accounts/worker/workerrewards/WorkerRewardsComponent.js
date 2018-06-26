@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Text, ToastAndroid, View } from 'react-native';
-import styles from './WorkerPerformanceRewardsComponentStyle';
+import styles from './WorkerRewardsComponentStyle';
 
-export default class WorkerPerformanceRewardsComponent extends Component {
+export default class WorkerRewardsComponent extends Component {
 
   constructor(props) {
     super(props);

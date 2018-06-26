@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Text, ToastAndroid, View } from 'react-native';
-import styles from './DefineLoyaltyRewardsComponentStyle';
+import styles from './UserRewardsComponentStyle';
 
-export default class DefineLoyaltyRewardsComponent extends Component {
+export default class UserRewardsComponent extends Component {
 
   constructor(props) {
     super(props);
@@ -16,7 +16,7 @@ export default class DefineLoyaltyRewardsComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Text>define loyalty rewards</Text>
+        <Text>loyalty rewards</Text>
 
         <View style={{flex: 1}}/>
       </View>

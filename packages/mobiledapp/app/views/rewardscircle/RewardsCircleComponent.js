@@ -3,57 +3,37 @@ import styles from './RewardsCircleComponentStyle';
 import { View, TouchableHighlight, Text, ToastAndroid } from 'react-native';
 import Svg, { Circle, G, Path } from 'react-native-svg';
 
+const uuidv4 = require('uuid/v4');
+
 export default class RewardsCircleComponent extends Component {
+
+  constructor(args) {
+    super(args);
+
+    this.state = {
+      numberOfRewardCycles: this.props.numberOfRewardCycles,
+      numberOfRewardLevels: this.props.numberOfRewardLevels,
+      numberOfRewardSteps: this.props.numberOfRewardSteps,
+      workerRewardStep: this.props.workerRewardStep,
+      workerRewardCycle: this.props.workerRewardCycle,
+      workerRewardLevel: this.props.workerRewardLevel,
+      progress: this.props.progress
+    };
+  }
 
   getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  constructor(args) {
-    super(args);
-
-    let numberOfRewardCyclesArray = [];
-
-    for (let i = 0; i < this.props.numberOfRewardLevels; i++) {
-      numberOfRewardCyclesArray.push(this.props.numberOfRewardCycles);
-    }
-
-    let numberOfRewardStepsArray = [];
-
-    for (let i = 0; i < this.props.numberOfRewardLevels; i++) {
-      numberOfRewardStepsArray.push(this.props.numberOfRewardSteps);
-      // numberOfRewardStepsArray.push(this.getRandomInt(2,10));
-    }
-
-    this.state = {
-      numberOfRewardCycles: numberOfRewardCyclesArray,
-      numberOfRewardLevels: this.props.numberOfRewardLevels,
-      numberOfRewardSteps: numberOfRewardStepsArray,
-      progress: this.props.progress
-    };
-  }
-
-
-
   componentWillReceiveProps(nextProps) {
 
-    let numberOfRewardCyclesArray = [];
-
-    for (let i = 0; i < nextProps.numberOfRewardLevels; i++) {
-      numberOfRewardCyclesArray.push(nextProps.numberOfRewardCycles);
-    }
-
-    let numberOfRewardStepsArray = [];
-
-    for (let i = 0; i < nextProps.numberOfRewardLevels; i++) {
-      numberOfRewardStepsArray.push(nextProps.numberOfRewardSteps);
-      // numberOfRewardStepsArray.push(this.getRandomInt(2,10));
-    }
-
     this.setState({
-      numberOfRewardCycles: numberOfRewardCyclesArray,
+      numberOfRewardCycles: nextProps.numberOfRewardCycles,
       numberOfRewardLevels: nextProps.numberOfRewardLevels,
-      numberOfRewardSteps: numberOfRewardStepsArray,
+      numberOfRewardSteps: nextProps.numberOfRewardSteps,
+      workerRewardStep: nextProps.workerRewardStep,
+      workerRewardCycle: nextProps.workerRewardCycle,
+      workerRewardLevel: nextProps.workerRewardLevel,
       progress: nextProps.progress
     });
   }
@@ -68,7 +48,13 @@ export default class RewardsCircleComponent extends Component {
     return nextColor;
   }
 
-  describeArc(x, y, innerRadius, outerRadius, startAngle, endAngle, rotation){
+  getColor(index) {
+    // let colors = ['#002A1C', '#5DD0C2', '#2A7567'];
+    let colors = ['#8dd3c7', '#ffffb3', '#bebada', '#fb8072', '#80b1d3', '#fdb462', '#b3de69', '#fccde5', '#bc80bd', '#ccebc5', '#ffed6f'];
+    return colors[index];
+  }
+
+  describeArc(x, y, innerRadius, outerRadius, startAngle, endAngle, rotation) {
 
     startAngle = startAngle + rotation;
     endAngle = endAngle + rotation;
@@ -93,7 +79,7 @@ export default class RewardsCircleComponent extends Component {
 
   polarToCartesian(centerX, centerY, radius, angleInDegrees) {
 
-    const angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
+    const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
 
     return {
       x: centerX + (radius * Math.cos(angleInRadians)),
@@ -115,42 +101,107 @@ export default class RewardsCircleComponent extends Component {
 
     for (let i = 0; i < this.state.numberOfRewardLevels; i++) {
 
-      let color = this.getNextColor();
-      let width = (outerSize - innerSize) / 2 / this.state.numberOfRewardLevels / this.state.numberOfRewardCycles[i];
+      let color = this.getColor(i);
+      let width = (outerSize - innerSize) / 2 / this.state.numberOfRewardLevels / this.state.numberOfRewardCycles;
 
-      for (let j = 0; j < this.state.numberOfRewardCycles[i]; j++) {
+      for (let j = 0; j < this.state.numberOfRewardCycles; j++) {
 
-        const stepArcSize = 360/this.state.numberOfRewardSteps[i];
-        for (let k = 0, theta1 = 0, theta2 = stepArcSize; k < this.state.numberOfRewardSteps[i]; k++, theta1 += stepArcSize, theta2 += stepArcSize) {
+          let stepArcSize = 360 / this.state.numberOfRewardSteps;
 
-          circles.push(
-                <Path
-                  key={i.toString() + j.toString() + k.toString()}
-                  x={margin}
-                  y={margin}
-                  stroke='black'
-                  strokeWidth='0.1'
-                  strokeOpacity={0.5}
-                  d={this.describeArc(previousSize/2, previousSize/2, previousSize/2-width, previousSize/2, theta1, theta2, rotation)}
-                  fill={color}
-                  fillOpacity={0.1}
-                />
-          );
-        }
+          if (stepArcSize === 360) {
+            stepArcSize = 359.9;
+          }
 
-        rotation = rotation + stepArcSize/2;
+          for (let k = 0, theta1 = 0, theta2 = stepArcSize; k < this.state.numberOfRewardSteps; k++, theta1 += stepArcSize, theta2 += stepArcSize) {
+
+            circles.push(
+              <Path
+                key={uuidv4()}
+                x={margin}
+                y={margin}
+                stroke='black'
+                strokeWidth='0.1'
+                strokeOpacity={0.5}
+                d={this.describeArc(previousSize / 2, previousSize / 2, previousSize / 2 - width, previousSize / 2, theta1, theta2, rotation)}
+                fill={color}
+                fillOpacity={0.1}
+              />
+            );
+          }
+
+        // rotation = rotation + stepArcSize/2;
+        rotation = rotation + 15;
 
         previousSize = previousSize - 2 * width;
         margin = margin + width;
       }
     }
 
+    let filledCircles = [];
+
+    previousSize = outerSize;
+    margin = 0;
+    rotation = 0;
+
+    for (let i = 0; i < this.state.workerRewardLevel; i++) {
+
+      let color = this.getColor(i);
+      let width = (outerSize - innerSize) / 2 / this.state.numberOfRewardLevels / this.state.numberOfRewardCycles;
+
+      let numberOfCycles;
+
+      if (i === this.state.workerRewardLevel - 1) {
+        numberOfCycles = this.state.workerRewardCycle;
+      } else {
+        numberOfCycles = this.state.numberOfRewardCycles;
+      }
+
+      for (let j = 0; j < numberOfCycles; j++) {
+
+        let stepArcSize = 360 / this.state.numberOfRewardSteps;
+
+        if (stepArcSize === 360) {
+          stepArcSize = 359.9;
+        }
+
+        let numberOfSteps;
+        if (i === this.state.workerRewardLevel - 1 && j === this.state.workerRewardCycle - 1) {
+          numberOfSteps = this.state.workerRewardStep;
+        } else {
+          numberOfSteps = this.state.numberOfRewardSteps;
+        }
+
+        for (let k = 0, theta1 = 0, theta2 = stepArcSize; k < numberOfSteps; k++, theta1 += stepArcSize, theta2 += stepArcSize) {
+
+          filledCircles.push(
+            <Path
+              key={uuidv4()}
+              x={margin}
+              y={margin}
+              stroke='black'
+              strokeWidth='0.1'
+              strokeOpacity={0.5}
+              d={this.describeArc(previousSize / 2, previousSize / 2, previousSize / 2 - width, previousSize / 2, theta1, theta2, rotation)}
+              fill={color}
+            />
+          );
+        }
+
+        // rotation = rotation + stepArcSize/2;
+        rotation = rotation + 15;
+
+        previousSize = previousSize - 2 * width;
+        margin = margin + width;
+      }
+    }
+
+
     circles.push(
       <Circle
         key='inner'
-        cx={outerSize/2}
-        cy={outerSize/2}
-        r={innerSize/2}
+        cx={outerSize / 2}
+        cy={outerSize / 2}
+        r={innerSize / 2}
         fill='#ffed89'
       />
     );
@@ -162,6 +213,7 @@ export default class RewardsCircleComponent extends Component {
       <View style={styles.container}>
         <Svg width={outerDiameter} height={outerDiameter}>
           {circles}
+          {filledCircles}
         </Svg>
       </View>
     );

@@ -28,10 +28,11 @@ import TransactionsComponent from './pages/transactions/TransactionsComponent';
 import AddEmployeeComponent from './pages/accounts/business/addemployee/AddEmployeeComponent';
 import SplashScreenComponent from './pages/splashscreen/SplashScreenComponent';
 import BusinessAnalyticsComponent from "./pages/accounts/business/businessanalytics/BusinessAnalyticsComponent";
-import WorkerPerformanceRewardsComponent from "./pages/accounts/worker/workerperformancerewards/WorkerPerformanceRewardsComponent";
-import UserLoyaltyRewardsComponent from "./pages/accounts/user/userloyaltyrewards/UserLoyaltyRewardsComponent";
-import DefinePerformanceRewardsComponent from "./pages/accounts/business/defineperformancerewards/DefinePerformanceRewardsComponent";
-import DefineLoyaltyRewardsComponent from "./pages/accounts/business/defineloyaltyrewards/DefineLoyaltyRewardsComponent";
+import WorkerRewardsComponent from "./pages/accounts/worker/workerrewards/WorkerRewardsComponent";
+import UserRewardsComponent from "./pages/accounts/user/userrewards/UserRewardsComponent";
+import DefineWorkerRewardsComponent from "./pages/accounts/business/defineworkerrewards/DefineWorkerRewardsComponent";
+import DefineUserRewardsComponent from "./pages/accounts/business/defineuserrewards/DefineUserRewardsComponent";
+import DefineRewardsTestComponent from "./pages/test/definerewardstest/DefineRewardsTestComponent";
 
 export function registerScreens() {
 
@@ -68,8 +69,9 @@ export function registerScreens() {
   Navigation.registerComponent('SplashScreenPage', () => SplashScreenComponent);
 
   Navigation.registerComponent('BusinessAnalyticsPage', () => BusinessAnalyticsComponent);
-  Navigation.registerComponent('WorkerPerformanceRewardsPage', () => WorkerPerformanceRewardsComponent);
-  Navigation.registerComponent('UserLoyaltyRewardsPage', () => UserLoyaltyRewardsComponent);
-  Navigation.registerComponent('DefineLoyaltyRewardsPage', () => DefineLoyaltyRewardsComponent);
-  Navigation.registerComponent('DefinePerformanceRewardsPage', () => DefinePerformanceRewardsComponent);
+  Navigation.registerComponent('WorkerRewardsPage', () => WorkerRewardsComponent);
+  Navigation.registerComponent('UserRewardsPage', () => UserRewardsComponent);
+  Navigation.registerComponent('DefineUserRewardsPage', () => DefineUserRewardsComponent);
+  Navigation.registerComponent('DefineWorkerRewardsPage', () => DefineWorkerRewardsComponent);
+  Navigation.registerComponent('DefineRewardsTestPage', () => DefineRewardsTestComponent);
 }

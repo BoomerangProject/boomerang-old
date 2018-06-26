@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './NavigationDrawerComponentStyle';
 import { Image, Text, View, TouchableHighlight, ToastAndroid } from 'react-native';
 import Navigator from '../../util/Navigator';
-import { clearSeed } from '../../services/LocalStorageService';
+import { logOut } from '../../services/LocalStorageService';
 
 export default class NavigationDrawerComponent extends Component {
 
@@ -21,23 +21,23 @@ export default class NavigationDrawerComponent extends Component {
     this.closeDrawer();
   }
 
-  onClickOfDefinePerformanceRewardsButton() {
-    Navigator.init(this).pushDefinePerformanceRewardsPage();
+  onClickOfDefineWorkerRewardsButton() {
+    Navigator.init(this).pushDefineWorkerRewardsPage();
     this.closeDrawer();
   }
 
-  onClickOfDefineLoyaltyRewardsButton() {
-    Navigator.init(this).pushDefineLoyaltyRewardsPage();
+  onClickOfDefineUserRewardsButton() {
+    Navigator.init(this).pushDefineUserRewardsPage();
     this.closeDrawer();
   }
 
-  onClickOfPerformanceRewardsButton() {
-    Navigator.init(this).pushWorkerPerformanceRewardsPage();
+  onClickOfWorkerRewardsButton() {
+    Navigator.init(this).pushWorkerRewardsPage();
     this.closeDrawer();
   }
 
-  onClickOfLoyaltyRewardsButton() {
-    Navigator.init(this).pushUserLoyaltyRewardsPage();
+  onClickOfUserRewardsButton() {
+    Navigator.init(this).pushUserRewardsPage();
     this.closeDrawer();
   }
 
@@ -48,7 +48,7 @@ export default class NavigationDrawerComponent extends Component {
 
   async onClickOfSignOutButton() {
 
-    await clearSeed();
+    await logOut();
     Navigator.init(this).resetToWelcomePage();
     this.closeDrawer();
   }
@@ -84,8 +84,8 @@ export default class NavigationDrawerComponent extends Component {
       <TouchableHighlight
         underlayColor='#FAFAFA'
         style={styles.navigationButtonContainer}
-        onPress={this.onClickOfDefinePerformanceRewardsButton.bind(this)}>
-        <Text style={styles.navigationButton}>performance rewards</Text>
+        onPress={this.onClickOfDefineWorkerRewardsButton.bind(this)}>
+        <Text style={styles.navigationButton}>employee rewards</Text>
       </TouchableHighlight>
     );
   }
@@ -95,8 +95,8 @@ export default class NavigationDrawerComponent extends Component {
       <TouchableHighlight
         underlayColor='#FAFAFA'
         style={styles.navigationButtonContainer}
-        onPress={this.onClickOfDefineLoyaltyRewardsButton.bind(this)}>
-        <Text style={styles.navigationButton}>loyalty rewards</Text>
+        onPress={this.onClickOfDefineUserRewardsButton.bind(this)}>
+        <Text style={styles.navigationButton}>customer rewards</Text>
       </TouchableHighlight>
     );
   }
@@ -117,7 +117,7 @@ export default class NavigationDrawerComponent extends Component {
       <TouchableHighlight
         underlayColor='#FAFAFA'
         style={styles.navigationButtonContainer}
-        onPress={this.onClickOfPerformanceRewardsButton.bind(this)}>
+        onPress={this.onClickOfWorkerRewardsButton.bind(this)}>
         <Text style={styles.navigationButton}>performance rewards</Text>
       </TouchableHighlight>
     );
@@ -128,7 +128,7 @@ export default class NavigationDrawerComponent extends Component {
       <TouchableHighlight
         underlayColor='#FAFAFA'
         style={styles.navigationButtonContainer}
-        onPress={this.onClickOfLoyaltyRewardsButton.bind(this)}>
+        onPress={this.onClickOfUserRewardsButton.bind(this)}>
         <Text style={styles.navigationButton}>loyalty rewards</Text>
       </TouchableHighlight>
     );
