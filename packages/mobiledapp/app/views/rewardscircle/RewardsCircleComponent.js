@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './RewardsCircleComponentStyle';
 import { View, TouchableHighlight, Text, ToastAndroid } from 'react-native';
-import Svg, { Circle, G, Path } from 'react-native-svg';
+import Svg, { Circle, Path } from 'react-native-svg';
 
 const uuidv4 = require('uuid/v4');
 
@@ -11,41 +11,29 @@ export default class RewardsCircleComponent extends Component {
     super(args);
 
     this.state = {
-      numberOfRewardCycles: this.props.numberOfRewardCycles,
+      minNumberOfRewardCycles: this.props.minNumberOfRewardCycles,
+      maxNumberOfRewardCycles: this.props.maxNumberOfRewardCycles,
       numberOfRewardLevels: this.props.numberOfRewardLevels,
       numberOfRewardSteps: this.props.numberOfRewardSteps,
-      workerRewardStep: this.props.workerRewardStep,
-      workerRewardCycle: this.props.workerRewardCycle,
-      workerRewardLevel: this.props.workerRewardLevel,
-      progress: this.props.progress
+      rewardStep: this.props.rewardStep,
+      rewardCycle: this.props.rewardCycle,
+      rewardLevel: this.props.rewardLevel,
+      levelUpDifficultyFactor: this.props.levelUpDifficultyFactor,
     };
-  }
-
-  getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   componentWillReceiveProps(nextProps) {
 
     this.setState({
-      numberOfRewardCycles: nextProps.numberOfRewardCycles,
+      minNumberOfRewardCycles: nextProps.minNumberOfRewardCycles,
+      maxNumberOfRewardCycles: nextProps.maxNumberOfRewardCycles,
       numberOfRewardLevels: nextProps.numberOfRewardLevels,
       numberOfRewardSteps: nextProps.numberOfRewardSteps,
-      workerRewardStep: nextProps.workerRewardStep,
-      workerRewardCycle: nextProps.workerRewardCycle,
-      workerRewardLevel: nextProps.workerRewardLevel,
-      progress: nextProps.progress
+      rewardStep: nextProps.rewardStep,
+      rewardCycle: nextProps.rewardCycle,
+      rewardLevel: nextProps.rewardLevel,
+      levelUpDifficultyFactor: nextProps.levelUpDifficultyFactor,
     });
-  }
-
-  colorIndex = 0;
-
-  getNextColor() {
-    // let colors = ['#002A1C', '#5DD0C2', '#2A7567'];
-    let colors = ['#8dd3c7', '#ffffb3', '#bebada', '#fb8072', '#80b1d3', '#fdb462', '#b3de69', '#fccde5', '#bc80bd', '#ccebc5', '#ffed6f'];
-    let nextColor = colors[this.colorIndex];
-    this.colorIndex = (this.colorIndex + 1) % colors.length;
-    return nextColor;
   }
 
   getColor(index) {
@@ -87,10 +75,50 @@ export default class RewardsCircleComponent extends Component {
     };
   }
 
+  totalNumberOfRewardCycles() {
+
+    let numberOfRewardCycles = 0;
+
+    for (let i = 0; i < this.state.numberOfRewardLevels; i++) {
+
+      numberOfRewardCycles = numberOfRewardCycles + this.getNumberOfRewardCyclesForRewardLevel(i + 1);
+      console.log('reward level: ' + (i + 1) + ", number of reward cycles: " + this.getNumberOfRewardCyclesForRewardLevel(i + 1));
+    }
+
+    // console.log('number of reward cycles: ' + numberOfRewardCycles);
+
+    return numberOfRewardCycles;
+  }
+
+  getNumberOfRewardCyclesForRewardLevel(rewardLevel) {
+
+    const leftTerm = (1 - this.state.levelUpDifficultyFactor) / this.state.numberOfRewardLevels;
+    const rightTerm = this.state.levelUpDifficultyFactor * (Math.exp(rewardLevel) - 1) / (Math.exp(this.state.numberOfRewardLevels) - 1);
+    const curvePercentage = leftTerm + rightTerm;
+    const value = Math.ceil(this.state.minNumberOfRewardCycles * this.state.numberOfRewardLevels * curvePercentage);
+
+    // console.log('leftTerm: ' + leftTerm);
+    // console.log('rightTerm: ' + rightTerm);
+    // console.log('curvePercentage: ' + curvePercentage);
+
+    // console.log('minNumberOfRewardCycles: ' + this.state.minNumberOfRewardCycles);
+    // console.log('maxNumberOfRewardCycles: ' + this.state.maxNumberOfRewardCycles);
+    // console.log('value: ' + value);
+
+    if (value < this.state.minNumberOfRewardCycles) {
+      return this.state.minNumberOfRewardCycles;
+    }
+
+    if (value > this.state.maxNumberOfRewardCycles) {
+      return this.state.maxNumberOfRewardCycles;
+    }
+
+    return value;
+  }
+
   render() {
 
-    const outerSize = 300;
-    const outerDiameter = 300;
+    const outerSize = 250;
     const innerSize = 10;
 
     let circles = [];
@@ -102,32 +130,34 @@ export default class RewardsCircleComponent extends Component {
     for (let i = 0; i < this.state.numberOfRewardLevels; i++) {
 
       let color = this.getColor(i);
-      let width = (outerSize - innerSize) / 2 / this.state.numberOfRewardLevels / this.state.numberOfRewardCycles;
+      let width = (outerSize - innerSize) / 2 / this.totalNumberOfRewardCycles();
 
-      for (let j = 0; j < this.state.numberOfRewardCycles; j++) {
+      const numberOfRewardCycles = this.getNumberOfRewardCyclesForRewardLevel(i + 1);
 
-          let stepArcSize = 360 / this.state.numberOfRewardSteps;
+      for (let j = 0; j < numberOfRewardCycles; j++) {
 
-          if (stepArcSize === 360) {
-            stepArcSize = 359.9;
-          }
+        let stepArcSize = 360 / this.state.numberOfRewardSteps;
 
-          for (let k = 0, theta1 = 0, theta2 = stepArcSize; k < this.state.numberOfRewardSteps; k++, theta1 += stepArcSize, theta2 += stepArcSize) {
+        if (stepArcSize === 360) {
+          stepArcSize = 359.9;
+        }
 
-            circles.push(
-              <Path
-                key={uuidv4()}
-                x={margin}
-                y={margin}
-                stroke='black'
-                strokeWidth='0.1'
-                strokeOpacity={0.5}
-                d={this.describeArc(previousSize / 2, previousSize / 2, previousSize / 2 - width, previousSize / 2, theta1, theta2, rotation)}
-                fill={color}
-                fillOpacity={0.1}
-              />
-            );
-          }
+        for (let k = 0, theta1 = 0, theta2 = stepArcSize; k < this.state.numberOfRewardSteps; k++, theta1 += stepArcSize, theta2 += stepArcSize) {
+
+          circles.push(
+            <Path
+              key={uuidv4()}
+              x={margin}
+              y={margin}
+              stroke='black'
+              strokeWidth='0.1'
+              strokeOpacity={0.5}
+              d={this.describeArc(previousSize / 2, previousSize / 2, previousSize / 2 - width, previousSize / 2, theta1, theta2, rotation)}
+              fill={color}
+              fillOpacity={0.1}
+            />
+          );
+        }
 
         // rotation = rotation + stepArcSize/2;
         rotation = rotation + 15;
@@ -143,20 +173,20 @@ export default class RewardsCircleComponent extends Component {
     margin = 0;
     rotation = 0;
 
-    for (let i = 0; i < this.state.workerRewardLevel; i++) {
+    for (let i = 0; i < this.state.rewardLevel; i++) {
 
       let color = this.getColor(i);
-      let width = (outerSize - innerSize) / 2 / this.state.numberOfRewardLevels / this.state.numberOfRewardCycles;
+      let width = (outerSize - innerSize) / 2 / this.totalNumberOfRewardCycles();
 
-      let numberOfCycles;
-
-      if (i === this.state.workerRewardLevel - 1) {
-        numberOfCycles = this.state.workerRewardCycle;
+      let numberOfRewardCycles;
+      if (i === this.state.rewardLevel - 1) {
+        numberOfRewardCycles = this.getNumberOfRewardCyclesForRewardLevel(i + 1);
+        // numberOfRewardCycles = this.state.rewardCycle;
       } else {
-        numberOfCycles = this.state.numberOfRewardCycles;
+        numberOfRewardCycles = this.getNumberOfRewardCyclesForRewardLevel(i + 1);
       }
 
-      for (let j = 0; j < numberOfCycles; j++) {
+      for (let j = 0; j < numberOfRewardCycles; j++) {
 
         let stepArcSize = 360 / this.state.numberOfRewardSteps;
 
@@ -165,8 +195,8 @@ export default class RewardsCircleComponent extends Component {
         }
 
         let numberOfSteps;
-        if (i === this.state.workerRewardLevel - 1 && j === this.state.workerRewardCycle - 1) {
-          numberOfSteps = this.state.workerRewardStep;
+        if (i === this.state.rewardLevel - 1 && j === this.state.rewardCycle - 1) {
+          numberOfSteps = this.state.rewardStep;
         } else {
           numberOfSteps = this.state.numberOfRewardSteps;
         }
@@ -211,7 +241,7 @@ export default class RewardsCircleComponent extends Component {
     return (
 
       <View style={styles.container}>
-        <Svg width={outerDiameter} height={outerDiameter}>
+        <Svg width={outerSize} height={outerSize}>
           {circles}
           {filledCircles}
         </Svg>

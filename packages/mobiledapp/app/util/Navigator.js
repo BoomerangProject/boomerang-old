@@ -94,8 +94,20 @@ class NavigatorImpl {
     this.pushPage({screenName: 'BusinessAnalyticsPage', title: 'business analytics', props: props});
   }
 
-  pushDefineWorkerRewardsPage(props) {
-    this.pushPage({screenName: 'DefineWorkerRewardsPage', title: 'employee rewards', props: props});
+  pushDefineWorkerRewardCirclesPage(props) {
+    this.pushPage({screenName: 'DefineWorkerRewardCirclesPage', title: 'reward structure', props: props});
+  }
+
+  pushDefineWorkerRewardLevelsPage(props) {
+    this.pushPage({screenName: 'DefineWorkerRewardLevelsPage', title: 'reward levels', props: props});
+  }
+
+  pushDefineWorkerRewardRatingDistributionComponent(props) {
+    this.pushPage({screenName: 'DefineWorkerRewardRatingDistributionPage', title: 'rating distribution', props: props});
+  }
+
+  pushDefineWorkerRewardRatingColorSchemeComponent(props) {
+    this.pushPage({screenName: 'DefineWorkerRewardColorSchemePage', title: 'color scheme', props: props});
   }
 
   pushDefineUserRewardsPage(props) {
@@ -190,6 +202,8 @@ class NavigatorImpl {
     // console.log('props: ' + JSON.stringify(props));
     // console.log('navBarHidden: ' + navBarHidden);
     // console.log('backButton: ' + backButton);
+
+    console.log(JSON.stringify(props));
 
     const paramsObject = {
       screen: screenName,

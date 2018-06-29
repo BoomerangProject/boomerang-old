@@ -83,14 +83,14 @@ export default class DefineRewardsTestComponent extends Component {
         </View>
 
         <View style={{width: '80%'}}>
-          <Text style={{marginLeft: 12}}>number of cycles per level: {this.state.numberOfRewardCycles}</Text>
+          <Text style={{marginLeft: 12}}>number of cycles per level: {this.state.maximumNumberOfRewardCycles}</Text>
           <Slider
             style={{width: '100%'}}
             minimumTrackTintColor='#005143'
             thumbTintColor='#005143'
             maximumTrackTintColor='#005143'
             step={1}
-            value={this.state.numberOfRewardCycles}
+            value={this.state.maximumNumberOfRewardCycles}
             onSlidingComplete={value => this.updateCycles({ numberOfRewardCycles: value })}
             minimumValue={1}
             maximumValue={10}/>
@@ -135,7 +135,7 @@ export default class DefineRewardsTestComponent extends Component {
             value={this.state.workerRewardCycle}
             onSlidingComplete={value => this.updateCycles({ workerRewardCycle: value })}
             minimumValue={1}
-            maximumValue={this.state.numberOfRewardCycles}/>
+            maximumValue={this.state.maximumNumberOfRewardCycles}/>
         </View>
 
         <View style={{width: '80%'}}>
@@ -156,7 +156,7 @@ export default class DefineRewardsTestComponent extends Component {
 
         <RewardsCircleComponent
           progress={this.state.progress}
-          numberOfRewardCycles={this.state.numberOfRewardCycles}
+          numberOfRewardCycles={this.state.maximumNumberOfRewardCycles}
           numberOfRewardLevels={this.state.numberOfRewardLevels}
           numberOfRewardSteps={this.state.numberOfRewardSteps}
           workerRewardStep={this.state.workerRewardStep}

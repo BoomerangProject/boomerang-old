@@ -67,6 +67,7 @@ export default class ImportAccountComponent extends Component {
 
         <ActivityIndicatorButtonComponent
           showActivityIndicator={this.state.showActivityIndicator}
+          buttonText='Confirm Seed'
           onClick={this.onClickOfConfirmButton.bind(this)}
         />
 

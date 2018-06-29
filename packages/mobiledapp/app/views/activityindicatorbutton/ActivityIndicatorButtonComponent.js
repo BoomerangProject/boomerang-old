@@ -28,7 +28,7 @@ export default class ActivityIndicatorButtonComponent extends Component {
           <TouchableOpacity
             style={styles.buttonContainer}
             onPress={this.props.onClick}>
-            <Text style={styles.button}>Confirm Seed</Text>
+            <Text style={styles.button}>{this.props.buttonText}</Text>
           </TouchableOpacity>}
       </View>
     );

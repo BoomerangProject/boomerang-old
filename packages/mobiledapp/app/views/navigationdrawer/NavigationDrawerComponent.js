@@ -22,7 +22,7 @@ export default class NavigationDrawerComponent extends Component {
   }
 
   onClickOfDefineWorkerRewardsButton() {
-    Navigator.init(this).pushDefineWorkerRewardsPage();
+    Navigator.init(this).pushDefineWorkerRewardCirclesPage();
     this.closeDrawer();
   }
 

@@ -30,7 +30,10 @@ import SplashScreenComponent from './pages/splashscreen/SplashScreenComponent';
 import BusinessAnalyticsComponent from "./pages/accounts/business/businessanalytics/BusinessAnalyticsComponent";
 import WorkerRewardsComponent from "./pages/accounts/worker/workerrewards/WorkerRewardsComponent";
 import UserRewardsComponent from "./pages/accounts/user/userrewards/UserRewardsComponent";
-import DefineWorkerRewardsComponent from "./pages/accounts/business/defineworkerrewards/DefineWorkerRewardsComponent";
+import DefineWorkerRewardCirclesComponent from "./pages/accounts/business/defineworkerrewards/a/DefineWorkerRewardCirclesComponent";
+import DefineWorkerRewardLevelsComponent from "./pages/accounts/business/defineworkerrewards/b/DefineWorkerRewardLevelsComponent";
+import DefineWorkerRewardRatingDistributionComponent from "./pages/accounts/business/defineworkerrewards/c/DefineWorkerRewardRatingDistributionComponent";
+import DefineWorkerRewardColorSchemeComponent from "./pages/accounts/business/defineworkerrewards/d/DefineWorkerRewardColorSchemeComponent";
 import DefineUserRewardsComponent from "./pages/accounts/business/defineuserrewards/DefineUserRewardsComponent";
 import DefineRewardsTestComponent from "./pages/test/definerewardstest/DefineRewardsTestComponent";
 
@@ -72,6 +75,9 @@ export function registerScreens() {
   Navigation.registerComponent('WorkerRewardsPage', () => WorkerRewardsComponent);
   Navigation.registerComponent('UserRewardsPage', () => UserRewardsComponent);
   Navigation.registerComponent('DefineUserRewardsPage', () => DefineUserRewardsComponent);
-  Navigation.registerComponent('DefineWorkerRewardsPage', () => DefineWorkerRewardsComponent);
+  Navigation.registerComponent('DefineWorkerRewardCirclesPage', () => DefineWorkerRewardCirclesComponent);
+  Navigation.registerComponent('DefineWorkerRewardLevelsPage', () => DefineWorkerRewardLevelsComponent);
   Navigation.registerComponent('DefineRewardsTestPage', () => DefineRewardsTestComponent);
+  Navigation.registerComponent('DefineWorkerRewardRatingDistributionPage', () => DefineWorkerRewardRatingDistributionComponent);
+  Navigation.registerComponent('DefineWorkerRewardColorSchemePage', () => DefineWorkerRewardColorSchemeComponent);
 }
