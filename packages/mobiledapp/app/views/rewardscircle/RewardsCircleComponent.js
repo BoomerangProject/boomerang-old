@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './RewardsCircleComponentStyle';
 import { View, TouchableHighlight, Text, ToastAndroid } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
+import { getColor } from '../../util/Colors';
 
 const uuidv4 = require('uuid/v4');
 
@@ -34,12 +35,6 @@ export default class RewardsCircleComponent extends Component {
       rewardLevel: nextProps.rewardLevel,
       levelUpDifficultyFactor: nextProps.levelUpDifficultyFactor,
     });
-  }
-
-  getColor(index) {
-    // let colors = ['#002A1C', '#5DD0C2', '#2A7567'];
-    let colors = ['#8dd3c7', '#ffffb3', '#bebada', '#fb8072', '#80b1d3', '#fdb462', '#b3de69', '#fccde5', '#bc80bd', '#ccebc5', '#ffed6f'];
-    return colors[index];
   }
 
   describeArc(x, y, innerRadius, outerRadius, startAngle, endAngle, rotation) {
@@ -97,14 +92,6 @@ export default class RewardsCircleComponent extends Component {
     const curvePercentage = leftTerm + rightTerm;
     const value = Math.ceil(this.state.minNumberOfRewardCycles * this.state.numberOfRewardLevels * curvePercentage);
 
-    // console.log('leftTerm: ' + leftTerm);
-    // console.log('rightTerm: ' + rightTerm);
-    // console.log('curvePercentage: ' + curvePercentage);
-
-    // console.log('minNumberOfRewardCycles: ' + this.state.minNumberOfRewardCycles);
-    // console.log('maxNumberOfRewardCycles: ' + this.state.maxNumberOfRewardCycles);
-    // console.log('value: ' + value);
-
     if (value < this.state.minNumberOfRewardCycles) {
       return this.state.minNumberOfRewardCycles;
     }
@@ -129,7 +116,7 @@ export default class RewardsCircleComponent extends Component {
 
     for (let i = 0; i < this.state.numberOfRewardLevels; i++) {
 
-      let color = this.getColor(i);
+      let color = getColor(i);
       let width = (outerSize - innerSize) / 2 / this.totalNumberOfRewardCycles();
 
       const numberOfRewardCycles = this.getNumberOfRewardCyclesForRewardLevel(i + 1);
@@ -175,7 +162,7 @@ export default class RewardsCircleComponent extends Component {
 
     for (let i = 0; i < this.state.rewardLevel; i++) {
 
-      let color = this.getColor(i);
+      let color = getColor(i);
       let width = (outerSize - innerSize) / 2 / this.totalNumberOfRewardCycles();
 
       let numberOfRewardCycles;

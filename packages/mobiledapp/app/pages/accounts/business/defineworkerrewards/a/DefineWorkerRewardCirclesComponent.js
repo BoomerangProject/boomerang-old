@@ -11,7 +11,7 @@ export default class DefineWorkerRewardCirclesComponent extends Component {
     this.state = {
       numberOfRewardLevels: 5,
       minNumberOfRewardCycles: 5,
-      maxNumberOfRewardCycles: 30,
+      maxNumberOfRewardCycles: 50,
       numberOfRewardSteps: 5,
       levelUpDifficultyFactor: 0,
 
@@ -62,16 +62,16 @@ export default class DefineWorkerRewardCirclesComponent extends Component {
             <Text style={styles.sliderLabelText}>number of rewards per
               level: {this.state.minNumberOfRewardCyclesDisplay}</Text>
             <Slider
-              style={{width: '100%'}}
-              minimumTrackTintColor='#005143'
-              thumbTintColor='#005143'
-              maximumTrackTintColor='#005143'
-              step={1}
-              value={this.state.minNumberOfRewardCycles}
-              onValueChange={value => this.setState({minNumberOfRewardCyclesDisplay: value})}
-              onSlidingComplete={value => this.setState({minNumberOfRewardCycles: value})}
-              minimumValue={1}
-              maximumValue={10}/>
+            style={{width: '100%'}}
+            minimumTrackTintColor='#005143'
+            thumbTintColor='#005143'
+            maximumTrackTintColor='#005143'
+            step={1}
+            value={this.state.minNumberOfRewardCycles}
+            onValueChange={value => this.setState({minNumberOfRewardCyclesDisplay: value})}
+            onSlidingComplete={value => this.setState({minNumberOfRewardCycles: value})}
+            minimumValue={1}
+            maximumValue={10}/>
 
           </View>
           }

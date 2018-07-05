@@ -38,6 +38,17 @@ module.exports = StyleSheet.create({
     fontSize: 14,
     color: '#002A1C',
     fontFamily: 'WorkSans-Regular'
+  },
+  textLabel: {
+    width: '20%',
+    fontSize: 8,
+    color: '#002A1C',
+    fontFamily: 'WorkSans-Regular'
+  },
+  rewardUpDifficultyLabel: {
+    fontSize: 10,
+    color: '#002A1C',
+    fontFamily: 'WorkSans-Regular'
   }
 });
 
