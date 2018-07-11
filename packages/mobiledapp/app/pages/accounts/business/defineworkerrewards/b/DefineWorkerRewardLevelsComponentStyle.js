@@ -45,7 +45,7 @@ module.exports = StyleSheet.create({
     color: '#002A1C',
     fontFamily: 'WorkSans-Regular'
   },
-  rewardUpDifficultyLabel: {
+  rewardLevelDistributionFactorLabel: {
     fontSize: 10,
     color: '#002A1C',
     fontFamily: 'WorkSans-Regular'

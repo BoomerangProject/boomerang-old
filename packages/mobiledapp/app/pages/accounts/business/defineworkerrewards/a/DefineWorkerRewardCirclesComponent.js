@@ -13,13 +13,12 @@ export default class DefineWorkerRewardCirclesComponent extends Component {
       minNumberOfRewardCycles: 5,
       maxNumberOfRewardCycles: 50,
       numberOfRewardSteps: 5,
-      levelUpDifficultyFactor: 0,
+      levelDistributionFactor: 0,
 
       numberOfRewardLevelsDisplay: 5,
       minNumberOfRewardCyclesDisplay: 5,
       maxNumberOfRewardCyclesDisplay: 50,
-      numberOfRewardStepsDisplay: 5,
-      levelUpDifficultyFactorDisplay: 0
+      numberOfRewardStepsDisplay: 5
     }
   }
 
@@ -29,7 +28,7 @@ export default class DefineWorkerRewardCirclesComponent extends Component {
           minNumberOfRewardCycles: this.state.minNumberOfRewardCycles,
           maxNumberOfRewardCycles: this.state.maxNumberOfRewardCycles,
           numberOfRewardSteps: this.state.numberOfRewardSteps,
-          levelUpDifficultyFactor: this.state.levelUpDifficultyFactor
+          levelDistributionFactor: this.state.levelDistributionFactor
         });
   }
 
@@ -56,7 +55,7 @@ export default class DefineWorkerRewardCirclesComponent extends Component {
 
         <View style={styles.sliderContainer}>
 
-          {this.state.levelUpDifficultyFactor === 0 &&
+          {this.state.levelDistributionFactor === 0 &&
           <View style={{width: '100%'}}>
 
             <Text style={styles.sliderLabelText}>number of rewards per
@@ -75,7 +74,7 @@ export default class DefineWorkerRewardCirclesComponent extends Component {
 
           </View>
           }
-          {this.state.levelUpDifficultyFactor > 0 &&
+          {this.state.levelDistributionFactor > 0 &&
           <View style={{width: '100%', flexDirection: 'row'}}>
 
             <View style={{width: '50%'}}>
@@ -134,18 +133,22 @@ export default class DefineWorkerRewardCirclesComponent extends Component {
         </View>
 
         <View style={styles.sliderContainer}>
-          <Text style={styles.sliderLabelText}>level up
-            difficulty: {(this.state.levelUpDifficultyFactorDisplay * 100).toFixed(2)}%</Text>
+          <Text style={styles.sliderLabelText}>level distribution</Text>
           <Slider
             style={{width: '100%'}}
             minimumTrackTintColor='#005143'
             thumbTintColor='#005143'
             maximumTrackTintColor='#005143'
-            value={this.state.levelUpDifficultyFactor}
-            onValueChange={value => this.setState({levelUpDifficultyFactorDisplay: value})}
-            onSlidingComplete={value => this.setState({levelUpDifficultyFactor: value})}
+            value={this.state.levelDistributionFactor}
+            onSlidingComplete={value => this.setState({levelDistributionFactor: value})}
             minimumValue={0}
             maximumValue={1}/>
+        </View>
+
+        <View style={{flexDirection: 'row', width: '85%', marginTop: -2}}>
+          <Text style={{fontFamily: 'WorkSans-Regular', color: '#002A1C', fontSize: 8}}>linear</Text>
+          <View style={{flex: 1}}/>
+          <Text style={{fontFamily: 'WorkSans-Regular', color: '#002A1C', fontSize: 8}}>exponential</Text>
         </View>
 
         <View style={{flex: 1}}/>
@@ -158,7 +161,7 @@ export default class DefineWorkerRewardCirclesComponent extends Component {
           rewardStep={this.state.numberOfRewardSteps}
           rewardCycle={this.state.numberOfRewardCycles}
           rewardLevel={this.state.numberOfRewardLevels}
-          levelUpDifficultyFactor={this.state.levelUpDifficultyFactor}/>
+          levelDistributionFactor={this.state.levelDistributionFactor}/>
 
         <View style={{flex: 1}}/>
 

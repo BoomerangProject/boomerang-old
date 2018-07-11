@@ -13,7 +13,7 @@ export default class DefineWorkerRewardLevelsComponent extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {rewardUpDifficulty: 0, rewardUpDifficultyDisplay: 0, minReward: 100, maxReward: 1000};
+    this.state = {rewardLevelDistributionFactor: 0, minReward: 100, maxReward: 1000};
   }
 
   onClickOfNextButton() {
@@ -22,20 +22,24 @@ export default class DefineWorkerRewardLevelsComponent extends Component {
 
   getRewardForRewardLevel(rewardLevel) {
 
-    const fudgeFactor = 4/5;
-    const leftTerm = (1 - this.state.rewardUpDifficulty) / this.props.numberOfRewardLevels;
-    const rightTerm = this.state.rewardUpDifficulty * (Math.exp(rewardLevel*fudgeFactor) - 1) / (Math.exp(this.props.numberOfRewardLevels) - 1);
+    const fudgeFactor = 4 / 5;
+    const leftTerm = (1 - this.state.rewardLevelDistributionFactor) / this.props.numberOfRewardLevels;
+    const rightTerm = this.state.rewardLevelDistributionFactor * (Math.exp(rewardLevel * fudgeFactor) - 1) / (Math.exp(this.props.numberOfRewardLevels) - 1);
     const curvePercentage = leftTerm + rightTerm;
-    const rewardUnit = this.state.maxReward / this.props.numberOfRewardLevels;
-    const value = Math.ceil(rewardUnit * rewardLevel * this.props.numberOfRewardLevels * curvePercentage);
+    const rewardUnit = (this.state.maxReward - this.state.minReward) / (this.props.numberOfRewardLevels - 1);
+    const value = Math.ceil(parseFloat(this.state.minReward) + parseFloat(rewardUnit * (rewardLevel-1) * this.props.numberOfRewardLevels * curvePercentage));
 
-    console.log('rewardLevel: ' + rewardLevel);
-    console.log('this.state.rewardUpDifficulty: ' + this.state.rewardUpDifficulty);
-    console.log('this.props.numberOfRewardLevels: ' + this.props.numberOfRewardLevels);
-    console.log('this.state.minReward: ' + this.state.minReward);
-    console.log('this.state.maxReward: ' + this.state.maxReward);
-    console.log('curvePercentage: ' + curvePercentage);
-    console.log('value: ' + value);
+    // console.log('rewardLevel: ' + rewardLevel);
+    // console.log('leftTerm: ' + leftTerm);
+    // console.log('rightTerm: ' + rightTerm);
+    // console.log('rewardUnit: ' + rewardUnit);
+    // console.log('this.props.numberOfRewardLevels: ' + this.props.numberOfRewardLevels);
+    // console.log('this.state.rewardLevelDistributionFactor: ' + this.state.rewardLevelDistributionFactor);
+    // console.log('this.props.numberOfRewardLevels: ' + this.props.numberOfRewardLevels);
+    // console.log('this.state.minReward: ' + this.state.minReward);
+    // console.log('this.state.maxReward: ' + this.state.maxReward);
+    // console.log('curvePercentage: ' + curvePercentage);
+    // console.log('value: ' + value);
 
     if (value < this.state.minReward) {
       return this.state.minReward;
@@ -46,18 +50,6 @@ export default class DefineWorkerRewardLevelsComponent extends Component {
     }
 
     return value;
-  }
-
-  onChangeOfMinReward(value) {
-    this.setState({minReward: value});
-  }
-
-  onChangeOfMaxReward(value) {
-    this.setState({maxReward: value});
-  }
-
-  onChangeOfReward() {
-
   }
 
   generateTextInputs() {
@@ -96,16 +88,28 @@ export default class DefineWorkerRewardLevelsComponent extends Component {
             borderColor: '#6F877F',
             backgroundColor: color
           }}
-           onChange={(value) => {
+           onEndEditing={(event) => {
+
+             const value = event.nativeEvent.text.replace(/[^0-9]/g, '');
 
              if (i === 0) {
-               this.onChangeOfMinReward(value);
+
+               if (value > this.state.maxReward) {
+                 this.setState({minReward: this.state.maxReward});
+               } else {
+                 this.setState({minReward: value});
+               }
+
              } else if (i === numberOfRewardLevels - 1) {
-               this.onChangeOfMaxReward(value);
-             } else {
-               this.onChangeOfReward(value);
+
+               if (value < this.state.minReward) {
+                 this.setState({maxReward: this.state.minReward});
+               } else {
+                 this.setState({maxReward: value});
+               }
              }
            }}
+           keyboardType = 'numeric'
            selectionColor={'#89A199'}
            underlineColorAndroid={'#6F877F'}
            placeholderTextColor={'#6F877F'}
@@ -131,13 +135,15 @@ export default class DefineWorkerRewardLevelsComponent extends Component {
 
       <View style={styles.container}>
 
-        <View style={{marginTop: 8, marginBottom: 8, flex: 1, flexDirection: 'row'}}>
+        <View style={{marginTop: 8, marginBottom: 8, flex: 90, flexDirection: 'row'}}>
+
+          <View style={{width: 16}}/>
 
           <View style={{width: width * 1 / 3, alignItems: 'center', justifyContent: 'center'}}>
             <RewardsCircleLevelSliceComponent
               style={{
                 width: width * 1 / 3,
-                height: height - buttonContainerHeight - topMargin,
+                height: height * 0.9 - buttonContainerHeight - topMargin,
                 alignItems: 'center',
                 justifyContent: 'center'
               }}
@@ -145,7 +151,7 @@ export default class DefineWorkerRewardLevelsComponent extends Component {
               minNumberOfRewardCycles={this.props.minNumberOfRewardCycles}
               maxNumberOfRewardCycles={this.props.maxNumberOfRewardCycles}
               numberOfRewardSteps={this.props.numberOfRewardSteps}
-              levelUpDifficultyFactor={this.props.levelUpDifficultyFactor}
+              levelDistributionFactor={this.props.levelDistributionFactor}
             />
           </View>
 
@@ -153,28 +159,38 @@ export default class DefineWorkerRewardLevelsComponent extends Component {
             {this.generateTextInputs()}
           </View>
 
+          <View style={{width: width * 1 / 3, marginBottom: 16, alignItems: 'center', justifyContent: 'center'}}>
 
-
-          <View style={{width: width * 1 / 3, alignItems: 'center', justifyContent: 'center'}}>
-
-            <View style={{height: 48, alignItems: 'flex-end', justifyContent: 'flex-end'}}>
-
-            <Text style={styles.rewardUpDifficultyLabel}>reward up{'\n'}difficulty: {(this.state.rewardUpDifficultyDisplay * 100).toFixed(2) + '%'}</Text>
+            <View style={{height: 48, alignItems: 'flex-start', justifyContent: 'center'}}>
+              <Text style={styles.rewardLevelDistributionFactorLabel}>reward distribution</Text>
             </View>
 
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-              <Slider style={{width: 0.64 * height}}
-                      orientation={'vertical'}
-                      minimumValue={0}
-                      maximumValue={1}
-                      value={this.state.rewardUpDifficulty}
-                      onValueChange={value => this.setState({rewardUpDifficultyDisplay: value})}
-                      onSlidingComplete={value => this.setState({rewardUpDifficulty: value})}
-                      thumbStyle={{backgroundColor: '#005143', borderColor: '#005143', borderWidth: 3}}
-                      thumbTouchSize={{width: 60, height: 60}}
-                      minimumTrackTintColor={'#005143'}/>
+            <View style={{flexDirection: 'row', flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+
+              <View style={{flex: 1}}/>
+
+              <View style={{flex: 3, alignItems: 'flex-end', justifyContent: 'flex-end'}}>
+                <Text style={{fontFamily: 'WorkSans-Regular', color: '#002A1C', fontSize: 8}}>linear</Text>
+                <View style={{flex: 1}}/>
+                <Text style={{fontFamily: 'WorkSans-Regular', color: '#002A1C', fontSize: 8}}>exponential</Text>
+              </View>
+
+              <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+                <Slider style={{width: 0.60 * height}}
+                        orientation={'vertical'}
+                        minimumValue={0}
+                        maximumValue={1}
+                        value={this.state.rewardLevelDistributionFactor}
+                        onSlidingComplete={value => this.setState({rewardLevelDistributionFactor: value})}
+                        thumbStyle={{backgroundColor: '#4D9E90', borderColor: '#4D9E90', borderWidth: 3}}
+                        thumbTouchSize={{width: 60, height: 60}}
+                        minimumTrackTintColor={'#4D9E90'}/>
+              </View>
+
+              <View style={{flex: 3}}/>
             </View>
           </View>
+
         </View>
 
         <TouchableOpacity

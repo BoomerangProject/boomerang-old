@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Text, ToastAndroid, View, Slider, Image, TouchableOpacity } from 'react-native';
+import { Text, ToastAndroid, View, Slider, Image, TouchableOpacity, Dimensions } from 'react-native';
 import styles from './DefineWorkerRewardRatingDistributionComponentStyle';
 import Navigator from '../../../../../util/Navigator';
 import RewardsCircleComponent from '../../../../../views/rewardscircle/RewardsCircleComponent';
+import RewardRatingDistributionStarGraphComponent from '../../../../../views/rewardratingdistributionstargraph/RewardRatingDistributionStarGraphComponent';
 
 export default class DefineWorkerRewardRatingDistributionComponent extends Component {
 
@@ -17,9 +18,21 @@ export default class DefineWorkerRewardRatingDistributionComponent extends Compo
 
   render() {
 
+    const {height, width} = Dimensions.get('window');
+
     return (
 
       <View style={styles.container}>
+
+        <View style={{flex:1}}/>
+
+        <RewardRatingDistributionStarGraphComponent
+          style={{
+          width: width*0.75,
+          alignItems: 'center',
+          justifyContent: 'center'}}
+          ratingRewardPercentages={[1,25,50,75,100]}
+        />
 
         <View style={{flex:1}}/>
 

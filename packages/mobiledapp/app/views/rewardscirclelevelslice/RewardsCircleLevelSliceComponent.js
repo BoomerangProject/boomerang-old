@@ -17,7 +17,7 @@ export default class RewardsCircleLevelSliceComponent extends Component {
       minNumberOfRewardCycles: this.props.minNumberOfRewardCycles,
       maxNumberOfRewardCycles: this.props.maxNumberOfRewardCycles,
       numberOfRewardSteps: this.props.numberOfRewardSteps,
-      levelUpDifficultyFactor: this.props.levelUpDifficultyFactor
+      levelDistributionFactor: this.props.levelDistributionFactor
     };
   }
 
@@ -72,8 +72,8 @@ export default class RewardsCircleLevelSliceComponent extends Component {
 
   getNumberOfRewardCyclesForRewardLevel(rewardLevel) {
 
-    const leftTerm = (1 - this.state.levelUpDifficultyFactor) / this.state.numberOfRewardLevels;
-    const rightTerm = this.state.levelUpDifficultyFactor * (Math.exp(rewardLevel) - 1) / (Math.exp(this.state.numberOfRewardLevels) - 1);
+    const leftTerm = (1 - this.state.levelDistributionFactor) / this.state.numberOfRewardLevels;
+    const rightTerm = this.state.levelDistributionFactor * (Math.exp(rewardLevel) - 1) / (Math.exp(this.state.numberOfRewardLevels) - 1);
     const curvePercentage = leftTerm + rightTerm;
     const value = Math.ceil(this.state.minNumberOfRewardCycles * this.state.numberOfRewardLevels * curvePercentage);
 
@@ -158,20 +158,9 @@ export default class RewardsCircleLevelSliceComponent extends Component {
       }
     }
 
-    //
-    // circleSegments.push(
-    //   <Circle
-    //     key='inner'
-    //     cx={outerSize / 2}
-    //     cy={outerSize / 2}
-    //     r={innerSize / 2}
-    //     fill='#ffed89'
-    //   />
-    // );
 
-    console.log('circle segments length: ' + circleSegments.length);
-
-    console.log(JSON.stringify(this.props.style));
+    // console.log('circle segments length: ' + circleSegments.length);
+    // console.log(JSON.stringify(this.props.style));
 
     return (
 

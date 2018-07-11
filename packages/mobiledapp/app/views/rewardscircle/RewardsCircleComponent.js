@@ -19,7 +19,7 @@ export default class RewardsCircleComponent extends Component {
       rewardStep: this.props.rewardStep,
       rewardCycle: this.props.rewardCycle,
       rewardLevel: this.props.rewardLevel,
-      levelUpDifficultyFactor: this.props.levelUpDifficultyFactor,
+      levelDistributionFactor: this.props.levelDistributionFactor,
     };
   }
 
@@ -33,7 +33,7 @@ export default class RewardsCircleComponent extends Component {
       rewardStep: nextProps.rewardStep,
       rewardCycle: nextProps.rewardCycle,
       rewardLevel: nextProps.rewardLevel,
-      levelUpDifficultyFactor: nextProps.levelUpDifficultyFactor,
+      levelDistributionFactor: nextProps.levelDistributionFactor,
     });
   }
 
@@ -77,7 +77,7 @@ export default class RewardsCircleComponent extends Component {
     for (let i = 0; i < this.state.numberOfRewardLevels; i++) {
 
       numberOfRewardCycles = numberOfRewardCycles + this.getNumberOfRewardCyclesForRewardLevel(i + 1);
-      console.log('reward level: ' + (i + 1) + ", number of reward cycles: " + this.getNumberOfRewardCyclesForRewardLevel(i + 1));
+      // console.log('reward level: ' + (i + 1) + ", number of reward cycles: " + this.getNumberOfRewardCyclesForRewardLevel(i + 1));
     }
 
     // console.log('number of reward cycles: ' + numberOfRewardCycles);
@@ -87,8 +87,8 @@ export default class RewardsCircleComponent extends Component {
 
   getNumberOfRewardCyclesForRewardLevel(rewardLevel) {
 
-    const leftTerm = (1 - this.state.levelUpDifficultyFactor) / this.state.numberOfRewardLevels;
-    const rightTerm = this.state.levelUpDifficultyFactor * (Math.exp(rewardLevel) - 1) / (Math.exp(this.state.numberOfRewardLevels) - 1);
+    const leftTerm = (1 - this.state.levelDistributionFactor) / this.state.numberOfRewardLevels;
+    const rightTerm = this.state.levelDistributionFactor * (Math.exp(rewardLevel) - 1) / (Math.exp(this.state.numberOfRewardLevels) - 1);
     const curvePercentage = leftTerm + rightTerm;
     const value = Math.ceil(this.state.minNumberOfRewardCycles * this.state.numberOfRewardLevels * curvePercentage);
 
@@ -211,7 +211,6 @@ export default class RewardsCircleComponent extends Component {
         margin = margin + width;
       }
     }
-
 
     circles.push(
       <Circle
