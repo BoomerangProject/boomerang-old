@@ -86,7 +86,7 @@ functions:
     handler: lib/handler.registerWorkerRewardSystem
     events:
       - http:
-          path: /registerAsUser
+          path: /registerWorkerRewardSystem
           method: post
   addWorker:
     handler: lib/handler.addWorker
