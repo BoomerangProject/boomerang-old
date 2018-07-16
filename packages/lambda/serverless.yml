@@ -82,6 +82,12 @@ functions:
       - http:
           path: /registerAsUser
           method: post
+  registerWorkerRewardSystem:
+    handler: lib/handler.registerWorkerRewardSystem
+    events:
+      - http:
+          path: /registerAsUser
+          method: post
   addWorker:
     handler: lib/handler.addWorker
     events:

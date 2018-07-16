@@ -35,29 +35,4 @@ contract KudosActor {
 
 
 //  mapping(address => mapping(bytes32 => uint256)) public nonce;
-
-
-  // rewards
-
-  // businessAddress => userId => rewardStep
-  mapping(address => mapping(bytes32 => uint256)) public workerRewardStep;
-
- // businessAddress => userId => rewardCycle
-  mapping(address => mapping(bytes32 => uint256)) public workerRewardCycle;
-
-  // businessAddress => userId => rewardLevel
-  mapping(address => mapping(bytes32 => uint256)) public workerRewardLevel;
-
-
-  // businessAddress => numberOfRewardSteps
-  mapping(address => uint256) public numberOfRewardSteps;
-
-  // businessAddress => numberOfRewardCycles
-  mapping(address => uint256) public numberOfRewardCycles;
-
-  // businessAddress => numberOfRewardLevels
-  mapping(address => uint256) public numberOfRewardLevels;
-
-  // businessAddress => rewardLevel => reward
-  mapping(address => mapping(uint256 => uint256)) public workerReward;
 }

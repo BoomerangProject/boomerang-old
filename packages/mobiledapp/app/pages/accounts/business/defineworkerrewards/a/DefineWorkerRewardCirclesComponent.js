@@ -151,9 +151,8 @@ export default class DefineWorkerRewardCirclesComponent extends Component {
           <Text style={{fontFamily: 'WorkSans-Regular', color: '#002A1C', fontSize: 8}}>exponential</Text>
         </View>
 
-        <View style={{flex: 1}}/>
-
         <RewardsCircleComponent
+          style={{width: 250, height: 250, alignItems: 'center'}}
           numberOfRewardSteps={this.state.numberOfRewardSteps}
           minNumberOfRewardCycles={this.state.minNumberOfRewardCycles}
           maxNumberOfRewardCycles={this.state.maxNumberOfRewardCycles}

@@ -9,6 +9,7 @@ import getNonceForUpdatingRegistry from "./functions/registry/getNonceForUpdatin
 import getUserAddress from "./functions/registry/getUserAddress";
 import registerAsBusiness from "./functions/api/registerAsBusiness";
 import registerAsWorker from "./functions/api/registerAsWorker";
+import registerWorkerRewardSystem from "./functions/api/registerWorkerRewardSystem";
 import registerAsUser from "./functions/api/registerAsUser";
 import addWorker from "./functions/api/addWorker";
 
@@ -23,4 +24,5 @@ module.exports.getNonceForUpdatingRegistry = getNonceForUpdatingRegistry;
 module.exports.registerAsBusiness = registerAsBusiness;
 module.exports.registerAsWorker = registerAsWorker;
 module.exports.registerAsUser = registerAsUser;
+module.exports.registerWorkerRewardSystem = registerWorkerRewardSystem;
 module.exports.addWorker = addWorker;

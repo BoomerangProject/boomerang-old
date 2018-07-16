@@ -38,6 +38,7 @@ export default class DefineWorkerRewardColorSchemeComponent extends Component {
         <View style={{flex:1}}/>
 
         <ActivityIndicatorButtonComponent
+          style={{marginBottom: 32, width: '100%', alignItems: 'center'}}
           buttonText='submit'
           showActivityIndicator={this.state.showActivityIndicator}
           onClick={this.onClickOfSubmitButton.bind(this)}

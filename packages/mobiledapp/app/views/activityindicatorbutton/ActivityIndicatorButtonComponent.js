@@ -17,7 +17,7 @@ export default class ActivityIndicatorButtonComponent extends Component {
 
     return (
 
-      <View style={styles.container}>
+      <View style={this.props.style}>
 
         {this.state.showActivityIndicator &&
           <View style={styles.buttonContainer}>

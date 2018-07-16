@@ -226,7 +226,7 @@ export default class RewardsCircleComponent extends Component {
 
     return (
 
-      <View style={styles.container}>
+      <View style={this.props.style}>
         <Svg width={outerSize} height={outerSize}>
           {circles}
           {filledCircles}

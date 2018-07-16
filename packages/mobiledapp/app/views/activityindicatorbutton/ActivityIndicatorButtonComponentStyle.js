@@ -10,7 +10,7 @@ module.exports = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
     marginTop: 'auto',
-    marginBottom: 90,
+    marginBottom: 32,
   },
   buttonContainer: {
 

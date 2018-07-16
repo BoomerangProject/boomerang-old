@@ -37,4 +37,26 @@ contract KudosBusiness is KudosActor {
   function numberOfEmployees(address _businessAddress) public view returns (uint256) {
     return workerList[_businessAddress].length;
   }
+
+  struct RewardSystem {
+
+    mapping(bytes32 => uint256) rewardStep;
+    mapping(bytes32 => uint256) rewardCycle;
+    mapping(bytes32 => uint256) rewardLevel;
+    mapping(bytes32 => uint256) rewardRank;
+
+    uint256 numberOfRewardSteps;
+    uint256 numberOfRewardCycles;
+    uint256 numberOfRewardLevels;
+
+    uint256[] levelRewards;
+    uint256[5] ratingRewards;
+    bytes32 _ipfsHash;
+  }
+
+  mapping (address => RewardSystem) workerRewardSystem;
+
+  function defineWorkerRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, uint256[] _ratingRewards, bytes32 _ipfsHash) public {
+
+  }
 }

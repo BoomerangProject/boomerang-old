@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, ToastAndroid, View, Slider, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { Text, ToastAndroid, View, Image, TouchableOpacity, Dimensions } from 'react-native';
 import styles from './DefineWorkerRewardRatingDistributionComponentStyle';
 import Navigator from '../../../../../util/Navigator';
 import RewardsCircleComponent from '../../../../../views/rewardscircle/RewardsCircleComponent';
@@ -9,7 +9,6 @@ export default class DefineWorkerRewardRatingDistributionComponent extends Compo
 
   constructor(props) {
     super(props);
-    this.state = {}
   }
 
   onClickOfNextButton() {
@@ -30,9 +29,7 @@ export default class DefineWorkerRewardRatingDistributionComponent extends Compo
           style={{
           width: width*0.75,
           alignItems: 'center',
-          justifyContent: 'center'}}
-          ratingRewardPercentages={[1,25,50,75,100]}
-        />
+          justifyContent: 'center'}}/>
 
         <View style={{flex:1}}/>
 
