@@ -8,7 +8,7 @@
 // export const kudosTokenContractAddress = '0xe71545a6148a187f72badfc34485e8482d0f3876';
 
 // kovan
-export const kudosContractAddress = '0x5beec87c78329b44d296b82f55f5a8d3a658445b';
+export const kudosContractAddress = '0x53987a635d7681075baa922312340a1661d351ad';
 export const kudosTokenContractAddress = '0x44d5dc0417e032f289e093c8ad88a7d2321a23e3';
 
 export const payerAddress = '0xdcee2f1da7262362a962d456280a928f4f90bb5e';
