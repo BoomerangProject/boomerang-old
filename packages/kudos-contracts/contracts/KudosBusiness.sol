@@ -6,7 +6,7 @@ contract KudosBusiness is KudosActor {
 
   event BusinessProfileUpdated(address indexed _businessAddress, bytes32 _ipfsHash);
   event BusinessHasApprovedWorker(address indexed _businessAddress, address indexed _workerAddress);
-  event WorkerRewardSystem(address indexed _businessAddress);
+  event RegisterWorkerRewardSystem(address indexed _businessAddress);
 
   function registerAsBusiness(address _businessAddress, bytes32 _ipfsHash) public {
 
@@ -57,9 +57,9 @@ contract KudosBusiness is KudosActor {
 
   mapping (address => RewardSystem) workerRewardSystem;
 
-  function defineWorkerRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, uint256[5] _ratingRewards, bytes32 _ipfsHash) public {
+  function registerWorkerRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, uint256[5] _ratingRewards, bytes32 _ipfsHash) public {
 
     workerRewardSystem[_businessAddress] = RewardSystem(_numberOfRewardSteps, _numberOfRewardCycles, _numberOfRewardLevels, _levelRewards, _ratingRewards, _ipfsHash);
-    WorkerRewardSystem(_businessAddress);
+    RegisterWorkerRewardSystem(_businessAddress);
   }
 }
