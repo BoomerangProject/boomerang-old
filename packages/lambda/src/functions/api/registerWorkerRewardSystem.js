@@ -116,7 +116,8 @@ export default async (event, context, callback) => {
   // ---
   let signedTransaction;
   try {
-    signedTransaction = await signTransaction('registerWorkerRewardSystem', [businessAddress, numberOfRewardSteps, numberOfRewardCycles, numberOfRewardLevels, levelRewards, ratingRewards, ipfsHashInBytes(ipfsHash)]);
+//    signedTransaction = await signTransaction('registerWorkerRewardSystem', [businessAddress, numberOfRewardSteps, numberOfRewardCycles, numberOfRewardLevels, levelRewards, ratingRewards, ipfsHashInBytes(ipfsHash)]);
+    signedTransaction = await signTransaction('registerWorkerRewardSystem', [businessAddress, numberOfRewardSteps, numberOfRewardCycles, numberOfRewardLevels, ipfsHashInBytes(ipfsHash)]);
   } catch (error) {
     return callback(null, errorResponse('problem with signing transaction: ' + error));
   }
