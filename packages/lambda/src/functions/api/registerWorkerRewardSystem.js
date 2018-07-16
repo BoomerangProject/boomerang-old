@@ -32,13 +32,13 @@ const getNumberOfRewardLevels = function(event) {
   return jsonBody.numberOfRewardLevels;
 };
 
-const getNumberOfLevelRewards = function(event) {
+const getLevelRewardsArray = function(event) {
 
   const jsonBody = JSON.parse(event.body);
   return jsonBody.levelRewards;
 };
 
-const getNumberOfRatingRewards = function(event) {
+const getRatingRewardsArray = function(event) {
 
   const jsonBody = JSON.parse(event.body);
   return jsonBody.ratingRewards;
@@ -56,8 +56,8 @@ export default async (event, context, callback) => {
   const numberOfRewardSteps = getNumberOfRewardSteps(event);
   const numberOfRewardCycles = getNumberOfRewardCycles(event);
   const numberOfRewardLevels = getNumberOfRewardLevels(event);
-  const levelRewards = getNumberOfLevelRewards(event);
-  const ratingRewards = getNumberOfRatingRewards(event);
+  const levelRewards = getLevelRewardsArray(event);
+  const ratingRewards = getRatingRewardsArray(event);
   const ipfsObject = getIpfsObject(event);
 
   if (businessAddress == null || businessAddress.length < 1) {
