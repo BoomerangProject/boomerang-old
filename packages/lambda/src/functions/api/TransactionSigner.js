@@ -6,6 +6,9 @@ const privateKeyOfPayer = '0x4725d5a1c46923e72f04831eab9daf1ec657f256f5e4f139d48
 
 let signTransaction = async (apiMethod, apiMethodParameters) => {
 
+  console.log('apiMethod: ' + apiMethod);
+  console.log('apiMethodParameters: ' + apiMethodParameters.toString());
+
   const query = kudosContract.methods[apiMethod](...apiMethodParameters);
   const encodedABI = query.encodeABI();
 
