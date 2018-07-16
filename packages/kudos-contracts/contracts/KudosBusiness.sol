@@ -41,11 +41,6 @@ contract KudosBusiness is KudosActor {
 
   struct RewardSystem {
 
-    mapping(bytes32 => uint256) rewardStep;
-    mapping(bytes32 => uint256) rewardCycle;
-    mapping(bytes32 => uint256) rewardLevel;
-    mapping(bytes32 => uint256) rewardRank;
-
     uint256 numberOfRewardSteps;
     uint256 numberOfRewardCycles;
     uint256 numberOfRewardLevels;
@@ -53,6 +48,11 @@ contract KudosBusiness is KudosActor {
     uint256[] levelRewards;
     uint256[5] ratingRewards;
     bytes32 _ipfsHash;
+
+    mapping(bytes32 => uint256) rewardStep;
+    mapping(bytes32 => uint256) rewardCycle;
+    mapping(bytes32 => uint256) rewardLevel;
+    mapping(bytes32 => uint256) rewardRank;
   }
 
   mapping (address => RewardSystem) workerRewardSystem;
