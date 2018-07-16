@@ -1,4 +1,4 @@
-const BigNumber = web3.BigNumber;
+econst BigNumber = web3.BigNumber;
 
 
 require("chai")

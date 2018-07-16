@@ -55,7 +55,7 @@ contract KudosBusiness is KudosActor {
     mapping(bytes32 => uint256) rewardRank;
   }
 
-  mapping (address => RewardSystem) workerRewardSystem;
+  mapping (address => RewardSystem) public workerRewardSystem;
 
 //  function registerWorkerRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, uint256[5] _ratingRewards, bytes32 _ipfsHash) public {
   function registerWorkerRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, bytes32 _ipfsHash) public {

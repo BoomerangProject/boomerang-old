@@ -2,7 +2,6 @@
 import errorResponse from "../../responses/errorResponse";
 import storeToIpfs from '../../services/IpfsService';
 import storeToS3 from "../../services/S3Service";
-import registerAsBusinessTransaction from './RegisterAsBusinessSigner';
 import s3errorResponse from "../../responses/s3errorResponse";
 import ipfsErrorResponse from "../../responses/ipfsErrorResponse";
 import signedTransactionResponse from "../../responses/smartContractReceiptResponse";
