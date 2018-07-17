@@ -6,8 +6,17 @@ const privateKeyOfPayer = '0x4725d5a1c46923e72f04831eab9daf1ec657f256f5e4f139d48
 
 let signTransaction = async (apiMethod, apiMethodParameters) => {
 
+  console.log('apiMethod: ' + apiMethod);
+  console.log('apiMethodParameters.length: ' + apiMethodParameters.length);
+  console.log('apiMethodParameters: ' + apiMethodParameters.toString());
+
+
   const query = kudosContract.methods[apiMethod](...apiMethodParameters);
+  console.log('query: ' + query);
+
+
   const encodedABI = query.encodeABI();
+  console.log('encodedABI: ' + encodedABI);
 
   const transaction = {
     from: payerAddress,
@@ -17,14 +26,12 @@ let signTransaction = async (apiMethod, apiMethodParameters) => {
     data: encodedABI
   };
 
-  console.log('apiMethod: ' + apiMethod);
-  console.log('apiMethodParameters.length: ' + apiMethodParameters.length);
-  console.log('apiMethodParameters: ' + apiMethodParameters.toString());
-  console.log('query: ' + query);
-  console.log('encodedABI: ' + encodedABI);
   console.log('transaction: ' + transaction);
 
+
+
   const signedTransaction = await web3.eth.accounts.signTransaction(transaction, privateKeyOfPayer);
+  console.log('signedTransaction: ' + signedTransaction);
 
   return signedTransaction;
 };
