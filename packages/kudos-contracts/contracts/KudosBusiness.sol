@@ -45,9 +45,9 @@ contract KudosBusiness is KudosActor {
     uint256 numberOfRewardCycles;
     uint256 numberOfRewardLevels;
 
-//    uint256[] levelRewards;
-//    uint256[5] ratingRewards;
-    bytes32 _ipfsHash;
+    uint256[] levelRewards;
+    uint256[5] ratingRewards;
+    bytes32 ipfsHash;
 
     mapping(bytes32 => uint256) rewardStep;
     mapping(bytes32 => uint256) rewardCycle;
@@ -55,13 +55,23 @@ contract KudosBusiness is KudosActor {
     mapping(bytes32 => uint256) rewardRank;
   }
 
-  mapping (address => RewardSystem) public workerRewardSystem;
+  mapping(address => RewardSystem) public workerRewardSystem;
 
-//  function registerWorkerRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, uint256[5] _ratingRewards, bytes32 _ipfsHash) public {
-  function registerWorkerRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, bytes32 _ipfsHash) public {
+  function registerWorkerRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, uint256[5] _ratingRewards, bytes32 _ipfsHash) public {
 
-//    workerRewardSystem[_businessAddress] = RewardSystem(_numberOfRewardSteps, _numberOfRewardCycles, _numberOfRewardLevels, _levelRewards, _ratingRewards, _ipfsHash);
-    workerRewardSystem[_businessAddress] = RewardSystem(_numberOfRewardSteps, _numberOfRewardCycles, _numberOfRewardLevels, _ipfsHash);
+    workerRewardSystem[_businessAddress] = RewardSystem(_numberOfRewardSteps, _numberOfRewardCycles, _numberOfRewardLevels, _levelRewards, _ratingRewards, _ipfsHash);
     RegisterWorkerRewardSystem(_businessAddress);
+  }
+
+  function getWorkerRewardSystem(address _businessAddress) public view returns (uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, uint256[5] _ratingRewards, bytes32 _ipfsHash) {
+
+    RewardSystem memory rewardSystem = workerRewardSystem[_businessAddress];
+
+    _numberOfRewardSteps = rewardSystem.numberOfRewardSteps;
+    _numberOfRewardCycles = rewardSystem.numberOfRewardCycles;
+    _numberOfRewardLevels = rewardSystem.numberOfRewardLevels;
+    _levelRewards = rewardSystem.levelRewards;
+    _ratingRewards = rewardSystem.ratingRewards;
+    _ipfsHash = rewardSystem.ipfsHash;
   }
 }
