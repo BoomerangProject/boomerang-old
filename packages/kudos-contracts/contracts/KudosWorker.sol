@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.24;
 
 import "./KudosActor.sol";
 
@@ -17,17 +17,17 @@ contract KudosWorker is KudosActor {
 
     require(isWorker[_workerAddress] == false);
     isWorker[_workerAddress] = true;
-    WorkerProfileUpdated(_workerAddress, _ipfsHash);
+    emit WorkerProfileUpdated(_workerAddress, _ipfsHash);
   }
 
   function updateWorkerProfile(address _workerAddress, bytes32 _ipfsHash) public {
-    WorkerProfileUpdated(_workerAddress, _ipfsHash);
+    emit WorkerProfileUpdated(_workerAddress, _ipfsHash);
   }
 
   function addBusiness(address _workerAddress, address _businessAddress) public {
 
     workerHasApprovedBusiness[_workerAddress][_businessAddress] = true;
-    WorkerHasApprovedBusiness(_workerAddress, _businessAddress);
+    emit WorkerHasApprovedBusiness(_workerAddress, _businessAddress);
 
     if (businessHasApprovedWorker[_businessAddress][_workerAddress] && !isEmployed[_businessAddress][_workerAddress]) {
       isEmployed[_businessAddress][_workerAddress] = true;
@@ -41,6 +41,6 @@ contract KudosWorker is KudosActor {
 
     numberOfUserRatings[_userAddress] += 1;
     userAverageRating[_userAddress] = (userAverageRating[_userAddress] + _userRating) / numberOfUserRatings[_userAddress];
-    UserRating(_businessAddress, _workerAddress, _userAddress, _userRating, _ipfsHash);
+    emit UserRating(_businessAddress, _workerAddress, _userAddress, _userRating, _ipfsHash);
   }
 }

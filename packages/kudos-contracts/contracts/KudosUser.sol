@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.24;
 
 import "./KudosActor.sol";
 
@@ -31,19 +31,22 @@ contract KudosUser is KudosActor {
       updateWorkerRating(_workerAddress, _businessAddress, _workerRating);
     }
 
-    KudosExperience(_userAddress, _workerAddress, _businessAddress, _workerRating, _businessRating, _ipfsHash);
-  }
+//    updateUserRewardProgress();
+//    updateWorkerRewardProgress();
+//    updateGrowthPoolProgress(_userAddress, _workerAddress, _businessAddress);
 
+    emit KudosExperience(_userAddress, _workerAddress, _businessAddress, _workerRating, _businessRating, _ipfsHash);
+  }
 
   function registerAsUser(address _userAddress, bytes32 _ipfsHash) public {
 
     require(isUser[_userAddress] == false);
     isUser[_userAddress] = true;
-    UserProfileUpdated(_userAddress, _ipfsHash);
+    emit UserProfileUpdated(_userAddress, _ipfsHash);
   }
 
   function updateUserProfile(address _userAddress, bytes32 _ipfsHash) public {
-    UserProfileUpdated(_userAddress, _ipfsHash);
+    emit UserProfileUpdated(_userAddress, _ipfsHash);
   }
 
   function updateBusinessRating(address _businessAddress, uint256 _businessRating) internal {
@@ -58,8 +61,7 @@ contract KudosUser is KudosActor {
     workerAverageRating[_businessAddress][_workerAddress] = (workerAverageRating[_businessAddress][_workerAddress] + _workerRating) / numberOfWorkerRatings[_businessAddress][_workerAddress];
   }
 
-
-//    modifier withCorrectSignatureFromBusiness(address _businessAddress, bytes32 _userId, uint8 _v, bytes32 _r, bytes32 _s) {
+//    modifier withCorrectSignatureFrtomBusiness(address _businessAddress, bytes32 _userId, uint8 _v, bytes32 _r, bytes32 _s) {
 //
 //      bytes32 nonceHash = keccak256(nonce[_businessAddress][_userId]);
 //      bytes memory prefix = "\x19Ethereum Signed Message:\n32";
