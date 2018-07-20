@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 
-import "./KudosActor.sol";
+import './KudosActor.sol';
 
 contract KudosBusiness is KudosActor {
 

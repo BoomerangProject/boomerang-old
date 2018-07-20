@@ -1,3 +1,6 @@
+require('babel-register');
+require('babel-polyfill');
+
 // See <http://truffleframework.com/docs/advanced/configuration> to customize your Truffle configuration!
 require('dotenv').config();
 const WalletProvider = require("truffle-wallet-provider");

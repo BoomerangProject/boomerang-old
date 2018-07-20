@@ -1,8 +1,6 @@
 pragma solidity ^0.4.24;
 
-import "./KudosRewards.sol";
-
-contract KudosActor is KudosRewards {
+contract KudosActor {
 
   // business
   mapping(address => bool) public isBusiness;
@@ -34,7 +32,6 @@ contract KudosActor is KudosRewards {
 
   // business + worker
   mapping(address => mapping(address => bool)) public isEmployed;
-
 
 //  mapping(address => mapping(bytes32 => uint256)) public nonce;
 }
