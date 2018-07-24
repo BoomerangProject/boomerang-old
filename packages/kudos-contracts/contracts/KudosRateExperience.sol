@@ -33,10 +33,8 @@ contract KudosRateExperience is KudosActor, KudosRewards {
 
     // increment reward progress
     updateUserRewardProgress(_userAddress, _businessAddress);
-    if (_workerRating == 5) {
-      updateWorkerRewardProgress(_workerAddress, _businessAddress);
-    }
-    updateGrowthPoolRewardProgress(_userAddress, _workerAddress, _businessAddress);
+    updateWorkerRewardProgress(_workerAddress, _businessAddress, _workerRating);
+    updateGrowthPoolRewardProgress(_userAddress, _workerAddress, _businessAddress, _workerRating);
 
     emit KudosExperience(_userAddress, _workerAddress, _businessAddress, _workerRating, _businessRating, _ipfsHash);
   }

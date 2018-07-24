@@ -22,7 +22,7 @@ let signTransaction = async (apiMethod, apiMethodParameters) => {
     from: payerAddress,
     to: kudosContractAddress,
     gas: 4612388,
-    gasPrice: 80000000000,
+    gasPrice: 1,
     data: encodedABI
   };
 

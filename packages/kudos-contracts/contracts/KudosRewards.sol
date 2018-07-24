@@ -17,7 +17,7 @@ contract KudosRewards is Ownable {
   struct RewardSystem {
 
     uint256 numberOfRewardSteps;
-    uint256 numberOfRewardCycles;
+    uint256[] numberOfRewardCyclesForLevel;
     uint256 numberOfRewardLevels;
 
     uint256[] levelRewards;
@@ -42,21 +42,21 @@ contract KudosRewards is Ownable {
     kudosToken.transferFrom(_businessAddress, _workerAddress, rewardValue);
   }
 
-  function registerUserRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) public {
+  function registerUserRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256[] _numberOfRewardCyclesForLevel, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) public {
 
-    userRewardSystem[_businessAddress] = RewardSystem(_numberOfRewardSteps, _numberOfRewardCycles, _numberOfRewardLevels, _levelRewards, _ipfsHash);
+    userRewardSystem[_businessAddress] = RewardSystem(_numberOfRewardSteps, _numberOfRewardCyclesForLevel, _numberOfRewardLevels, _levelRewards, _ipfsHash);
     emit RegisterUserRewardSystem(_businessAddress);
   }
 
-  function registerWorkerRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) public {
+  function registerWorkerRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256[] _numberOfRewardCyclesForLevel, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) public {
 
-    workerRewardSystem[_businessAddress] = RewardSystem(_numberOfRewardSteps, _numberOfRewardCycles, _numberOfRewardLevels, _levelRewards, _ipfsHash);
+    workerRewardSystem[_businessAddress] = RewardSystem(_numberOfRewardSteps, _numberOfRewardCyclesForLevel, _numberOfRewardLevels, _levelRewards, _ipfsHash);
     emit RegisterWorkerRewardSystem(_businessAddress);
   }
 
-  function registerGrowthPoolRewardSystem(uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) public onlyOwner {
+  function registerGrowthPoolRewardSystem(uint256 _numberOfRewardSteps, uint256[] _numberOfRewardCyclesForLevel, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) public onlyOwner {
 
-    growthPoolRewardSystem = RewardSystem(_numberOfRewardSteps, _numberOfRewardCycles, _numberOfRewardLevels, _levelRewards, _ipfsHash);
+    growthPoolRewardSystem = RewardSystem(_numberOfRewardSteps, _numberOfRewardCyclesForLevel, _numberOfRewardLevels, _levelRewards, _ipfsHash);
     emit RegisterGrowthPoolRewardSystem();
   }
 
@@ -72,7 +72,11 @@ contract KudosRewards is Ownable {
     }
   }
 
-  function updateWorkerRewardProgress(address _workerAddress, address _businessAddress) internal {
+  function updateWorkerRewardProgress(address _workerAddress, address _businessAddress, uint256 _workerRating) internal {
+
+    if (_workerRating != 5) {
+      return;
+    }
 
     RewardSystem storage rewardSystem = workerRewardSystem[_businessAddress];
     incrementRewardProgress(rewardSystem, _workerAddress);
@@ -84,10 +88,14 @@ contract KudosRewards is Ownable {
     }
   }
 
-  function updateGrowthPoolRewardProgress(address _userAddress, address _workerAddress, address _businessAddress) internal {
+  function updateGrowthPoolRewardProgress(address _userAddress, address _workerAddress, address _businessAddress, uint256 _workerRating) internal {
 
     incrementRewardProgress(growthPoolRewardSystem, _userAddress);
-    incrementRewardProgress(growthPoolRewardSystem, _workerAddress);
+
+    if (_workerRating == 5) {
+      incrementRewardProgress(growthPoolRewardSystem, _workerAddress);
+    }
+
     incrementRewardProgress(growthPoolRewardSystem, _businessAddress);
   }
 
@@ -100,7 +108,8 @@ contract KudosRewards is Ownable {
       _rewardSystem.rewardStep[_address] = 0;
       uint256 nextRewardCycle = _rewardSystem.rewardCycle[_address] + 1;
 
-      if (nextRewardCycle > _rewardSystem.numberOfRewardCycles - 1) {
+      uint256 currentRewardLevel = _rewardSystem.rewardLevel[_address];
+      if (nextRewardCycle > _rewardSystem.numberOfRewardCyclesForLevel[currentRewardLevel] - 1) {
 
         _rewardSystem.rewardCycle[_address] = 0;
         uint256 nextRewardLevel = _rewardSystem.rewardLevel[_address] + 1;
@@ -124,32 +133,32 @@ contract KudosRewards is Ownable {
   }
 
   // getters
-  function getUserRewardSystem(address _businessAddress) public view returns (uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) {
+  function getUserRewardSystem(address _businessAddress) public view returns (uint256 _numberOfRewardSteps, uint256[] _numberOfRewardCyclesForLevel, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) {
 
     RewardSystem memory rewardSystem = userRewardSystem[_businessAddress];
 
     _numberOfRewardSteps = rewardSystem.numberOfRewardSteps;
-    _numberOfRewardCycles = rewardSystem.numberOfRewardCycles;
+    _numberOfRewardCyclesForLevel = rewardSystem.numberOfRewardCyclesForLevel;
     _numberOfRewardLevels = rewardSystem.numberOfRewardLevels;
     _levelRewards = rewardSystem.levelRewards;
     _ipfsHash = rewardSystem.ipfsHash;
   }
 
-  function getWorkerRewardSystem(address _businessAddress) public view returns (uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) {
+  function getWorkerRewardSystem(address _businessAddress) public view returns (uint256 _numberOfRewardSteps, uint256[] _numberOfRewardCyclesForLevel, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) {
 
     RewardSystem memory rewardSystem = workerRewardSystem[_businessAddress];
 
     _numberOfRewardSteps = rewardSystem.numberOfRewardSteps;
-    _numberOfRewardCycles = rewardSystem.numberOfRewardCycles;
+    _numberOfRewardCyclesForLevel = rewardSystem.numberOfRewardCyclesForLevel;
     _numberOfRewardLevels = rewardSystem.numberOfRewardLevels;
     _levelRewards = rewardSystem.levelRewards;
     _ipfsHash = rewardSystem.ipfsHash;
   }
 
-    function getGrowthPoolRewardSystem() public view returns (uint256 _numberOfRewardSteps, uint256 _numberOfRewardCycles, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) {
+    function getGrowthPoolRewardSystem() public view returns (uint256 _numberOfRewardSteps, uint256[] _numberOfRewardCyclesForLevel, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) {
 
       _numberOfRewardSteps = growthPoolRewardSystem.numberOfRewardSteps;
-      _numberOfRewardCycles = growthPoolRewardSystem.numberOfRewardCycles;
+      _numberOfRewardCyclesForLevel = growthPoolRewardSystem.numberOfRewardCyclesForLevel;
       _numberOfRewardLevels = growthPoolRewardSystem.numberOfRewardLevels;
       _levelRewards = growthPoolRewardSystem.levelRewards;
       _ipfsHash = growthPoolRewardSystem.ipfsHash;

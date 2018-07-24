@@ -21,16 +21,16 @@ contract("KudosUserRewardSystemTests", function([deployerAddress, userAddress, w
   it("business should be able to register user reward system", async function() {
 
     const numberOfRewardSteps = 3;
-    const numberOfRewardCycles = 4;
+    const numberOfRewardCyclesForLevel = [4,4,4,4,4];
     const numberOfRewardLevels = 5;
     const levelRewards = [300, 400, 500, 600, 700];
     const ipfsHash = "0x7aec552a65bfd833319cecd80cb10be136a35c9da94a8c899f2536c371293b93";
 
-    await kudos.registerUserRewardSystem(businessAddress, numberOfRewardSteps, numberOfRewardCycles, numberOfRewardLevels, levelRewards, ipfsHash);
+    await kudos.registerUserRewardSystem(businessAddress, numberOfRewardSteps, numberOfRewardCyclesForLevel, numberOfRewardLevels, levelRewards, ipfsHash);
     const userRewardSystemStruct = await kudos.getUserRewardSystem(businessAddress);
 
     Number(userRewardSystemStruct[0]).should.equal(numberOfRewardSteps);
-    Number(userRewardSystemStruct[1]).should.equal(numberOfRewardCycles);
+    Number(userRewardSystemStruct[1]).should.equal(numberOfRewardCyclesForLevel);
     Number(userRewardSystemStruct[2]).should.equal(numberOfRewardLevels);
 
     for (let i = 0; i < levelRewards.length; i++) {
@@ -38,5 +38,17 @@ contract("KudosUserRewardSystemTests", function([deployerAddress, userAddress, w
     }
 
     userRewardSystemStruct[4].should.equal(ipfsHash);
+  });
+
+  it("user should increment one step in reward progress system after making review", async function() {
+
+  });
+
+  it("user should increment one cycle after completing one cycle", async function() {
+
+  });
+
+  it("user should receive kudos reward after completing one reward cycle", async function() {
+
   });
 });
