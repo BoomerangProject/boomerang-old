@@ -1,1 +1,0 @@
-export const kudosTokenContractAddress = '0x5341407ee24c348530bf62e1f97c8d1d31368e23';

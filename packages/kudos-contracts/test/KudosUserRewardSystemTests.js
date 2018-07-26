@@ -1,5 +1,6 @@
 const BigNumber = web3.BigNumber;
-import { kudosTokenContractAddress } from './helpers/ContractAddresses';
+import { ipfsHash, rewardSystem } from './helpers/mockData';
+import assertRewardSystemStatus from './helpers/assertRewardSystemStatus';
 
 require("chai")
   .use(require("chai-as-promised"))
@@ -7,48 +8,179 @@ require("chai")
   .should();
 
 const Kudos = artifacts.require("Kudos");
+const KudosToken = artifacts.require("KudosToken");
 
 contract("KudosUserRewardSystemTests", function([deployerAddress, userAddress, workerAddress, businessAddress]) {
 
   let kudos;
+  let kudosToken;
+  const tokenUnit = new BigNumber(10 ** 18);
 
   beforeEach(async function() {
 
-    kudos = await Kudos.new(kudosTokenContractAddress);
-    // kudos = await Kudos.at('0x6a5fd45fdbdf3da997c4222df7f197eeb4155ecc');
+    kudosToken = await KudosToken.new();
+    kudos = await Kudos.new(kudosToken.address);
   });
 
   it("business should be able to register user reward system", async function() {
 
-    const numberOfRewardSteps = 3;
-    const numberOfRewardCyclesForLevel = [4,4,4,4,4];
-    const numberOfRewardLevels = 5;
-    const levelRewards = [300, 400, 500, 600, 700];
-    const ipfsHash = "0x7aec552a65bfd833319cecd80cb10be136a35c9da94a8c899f2536c371293b93";
-
-    await kudos.registerUserRewardSystem(businessAddress, numberOfRewardSteps, numberOfRewardCyclesForLevel, numberOfRewardLevels, levelRewards, ipfsHash);
+    await kudos.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
     const userRewardSystemStruct = await kudos.getUserRewardSystem(businessAddress);
 
-    Number(userRewardSystemStruct[0]).should.equal(numberOfRewardSteps);
-    Number(userRewardSystemStruct[1]).should.equal(numberOfRewardCyclesForLevel);
-    Number(userRewardSystemStruct[2]).should.equal(numberOfRewardLevels);
+    Number(userRewardSystemStruct[0]).should.equal(rewardSystem.numberOfRewardSteps);
 
-    for (let i = 0; i < levelRewards.length; i++) {
-      Number(userRewardSystemStruct[3][i]).should.equal(levelRewards[i]);
+    for (let i = 0; i < rewardSystem.numberOfRewardCyclesForLevel.length; i++) {
+      Number(userRewardSystemStruct[1][i]).should.equal(rewardSystem.numberOfRewardCyclesForLevel[i]);
+    }
+
+    Number(userRewardSystemStruct[2]).should.equal(rewardSystem.numberOfRewardLevels);
+
+    for (let i = 0; i < rewardSystem.levelRewards.length; i++) {
+      Number(userRewardSystemStruct[3][i]).should.equal(rewardSystem.levelRewards[i]);
     }
 
     userRewardSystemStruct[4].should.equal(ipfsHash);
   });
 
-  it("user should increment one step in reward progress system after making review", async function() {
+  it("user should increment one rewardStep after making review", async function() {
 
+    await kudos.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
+
+    await assertRewardSystemStatus(kudos, userAddress, businessAddress, 0, 0, 0, 0);
+
+    const workerRating = 3;
+    const businessRating = 3;
+    await kudos.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+
+    await assertRewardSystemStatus(kudos, userAddress, businessAddress, 1, 0, 0, 0);
   });
 
-  it("user should increment one cycle after completing one cycle", async function() {
+  it("user should increment one rewardCycle after completing the numberOfRewardSteps", async function() {
 
+    await assertRewardSystemStatus(kudos, userAddress, businessAddress, 0, 0, 0, 0);
+
+    await kudos.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
+    await kudosToken.transfer(businessAddress, 10000*tokenUnit, {from: deployerAddress});
+    await kudosToken.approve(kudos.address, 10000*tokenUnit, {from: businessAddress});
+
+    for (let i = 0; i < rewardSystem.numberOfRewardSteps; i++) {
+      const workerRating = 3;
+      const businessRating = 3;
+      await kudos.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+    }
+
+    await assertRewardSystemStatus(kudos, userAddress, businessAddress, 0, 1, 0, 0);
   });
 
-  it("user should receive kudos reward after completing one reward cycle", async function() {
+  it("user should increment one rewardLevel after completing the numberOfRewardCyclesForLevel", async function() {
 
+    await assertRewardSystemStatus(kudos, userAddress, businessAddress, 0, 0, 0, 0);
+
+    await kudos.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
+    await kudosToken.transfer(businessAddress, 10000*tokenUnit, {from: deployerAddress});
+    await kudosToken.approve(kudos.address, 10000*tokenUnit, {from: businessAddress});
+
+    for (let i = 0; i < rewardSystem.numberOfRewardCyclesForLevel[0]; i++) {
+      for (let j = 0; j < rewardSystem.numberOfRewardSteps; j++) {
+        const workerRating = 3;
+        const businessRating = 3;
+        await kudos.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+      }
+    }
+
+    await assertRewardSystemStatus(kudos, userAddress, businessAddress, 0, 0, 1, 0);
+  });
+
+  it("user should increment one rewardRank after completing the numberOfRewardLevels", async function() {
+
+    await assertRewardSystemStatus(kudos, userAddress, businessAddress, 0, 0, 0, 0);
+
+    await kudos.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
+    await kudosToken.transfer(businessAddress, 10000*tokenUnit, {from: deployerAddress});
+    await kudosToken.approve(kudos.address, 10000*tokenUnit, {from: businessAddress});
+
+    for (let i = 0; i < rewardSystem.numberOfRewardLevels; i++) {
+      for (let j = 0; j < rewardSystem.numberOfRewardCyclesForLevel[i]; j++) {
+        for (let k = 0; k < rewardSystem.numberOfRewardSteps; k++) {
+          const workerRating = 3;
+          const businessRating = 3;
+          await kudos.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+        }
+      }
+    }
+
+    await assertRewardSystemStatus(kudos, userAddress, businessAddress, 0, 0, 0, 1);
+  });
+
+  it("user reward system progress should update appropriately", async function() {
+
+    await assertRewardSystemStatus(kudos, userAddress, businessAddress, 0, 0, 0, 0);
+
+    await kudos.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
+    await kudosToken.transfer(businessAddress, 10000*tokenUnit, {from: deployerAddress});
+    await kudosToken.approve(kudos.address, 10000*tokenUnit, {from: businessAddress});
+
+    for (let rewardRank = 0; rewardRank < 3; rewardRank++) {
+      for (let rewardLevel = 0; rewardLevel < rewardSystem.numberOfRewardLevels; rewardLevel++) {
+        for (let rewardCycle = 0; rewardCycle < rewardSystem.numberOfRewardCyclesForLevel[rewardLevel]; rewardCycle++) {
+          for (let rewardStep = 0; rewardStep < rewardSystem.numberOfRewardSteps; rewardStep++) {
+
+            await assertRewardSystemStatus(kudos, userAddress, businessAddress, rewardStep, rewardCycle, rewardLevel, rewardRank);
+
+            const workerRating = 3;
+            const businessRating = 3;
+            await kudos.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+          }
+        }
+      }
+    }
+  });
+
+  it("user should receive kudos reward from business after completing one reward cycle", async function() {
+
+    await kudos.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
+    await kudosToken.transfer(businessAddress, 10000*tokenUnit, {from: deployerAddress});
+    await kudosToken.approve(kudos.address, 10000*tokenUnit, {from: businessAddress});
+
+    let balance;
+    for (let i = 0; i < rewardSystem.numberOfRewardSteps; i++) {
+
+      balance = await kudosToken.balanceOf(userAddress);
+      Number(balance).should.equal(0);
+
+      const workerRating = 3;
+      const businessRating = 3;
+      await kudos.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+    }
+
+    balance = await kudosToken.balanceOf(userAddress);
+    Number(balance).should.equal(rewardSystem.levelRewards[0]);
+  });
+
+  it("user should receive appropriate kudos rewards from business", async function() {
+
+    await kudos.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
+    await kudosToken.transfer(businessAddress, 10000*tokenUnit, {from: deployerAddress});
+    await kudosToken.approve(kudos.address, 10000*tokenUnit, {from: businessAddress});
+
+    let balance = await kudosToken.balanceOf(userAddress);
+    Number(balance).should.equal(0);
+
+    for (let rewardRank = 0; rewardRank < 3; rewardRank++) {
+      for (let rewardLevel = 0; rewardLevel < rewardSystem.numberOfRewardLevels; rewardLevel++) {
+        for (let rewardCycle = 0; rewardCycle < rewardSystem.numberOfRewardCyclesForLevel[rewardLevel]; rewardCycle++) {
+          for (let rewardStep = 0; rewardStep < rewardSystem.numberOfRewardSteps; rewardStep++) {
+
+            const workerRating = 3;
+            const businessRating = 3;
+            await kudos.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+          }
+
+          let balance = await kudosToken.balanceOf(userAddress);
+          Number(balance).should.equal(rewardSystem.levelRewards[rewardLevel]);
+          await kudosToken.transfer(deployerAddress, balance, {from: userAddress});
+        }
+      }
+    }
   });
 });

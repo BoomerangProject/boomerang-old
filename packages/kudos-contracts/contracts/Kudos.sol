@@ -4,7 +4,6 @@ import './KudosUser.sol';
 import './KudosWorker.sol';
 import './KudosBusiness.sol';
 import './KudosRateExperience.sol';
-import './KudosRewards.sol';
 
 contract Kudos is KudosUser, KudosWorker, KudosBusiness, KudosRateExperience {
 

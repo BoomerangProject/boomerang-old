@@ -1,16 +1,16 @@
 pragma solidity ^0.4.24;
 
 import './KudosActor.sol';
-import './KudosRewards.sol';
+import './rewards/KudosRewards.sol';
 
 contract KudosRateExperience is KudosActor, KudosRewards {
 
   event KudosExperience(  address indexed _userAddress,
-                            address indexed _workerAddress,
-                            address indexed _businessAddress,
-                            uint256 _workerRating,
-                            uint256 _businessRating,
-                            bytes32 _ipfsHash);
+                          address indexed _workerAddress,
+                          address indexed _businessAddress,
+                          uint256 _workerRating,
+                          uint256 _businessRating,
+                          bytes32 _ipfsHash);
 
     // add: 'withCorrectSignature(_businessAddress, _userId, _v, _r, _s)'
   //                            uint8 _v, bytes32 _r, bytes32 _s, bytes32 _userId,
@@ -31,7 +31,8 @@ contract KudosRateExperience is KudosActor, KudosRewards {
       updateWorkerRating(_workerAddress, _businessAddress, _workerRating);
     }
 
-    // increment reward progress
+    rewardWorker(_workerAddress, _businessAddress, _workerRating);
+
     updateUserRewardProgress(_userAddress, _businessAddress);
     updateWorkerRewardProgress(_workerAddress, _businessAddress, _workerRating);
     updateGrowthPoolRewardProgress(_userAddress, _workerAddress, _businessAddress, _workerRating);

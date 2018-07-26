@@ -1,6 +1,5 @@
 const BigNumber = web3.BigNumber;
-import expectRevert from './helpers/expectRevert';
-import { kudosTokenContractAddress } from './helpers/ContractAddresses';
+import { ipfsHash } from './helpers/mockData';
 
 require("chai")
   .use(require("chai-as-promised"))
@@ -8,15 +7,18 @@ require("chai")
   .should();
 
 const Kudos = artifacts.require("Kudos");
+const KudosToken = artifacts.require("KudosToken");
 
-contract("KudosWorkerRewardSystemTests", function([deployerAddress, userAddress, workerAddress, businessAddress]) {
+contract("KudosGrowthPoolRewardSystemTests", function([deployerAddress, userAddress, workerAddress, businessAddress]) {
 
   let kudos;
+  let kudosToken;
+  const tokenUnit = new BigNumber(10 ** 18);
 
   beforeEach(async function() {
 
-    kudos = await Kudos.new(kudosTokenContractAddress);
-    // kudos = await Kudos.at('0x6a5fd45fdbdf3da997c4222df7f197eeb4155ecc');
+    kudosToken = await KudosToken.new();
+    kudos = await Kudos.new(kudosToken.address);
   });
 
   it("deployer should be able to register growth pool reward system", async function() {
@@ -25,9 +27,8 @@ contract("KudosWorkerRewardSystemTests", function([deployerAddress, userAddress,
     const numberOfRewardCyclesForLevel = [4,4,4,4,4];
     const numberOfRewardLevels = 5;
     const levelRewards = [300, 400, 500, 600, 700];
-    const ipfsHash = "0x7aec552a65bfd833319cecd80cb10be136a35c9da94a8c899f2536c371293b93";
 
-    await kudos.registerGrowthPoolRewardSystem(numberOfRewardSteps, numberOfRewardCyclesForLevel, numberOfRewardCyclesForLevel, levelRewards, ipfsHash);
+    await kudos.registerGrowthPoolRewardSystem(numberOfRewardSteps, numberOfRewardCyclesForLevel, numberOfRewardLevels, levelRewards, ipfsHash, {from: deployerAddress});
     const growthPoolRewardSystemStruct = await kudos.getGrowthPoolRewardSystem();
 
     Number(growthPoolRewardSystemStruct[0]).should.equal(numberOfRewardSteps);
@@ -51,7 +52,6 @@ contract("KudosWorkerRewardSystemTests", function([deployerAddress, userAddress,
     const numberOfRewardCyclesForLevel = [4,4,4,4,4];
     const numberOfRewardLevels = 5;
     const levelRewards = [300, 400, 500, 600, 700];
-    const ipfsHash = "0x7aec552a65bfd833319cecd80cb10be136a35c9da94a8c899f2536c371293b93";
 
     await kudos.registerGrowthPoolRewardSystem(numberOfRewardSteps, numberOfRewardCyclesForLevel, numberOfRewardLevels, levelRewards, ipfsHash, {from: businessAddress}).should.be.rejected;
   });
