@@ -109,14 +109,14 @@
     "absolutePath": "/Users/panda/projects/kudos/packages/kudos-contracts/contracts/rewards/KudosRewardSystem.sol",
     "exportedSymbols": {
       "KudosRewardSystem": [
-        1197
+        1327
       ]
     },
-    "id": 1198,
+    "id": 1328,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1030,
+        "id": 1160,
         "literals": [
           "solidity",
           "^",
@@ -129,10 +129,10 @@
       {
         "absolutePath": "/Users/panda/projects/kudos/packages/kudos-contracts/contracts/Ownable.sol",
         "file": "../Ownable.sol",
-        "id": 1031,
+        "id": 1161,
         "nodeType": "ImportDirective",
-        "scope": 1198,
-        "sourceUnit": 775,
+        "scope": 1328,
+        "sourceUnit": 795,
         "src": "26:24:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -140,10 +140,10 @@
       {
         "absolutePath": "/Users/panda/projects/kudos/packages/kudos-token-contracts/contracts/SafeMath.sol",
         "file": "../../../kudos-token-contracts/contracts/SafeMath.sol",
-        "id": 1032,
+        "id": 1162,
         "nodeType": "ImportDirective",
-        "scope": 1198,
-        "sourceUnit": 1947,
+        "scope": 1328,
+        "sourceUnit": 2077,
         "src": "51:63:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -151,10 +151,10 @@
       {
         "absolutePath": "/Users/panda/projects/kudos/packages/kudos-token-contracts/contracts/ERC20Token.sol",
         "file": "../../../kudos-token-contracts/contracts/ERC20Token.sol",
-        "id": 1033,
+        "id": 1163,
         "nodeType": "ImportDirective",
-        "scope": 1198,
-        "sourceUnit": 1836,
+        "scope": 1328,
+        "sourceUnit": 1966,
         "src": "115:65:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -165,53 +165,53 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1034,
+              "id": 1164,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 774,
+              "referencedDeclaration": 794,
               "src": "212:7:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$774",
+                "typeIdentifier": "t_contract$_Ownable_$794",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 1035,
+            "id": 1165,
             "nodeType": "InheritanceSpecifier",
             "src": "212:7:9"
           }
         ],
         "contractDependencies": [
-          774
+          794
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1197,
+        "id": 1327,
         "linearizedBaseContracts": [
-          1197,
-          774
+          1327,
+          794
         ],
         "name": "KudosRewardSystem",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 1038,
+            "id": 1168,
             "libraryName": {
               "contractScope": null,
-              "id": 1036,
+              "id": 1166,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1946,
+              "referencedDeclaration": 2076,
               "src": "230:8:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$1946",
+                "typeIdentifier": "t_contract$_SafeMath_$2076",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
             "src": "224:27:9",
             "typeName": {
-              "id": 1037,
+              "id": 1167,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "243:7:9",
@@ -223,26 +223,26 @@
           },
           {
             "constant": false,
-            "id": 1040,
+            "id": 1170,
             "name": "kudosToken",
             "nodeType": "VariableDeclaration",
-            "scope": 1197,
+            "scope": 1327,
             "src": "255:28:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ERC20Token_$1835",
+              "typeIdentifier": "t_contract$_ERC20Token_$1965",
               "typeString": "contract ERC20Token"
             },
             "typeName": {
               "contractScope": null,
-              "id": 1039,
+              "id": 1169,
               "name": "ERC20Token",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1835,
+              "referencedDeclaration": 1965,
               "src": "255:10:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20Token_$1835",
+                "typeIdentifier": "t_contract$_ERC20Token_$1965",
                 "typeString": "contract ERC20Token"
               }
             },
@@ -252,20 +252,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1046,
+            "id": 1176,
             "name": "Debug",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1045,
+              "id": 1175,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1042,
+                  "id": 1172,
                   "indexed": false,
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1046,
+                  "scope": 1176,
                   "src": "299:10:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -274,7 +274,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1041,
+                    "id": 1171,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "299:6:9",
@@ -288,11 +288,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1044,
+                  "id": 1174,
                   "indexed": false,
                   "name": "_arg",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1046,
+                  "scope": 1176,
                   "src": "311:12:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -301,7 +301,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1043,
+                    "id": 1173,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "311:7:9",
@@ -320,14 +320,14 @@
           },
           {
             "canonicalName": "KudosRewardSystem.RewardSystem",
-            "id": 1075,
+            "id": 1205,
             "members": [
               {
                 "constant": false,
-                "id": 1048,
+                "id": 1178,
                 "name": "numberOfRewardSteps",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "356:27:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -336,7 +336,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1047,
+                  "id": 1177,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "356:7:9",
@@ -350,10 +350,10 @@
               },
               {
                 "constant": false,
-                "id": 1051,
+                "id": 1181,
                 "name": "numberOfRewardCyclesForLevel",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "389:38:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -363,7 +363,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1049,
+                    "id": 1179,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "389:7:9",
@@ -372,7 +372,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1050,
+                  "id": 1180,
                   "length": null,
                   "nodeType": "ArrayTypeName",
                   "src": "389:9:9",
@@ -386,10 +386,10 @@
               },
               {
                 "constant": false,
-                "id": 1053,
+                "id": 1183,
                 "name": "numberOfRewardLevels",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "433:28:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -398,7 +398,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1052,
+                  "id": 1182,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "433:7:9",
@@ -412,10 +412,10 @@
               },
               {
                 "constant": false,
-                "id": 1056,
+                "id": 1186,
                 "name": "levelRewards",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "468:22:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -425,7 +425,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1054,
+                    "id": 1184,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "468:7:9",
@@ -434,7 +434,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1055,
+                  "id": 1185,
                   "length": null,
                   "nodeType": "ArrayTypeName",
                   "src": "468:9:9",
@@ -448,10 +448,10 @@
               },
               {
                 "constant": false,
-                "id": 1058,
+                "id": 1188,
                 "name": "ipfsHash",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "496:16:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -460,7 +460,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 1057,
+                  "id": 1187,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "496:7:9",
@@ -474,10 +474,10 @@
               },
               {
                 "constant": false,
-                "id": 1062,
+                "id": 1192,
                 "name": "rewardStep",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "519:38:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -486,9 +486,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1061,
+                  "id": 1191,
                   "keyType": {
-                    "id": 1059,
+                    "id": 1189,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "527:7:9",
@@ -504,7 +504,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1060,
+                    "id": 1190,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "538:7:9",
@@ -519,10 +519,10 @@
               },
               {
                 "constant": false,
-                "id": 1066,
+                "id": 1196,
                 "name": "rewardCycle",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "563:39:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -531,9 +531,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1065,
+                  "id": 1195,
                   "keyType": {
-                    "id": 1063,
+                    "id": 1193,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "571:7:9",
@@ -549,7 +549,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1064,
+                    "id": 1194,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "582:7:9",
@@ -564,10 +564,10 @@
               },
               {
                 "constant": false,
-                "id": 1070,
+                "id": 1200,
                 "name": "rewardLevel",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "608:39:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -576,9 +576,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1069,
+                  "id": 1199,
                   "keyType": {
-                    "id": 1067,
+                    "id": 1197,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "616:7:9",
@@ -594,7 +594,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1068,
+                    "id": 1198,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "627:7:9",
@@ -609,10 +609,10 @@
               },
               {
                 "constant": false,
-                "id": 1074,
+                "id": 1204,
                 "name": "rewardRank",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "653:38:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -621,9 +621,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1073,
+                  "id": 1203,
                   "keyType": {
-                    "id": 1071,
+                    "id": 1201,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "661:7:9",
@@ -639,7 +639,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1072,
+                    "id": 1202,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "672:7:9",
@@ -655,27 +655,27 @@
             ],
             "name": "RewardSystem",
             "nodeType": "StructDefinition",
-            "scope": 1197,
+            "scope": 1327,
             "src": "329:367:9",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1195,
+              "id": 1325,
               "nodeType": "Block",
               "src": "796:958:9",
               "statements": [
                 {
                   "assignments": [
-                    1083
+                    1213
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1083,
+                      "id": 1213,
                       "name": "nextRewardStep",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1196,
+                      "scope": 1326,
                       "src": "803:22:9",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -684,7 +684,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 1082,
+                        "id": 1212,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "803:7:9",
@@ -697,14 +697,14 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1090,
+                  "id": 1220,
                   "initialValue": {
                     "argumentTypes": null,
                     "commonType": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1089,
+                    "id": 1219,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -715,39 +715,39 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1084,
+                          "id": 1214,
                           "name": "_rewardSystem",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1077,
+                          "referencedDeclaration": 1207,
                           "src": "828:13:9",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                            "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                             "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                           }
                         },
-                        "id": 1085,
+                        "id": 1215,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "rewardStep",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1062,
+                        "referencedDeclaration": 1192,
                         "src": "828:24:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 1087,
+                      "id": 1217,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1086,
+                        "id": 1216,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1079,
+                        "referencedDeclaration": 1209,
                         "src": "853:8:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -770,7 +770,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 1088,
+                      "id": 1218,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -801,18 +801,18 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1094,
+                    "id": 1224,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 1091,
+                      "id": 1221,
                       "name": "nextRewardStep",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1083,
+                      "referencedDeclaration": 1213,
                       "src": "877:14:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -825,25 +825,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1092,
+                        "id": 1222,
                         "name": "_rewardSystem",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1077,
+                        "referencedDeclaration": 1207,
                         "src": "895:13:9",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                          "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                           "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                         }
                       },
-                      "id": 1093,
+                      "id": 1223,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "numberOfRewardSteps",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1048,
+                      "referencedDeclaration": 1178,
                       "src": "895:33:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -857,14 +857,14 @@
                     }
                   },
                   "falseBody": {
-                    "id": 1193,
+                    "id": 1323,
                     "nodeType": "Block",
                     "src": "1696:54:9",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1191,
+                          "id": 1321,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -875,39 +875,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1185,
+                                "id": 1315,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1077,
+                                "referencedDeclaration": 1207,
                                 "src": "1704:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                   "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1188,
+                              "id": 1318,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "rewardStep",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1062,
+                              "referencedDeclaration": 1192,
                               "src": "1704:24:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 1189,
+                            "id": 1319,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1187,
+                              "id": 1317,
                               "name": "_address",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1079,
+                              "referencedDeclaration": 1209,
                               "src": "1729:8:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -930,7 +930,7 @@
                           "rightHandSide": {
                             "argumentTypes": null,
                             "hexValue": "31",
-                            "id": 1190,
+                            "id": 1320,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -951,24 +951,24 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1192,
+                        "id": 1322,
                         "nodeType": "ExpressionStatement",
                         "src": "1704:39:9"
                       }
                     ]
                   },
-                  "id": 1194,
+                  "id": 1324,
                   "nodeType": "IfStatement",
                   "src": "873:877:9",
                   "trueBody": {
-                    "id": 1184,
+                    "id": 1314,
                     "nodeType": "Block",
                     "src": "930:760:9",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1101,
+                          "id": 1231,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -979,39 +979,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1095,
+                                "id": 1225,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1077,
+                                "referencedDeclaration": 1207,
                                 "src": "939:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                   "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1098,
+                              "id": 1228,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "rewardStep",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1062,
+                              "referencedDeclaration": 1192,
                               "src": "939:24:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 1099,
+                            "id": 1229,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1097,
+                              "id": 1227,
                               "name": "_address",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1079,
+                              "referencedDeclaration": 1209,
                               "src": "964:8:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -1034,7 +1034,7 @@
                           "rightHandSide": {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 1100,
+                            "id": 1230,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1055,21 +1055,21 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1102,
+                        "id": 1232,
                         "nodeType": "ExpressionStatement",
                         "src": "939:38:9"
                       },
                       {
                         "assignments": [
-                          1104
+                          1234
                         ],
                         "declarations": [
                           {
                             "constant": false,
-                            "id": 1104,
+                            "id": 1234,
                             "name": "nextRewardCycle",
                             "nodeType": "VariableDeclaration",
-                            "scope": 1196,
+                            "scope": 1326,
                             "src": "985:23:9",
                             "stateVariable": false,
                             "storageLocation": "default",
@@ -1078,7 +1078,7 @@
                               "typeString": "uint256"
                             },
                             "typeName": {
-                              "id": 1103,
+                              "id": 1233,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
                               "src": "985:7:9",
@@ -1091,14 +1091,14 @@
                             "visibility": "internal"
                           }
                         ],
-                        "id": 1111,
+                        "id": 1241,
                         "initialValue": {
                           "argumentTypes": null,
                           "commonType": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 1110,
+                          "id": 1240,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1109,39 +1109,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1105,
+                                "id": 1235,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1077,
+                                "referencedDeclaration": 1207,
                                 "src": "1011:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                   "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1106,
+                              "id": 1236,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "rewardCycle",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1066,
+                              "referencedDeclaration": 1196,
                               "src": "1011:25:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 1108,
+                            "id": 1238,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1107,
+                              "id": 1237,
                               "name": "_address",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1079,
+                              "referencedDeclaration": 1209,
                               "src": "1037:8:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -1164,7 +1164,7 @@
                           "rightExpression": {
                             "argumentTypes": null,
                             "hexValue": "31",
-                            "id": 1109,
+                            "id": 1239,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1190,15 +1190,15 @@
                       },
                       {
                         "assignments": [
-                          1113
+                          1243
                         ],
                         "declarations": [
                           {
                             "constant": false,
-                            "id": 1113,
+                            "id": 1243,
                             "name": "currentRewardLevel",
                             "nodeType": "VariableDeclaration",
-                            "scope": 1196,
+                            "scope": 1326,
                             "src": "1059:26:9",
                             "stateVariable": false,
                             "storageLocation": "default",
@@ -1207,7 +1207,7 @@
                               "typeString": "uint256"
                             },
                             "typeName": {
-                              "id": 1112,
+                              "id": 1242,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
                               "src": "1059:7:9",
@@ -1220,46 +1220,46 @@
                             "visibility": "internal"
                           }
                         ],
-                        "id": 1118,
+                        "id": 1248,
                         "initialValue": {
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1114,
+                              "id": 1244,
                               "name": "_rewardSystem",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1077,
+                              "referencedDeclaration": 1207,
                               "src": "1088:13:9",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                 "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                               }
                             },
-                            "id": 1115,
+                            "id": 1245,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "rewardLevel",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 1070,
+                            "referencedDeclaration": 1200,
                             "src": "1088:25:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                               "typeString": "mapping(address => uint256)"
                             }
                           },
-                          "id": 1117,
+                          "id": 1247,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1116,
+                            "id": 1246,
                             "name": "_address",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1079,
+                            "referencedDeclaration": 1209,
                             "src": "1114:8:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1287,18 +1287,18 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 1124,
+                          "id": 1254,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 1119,
+                            "id": 1249,
                             "name": "nextRewardCycle",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1104,
+                            "referencedDeclaration": 1234,
                             "src": "1135:15:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1313,39 +1313,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1120,
+                                "id": 1250,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1077,
+                                "referencedDeclaration": 1207,
                                 "src": "1154:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                   "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1121,
+                              "id": 1251,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "numberOfRewardCyclesForLevel",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1051,
+                              "referencedDeclaration": 1181,
                               "src": "1154:42:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
                                 "typeString": "uint256[] storage ref"
                               }
                             },
-                            "id": 1123,
+                            "id": 1253,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1122,
+                              "id": 1252,
                               "name": "currentRewardLevel",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1113,
+                              "referencedDeclaration": 1243,
                               "src": "1197:18:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -1370,14 +1370,14 @@
                           }
                         },
                         "falseBody": {
-                          "id": 1182,
+                          "id": 1312,
                           "nodeType": "Block",
                           "src": "1624:59:9",
                           "statements": [
                             {
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1180,
+                                "id": 1310,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -1388,39 +1388,39 @@
                                     "argumentTypes": null,
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1174,
+                                      "id": 1304,
                                       "name": "_rewardSystem",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1077,
+                                      "referencedDeclaration": 1207,
                                       "src": "1634:13:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                        "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                         "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                       }
                                     },
-                                    "id": 1177,
+                                    "id": 1307,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "rewardCycle",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 1066,
+                                    "referencedDeclaration": 1196,
                                     "src": "1634:25:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                       "typeString": "mapping(address => uint256)"
                                     }
                                   },
-                                  "id": 1178,
+                                  "id": 1308,
                                   "indexExpression": {
                                     "argumentTypes": null,
-                                    "id": 1176,
+                                    "id": 1306,
                                     "name": "_address",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1079,
+                                    "referencedDeclaration": 1209,
                                     "src": "1660:8:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -1443,7 +1443,7 @@
                                 "rightHandSide": {
                                   "argumentTypes": null,
                                   "hexValue": "31",
-                                  "id": 1179,
+                                  "id": 1309,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -1464,24 +1464,24 @@
                                   "typeString": "uint256"
                                 }
                               },
-                              "id": 1181,
+                              "id": 1311,
                               "nodeType": "ExpressionStatement",
                               "src": "1634:40:9"
                             }
                           ]
                         },
-                        "id": 1183,
+                        "id": 1313,
                         "nodeType": "IfStatement",
                         "src": "1131:552:9",
                         "trueBody": {
-                          "id": 1173,
+                          "id": 1303,
                           "nodeType": "Block",
                           "src": "1218:400:9",
                           "statements": [
                             {
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1131,
+                                "id": 1261,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -1492,39 +1492,39 @@
                                     "argumentTypes": null,
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1125,
+                                      "id": 1255,
                                       "name": "_rewardSystem",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1077,
+                                      "referencedDeclaration": 1207,
                                       "src": "1229:13:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                        "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                         "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                       }
                                     },
-                                    "id": 1128,
+                                    "id": 1258,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "rewardCycle",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 1066,
+                                    "referencedDeclaration": 1196,
                                     "src": "1229:25:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                       "typeString": "mapping(address => uint256)"
                                     }
                                   },
-                                  "id": 1129,
+                                  "id": 1259,
                                   "indexExpression": {
                                     "argumentTypes": null,
-                                    "id": 1127,
+                                    "id": 1257,
                                     "name": "_address",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1079,
+                                    "referencedDeclaration": 1209,
                                     "src": "1255:8:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -1547,7 +1547,7 @@
                                 "rightHandSide": {
                                   "argumentTypes": null,
                                   "hexValue": "30",
-                                  "id": 1130,
+                                  "id": 1260,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -1568,21 +1568,21 @@
                                   "typeString": "uint256"
                                 }
                               },
-                              "id": 1132,
+                              "id": 1262,
                               "nodeType": "ExpressionStatement",
                               "src": "1229:39:9"
                             },
                             {
                               "assignments": [
-                                1134
+                                1264
                               ],
                               "declarations": [
                                 {
                                   "constant": false,
-                                  "id": 1134,
+                                  "id": 1264,
                                   "name": "nextRewardLevel",
                                   "nodeType": "VariableDeclaration",
-                                  "scope": 1196,
+                                  "scope": 1326,
                                   "src": "1278:23:9",
                                   "stateVariable": false,
                                   "storageLocation": "default",
@@ -1591,7 +1591,7 @@
                                     "typeString": "uint256"
                                   },
                                   "typeName": {
-                                    "id": 1133,
+                                    "id": 1263,
                                     "name": "uint256",
                                     "nodeType": "ElementaryTypeName",
                                     "src": "1278:7:9",
@@ -1604,14 +1604,14 @@
                                   "visibility": "internal"
                                 }
                               ],
-                              "id": 1141,
+                              "id": 1271,
                               "initialValue": {
                                 "argumentTypes": null,
                                 "commonType": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
                                 },
-                                "id": 1140,
+                                "id": 1270,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -1622,39 +1622,39 @@
                                     "argumentTypes": null,
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1135,
+                                      "id": 1265,
                                       "name": "_rewardSystem",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1077,
+                                      "referencedDeclaration": 1207,
                                       "src": "1304:13:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                        "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                         "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                       }
                                     },
-                                    "id": 1136,
+                                    "id": 1266,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "rewardLevel",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 1070,
+                                    "referencedDeclaration": 1200,
                                     "src": "1304:25:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                       "typeString": "mapping(address => uint256)"
                                     }
                                   },
-                                  "id": 1138,
+                                  "id": 1268,
                                   "indexExpression": {
                                     "argumentTypes": null,
-                                    "id": 1137,
+                                    "id": 1267,
                                     "name": "_address",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1079,
+                                    "referencedDeclaration": 1209,
                                     "src": "1330:8:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -1677,7 +1677,7 @@
                                 "rightExpression": {
                                   "argumentTypes": null,
                                   "hexValue": "31",
-                                  "id": 1139,
+                                  "id": 1269,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -1708,18 +1708,18 @@
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
                                 },
-                                "id": 1145,
+                                "id": 1275,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "leftExpression": {
                                   "argumentTypes": null,
-                                  "id": 1142,
+                                  "id": 1272,
                                   "name": "nextRewardLevel",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1134,
+                                  "referencedDeclaration": 1264,
                                   "src": "1360:15:9",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -1732,25 +1732,25 @@
                                   "argumentTypes": null,
                                   "expression": {
                                     "argumentTypes": null,
-                                    "id": 1143,
+                                    "id": 1273,
                                     "name": "_rewardSystem",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1077,
+                                    "referencedDeclaration": 1207,
                                     "src": "1379:13:9",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                      "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                       "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                     }
                                   },
-                                  "id": 1144,
+                                  "id": 1274,
                                   "isConstant": false,
                                   "isLValue": true,
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "memberName": "numberOfRewardLevels",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 1053,
+                                  "referencedDeclaration": 1183,
                                   "src": "1379:34:9",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -1764,14 +1764,14 @@
                                 }
                               },
                               "falseBody": {
-                                "id": 1171,
+                                "id": 1301,
                                 "nodeType": "Block",
                                 "src": "1542:67:9",
                                 "statements": [
                                   {
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1169,
+                                      "id": 1299,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -1782,39 +1782,39 @@
                                           "argumentTypes": null,
                                           "expression": {
                                             "argumentTypes": null,
-                                            "id": 1163,
+                                            "id": 1293,
                                             "name": "_rewardSystem",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 1077,
+                                            "referencedDeclaration": 1207,
                                             "src": "1556:13:9",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                              "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                               "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                             }
                                           },
-                                          "id": 1166,
+                                          "id": 1296,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "rewardLevel",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 1070,
+                                          "referencedDeclaration": 1200,
                                           "src": "1556:25:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                             "typeString": "mapping(address => uint256)"
                                           }
                                         },
-                                        "id": 1167,
+                                        "id": 1297,
                                         "indexExpression": {
                                           "argumentTypes": null,
-                                          "id": 1165,
+                                          "id": 1295,
                                           "name": "_address",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1079,
+                                          "referencedDeclaration": 1209,
                                           "src": "1582:8:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -1837,7 +1837,7 @@
                                       "rightHandSide": {
                                         "argumentTypes": null,
                                         "hexValue": "31",
-                                        "id": 1168,
+                                        "id": 1298,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -1858,24 +1858,24 @@
                                         "typeString": "uint256"
                                       }
                                     },
-                                    "id": 1170,
+                                    "id": 1300,
                                     "nodeType": "ExpressionStatement",
                                     "src": "1556:40:9"
                                   }
                                 ]
                               },
-                              "id": 1172,
+                              "id": 1302,
                               "nodeType": "IfStatement",
                               "src": "1356:253:9",
                               "trueBody": {
-                                "id": 1162,
+                                "id": 1292,
                                 "nodeType": "Block",
                                 "src": "1415:121:9",
                                 "statements": [
                                   {
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1152,
+                                      "id": 1282,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -1886,39 +1886,39 @@
                                           "argumentTypes": null,
                                           "expression": {
                                             "argumentTypes": null,
-                                            "id": 1146,
+                                            "id": 1276,
                                             "name": "_rewardSystem",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 1077,
+                                            "referencedDeclaration": 1207,
                                             "src": "1430:13:9",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                              "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                               "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                             }
                                           },
-                                          "id": 1149,
+                                          "id": 1279,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "rewardLevel",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 1070,
+                                          "referencedDeclaration": 1200,
                                           "src": "1430:25:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                             "typeString": "mapping(address => uint256)"
                                           }
                                         },
-                                        "id": 1150,
+                                        "id": 1280,
                                         "indexExpression": {
                                           "argumentTypes": null,
-                                          "id": 1148,
+                                          "id": 1278,
                                           "name": "_address",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1079,
+                                          "referencedDeclaration": 1209,
                                           "src": "1456:8:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -1941,7 +1941,7 @@
                                       "rightHandSide": {
                                         "argumentTypes": null,
                                         "hexValue": "30",
-                                        "id": 1151,
+                                        "id": 1281,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -1962,14 +1962,14 @@
                                         "typeString": "uint256"
                                       }
                                     },
-                                    "id": 1153,
+                                    "id": 1283,
                                     "nodeType": "ExpressionStatement",
                                     "src": "1430:39:9"
                                   },
                                   {
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1160,
+                                      "id": 1290,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -1980,39 +1980,39 @@
                                           "argumentTypes": null,
                                           "expression": {
                                             "argumentTypes": null,
-                                            "id": 1154,
+                                            "id": 1284,
                                             "name": "_rewardSystem",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 1077,
+                                            "referencedDeclaration": 1207,
                                             "src": "1483:13:9",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                              "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                               "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                             }
                                           },
-                                          "id": 1157,
+                                          "id": 1287,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "rewardRank",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 1074,
+                                          "referencedDeclaration": 1204,
                                           "src": "1483:24:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                             "typeString": "mapping(address => uint256)"
                                           }
                                         },
-                                        "id": 1158,
+                                        "id": 1288,
                                         "indexExpression": {
                                           "argumentTypes": null,
-                                          "id": 1156,
+                                          "id": 1286,
                                           "name": "_address",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1079,
+                                          "referencedDeclaration": 1209,
                                           "src": "1508:8:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -2035,7 +2035,7 @@
                                       "rightHandSide": {
                                         "argumentTypes": null,
                                         "hexValue": "31",
-                                        "id": 1159,
+                                        "id": 1289,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -2056,7 +2056,7 @@
                                         "typeString": "uint256"
                                       }
                                     },
-                                    "id": 1161,
+                                    "id": 1291,
                                     "nodeType": "ExpressionStatement",
                                     "src": "1483:39:9"
                                   }
@@ -2072,7 +2072,7 @@
               ]
             },
             "documentation": null,
-            "id": 1196,
+            "id": 1326,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2080,31 +2080,31 @@
             "name": "incrementRewardProgress",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1080,
+              "id": 1210,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1077,
+                  "id": 1207,
                   "name": "_rewardSystem",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1196,
+                  "scope": 1326,
                   "src": "733:34:9",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                    "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                     "typeString": "struct KudosRewardSystem.RewardSystem"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 1076,
+                    "id": 1206,
                     "name": "RewardSystem",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1075,
+                    "referencedDeclaration": 1205,
                     "src": "733:12:9",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                      "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                       "typeString": "struct KudosRewardSystem.RewardSystem"
                     }
                   },
@@ -2113,10 +2113,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1079,
+                  "id": 1209,
                   "name": "_address",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1196,
+                  "scope": 1326,
                   "src": "769:16:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2125,7 +2125,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1078,
+                    "id": 1208,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "769:7:9",
@@ -2142,19 +2142,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1081,
+              "id": 1211,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "796:0:9"
             },
-            "scope": 1197,
+            "scope": 1327,
             "src": "700:1054:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 1198,
+        "scope": 1328,
         "src": "182:1574:9"
       }
     ],
@@ -2164,14 +2164,14 @@
     "absolutePath": "/Users/panda/projects/kudos/packages/kudos-contracts/contracts/rewards/KudosRewardSystem.sol",
     "exportedSymbols": {
       "KudosRewardSystem": [
-        1197
+        1327
       ]
     },
-    "id": 1198,
+    "id": 1328,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1030,
+        "id": 1160,
         "literals": [
           "solidity",
           "^",
@@ -2184,10 +2184,10 @@
       {
         "absolutePath": "/Users/panda/projects/kudos/packages/kudos-contracts/contracts/Ownable.sol",
         "file": "../Ownable.sol",
-        "id": 1031,
+        "id": 1161,
         "nodeType": "ImportDirective",
-        "scope": 1198,
-        "sourceUnit": 775,
+        "scope": 1328,
+        "sourceUnit": 795,
         "src": "26:24:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2195,10 +2195,10 @@
       {
         "absolutePath": "/Users/panda/projects/kudos/packages/kudos-token-contracts/contracts/SafeMath.sol",
         "file": "../../../kudos-token-contracts/contracts/SafeMath.sol",
-        "id": 1032,
+        "id": 1162,
         "nodeType": "ImportDirective",
-        "scope": 1198,
-        "sourceUnit": 1947,
+        "scope": 1328,
+        "sourceUnit": 2077,
         "src": "51:63:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2206,10 +2206,10 @@
       {
         "absolutePath": "/Users/panda/projects/kudos/packages/kudos-token-contracts/contracts/ERC20Token.sol",
         "file": "../../../kudos-token-contracts/contracts/ERC20Token.sol",
-        "id": 1033,
+        "id": 1163,
         "nodeType": "ImportDirective",
-        "scope": 1198,
-        "sourceUnit": 1836,
+        "scope": 1328,
+        "sourceUnit": 1966,
         "src": "115:65:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2220,53 +2220,53 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1034,
+              "id": 1164,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 774,
+              "referencedDeclaration": 794,
               "src": "212:7:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$774",
+                "typeIdentifier": "t_contract$_Ownable_$794",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 1035,
+            "id": 1165,
             "nodeType": "InheritanceSpecifier",
             "src": "212:7:9"
           }
         ],
         "contractDependencies": [
-          774
+          794
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1197,
+        "id": 1327,
         "linearizedBaseContracts": [
-          1197,
-          774
+          1327,
+          794
         ],
         "name": "KudosRewardSystem",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 1038,
+            "id": 1168,
             "libraryName": {
               "contractScope": null,
-              "id": 1036,
+              "id": 1166,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1946,
+              "referencedDeclaration": 2076,
               "src": "230:8:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$1946",
+                "typeIdentifier": "t_contract$_SafeMath_$2076",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
             "src": "224:27:9",
             "typeName": {
-              "id": 1037,
+              "id": 1167,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "243:7:9",
@@ -2278,26 +2278,26 @@
           },
           {
             "constant": false,
-            "id": 1040,
+            "id": 1170,
             "name": "kudosToken",
             "nodeType": "VariableDeclaration",
-            "scope": 1197,
+            "scope": 1327,
             "src": "255:28:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ERC20Token_$1835",
+              "typeIdentifier": "t_contract$_ERC20Token_$1965",
               "typeString": "contract ERC20Token"
             },
             "typeName": {
               "contractScope": null,
-              "id": 1039,
+              "id": 1169,
               "name": "ERC20Token",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1835,
+              "referencedDeclaration": 1965,
               "src": "255:10:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20Token_$1835",
+                "typeIdentifier": "t_contract$_ERC20Token_$1965",
                 "typeString": "contract ERC20Token"
               }
             },
@@ -2307,20 +2307,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1046,
+            "id": 1176,
             "name": "Debug",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1045,
+              "id": 1175,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1042,
+                  "id": 1172,
                   "indexed": false,
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1046,
+                  "scope": 1176,
                   "src": "299:10:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2329,7 +2329,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1041,
+                    "id": 1171,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "299:6:9",
@@ -2343,11 +2343,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1044,
+                  "id": 1174,
                   "indexed": false,
                   "name": "_arg",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1046,
+                  "scope": 1176,
                   "src": "311:12:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2356,7 +2356,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1043,
+                    "id": 1173,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "311:7:9",
@@ -2375,14 +2375,14 @@
           },
           {
             "canonicalName": "KudosRewardSystem.RewardSystem",
-            "id": 1075,
+            "id": 1205,
             "members": [
               {
                 "constant": false,
-                "id": 1048,
+                "id": 1178,
                 "name": "numberOfRewardSteps",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "356:27:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2391,7 +2391,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1047,
+                  "id": 1177,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "356:7:9",
@@ -2405,10 +2405,10 @@
               },
               {
                 "constant": false,
-                "id": 1051,
+                "id": 1181,
                 "name": "numberOfRewardCyclesForLevel",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "389:38:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2418,7 +2418,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1049,
+                    "id": 1179,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "389:7:9",
@@ -2427,7 +2427,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1050,
+                  "id": 1180,
                   "length": null,
                   "nodeType": "ArrayTypeName",
                   "src": "389:9:9",
@@ -2441,10 +2441,10 @@
               },
               {
                 "constant": false,
-                "id": 1053,
+                "id": 1183,
                 "name": "numberOfRewardLevels",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "433:28:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2453,7 +2453,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1052,
+                  "id": 1182,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "433:7:9",
@@ -2467,10 +2467,10 @@
               },
               {
                 "constant": false,
-                "id": 1056,
+                "id": 1186,
                 "name": "levelRewards",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "468:22:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2480,7 +2480,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1054,
+                    "id": 1184,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "468:7:9",
@@ -2489,7 +2489,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1055,
+                  "id": 1185,
                   "length": null,
                   "nodeType": "ArrayTypeName",
                   "src": "468:9:9",
@@ -2503,10 +2503,10 @@
               },
               {
                 "constant": false,
-                "id": 1058,
+                "id": 1188,
                 "name": "ipfsHash",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "496:16:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2515,7 +2515,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 1057,
+                  "id": 1187,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "496:7:9",
@@ -2529,10 +2529,10 @@
               },
               {
                 "constant": false,
-                "id": 1062,
+                "id": 1192,
                 "name": "rewardStep",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "519:38:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2541,9 +2541,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1061,
+                  "id": 1191,
                   "keyType": {
-                    "id": 1059,
+                    "id": 1189,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "527:7:9",
@@ -2559,7 +2559,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1060,
+                    "id": 1190,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "538:7:9",
@@ -2574,10 +2574,10 @@
               },
               {
                 "constant": false,
-                "id": 1066,
+                "id": 1196,
                 "name": "rewardCycle",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "563:39:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2586,9 +2586,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1065,
+                  "id": 1195,
                   "keyType": {
-                    "id": 1063,
+                    "id": 1193,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "571:7:9",
@@ -2604,7 +2604,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1064,
+                    "id": 1194,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "582:7:9",
@@ -2619,10 +2619,10 @@
               },
               {
                 "constant": false,
-                "id": 1070,
+                "id": 1200,
                 "name": "rewardLevel",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "608:39:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2631,9 +2631,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1069,
+                  "id": 1199,
                   "keyType": {
-                    "id": 1067,
+                    "id": 1197,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "616:7:9",
@@ -2649,7 +2649,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1068,
+                    "id": 1198,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "627:7:9",
@@ -2664,10 +2664,10 @@
               },
               {
                 "constant": false,
-                "id": 1074,
+                "id": 1204,
                 "name": "rewardRank",
                 "nodeType": "VariableDeclaration",
-                "scope": 1075,
+                "scope": 1205,
                 "src": "653:38:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2676,9 +2676,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1073,
+                  "id": 1203,
                   "keyType": {
-                    "id": 1071,
+                    "id": 1201,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "661:7:9",
@@ -2694,7 +2694,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1072,
+                    "id": 1202,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "672:7:9",
@@ -2710,27 +2710,27 @@
             ],
             "name": "RewardSystem",
             "nodeType": "StructDefinition",
-            "scope": 1197,
+            "scope": 1327,
             "src": "329:367:9",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1195,
+              "id": 1325,
               "nodeType": "Block",
               "src": "796:958:9",
               "statements": [
                 {
                   "assignments": [
-                    1083
+                    1213
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1083,
+                      "id": 1213,
                       "name": "nextRewardStep",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1196,
+                      "scope": 1326,
                       "src": "803:22:9",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -2739,7 +2739,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 1082,
+                        "id": 1212,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "803:7:9",
@@ -2752,14 +2752,14 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1090,
+                  "id": 1220,
                   "initialValue": {
                     "argumentTypes": null,
                     "commonType": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1089,
+                    "id": 1219,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2770,39 +2770,39 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1084,
+                          "id": 1214,
                           "name": "_rewardSystem",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1077,
+                          "referencedDeclaration": 1207,
                           "src": "828:13:9",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                            "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                             "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                           }
                         },
-                        "id": 1085,
+                        "id": 1215,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "rewardStep",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1062,
+                        "referencedDeclaration": 1192,
                         "src": "828:24:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 1087,
+                      "id": 1217,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1086,
+                        "id": 1216,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1079,
+                        "referencedDeclaration": 1209,
                         "src": "853:8:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2825,7 +2825,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 1088,
+                      "id": 1218,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2856,18 +2856,18 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1094,
+                    "id": 1224,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 1091,
+                      "id": 1221,
                       "name": "nextRewardStep",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1083,
+                      "referencedDeclaration": 1213,
                       "src": "877:14:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2880,25 +2880,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1092,
+                        "id": 1222,
                         "name": "_rewardSystem",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1077,
+                        "referencedDeclaration": 1207,
                         "src": "895:13:9",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                          "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                           "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                         }
                       },
-                      "id": 1093,
+                      "id": 1223,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "numberOfRewardSteps",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1048,
+                      "referencedDeclaration": 1178,
                       "src": "895:33:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2912,14 +2912,14 @@
                     }
                   },
                   "falseBody": {
-                    "id": 1193,
+                    "id": 1323,
                     "nodeType": "Block",
                     "src": "1696:54:9",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1191,
+                          "id": 1321,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2930,39 +2930,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1185,
+                                "id": 1315,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1077,
+                                "referencedDeclaration": 1207,
                                 "src": "1704:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                   "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1188,
+                              "id": 1318,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "rewardStep",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1062,
+                              "referencedDeclaration": 1192,
                               "src": "1704:24:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 1189,
+                            "id": 1319,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1187,
+                              "id": 1317,
                               "name": "_address",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1079,
+                              "referencedDeclaration": 1209,
                               "src": "1729:8:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -2985,7 +2985,7 @@
                           "rightHandSide": {
                             "argumentTypes": null,
                             "hexValue": "31",
-                            "id": 1190,
+                            "id": 1320,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3006,24 +3006,24 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1192,
+                        "id": 1322,
                         "nodeType": "ExpressionStatement",
                         "src": "1704:39:9"
                       }
                     ]
                   },
-                  "id": 1194,
+                  "id": 1324,
                   "nodeType": "IfStatement",
                   "src": "873:877:9",
                   "trueBody": {
-                    "id": 1184,
+                    "id": 1314,
                     "nodeType": "Block",
                     "src": "930:760:9",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1101,
+                          "id": 1231,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3034,39 +3034,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1095,
+                                "id": 1225,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1077,
+                                "referencedDeclaration": 1207,
                                 "src": "939:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                   "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1098,
+                              "id": 1228,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "rewardStep",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1062,
+                              "referencedDeclaration": 1192,
                               "src": "939:24:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 1099,
+                            "id": 1229,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1097,
+                              "id": 1227,
                               "name": "_address",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1079,
+                              "referencedDeclaration": 1209,
                               "src": "964:8:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -3089,7 +3089,7 @@
                           "rightHandSide": {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 1100,
+                            "id": 1230,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3110,21 +3110,21 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1102,
+                        "id": 1232,
                         "nodeType": "ExpressionStatement",
                         "src": "939:38:9"
                       },
                       {
                         "assignments": [
-                          1104
+                          1234
                         ],
                         "declarations": [
                           {
                             "constant": false,
-                            "id": 1104,
+                            "id": 1234,
                             "name": "nextRewardCycle",
                             "nodeType": "VariableDeclaration",
-                            "scope": 1196,
+                            "scope": 1326,
                             "src": "985:23:9",
                             "stateVariable": false,
                             "storageLocation": "default",
@@ -3133,7 +3133,7 @@
                               "typeString": "uint256"
                             },
                             "typeName": {
-                              "id": 1103,
+                              "id": 1233,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
                               "src": "985:7:9",
@@ -3146,14 +3146,14 @@
                             "visibility": "internal"
                           }
                         ],
-                        "id": 1111,
+                        "id": 1241,
                         "initialValue": {
                           "argumentTypes": null,
                           "commonType": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 1110,
+                          "id": 1240,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3164,39 +3164,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1105,
+                                "id": 1235,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1077,
+                                "referencedDeclaration": 1207,
                                 "src": "1011:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                   "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1106,
+                              "id": 1236,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "rewardCycle",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1066,
+                              "referencedDeclaration": 1196,
                               "src": "1011:25:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 1108,
+                            "id": 1238,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1107,
+                              "id": 1237,
                               "name": "_address",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1079,
+                              "referencedDeclaration": 1209,
                               "src": "1037:8:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -3219,7 +3219,7 @@
                           "rightExpression": {
                             "argumentTypes": null,
                             "hexValue": "31",
-                            "id": 1109,
+                            "id": 1239,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3245,15 +3245,15 @@
                       },
                       {
                         "assignments": [
-                          1113
+                          1243
                         ],
                         "declarations": [
                           {
                             "constant": false,
-                            "id": 1113,
+                            "id": 1243,
                             "name": "currentRewardLevel",
                             "nodeType": "VariableDeclaration",
-                            "scope": 1196,
+                            "scope": 1326,
                             "src": "1059:26:9",
                             "stateVariable": false,
                             "storageLocation": "default",
@@ -3262,7 +3262,7 @@
                               "typeString": "uint256"
                             },
                             "typeName": {
-                              "id": 1112,
+                              "id": 1242,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
                               "src": "1059:7:9",
@@ -3275,46 +3275,46 @@
                             "visibility": "internal"
                           }
                         ],
-                        "id": 1118,
+                        "id": 1248,
                         "initialValue": {
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1114,
+                              "id": 1244,
                               "name": "_rewardSystem",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1077,
+                              "referencedDeclaration": 1207,
                               "src": "1088:13:9",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                 "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                               }
                             },
-                            "id": 1115,
+                            "id": 1245,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "rewardLevel",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 1070,
+                            "referencedDeclaration": 1200,
                             "src": "1088:25:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                               "typeString": "mapping(address => uint256)"
                             }
                           },
-                          "id": 1117,
+                          "id": 1247,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1116,
+                            "id": 1246,
                             "name": "_address",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1079,
+                            "referencedDeclaration": 1209,
                             "src": "1114:8:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -3342,18 +3342,18 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 1124,
+                          "id": 1254,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 1119,
+                            "id": 1249,
                             "name": "nextRewardCycle",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1104,
+                            "referencedDeclaration": 1234,
                             "src": "1135:15:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -3368,39 +3368,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1120,
+                                "id": 1250,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1077,
+                                "referencedDeclaration": 1207,
                                 "src": "1154:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                   "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1121,
+                              "id": 1251,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "numberOfRewardCyclesForLevel",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1051,
+                              "referencedDeclaration": 1181,
                               "src": "1154:42:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
                                 "typeString": "uint256[] storage ref"
                               }
                             },
-                            "id": 1123,
+                            "id": 1253,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1122,
+                              "id": 1252,
                               "name": "currentRewardLevel",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1113,
+                              "referencedDeclaration": 1243,
                               "src": "1197:18:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -3425,14 +3425,14 @@
                           }
                         },
                         "falseBody": {
-                          "id": 1182,
+                          "id": 1312,
                           "nodeType": "Block",
                           "src": "1624:59:9",
                           "statements": [
                             {
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1180,
+                                "id": 1310,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -3443,39 +3443,39 @@
                                     "argumentTypes": null,
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1174,
+                                      "id": 1304,
                                       "name": "_rewardSystem",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1077,
+                                      "referencedDeclaration": 1207,
                                       "src": "1634:13:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                        "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                         "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                       }
                                     },
-                                    "id": 1177,
+                                    "id": 1307,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "rewardCycle",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 1066,
+                                    "referencedDeclaration": 1196,
                                     "src": "1634:25:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                       "typeString": "mapping(address => uint256)"
                                     }
                                   },
-                                  "id": 1178,
+                                  "id": 1308,
                                   "indexExpression": {
                                     "argumentTypes": null,
-                                    "id": 1176,
+                                    "id": 1306,
                                     "name": "_address",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1079,
+                                    "referencedDeclaration": 1209,
                                     "src": "1660:8:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -3498,7 +3498,7 @@
                                 "rightHandSide": {
                                   "argumentTypes": null,
                                   "hexValue": "31",
-                                  "id": 1179,
+                                  "id": 1309,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -3519,24 +3519,24 @@
                                   "typeString": "uint256"
                                 }
                               },
-                              "id": 1181,
+                              "id": 1311,
                               "nodeType": "ExpressionStatement",
                               "src": "1634:40:9"
                             }
                           ]
                         },
-                        "id": 1183,
+                        "id": 1313,
                         "nodeType": "IfStatement",
                         "src": "1131:552:9",
                         "trueBody": {
-                          "id": 1173,
+                          "id": 1303,
                           "nodeType": "Block",
                           "src": "1218:400:9",
                           "statements": [
                             {
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1131,
+                                "id": 1261,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -3547,39 +3547,39 @@
                                     "argumentTypes": null,
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1125,
+                                      "id": 1255,
                                       "name": "_rewardSystem",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1077,
+                                      "referencedDeclaration": 1207,
                                       "src": "1229:13:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                        "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                         "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                       }
                                     },
-                                    "id": 1128,
+                                    "id": 1258,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "rewardCycle",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 1066,
+                                    "referencedDeclaration": 1196,
                                     "src": "1229:25:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                       "typeString": "mapping(address => uint256)"
                                     }
                                   },
-                                  "id": 1129,
+                                  "id": 1259,
                                   "indexExpression": {
                                     "argumentTypes": null,
-                                    "id": 1127,
+                                    "id": 1257,
                                     "name": "_address",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1079,
+                                    "referencedDeclaration": 1209,
                                     "src": "1255:8:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -3602,7 +3602,7 @@
                                 "rightHandSide": {
                                   "argumentTypes": null,
                                   "hexValue": "30",
-                                  "id": 1130,
+                                  "id": 1260,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -3623,21 +3623,21 @@
                                   "typeString": "uint256"
                                 }
                               },
-                              "id": 1132,
+                              "id": 1262,
                               "nodeType": "ExpressionStatement",
                               "src": "1229:39:9"
                             },
                             {
                               "assignments": [
-                                1134
+                                1264
                               ],
                               "declarations": [
                                 {
                                   "constant": false,
-                                  "id": 1134,
+                                  "id": 1264,
                                   "name": "nextRewardLevel",
                                   "nodeType": "VariableDeclaration",
-                                  "scope": 1196,
+                                  "scope": 1326,
                                   "src": "1278:23:9",
                                   "stateVariable": false,
                                   "storageLocation": "default",
@@ -3646,7 +3646,7 @@
                                     "typeString": "uint256"
                                   },
                                   "typeName": {
-                                    "id": 1133,
+                                    "id": 1263,
                                     "name": "uint256",
                                     "nodeType": "ElementaryTypeName",
                                     "src": "1278:7:9",
@@ -3659,14 +3659,14 @@
                                   "visibility": "internal"
                                 }
                               ],
-                              "id": 1141,
+                              "id": 1271,
                               "initialValue": {
                                 "argumentTypes": null,
                                 "commonType": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
                                 },
-                                "id": 1140,
+                                "id": 1270,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -3677,39 +3677,39 @@
                                     "argumentTypes": null,
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1135,
+                                      "id": 1265,
                                       "name": "_rewardSystem",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1077,
+                                      "referencedDeclaration": 1207,
                                       "src": "1304:13:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                        "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                         "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                       }
                                     },
-                                    "id": 1136,
+                                    "id": 1266,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "rewardLevel",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 1070,
+                                    "referencedDeclaration": 1200,
                                     "src": "1304:25:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                       "typeString": "mapping(address => uint256)"
                                     }
                                   },
-                                  "id": 1138,
+                                  "id": 1268,
                                   "indexExpression": {
                                     "argumentTypes": null,
-                                    "id": 1137,
+                                    "id": 1267,
                                     "name": "_address",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1079,
+                                    "referencedDeclaration": 1209,
                                     "src": "1330:8:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -3732,7 +3732,7 @@
                                 "rightExpression": {
                                   "argumentTypes": null,
                                   "hexValue": "31",
-                                  "id": 1139,
+                                  "id": 1269,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -3763,18 +3763,18 @@
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
                                 },
-                                "id": 1145,
+                                "id": 1275,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "leftExpression": {
                                   "argumentTypes": null,
-                                  "id": 1142,
+                                  "id": 1272,
                                   "name": "nextRewardLevel",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1134,
+                                  "referencedDeclaration": 1264,
                                   "src": "1360:15:9",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -3787,25 +3787,25 @@
                                   "argumentTypes": null,
                                   "expression": {
                                     "argumentTypes": null,
-                                    "id": 1143,
+                                    "id": 1273,
                                     "name": "_rewardSystem",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1077,
+                                    "referencedDeclaration": 1207,
                                     "src": "1379:13:9",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                      "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                       "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                     }
                                   },
-                                  "id": 1144,
+                                  "id": 1274,
                                   "isConstant": false,
                                   "isLValue": true,
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "memberName": "numberOfRewardLevels",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 1053,
+                                  "referencedDeclaration": 1183,
                                   "src": "1379:34:9",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -3819,14 +3819,14 @@
                                 }
                               },
                               "falseBody": {
-                                "id": 1171,
+                                "id": 1301,
                                 "nodeType": "Block",
                                 "src": "1542:67:9",
                                 "statements": [
                                   {
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1169,
+                                      "id": 1299,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -3837,39 +3837,39 @@
                                           "argumentTypes": null,
                                           "expression": {
                                             "argumentTypes": null,
-                                            "id": 1163,
+                                            "id": 1293,
                                             "name": "_rewardSystem",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 1077,
+                                            "referencedDeclaration": 1207,
                                             "src": "1556:13:9",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                              "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                               "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                             }
                                           },
-                                          "id": 1166,
+                                          "id": 1296,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "rewardLevel",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 1070,
+                                          "referencedDeclaration": 1200,
                                           "src": "1556:25:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                             "typeString": "mapping(address => uint256)"
                                           }
                                         },
-                                        "id": 1167,
+                                        "id": 1297,
                                         "indexExpression": {
                                           "argumentTypes": null,
-                                          "id": 1165,
+                                          "id": 1295,
                                           "name": "_address",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1079,
+                                          "referencedDeclaration": 1209,
                                           "src": "1582:8:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -3892,7 +3892,7 @@
                                       "rightHandSide": {
                                         "argumentTypes": null,
                                         "hexValue": "31",
-                                        "id": 1168,
+                                        "id": 1298,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -3913,24 +3913,24 @@
                                         "typeString": "uint256"
                                       }
                                     },
-                                    "id": 1170,
+                                    "id": 1300,
                                     "nodeType": "ExpressionStatement",
                                     "src": "1556:40:9"
                                   }
                                 ]
                               },
-                              "id": 1172,
+                              "id": 1302,
                               "nodeType": "IfStatement",
                               "src": "1356:253:9",
                               "trueBody": {
-                                "id": 1162,
+                                "id": 1292,
                                 "nodeType": "Block",
                                 "src": "1415:121:9",
                                 "statements": [
                                   {
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1152,
+                                      "id": 1282,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -3941,39 +3941,39 @@
                                           "argumentTypes": null,
                                           "expression": {
                                             "argumentTypes": null,
-                                            "id": 1146,
+                                            "id": 1276,
                                             "name": "_rewardSystem",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 1077,
+                                            "referencedDeclaration": 1207,
                                             "src": "1430:13:9",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                              "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                               "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                             }
                                           },
-                                          "id": 1149,
+                                          "id": 1279,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "rewardLevel",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 1070,
+                                          "referencedDeclaration": 1200,
                                           "src": "1430:25:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                             "typeString": "mapping(address => uint256)"
                                           }
                                         },
-                                        "id": 1150,
+                                        "id": 1280,
                                         "indexExpression": {
                                           "argumentTypes": null,
-                                          "id": 1148,
+                                          "id": 1278,
                                           "name": "_address",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1079,
+                                          "referencedDeclaration": 1209,
                                           "src": "1456:8:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -3996,7 +3996,7 @@
                                       "rightHandSide": {
                                         "argumentTypes": null,
                                         "hexValue": "30",
-                                        "id": 1151,
+                                        "id": 1281,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -4017,14 +4017,14 @@
                                         "typeString": "uint256"
                                       }
                                     },
-                                    "id": 1153,
+                                    "id": 1283,
                                     "nodeType": "ExpressionStatement",
                                     "src": "1430:39:9"
                                   },
                                   {
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1160,
+                                      "id": 1290,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -4035,39 +4035,39 @@
                                           "argumentTypes": null,
                                           "expression": {
                                             "argumentTypes": null,
-                                            "id": 1154,
+                                            "id": 1284,
                                             "name": "_rewardSystem",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 1077,
+                                            "referencedDeclaration": 1207,
                                             "src": "1483:13:9",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                                              "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                                               "typeString": "struct KudosRewardSystem.RewardSystem storage pointer"
                                             }
                                           },
-                                          "id": 1157,
+                                          "id": 1287,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "rewardRank",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 1074,
+                                          "referencedDeclaration": 1204,
                                           "src": "1483:24:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                             "typeString": "mapping(address => uint256)"
                                           }
                                         },
-                                        "id": 1158,
+                                        "id": 1288,
                                         "indexExpression": {
                                           "argumentTypes": null,
-                                          "id": 1156,
+                                          "id": 1286,
                                           "name": "_address",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1079,
+                                          "referencedDeclaration": 1209,
                                           "src": "1508:8:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -4090,7 +4090,7 @@
                                       "rightHandSide": {
                                         "argumentTypes": null,
                                         "hexValue": "31",
-                                        "id": 1159,
+                                        "id": 1289,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -4111,7 +4111,7 @@
                                         "typeString": "uint256"
                                       }
                                     },
-                                    "id": 1161,
+                                    "id": 1291,
                                     "nodeType": "ExpressionStatement",
                                     "src": "1483:39:9"
                                   }
@@ -4127,7 +4127,7 @@
               ]
             },
             "documentation": null,
-            "id": 1196,
+            "id": 1326,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -4135,31 +4135,31 @@
             "name": "incrementRewardProgress",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1080,
+              "id": 1210,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1077,
+                  "id": 1207,
                   "name": "_rewardSystem",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1196,
+                  "scope": 1326,
                   "src": "733:34:9",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                    "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                     "typeString": "struct KudosRewardSystem.RewardSystem"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 1076,
+                    "id": 1206,
                     "name": "RewardSystem",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1075,
+                    "referencedDeclaration": 1205,
                     "src": "733:12:9",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_RewardSystem_$1075_storage_ptr",
+                      "typeIdentifier": "t_struct$_RewardSystem_$1205_storage_ptr",
                       "typeString": "struct KudosRewardSystem.RewardSystem"
                     }
                   },
@@ -4168,10 +4168,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1079,
+                  "id": 1209,
                   "name": "_address",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1196,
+                  "scope": 1326,
                   "src": "769:16:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4180,7 +4180,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1078,
+                    "id": 1208,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "769:7:9",
@@ -4197,19 +4197,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1081,
+              "id": 1211,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "796:0:9"
             },
-            "scope": 1197,
+            "scope": 1327,
             "src": "700:1054:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 1198,
+        "scope": 1328,
         "src": "182:1574:9"
       }
     ],
@@ -4221,5 +4221,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-25T20:01:44.224Z"
+  "updatedAt": "2018-07-30T18:33:47.900Z"
 }

@@ -11,7 +11,7 @@ contract KudosRewards is KudosUserRewardSystem, KudosWorkerRewardSystem, KudosGr
   function rewardWorker(address _workerAddress, address _businessAddress, uint256 _workerRating) internal {
 
     uint256[5] storage ratingRewardPercentageValues = ratingRewardPercentages[_businessAddress];
-    uint256 rewardValue = ratingRewardPercentageValues[4] * ratingRewardPercentageValues[_workerRating] / 100;
+    uint256 rewardValue = ratingRewardPercentageValues[4] * ratingRewardPercentageValues[_workerRating-1] / 100;
     kudosToken.transferFrom(_businessAddress, _workerAddress, rewardValue);
   }
 }

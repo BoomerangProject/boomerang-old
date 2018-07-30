@@ -5,7 +5,9 @@ import './KudosRewardSystem.sol';
 contract KudosGrowthPoolRewardSystem is KudosRewardSystem {
 
   event RegisterGrowthPoolRewardSystem();
-  event GrowthPoolReward(address indexed _workerAddress, address indexed _businessAddress, uint256 _rewardValue);
+  event GrowthPoolRewardForUser(address indexed _userAddress, uint256 _rewardValue);
+  event GrowthPoolRewardForWorker(address indexed _workerAddress, uint256 _rewardValue);
+  event GrowthPoolRewardForBusiness(address indexed _businessAddress, uint256 _rewardValue);
 
   RewardSystem public growthPoolRewardSystem;
   mapping (address => bool) public growthPoolBusiness;
@@ -22,14 +24,44 @@ contract KudosGrowthPoolRewardSystem is KudosRewardSystem {
       return;
     }
 
-    incrementRewardProgress(growthPoolRewardSystem, _userAddress);
+    updateGrowthPoolRewardProgressForUser(_userAddress);
 
     if (_workerRating == 5) {
-      incrementRewardProgress(growthPoolRewardSystem, _workerAddress);
+      updateGrowthPoolRewardProgressForWorker(_workerAddress);
     }
 
+    updateGrowthPoolRewardProgressForBusiness(_businessAddress);
+  }
+
+  function updateGrowthPoolRewardProgressForUser(address _userAddress) internal {
+
+    uint256 userRewardLevel = growthPoolRewardSystem.rewardLevel[_userAddress];
+    incrementRewardProgress(growthPoolRewardSystem, _userAddress);
+
+    if (growthPoolRewardSystem.rewardStep[_userAddress] == 0) {
+      uint256 rewardValue = growthPoolRewardSystem.levelRewards[userRewardLevel];
+      kudosToken.transferFrom(owner, _userAddress, rewardValue);
+      emit GrowthPoolRewardForUser(_userAddress, rewardValue);
+    }
+  }
+
+
+  function updateGrowthPoolRewardProgressForWorker(address _workerAddress) internal {
+
+    uint256 workerRewardLevel = growthPoolRewardSystem.rewardLevel[_workerAddress];
+    incrementRewardProgress(growthPoolRewardSystem, _workerAddress);
+
+    if (growthPoolRewardSystem.rewardStep[_workerAddress] == 0) {
+      uint256 rewardValue = growthPoolRewardSystem.levelRewards[workerRewardLevel];
+      kudosToken.transferFrom(owner, _workerAddress, rewardValue);
+      emit GrowthPoolRewardForWorker(_workerAddress, rewardValue);
+    }
+  }
+
+  function updateGrowthPoolRewardProgressForBusiness(address _businessAddress) internal {
     incrementRewardProgress(growthPoolRewardSystem, _businessAddress);
   }
+
 
    function addBusinessesToGrowthPoolRewardsSystem(address[] businesses) external onlyOwner {
       for (uint i = 0; i < businesses.length; i++) {

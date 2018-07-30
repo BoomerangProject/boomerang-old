@@ -7,6 +7,8 @@ contract KudosBusiness is KudosActor {
   event BusinessProfileUpdated(address indexed _businessAddress, bytes32 _ipfsHash);
   event BusinessHasApprovedWorker(address indexed _businessAddress, address indexed _workerAddress);
 
+  mapping (address => uint256) public kudosTokensRemainingForBusiness;
+
   function registerAsBusiness(address _businessAddress, bytes32 _ipfsHash) public {
 
     require(isBusiness[_businessAddress] == false);

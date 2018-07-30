@@ -23,6 +23,9 @@ contract KudosRateExperience is KudosActor, KudosRewards {
                             bytes32 _ipfsHash)
   public {
 
+    emit Debug('workerRating: ', _workerRating);
+    emit Debug('businessRating: ', _businessRating);
+
     if (_businessRating > 0 && _businessRating < 6) {
       updateBusinessRating(_businessAddress, _businessRating);
     }
