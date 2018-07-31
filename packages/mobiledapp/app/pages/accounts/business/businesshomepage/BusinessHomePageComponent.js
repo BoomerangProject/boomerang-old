@@ -14,7 +14,7 @@ export default class BusinessAccountComponent extends Component {
   async componentDidMount() {
     await setItem('isLoggedIn', 'true');
 
-    const businessAddress = await getItem('kudosAccountAddress');
+    const businessAddress = await getItem('boomerangAccountAddress');
     this.ipfsFileRequester = new IpfsFileRequester('BusinessProfileUpdated', {_businessAddress: businessAddress});
 
     const file = await this.ipfsFileRequester.makeRequest();

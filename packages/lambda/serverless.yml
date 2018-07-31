@@ -1,6 +1,6 @@
 # For full config options, check the docs:
 #    docs.serverless.com
-service: Kudos
+service: Boomerang
 
 plugins:
   - serverless-plugin-include-dependencies

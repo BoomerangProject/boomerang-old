@@ -26,7 +26,7 @@ export default class CreateBusinessAccountComponent extends Component {
 
     if (this.okayButtonIsEnabled) {
 
-      const businessAccountAddress = await getItem('kudosAccountAddress');
+      const businessAccountAddress = await getItem('boomerangAccountAddress');
 
       const businessName = this.state.businessName;
       const businessDescription = this.state.businessDescription;
@@ -84,9 +84,9 @@ export default class CreateBusinessAccountComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/boomerang.png')}/>
 
-        <Text style={styles.title}>Create Kudos Business</Text>
+        <Text style={styles.title}>Create Boomerang Business</Text>
 
         <View style={{flex: 1}}/>
 

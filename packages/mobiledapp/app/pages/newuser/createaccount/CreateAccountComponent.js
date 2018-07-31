@@ -9,15 +9,15 @@ export default class CreateAccountComponent extends Component {
 
   constructor(props) {
     super(props);
-    this.kudosAccountSeed = crypto.randomBytes(32).toString('hex');
+    this.boomerangAccountSeed = crypto.randomBytes(32).toString('hex');
   }
 
   async onClickOfSeedButton() {
-    await Clipboard.setString(this.kudosAccountSeed);
+    await Clipboard.setString(this.boomerangAccountSeed);
   }
 
   async onClickOfConfirmButton() {
-    await storeSeed(this.kudosAccountSeed);
+    await storeSeed(this.boomerangAccountSeed);
     Navigator.init(this).pushAccountTypeSelectionPage();
   }
 
@@ -26,11 +26,11 @@ export default class CreateAccountComponent extends Component {
     return (
       <View style={styles.container}>
 
-        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/boomerang.png')}/>
 
-        <Text style={styles.title}>Your Kudos Account Seed</Text>
+        <Text style={styles.title}>Your Boomerang Account Seed</Text>
 
-        <Text style={styles.firstParagraph}>Your Kudos Account Seed is how we generate your account. It's also how you
+        <Text style={styles.firstParagraph}>Your Boomerang Account Seed is how we generate your account. It's also how you
           log into the iOS and Android apps.</Text>
 
         <Text style={styles.warningMessage}>If you lose your Account Seed, your funds cannot be recovered.</Text>
@@ -42,7 +42,7 @@ export default class CreateAccountComponent extends Component {
         <TouchableOpacity
           style={styles.seedButtonContainer}
           onPress={this.onClickOfSeedButton.bind(this)}>
-          <Text style={styles.seedButton}>{this.kudosAccountSeed}</Text>
+          <Text style={styles.seedButton}>{this.boomerangAccountSeed}</Text>
         </TouchableOpacity>
 
         <Text style={styles.tapToCopyMessage}>Tap to copy</Text>

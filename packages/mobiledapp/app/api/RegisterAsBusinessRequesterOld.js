@@ -1,20 +1,20 @@
 import backoff from 'backoff';
 import web3 from '../services/Web3HttpService';
-import kudosContract from '../services/KudosContractServiceOld';
+import boomerangContract from '../services/BoomerangContractServiceOld';
 import { getItem } from '../services/LocalStorageService';
 
 export default class RegisterAsBusinessRequesterOld {
 
   async makeRequest(addressArg) {
 
-    const privateKey = await getItem('kudosAccountSeed');
+    const privateKey = await getItem('boomerangAccountSeed');
 
     const account = web3.eth.accounts.privateKeyToAccount(privateKey);
     console.log('private key: ' + account.privateKey);
     console.log('account address: ' + account.address);
 
 
-    const query = kudosContract.methods.registerAsBusiness(addressArg);
+    const query = boomerangContract.methods.registerAsBusiness(addressArg);
     const encodedABI = query.encodeABI();
     const tx = {
       from: '0xdcee2f1da7262362a962d456280a928f4f90bb5e',

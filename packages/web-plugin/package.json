@@ -7,7 +7,7 @@
     "test": "node scripts/test.js --env=jsdom",
     "example": "node server.js",
     "bundle": "webpack --verbose --config ./webpack.config.js",
-    "deploy": "npm run bundle && node ./scripts/deployKudosWebPluginWidget.js"
+    "deploy": "npm run bundle && node ./scripts/deployBoomerangWebPluginWidget.js"
   },
   "dependencies": {
     "autoprefixer": "7.1.6",

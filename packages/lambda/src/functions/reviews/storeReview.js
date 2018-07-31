@@ -52,7 +52,7 @@ let storeToS3 = async (ipfsObject, ipfsHash) => {
 
     const params = {
       ACL: 'private',
-      Bucket: 'kudos-businessdirectory',
+      Bucket: 'boomerang-businessdirectory',
       Key: ipfsHash,
       Body: JSON.stringify(ipfsObject)
     };

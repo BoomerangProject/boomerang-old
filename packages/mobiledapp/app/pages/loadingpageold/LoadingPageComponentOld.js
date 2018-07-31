@@ -51,14 +51,14 @@ export default class LoadingPageComponent extends Component {
       case 'createBusinessAccount':
 
 
-        const kudosAccountAddress = await getItem('kudosAccountAddress');
+        const boomerangAccountAddress = await getItem('boomerangAccountAddress');
 
 
-        await this.checkBusinessStatus(kudosAccountAddress);
+        await this.checkBusinessStatus(boomerangAccountAddress);
 
         let result;
         try {
-          result = await this.registerAsBusinessRequester.makeRequest(kudosAccountAddress);
+          result = await this.registerAsBusinessRequester.makeRequest(boomerangAccountAddress);
           console.log(JSON.stringify(result));
         } catch (error) {
 
@@ -68,18 +68,18 @@ export default class LoadingPageComponent extends Component {
           }
         }
 
-        await this.checkBusinessStatus(kudosAccountAddress);
+        await this.checkBusinessStatus(boomerangAccountAddress);
 
         break;
     }
   }
 
-  async checkBusinessStatus(kudosAccountAddress) {
+  async checkBusinessStatus(boomerangAccountAddress) {
 
     let result;
     try {
 
-      result = await this.isBusinessRequester.makeRequest(kudosAccountAddress);
+      result = await this.isBusinessRequester.makeRequest(boomerangAccountAddress);
 
       this.setState({ isBusiness: result.toString()});
 
@@ -108,7 +108,7 @@ export default class LoadingPageComponent extends Component {
       <View style={styles.container}>
 
         <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={require('../../../assets/images/kudos.png')}/>
+          <Image style={styles.logo} source={require('../../../assets/images/boomerang.png')}/>
         </View>
 
         <View style={styles.loadingTextContainer}>

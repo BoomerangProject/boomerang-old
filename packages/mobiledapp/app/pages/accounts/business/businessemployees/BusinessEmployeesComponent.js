@@ -15,7 +15,7 @@ export default class BusinessEmployeesComponent extends Component {
 
   async componentDidMount() {
 
-    const businessAddress = await getItem('kudosAccountAddress');
+    const businessAddress = await getItem('boomerangAccountAddress');
 
     this.numberOfWorkersRequester = new NumberOfWorkersRequester(businessAddress);
 

@@ -1,5 +1,5 @@
 'use strict';
-import KudosContractService from '../../services/KudosContractServiceOld';
+import BoomerangContractService from '../../services/BoomerangContractServiceOld';
 
 
 
@@ -33,7 +33,7 @@ export default async (event, context, callback) => {
 
 
 /*
-    await kudos.rateExperience( signature.v,
+    await boomerang.rateExperience( signature.v,
                                 signature.r,
                                 signature.s,
                                 business,

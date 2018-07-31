@@ -13,8 +13,8 @@ class NewUserComponent extends Component {
 
       <div className="NewUserComponent container">
 
-        <img alt="" className="NewUserComponent logo" src={require("../../images/kudos.png")}/>
-        <h5 className="NewUserComponent welcomeMessage">Welcome to Kudos</h5>
+        <img alt="" className="NewUserComponent logo" src={require("../../images/boomerang.png")}/>
+        <h5 className="NewUserComponent welcomeMessage">Welcome to Boomerang</h5>
 
         <Link to="/createAccount">
           <button className="NewUserComponent createAccountButton">Start a new account</button>
@@ -24,7 +24,7 @@ class NewUserComponent extends Component {
           <button className="NewUserComponent importAccountButton">I already have an account</button>
         </Link>
 
-        <h6 className="NewUserComponent version">K U D O S - v 1 . 0</h6>
+        <h6 className="NewUserComponent version">B O O M - v 1 . 0</h6>
 
       </div>
     );

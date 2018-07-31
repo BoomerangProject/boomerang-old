@@ -16,9 +16,9 @@ class RatingModalContainerComponent extends Component {
   }
 
   expandIframe() {
-    window.parent.document.getElementById('kudosIframe').width = '100%';
-    window.parent.document.getElementById('kudosIframe').height = '100%';
-    window.parent.document.getElementById('kudosIframe').style.marginLeft = '0';
+    window.parent.document.getElementById('boomerangIframe').width = '100%';
+    window.parent.document.getElementById('boomerangIframe').height = '100%';
+    window.parent.document.getElementById('boomerangIframe').style.marginLeft = '0';
   }
 
   render() {

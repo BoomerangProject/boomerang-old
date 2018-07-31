@@ -1,6 +1,6 @@
-import KudosReadRequester from './KudosReadRequester';
+import BoomerangReadRequester from './BoomerangReadRequester';
 
-export default class NumberOfWorkersRequester extends KudosReadRequester {
+export default class NumberOfWorkersRequester extends BoomerangReadRequester {
 
   constructor(businessAddress) {
 

@@ -26,7 +26,7 @@ export default class CreateUserAccountComponent extends Component {
 
     if (this.okayButtonIsEnabled) {
 
-      const userAddress = await getItem('kudosAccountAddress');
+      const userAddress = await getItem('boomerangAccountAddress');
 
       const userName = this.state.userName;
       const registerAsUserRequester = new RegisterAsUserRequester(userAddress, userName);
@@ -82,7 +82,7 @@ export default class CreateUserAccountComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/boomerang.png')}/>
 
         <Text style={styles.title}>Create User Account</Text>
 

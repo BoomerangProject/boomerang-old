@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { ipfsNodeEndpoint } from '../Endpoints';
-import KudosEventsRequester from './KudosEventsRequester';
+import BoomerangEventsRequester from './BoomerangEventsRequester';
 import bs58 from 'bs58';
 
 export default class IpfsFileRequester {
 
   constructor(eventName, filterObject) {
-    this.kudosEventsRequester = new KudosEventsRequester();
+    this.boomerangEventsRequester = new BoomerangEventsRequester();
     this.eventName = eventName;
     this.filterObject = filterObject;
   }
@@ -29,7 +29,7 @@ export default class IpfsFileRequester {
 
       let events;
       try {
-        events = await this.kudosEventsRequester.makeRequest(this.eventName, this.filterObject);
+        events = await this.boomerangEventsRequester.makeRequest(this.eventName, this.filterObject);
       } catch (error) {
         console.log('problem getting ipfs hash: ' + error);
         return reject(error)

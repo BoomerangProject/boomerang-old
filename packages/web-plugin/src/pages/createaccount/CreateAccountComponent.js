@@ -15,8 +15,8 @@ class CreateAccountComponent extends Component {
   }
 
   onClickOfConfirmButton() {
-    localStorage.setItem("kudosAccountSeed", this.privateKey);
-    localStorage.setItem("kudosAddress", ethUtil.privateToAddress(new Buffer(this.privateKey, "hex")).toString("hex"));
+    localStorage.setItem("boomerangAccountSeed", this.privateKey);
+    localStorage.setItem("boomerangAddress", ethUtil.privateToAddress(new Buffer(this.privateKey, "hex")).toString("hex"));
     this.props.history.push("/account");
   }
 
@@ -25,11 +25,11 @@ class CreateAccountComponent extends Component {
     return (
       <div className="CreateAccount container">
 
-        <img alt="" className="CreateAccount logo" src={require("../../images/kudos.png")}/>
+        <img alt="" className="CreateAccount logo" src={require("../../images/boomerang.png")}/>
 
-        <h5 className="CreateAccount title">Your Kudos Account Seed</h5>
+        <h5 className="CreateAccount title">Your Boomerang Account Seed</h5>
 
-        <div className="CreateAccount firstParagraph">Your Kudos Account Seed is how we generate your account. It's also how you log into the iOS and Android apps.</div>
+        <div className="CreateAccount firstParagraph">Your Boomerang Account Seed is how we generate your account. It's also how you log into the iOS and Android apps.</div>
 
         <div className="CreateAccount warningMessage">If you lose your Account Seed, your funds cannot be recovered.</div>
 

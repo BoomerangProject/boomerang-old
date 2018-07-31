@@ -1,8 +1,8 @@
 {
-  "name": "kudos-signer",
+  "name": "boomerang-signer",
   "version": "1.0.6",
   "description": "",
-  "main": "lib/kudosSigner.js",
+  "main": "lib/boomerangSigner.js",
   "scripts": {
     "compile": "babel ./src --out-dir ./lib"
   },

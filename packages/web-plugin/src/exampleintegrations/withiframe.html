@@ -3,11 +3,11 @@
 <body>
 <h1>third party site (with iframe)</h1>
 
-<!-- Start of Kudos Widget script -->
+<!-- Start of Boomerang Widget script -->
 <script>
 
   const iframeElement = document.createElement("iframe");
-  iframeElement.id="kudosIframe";
+  iframeElement.id="boomerangIframe";
   iframeElement.scrolling="no";
   iframeElement.frameBorder="0";
   iframeElement.allowtransparency="false";
@@ -26,10 +26,10 @@
 
   document.body.appendChild(iframeElement);
 
-  const kudosIframeDocument = document.getElementById("kudosIframe").contentWindow.document;
-  kudosIframeDocument.open();
+  const boomerangIframeDocument = document.getElementById("boomerangIframe").contentWindow.document;
+  boomerangIframeDocument.open();
 
-  kudosIframeDocument._l=function() {
+  boomerangIframeDocument._l=function() {
 
     const mainDiv = this.createElement("div");
     mainDiv.id = "content";
@@ -37,7 +37,7 @@
 
     const mainScript = this.createElement("script");
 
-    const code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        kudosApp.rateExperience('Sharoda', 'mySignature', d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/kudos-webplugin/kudosWebPluginWidget.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'kudosWebPlugin'));";
+    const code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        boomerangApp.rateExperience('Sharoda', 'mySignature', d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/boomerang-webplugin/boomerangWebPluginWidget.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'boomerangWebPlugin'));";
 
     try {
       mainScript.appendChild(this.createTextNode(code));
@@ -48,25 +48,25 @@
     this.body.appendChild(mainScript);
   };
 
-  kudosIframeDocument.write('<body style="margin:0; padding:0" onload="document._l();">');
-  kudosIframeDocument.close();
+  boomerangIframeDocument.write('<body style="margin:0; padding:0" onload="document._l();">');
+  boomerangIframeDocument.close();
 
-  const kudos = document.getElementById("kudosIframe").contentWindow;
+  const boomerang = document.getElementById("boomerangIframe").contentWindow;
 
-  kudos.show = function() {
+  boomerang.show = function() {
     containerDiv.style.visibility = "visible";
   };
 
-  kudos.hide = function() {
+  boomerang.hide = function() {
     containerDiv.style.visibility = "hidden";
   };
 
-  kudos.isVisible = function() {
+  boomerang.isVisible = function() {
     return containerDiv.style.visibility === "visible";
   };
 
 </script>
-<!-- End of Kudos Widget script -->
+<!-- End of Boomerang Widget script -->
 </body>
 </html>
 

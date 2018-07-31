@@ -47,7 +47,7 @@ export default class LoadingPageComponent extends Component {
       <View style={styles.container}>
 
         <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={require('../../../assets/images/kudos.png')}/>
+          <Image style={styles.logo} source={require('../../../assets/images/boomerang.png')}/>
         </View>
 
         <View style={styles.loadingTextContainer}>

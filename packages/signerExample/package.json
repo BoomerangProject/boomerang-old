@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^5.0.1",
-    "kudos-signer": "file:../signer"
+    "boomerang-signer": "file:../signer"
   },
   "devDependencies": {}
 }

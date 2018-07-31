@@ -17,9 +17,9 @@ class App extends Component {
 
   // startingComponent() {
   //
-  //   const kudosAccountSeed = localStorage.getItem("kudosAccountSeed");
+  //   const boomerangAccountSeed = localStorage.getItem("boomerangAccountSeed");
   //
-  //   if (kudosAccountSeed !== null && kudosAccountSeed.length === 64) {
+  //   if (boomerangAccountSeed !== null && boomerangAccountSeed.length === 64) {
   //     return AccountComponent;
   //   } else {
   //     return NewUserComponent;

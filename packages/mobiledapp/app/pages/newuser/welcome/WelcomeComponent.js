@@ -26,8 +26,8 @@ export default class WelcomeComponent extends Component {
 
       <View style={styles.container}>
 
-        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
-        <Text style={styles.welcomeMessage}>Welcome to Kudos</Text>
+        <Image style={styles.logo} source={require('../../../../assets/images/boomerang.png')}/>
+        <Text style={styles.welcomeMessage}>Welcome to Boomerang</Text>
 
         <TouchableOpacity
           style={styles.createAccountButtonContainer}

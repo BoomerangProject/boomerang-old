@@ -22,7 +22,7 @@
 0 silly argv   'npm-client': undefined,
 0 silly argv   registry: undefined }
 1 info version 3.0.0-alpha.1
-2 verbose rootPath /Users/panda/projects/kudos
+2 verbose rootPath /Users/panda/projects/boomerang
 3 silly batched [ PackageGraphNode {
 3 silly batched     name: 'ethereum',
 3 silly batched     externalDependencies: Map { 'web3-utils' => [Object] },
@@ -90,9 +90,9 @@
 30 silly installInDir   'react-redux@^5.0.7',
 30 silly installInDir   'react-scripts@1.1.1',
 30 silly installInDir   'redux@^3.7.2' ]
-31 silly installInDir backup /Users/panda/projects/kudos/packages/dapp/package.json
-32 silly rename [ '/Users/panda/projects/kudos/packages/dapp/package.json',
-32 silly rename   '/Users/panda/projects/kudos/packages/dapp/package.json.lerna_backup' ]
+31 silly installInDir backup /Users/panda/projects/boomerang/packages/dapp/package.json
+32 silly rename [ '/Users/panda/projects/boomerang/packages/dapp/package.json',
+32 silly rename   '/Users/panda/projects/boomerang/packages/dapp/package.json.lerna_backup' ]
 33 silly installInDir writing tempJson { name: 'dapp',
 33 silly installInDir   version: '0.1.0',
 33 silly installInDir   private: true,
@@ -102,11 +102,11 @@
 33 silly installInDir      'react-redux': '^5.0.7',
 33 silly installInDir      'react-scripts': '1.1.1',
 33 silly installInDir      redux: '^3.7.2' } }
-34 silly getExecOpts { cwd: '/Users/panda/projects/kudos/packages/dapp' }
+34 silly getExecOpts { cwd: '/Users/panda/projects/boomerang/packages/dapp' }
 35 silly npmInstall [ 'npm', [ 'install' ] ]
-36 silly installInDir cleanup /Users/panda/projects/kudos/packages/dapp/package.json
-37 silly renameSync [ '/Users/panda/projects/kudos/packages/dapp/package.json.lerna_backup',
-37 silly renameSync   '/Users/panda/projects/kudos/packages/dapp/package.json' ]
+36 silly installInDir cleanup /Users/panda/projects/boomerang/packages/dapp/package.json
+37 silly renameSync [ '/Users/panda/projects/boomerang/packages/dapp/package.json.lerna_backup',
+37 silly renameSync   '/Users/panda/projects/boomerang/packages/dapp/package.json' ]
 38 error Error: Command failed: npm install
 38 error npm ERR! code ETARGET
 38 error npm ERR! notarget No matching version found for ethereum@1.0.0

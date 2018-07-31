@@ -4289,13 +4289,13 @@ klaw@^1.0.0:
   optionalDependencies:
     graceful-fs "^4.1.9"
 
-kudos-contract-objects@^1.0.29:
+boomerang-contract-objects@^1.0.29:
   version "1.0.29"
-  resolved "https://registry.yarnpkg.com/kudos-contract-objects/-/kudos-contract-objects-1.0.29.tgz#3ba64ec3824c2d0eb55c3d1fb11dbc27600f4212"
+  resolved "https://registry.yarnpkg.com/boomerang-contract-objects/-/boomerang-contract-objects-1.0.29.tgz#3ba64ec3824c2d0eb55c3d1fb11dbc27600f4212"
 
-kudos-token-contract-objects@^1.0.0:
+boomerang-token-contract-objects@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/kudos-token-contract-objects/-/kudos-token-contract-objects-1.0.0.tgz#74ceddd32a4972d08db099264057007e7a9171e8"
+  resolved "https://registry.yarnpkg.com/boomerang-token-contract-objects/-/boomerang-token-contract-objects-1.0.0.tgz#74ceddd32a4972d08db099264057007e7a9171e8"
 
 lazy-cache@^1.0.3:
   version "1.0.4"

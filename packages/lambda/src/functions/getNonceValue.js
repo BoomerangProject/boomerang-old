@@ -1,12 +1,12 @@
 'use strict';
-import KudosContractService from '../services/KudosContractServiceOld';
+import BoomerangContractService from '../services/BoomerangContractServiceOld';
 
 export default async (event, context, callback) => {
 
   const businessAddress = event.queryStringParameters.businessAddress;
   const userId = event.queryStringParameters.userId;
 
-  const nonceValue = await KudosContractService.getNonceValue(businessAddress, userId);
+  const nonceValue = await BoomerangContractService.getNonceValue(businessAddress, userId);
 
   const response = {
     statusCode: 200,

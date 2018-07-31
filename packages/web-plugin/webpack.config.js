@@ -6,11 +6,11 @@ module.exports = {
   entry: './wrapper.js',
   output: {
       libraryTarget: 'var',
-      library: 'kudosApp',
+      library: 'boomerangApp',
       path: path.resolve(__dirname, 'build'),
-      filename: 'kudosWebPluginWidget.js',
+      filename: 'boomerangWebPluginWidget.js',
       // publicPath: "/build/"
-      publicPath: "https://s3.amazonaws.com/kudos-webplugin/"
+      publicPath: "https://s3.amazonaws.com/boomerang-webplugin/"
   },
   module: {
       rules: [

@@ -141,7 +141,7 @@ export default class NavigationDrawerComponent extends Component {
 
       <View style={styles.container}>
 
-        <Image style={styles.logo} source={require('../../../assets/images/kudos.png')}/>
+        <Image style={styles.logo} source={require('../../../assets/images/boomerang.png')}/>
 
         <View style={{flex: 1}}/>
 

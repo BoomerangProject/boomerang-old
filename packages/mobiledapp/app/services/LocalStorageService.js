@@ -3,12 +3,12 @@ import web3 from '../services/Web3HttpService';
 
 export async function storeSeed(seedArg) {
 
-  await setItem('kudosAccountSeed', seedArg);
+  await setItem('boomerangAccountSeed', seedArg);
 
   const account = await web3.eth.accounts.privateKeyToAccount('0x' + seedArg);
 
-  await setItem('kudosAccountAddress', account.address);
-  console.log('kudosAccountAddress: ' + account.address);
+  await setItem('boomerangAccountAddress', account.address);
+  console.log('boomerangAccountAddress: ' + account.address);
 
   return account.address;
 }
@@ -16,7 +16,7 @@ export async function storeSeed(seedArg) {
 export async function setItem(key, value) {
 
   return localStorage.setItem(key, value, {
-    keychainService: 'kudosKeychain',
+    keychainService: 'boomerangKeychain',
     encrypt: true
   });
 }
@@ -24,21 +24,21 @@ export async function setItem(key, value) {
 export async function getItem(key) {
 
   return localStorage.getItem(key, {
-    keychainService: 'kudosKeychain'
+    keychainService: 'boomerangKeychain'
   });
 }
 
 export async function deleteItem(key) {
 
   return localStorage.deleteItem(key, {
-    keychainService: 'kudosKeychain'
+    keychainService: 'boomerangKeychain'
   });
 }
 
 export async function getArrayItem(key) {
 
   const value = await localStorage.getItem(key, {
-    keychainService: 'kudosKeychain'
+    keychainService: 'boomerangKeychain'
   });
 
   return JSON.parse(value);
@@ -52,7 +52,7 @@ export async function isLoggedIn() {
 
 export async function logOut() {
 
-  await deleteItem('kudosAccountSeed');
-  await deleteItem('kudosAccountAddress');
+  await deleteItem('boomerangAccountSeed');
+  await deleteItem('boomerangAccountAddress');
   await setItem('isLoggedIn', 'false');
 }

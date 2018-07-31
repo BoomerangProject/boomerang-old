@@ -1,0 +1,11 @@
+{
+  "name": "boomerang-contract-objects",
+  "version": "1.0.4",
+  "description": "",
+  "main": "Boomerang.json",
+  "scripts": {
+    "prepublish": "cp -R ../boomerang-contracts/build/contracts/ ."
+  },
+  "author": "",
+  "license": "ISC"
+}

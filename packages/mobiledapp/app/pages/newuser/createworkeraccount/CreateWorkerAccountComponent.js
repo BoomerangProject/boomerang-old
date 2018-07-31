@@ -26,7 +26,7 @@ export default class CreateWorkerAccountComponent extends Component {
 
     if (this.okayButtonIsEnabled) {
 
-      const workerAddress = await getItem('kudosAccountAddress');
+      const workerAddress = await getItem('boomerangAccountAddress');
 
       const workerName = this.state.workerName;
       const businessAddress = '0xfad1472d56f1a6f9c204ac555cc8baee0e5409be';
@@ -83,7 +83,7 @@ export default class CreateWorkerAccountComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/boomerang.png')}/>
 
         <Text style={styles.title}>Create Worker Account</Text>
 

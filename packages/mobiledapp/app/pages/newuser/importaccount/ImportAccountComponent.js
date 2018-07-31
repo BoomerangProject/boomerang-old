@@ -40,8 +40,8 @@ export default class ImportAccountComponent extends Component {
       return;
     }
 
-    const kudosAccountAddress = await storeSeed(this.state.seedText);
-    await Navigator.init(this).goToAccountPage(kudosAccountAddress);
+    const boomerangAccountAddress = await storeSeed(this.state.seedText);
+    await Navigator.init(this).goToAccountPage(boomerangAccountAddress);
     this.hideActivityIndicator();
   }
 
@@ -51,7 +51,7 @@ export default class ImportAccountComponent extends Component {
 
       <KeyboardAvoidingView behavior='height' style={styles.container}>
 
-        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/boomerang.png')}/>
 
         <Text style={styles.title}>Paste a seed to begin</Text>
 

@@ -1,6 +1,6 @@
 import web3 from "../../services/Web3HttpService";
-import kudosContract from "../../services/KudosContractService";
-import { kudosContractAddress, payerAddress } from '../../ContractAddresses';
+import boomerangContract from "../../services/BoomerangContractService";
+import { boomerangContractAddress, payerAddress } from '../../ContractAddresses';
 
 const privateKeyOfPayer = '0x4725d5a1c46923e72f04831eab9daf1ec657f256f5e4f139d4835b5197fcffc4';
 
@@ -11,7 +11,7 @@ let signTransaction = async (apiMethod, apiMethodParameters) => {
   console.log('apiMethodParameters: ' + apiMethodParameters.toString());
 
 
-  const query = kudosContract.methods[apiMethod](...apiMethodParameters);
+  const query = boomerangContract.methods[apiMethod](...apiMethodParameters);
   console.log('query: ' + query);
 
 
@@ -20,7 +20,7 @@ let signTransaction = async (apiMethod, apiMethodParameters) => {
 
   const transaction = {
     from: payerAddress,
-    to: kudosContractAddress,
+    to: boomerangContractAddress,
     gas: 4612388,
     gasPrice: 1,
     data: encodedABI

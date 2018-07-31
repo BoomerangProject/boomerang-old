@@ -7,11 +7,11 @@ class AccountComponent extends Component {
     return (
       <div className="Account container">
 
-        <img alt="" className="Account logo" src={require("../../images/kudos.png")}/>
+        <img alt="" className="Account logo" src={require("../../images/boomerang.png")}/>
         <h1>Account</h1>
 
         <div className="Account address">
-          {"0x" + localStorage.getItem("kudosAddress")}
+          {"0x" + localStorage.getItem("boomerangAddress")}
         </div>
       </div>
     );

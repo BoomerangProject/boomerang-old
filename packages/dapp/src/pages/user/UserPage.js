@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import kudosContract from '../../services/KudosContractService'
+import boomerangContract from '../../services/BoomerangContractService'
 import bs58 from 'bs58';
 
 class UserPage extends Component {
@@ -13,12 +13,12 @@ class UserPage extends Component {
 
     const userAddress = "0xfe996c9a9b7f29580c6b9ab92fc692065bf25f80";
 
-    // kudosContract.events.WorkerRating({
+    // boomerangContract.events.WorkerRating({
     //   fromBlock: 0,
     //   toBlock: 'latest'
     // }, console.log);
 
-    kudosContract.getPastEvents('RegisteredAsBusiness', {
+    boomerangContract.getPastEvents('RegisteredAsBusiness', {
       // filter: {_userAddress: userAddress},
       fromBlock: 0,
       toBlock: 'latest'

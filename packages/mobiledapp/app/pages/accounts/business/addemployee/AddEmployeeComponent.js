@@ -26,7 +26,7 @@ export default class AddEmployeeComponent extends Component {
 
     if (this.okayButtonIsEnabled) {
 
-      const businessAddress = await getItem('kudosAccountAddress');
+      const businessAddress = await getItem('boomerangAccountAddress');
 
       const addWorkerRequester = new AddWorkerRequester(this.state.workerAddress, businessAddress);
 
@@ -70,7 +70,7 @@ export default class AddEmployeeComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Image style={styles.logo} source={require('../../../../../assets/images/kudos.png')}/>
+        <Image style={styles.logo} source={require('../../../../../assets/images/boomerang.png')}/>
 
         <Text style={styles.title}>Add Employee</Text>
 

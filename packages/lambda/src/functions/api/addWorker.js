@@ -3,8 +3,8 @@ import errorResponse from "../../responses/errorResponse";
 import signedTransactionResponse from "../../responses/smartContractReceiptResponse";
 
 import web3 from "../../services/Web3HttpService";
-import kudosContract from "../../services/KudosContractService";
-import { kudosContractAddress, payerAddress } from '../../ContractAddresses';
+import boomerangContract from "../../services/BoomerangContractService";
+import { boomerangContractAddress, payerAddress } from '../../ContractAddresses';
 import { getEthereumNonce } from '../../EthereumNonce';
 
 
@@ -30,11 +30,11 @@ export default async (event, context, callback) => {
   let signedTransaction;
   try {
 
-    const query = kudosContract.methods.addWorker(workerAddress, businessAddress);
+    const query = boomerangContract.methods.addWorker(workerAddress, businessAddress);
     const encodedABI = query.encodeABI();
     const transaction = {
       from: payerAddress,
-      to: kudosContractAddress,
+      to: boomerangContractAddress,
       gas: 4612388,
       gasPrice: 80000000000,
       data: encodedABI

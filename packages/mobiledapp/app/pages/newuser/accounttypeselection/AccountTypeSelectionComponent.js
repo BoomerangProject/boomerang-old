@@ -45,7 +45,7 @@ export default class AccountTypeSelectionComponent extends Component {
 
         <View style={{flex: 1}}/>
 
-        <Image style={styles.logo} source={require('../../../../assets/images/kudos.png')}/>
+        <Image style={styles.logo} source={require('../../../../assets/images/boomerang.png')}/>
         <Text style={styles.title}>choose your account type</Text>
 
         <View style={{flex: 1}}/>

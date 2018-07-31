@@ -50,7 +50,7 @@ export default async (event, context, callback) => {
   console.log('ipfsHash: ' + ipfsHash);
 
   try {
-    await storeToS3('kudos-profiles', ipfsHash, ipfsObject);
+    await storeToS3('boomerang-profiles', ipfsHash, ipfsObject);
   } catch (error) {
     return callback(null, s3errorResponse(error));
   }

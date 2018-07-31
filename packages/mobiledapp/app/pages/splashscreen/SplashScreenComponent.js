@@ -15,8 +15,8 @@ export default class SplashScreenComponent extends Component {
     const userIsLoggedIn = await isLoggedIn();
 
     if (userIsLoggedIn) {
-      const kudosAccountAddress = await getItem('kudosAccountAddress');
-      await Navigator.init(this).goToAccountPage(kudosAccountAddress);
+      const boomerangAccountAddress = await getItem('boomerangAccountAddress');
+      await Navigator.init(this).goToAccountPage(boomerangAccountAddress);
     } else {
       Navigator.init(this).resetToWelcomePage();
     }
@@ -31,7 +31,7 @@ export default class SplashScreenComponent extends Component {
         <View style={{flex:1}}/>
 
         <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={require('../../../assets/images/kudos.png')}/>
+          <Image style={styles.logo} source={require('../../../assets/images/boomerang.png')}/>
         </View>
 
         <View style={{flex:1}}/>

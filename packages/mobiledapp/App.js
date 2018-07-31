@@ -17,7 +17,7 @@ export function start() {
   Navigation.startSingleScreenApp({
     screen: {
       screen: startingScreen,
-      title: 'kudos',
+      title: 'boomerang',
       navigatorStyle: {
         navBarHidden: true
       }

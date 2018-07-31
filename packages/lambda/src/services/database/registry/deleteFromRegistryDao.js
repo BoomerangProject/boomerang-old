@@ -6,7 +6,7 @@ const deleteFromRegistry = async function(businessAddressArg, userAddressArg) {
 
     const params = {
 
-      TableName: "KudosRegistry",
+      TableName: "BoomerangRegistry",
       Key: {
 
         businessAddress: businessAddressArg,

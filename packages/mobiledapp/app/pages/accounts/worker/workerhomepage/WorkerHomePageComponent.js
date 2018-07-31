@@ -14,7 +14,7 @@ export default class WorkerAccountComponent extends Component {
   async componentDidMount() {
     await setItem('isLoggedIn', 'true');
 
-    const workerAddress = await getItem('kudosAccountAddress');
+    const workerAddress = await getItem('boomerangAccountAddress');
     this.ipfsFileRequester = new IpfsFileRequester('WorkerProfileUpdated', {_workerAddress: workerAddress});
 
     const file = await this.ipfsFileRequester.makeRequest();

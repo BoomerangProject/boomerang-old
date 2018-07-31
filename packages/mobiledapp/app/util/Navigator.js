@@ -138,11 +138,11 @@ class NavigatorImpl {
     this.navigator.pop();
   }
 
-  async goToAccountPage(kudosAccountAddress) {
+  async goToAccountPage(boomerangAccountAddress) {
 
-    const isUserRequester = new IsUserRequester(kudosAccountAddress);
-    const isWorkerRequester = new IsWorkerRequester(kudosAccountAddress);
-    const isBusinessRequester = new IsBusinessRequester(kudosAccountAddress);
+    const isUserRequester = new IsUserRequester(boomerangAccountAddress);
+    const isWorkerRequester = new IsWorkerRequester(boomerangAccountAddress);
+    const isBusinessRequester = new IsBusinessRequester(boomerangAccountAddress);
 
     const isUser = await isUserRequester.makeRequest();
     const isWorker = await isWorkerRequester.makeRequest();

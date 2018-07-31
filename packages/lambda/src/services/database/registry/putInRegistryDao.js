@@ -6,7 +6,7 @@ const putInRegistry = async function(businessAddressArg, userAddressArg, userIdA
 
     const params = {
 
-      TableName: "KudosRegistry",
+      TableName: "BoomerangRegistry",
       Item: {
 
         businessAddress: businessAddressArg,

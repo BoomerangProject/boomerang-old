@@ -14,8 +14,8 @@ class ImportAccountComponent extends Component {
       return;
     }
 
-    localStorage.setItem("kudosAccountSeed", this.state.seedText);
-    localStorage.setItem("kudosAddress", ethUtil.privateToAddress(new Buffer(this.state.seedText, "hex")).toString("hex"));
+    localStorage.setItem("boomerangAccountSeed", this.state.seedText);
+    localStorage.setItem("boomerangAddress", ethUtil.privateToAddress(new Buffer(this.state.seedText, "hex")).toString("hex"));
     this.props.history.push("/account");
   }
 
@@ -25,7 +25,7 @@ class ImportAccountComponent extends Component {
 
       <div className="ImportAccount container">
 
-        <img alt="" className="ImportAccount logo" src={require("../../images/kudos.png")}/>
+        <img alt="" className="ImportAccount logo" src={require("../../images/boomerang.png")}/>
 
         <h5 className="ImportAccount title">Paste a seed to begin</h5>
 
