@@ -1,6 +1,9 @@
+
 const BigNumber = web3.BigNumber;
 import { ipfsHash, rewardSystem } from './helpers/mockData';
-import assertRewardSystemStatus from './helpers/assertRewardSystemStatus';
+import assertUserRewardSystemStatus from './helpers/assertUserRewardSystemStatus';
+import fillRewardPool from './helpers/fillRewardPool';
+import completeOneUserRewardCycle from './helpers/completeOneUserRewardCycle';
 
 require("chai")
   .use(require("chai-as-promised"))
@@ -14,7 +17,6 @@ contract("BoomerangUserRewardSystemTests", function([deployerAddress, userAddres
 
   let boomerang;
   let boomerangToken;
-  const tokenUnit = new BigNumber(10 ** 18);
 
   beforeEach(async function() {
 
@@ -42,90 +44,78 @@ contract("BoomerangUserRewardSystemTests", function([deployerAddress, userAddres
     userRewardSystemStruct[4].should.equal(ipfsHash);
   });
 
+  /**/
+
   it("user should increment one rewardStep after making review", async function() {
 
     await boomerang.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
 
-    await assertRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 0, 0);
+    await assertUserRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 0, 0);
 
     const workerRating = 3;
     const businessRating = 3;
     await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
 
-    await assertRewardSystemStatus(boomerang, userAddress, businessAddress, 1, 0, 0, 0);
+    await assertUserRewardSystemStatus(boomerang, userAddress, businessAddress, 1, 0, 0, 0);
   });
 
   it("user should increment one rewardCycle after completing the numberOfRewardSteps", async function() {
 
-    await assertRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 0, 0);
+    await assertUserRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 0, 0);
 
     await boomerang.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
-    await boomerangToken.transfer(businessAddress, 10000*tokenUnit, {from: deployerAddress});
-    await boomerangToken.approve(boomerang.address, 10000*tokenUnit, {from: businessAddress});
+    await fillRewardPool(boomerangToken, deployerAddress, businessAddress, boomerang.address);
 
-    for (let i = 0; i < rewardSystem.numberOfRewardSteps; i++) {
-      const workerRating = 3;
-      const businessRating = 3;
-      await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
-    }
+    await completeOneUserRewardCycle(boomerang, userAddress, workerAddress, businessAddress);
 
-    await assertRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 1, 0, 0);
+    await assertUserRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 1, 0, 0);
   });
 
   it("user should increment one rewardLevel after completing the numberOfRewardCyclesForLevel", async function() {
 
-    await assertRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 0, 0);
+    await assertUserRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 0, 0);
 
     await boomerang.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
-    await boomerangToken.transfer(businessAddress, 10000*tokenUnit, {from: deployerAddress});
-    await boomerangToken.approve(boomerang.address, 10000*tokenUnit, {from: businessAddress});
+    await fillRewardPool(boomerangToken, deployerAddress, businessAddress, boomerang.address);
 
     for (let i = 0; i < rewardSystem.numberOfRewardCyclesForLevel[0]; i++) {
-      for (let j = 0; j < rewardSystem.numberOfRewardSteps; j++) {
-        const workerRating = 3;
-        const businessRating = 3;
-        await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
-      }
+      await completeOneUserRewardCycle(boomerang, userAddress, workerAddress, businessAddress);
     }
 
-    await assertRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 1, 0);
+    await assertUserRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 1, 0);
   });
 
   it("user should increment one rewardRank after completing the numberOfRewardLevels", async function() {
 
-    await assertRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 0, 0);
+    await assertUserRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 0, 0);
 
     await boomerang.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
-    await boomerangToken.transfer(businessAddress, 10000*tokenUnit, {from: deployerAddress});
-    await boomerangToken.approve(boomerang.address, 10000*tokenUnit, {from: businessAddress});
+    await fillRewardPool(boomerangToken, deployerAddress, businessAddress, boomerang.address);
 
     for (let i = 0; i < rewardSystem.numberOfRewardLevels; i++) {
       for (let j = 0; j < rewardSystem.numberOfRewardCyclesForLevel[i]; j++) {
-        for (let k = 0; k < rewardSystem.numberOfRewardSteps; k++) {
-          const workerRating = 3;
-          const businessRating = 3;
-          await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
-        }
+        await completeOneUserRewardCycle(boomerang, userAddress, workerAddress, businessAddress);
       }
     }
 
-    await assertRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 0, 1);
+    await assertUserRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 0, 1);
   });
+
+  /**/
 
   it("user reward system progress should update appropriately", async function() {
 
-    await assertRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 0, 0);
+    await assertUserRewardSystemStatus(boomerang, userAddress, businessAddress, 0, 0, 0, 0);
 
     await boomerang.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
-    await boomerangToken.transfer(businessAddress, 10000*tokenUnit, {from: deployerAddress});
-    await boomerangToken.approve(boomerang.address, 10000*tokenUnit, {from: businessAddress});
+    await fillRewardPool(boomerangToken, deployerAddress, businessAddress, boomerang.address);
 
     for (let rewardRank = 0; rewardRank < 3; rewardRank++) {
       for (let rewardLevel = 0; rewardLevel < rewardSystem.numberOfRewardLevels; rewardLevel++) {
         for (let rewardCycle = 0; rewardCycle < rewardSystem.numberOfRewardCyclesForLevel[rewardLevel]; rewardCycle++) {
           for (let rewardStep = 0; rewardStep < rewardSystem.numberOfRewardSteps; rewardStep++) {
 
-            await assertRewardSystemStatus(boomerang, userAddress, businessAddress, rewardStep, rewardCycle, rewardLevel, rewardRank);
+            await assertUserRewardSystemStatus(boomerang, userAddress, businessAddress, rewardStep, rewardCycle, rewardLevel, rewardRank);
 
             const workerRating = 3;
             const businessRating = 3;
@@ -136,11 +126,12 @@ contract("BoomerangUserRewardSystemTests", function([deployerAddress, userAddres
     }
   });
 
+  /**/
+
   it("user should receive boomerang reward from business after completing one reward cycle", async function() {
 
     await boomerang.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
-    await boomerangToken.transfer(businessAddress, 10000*tokenUnit, {from: deployerAddress});
-    await boomerangToken.approve(boomerang.address, 10000*tokenUnit, {from: businessAddress});
+    await fillRewardPool(boomerangToken, deployerAddress, businessAddress, boomerang.address);
 
     let balance;
     for (let i = 0; i < rewardSystem.numberOfRewardSteps; i++) {
@@ -160,8 +151,7 @@ contract("BoomerangUserRewardSystemTests", function([deployerAddress, userAddres
   it("user should receive appropriate boomerang rewards from business", async function() {
 
     await boomerang.registerUserRewardSystem(businessAddress, rewardSystem.numberOfRewardSteps, rewardSystem.numberOfRewardCyclesForLevel, rewardSystem.numberOfRewardLevels, rewardSystem.levelRewards, ipfsHash);
-    await boomerangToken.transfer(businessAddress, 10000*tokenUnit, {from: deployerAddress});
-    await boomerangToken.approve(boomerang.address, 10000*tokenUnit, {from: businessAddress});
+    await fillRewardPool(boomerangToken, deployerAddress, businessAddress, boomerang.address);
 
     let balance = await boomerangToken.balanceOf(userAddress);
     Number(balance).should.equal(0);
@@ -169,12 +159,9 @@ contract("BoomerangUserRewardSystemTests", function([deployerAddress, userAddres
     for (let rewardRank = 0; rewardRank < 3; rewardRank++) {
       for (let rewardLevel = 0; rewardLevel < rewardSystem.numberOfRewardLevels; rewardLevel++) {
         for (let rewardCycle = 0; rewardCycle < rewardSystem.numberOfRewardCyclesForLevel[rewardLevel]; rewardCycle++) {
-          for (let rewardStep = 0; rewardStep < rewardSystem.numberOfRewardSteps; rewardStep++) {
 
-            const workerRating = 3;
-            const businessRating = 3;
-            await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
-          }
+
+          await completeOneUserRewardCycle(boomerang, userAddress, workerAddress, businessAddress);
 
           let balance = await boomerangToken.balanceOf(userAddress);
           Number(balance).should.equal(rewardSystem.levelRewards[rewardLevel]);

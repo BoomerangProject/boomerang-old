@@ -41,7 +41,7 @@ export default class WelcomeComponent extends Component {
           <Text style={styles.importAccountButton}>I already have an account</Text>
         </TouchableOpacity>
 
-        <Text style={styles.version}>K U D O S - v 1 . 0</Text>
+        <Text style={styles.version}>B O O M - v 1 . 0</Text>
       </View>
     );
   }

@@ -1,4 +1,4 @@
-export default async function assertRewardSystemStatus(boomerang, address, businessAddress, expectedRewardStep, expectedRewardCycle, expectedRewardLevel, expectedRewardRank) {
+export default async function assertUserRewardSystemStatus(boomerang, address, businessAddress, expectedRewardStep, expectedRewardCycle, expectedRewardLevel, expectedRewardRank) {
 
   let rewardStep = await boomerang.getUserRewardStep(address, businessAddress);
   let rewardCycle = await boomerang.getUserRewardCycle(address, businessAddress);

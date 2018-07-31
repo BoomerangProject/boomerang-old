@@ -1485,6 +1485,14 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
+boomerang-contract-objects@^1.0.3:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/boomerang-contract-objects/-/boomerang-contract-objects-1.0.4.tgz#5fb296db7de2a70583384e75229348c69b728d31"
+
+boomerang-token-contract-objects@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/boomerang-token-contract-objects/-/boomerang-token-contract-objects-1.0.2.tgz#cd5bbdd8a4da66d46cf146ae7f3ac1b31617a87e"
+
 bplist-creator@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/bplist-creator/-/bplist-creator-0.0.7.tgz#37df1536092824b87c42f957b01344117372ae45"
@@ -4288,14 +4296,6 @@ klaw@^1.0.0:
   resolved "https://registry.yarnpkg.com/klaw/-/klaw-1.3.1.tgz#4088433b46b3b1ba259d78785d8e96f73ba02439"
   optionalDependencies:
     graceful-fs "^4.1.9"
-
-boomerang-contract-objects@^1.0.29:
-  version "1.0.29"
-  resolved "https://registry.yarnpkg.com/boomerang-contract-objects/-/boomerang-contract-objects-1.0.29.tgz#3ba64ec3824c2d0eb55c3d1fb11dbc27600f4212"
-
-boomerang-token-contract-objects@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/boomerang-token-contract-objects/-/boomerang-token-contract-objects-1.0.0.tgz#74ceddd32a4972d08db099264057007e7a9171e8"
 
 lazy-cache@^1.0.3:
   version "1.0.4"

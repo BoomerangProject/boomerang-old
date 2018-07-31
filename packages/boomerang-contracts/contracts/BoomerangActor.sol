@@ -8,10 +8,6 @@ contract BoomerangActor {
   mapping(address => mapping(address => bool)) public businessHasApprovedWorker;
   mapping(address => address[]) public workerList;
 
-  function getNumberOfWorkers(address businessAddress) public view returns(uint count) {
-    return workerList[businessAddress].length;
-  }
-
   mapping(address => uint256) public businessAverageRating;
   mapping(address => uint256) public numberOfBusinessRatings;
 
