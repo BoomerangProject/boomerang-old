@@ -41,4 +41,12 @@ contract BoomerangBusiness is BoomerangActor {
   function getNumberOfWorkers(address businessAddress) public view returns(uint count) {
     return workerList[businessAddress].length;
   }
+
+  function getBusinessRatingsSum(address _businessAddress) public view returns (uint256 _businessRatingsSum) {
+    return businessRatingsSum[_businessAddress];
+  }
+
+  function getNumberOfBusinessRatings(address _businessAddress) public view returns (uint256 _numberOfBusinessRatings) {
+    return numberOfBusinessRatings[_businessAddress];
+  }
 }

@@ -26,13 +26,8 @@ contract BoomerangRateExperience is BoomerangActor, BoomerangRewards {
     emit Debug('workerRating: ', _workerRating);
     emit Debug('businessRating: ', _businessRating);
 
-    if (_businessRating > 0 && _businessRating < 6) {
-      updateBusinessRating(_businessAddress, _businessRating);
-    }
-
-    if (_workerRating > 0 && _workerRating < 6) {
-      updateWorkerRating(_workerAddress, _businessAddress, _workerRating);
-    }
+    updateWorkerRating(_workerAddress, _businessAddress, _workerRating);
+    updateBusinessRating(_businessAddress, _businessRating);
 
     rewardWorker(_workerAddress, _businessAddress, _workerRating);
 
@@ -45,24 +40,23 @@ contract BoomerangRateExperience is BoomerangActor, BoomerangRewards {
 
   function updateBusinessRating(address _businessAddress, uint256 _businessRating) internal {
 
+    if (_businessRating < 1 || _businessRating > 5) {
+      return;
+    }
+
     numberOfBusinessRatings[_businessAddress] += 1;
-    businessAverageRating[_businessAddress] = (businessAverageRating[_businessAddress] + _businessRating) / numberOfBusinessRatings[_businessAddress];
+    businessRatingsSum[_businessAddress] += _businessRating;
   }
 
   function updateWorkerRating(address _workerAddress, address _businessAddress, uint256 _workerRating) internal {
 
+    if (_workerRating < 1 || _workerRating > 5) {
+      return;
+    }
+
     numberOfWorkerRatings[_businessAddress][_workerAddress] += 1;
-    workerAverageRating[_businessAddress][_workerAddress] = (workerAverageRating[_businessAddress][_workerAddress] + _workerRating) / numberOfWorkerRatings[_businessAddress][_workerAddress];
+    workerRatingsSum[_businessAddress][_workerAddress] += _workerRating;
   }
-
-
-
-
-
-
-
-
-
 
 //    modifier withCorrectSignatureFromBusiness(address _businessAddress, bytes32 _userId, uint8 _v, bytes32 _r, bytes32 _s) {
 //

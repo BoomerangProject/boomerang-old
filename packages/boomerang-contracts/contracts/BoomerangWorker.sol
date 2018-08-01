@@ -44,11 +44,11 @@ contract BoomerangWorker is BoomerangActor {
     emit UserRating(_businessAddress, _workerAddress, _userAddress, _userRating, _ipfsHash);
   }
 
-  function getWorkerAverageRating(address _workerAddress, address _businessAddress) public view returns (uint256 _workerAverageRatingValue) {
-    return workerAverageRating[_businessAddress][_workerAddress];
+  function getWorkerRatingsSum(address _workerAddress, address _businessAddress) public view returns (uint256 _workerRatingsSum) {
+    return workerRatingsSum[_businessAddress][_workerAddress];
   }
 
-  function getNumberOfWorkerRatings(address _workerAddress, address _businessAddress) public view returns (uint256 _workerAverageRatingValue) {
+  function getNumberOfWorkerRatings(address _workerAddress, address _businessAddress) public view returns (uint256 _numberOfWorkerRatings) {
     return numberOfWorkerRatings[_businessAddress][_workerAddress];
   }
 }

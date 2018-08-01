@@ -9,7 +9,7 @@ require("chai")
 const Boomerang = artifacts.require("Boomerang");
 const BoomerangToken = artifacts.require("BoomerangToken");
 
-contract("BoomerangRatingRewardPercentagesTests.js", function([deployerAddress, userAddress, workerAddress, businessAddress]) {
+contract("BoomerangBusinessRatingTests", function([deployerAddress, userAddress, workerAddress, businessAddress]) {
 
   let boomerang;
   let boomerangToken;
@@ -20,8 +20,52 @@ contract("BoomerangRatingRewardPercentagesTests.js", function([deployerAddress, 
     boomerang = await Boomerang.new(boomerangToken.address);
   });
 
-  it("", async function() {
+  it("reviewing a business should add a rating", async function() {
 
+    let businessRatingsSum = await boomerang.getBusinessRatingsSum(businessAddress);
+    Number(businessRatingsSum).should.equal(0);
 
+    const workerRating = 2;
+    const businessRating = 3;
+    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+
+    businessRatingsSum = await boomerang.getBusinessRatingsSum(businessAddress);
+    Number(businessRatingsSum).should.equal(3);
+  });
+
+  it("reviewing a business should increment the number of ratings", async function() {
+
+    let numberOfBusinessRatings = await boomerang.getNumberOfBusinessRatings(businessAddress);
+    Number(numberOfBusinessRatings).should.equal(0);
+
+    const workerRating = 2;
+    const businessRating = 3;
+    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+    numberOfBusinessRatings = await boomerang.getNumberOfBusinessRatings(businessAddress);
+    Number(numberOfBusinessRatings).should.equal(1);
+
+    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+    numberOfBusinessRatings = await boomerang.getNumberOfBusinessRatings(businessAddress);
+    Number(numberOfBusinessRatings).should.equal(2);
+  });
+
+  it("the business ratings should sum appropriately", async function() {
+
+    const workerRating = 2;
+    const firstBusinessRating = 3;
+    const secondBusinessRating = 4;
+    const thirdBusinessRating = 4;
+    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, firstBusinessRating, ipfsHash);
+
+    let businessRatingsSum = await boomerang.getBusinessRatingsSum(businessAddress);
+    Number(businessRatingsSum).should.equal(3);
+
+    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, secondBusinessRating, ipfsHash);
+    businessRatingsSum = await boomerang.getBusinessRatingsSum(businessAddress);
+    Number(businessRatingsSum).should.equal(7);
+
+    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, thirdBusinessRating, ipfsHash);
+    businessRatingsSum = await boomerang.getBusinessRatingsSum(businessAddress);
+    Number(businessRatingsSum).should.equal(11);
   });
 });

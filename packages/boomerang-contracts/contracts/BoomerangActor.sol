@@ -8,7 +8,7 @@ contract BoomerangActor {
   mapping(address => mapping(address => bool)) public businessHasApprovedWorker;
   mapping(address => address[]) public workerList;
 
-  mapping(address => uint256) public businessAverageRating;
+  mapping(address => uint256) public businessRatingsSum;
   mapping(address => uint256) public numberOfBusinessRatings;
 
   // worker
@@ -17,7 +17,7 @@ contract BoomerangActor {
   mapping(address => mapping(address => bool)) public workerHasApprovedBusiness;
   mapping(address => address[]) public businessList;
 
-  mapping(address => mapping(address => uint256)) public workerAverageRating;
+  mapping(address => mapping(address => uint256)) public workerRatingsSum;
   mapping(address => mapping(address => uint256)) public numberOfWorkerRatings;
 
   // user

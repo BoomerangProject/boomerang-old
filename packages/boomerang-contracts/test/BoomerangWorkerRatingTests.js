@@ -11,7 +11,7 @@ require("chai")
 const Boomerang = artifacts.require("Boomerang");
 const BoomerangToken = artifacts.require("BoomerangToken");
 
-contract("BoomerangRatingRewardPercentagesTests.js", function([deployerAddress, userAddress, workerAddress, businessAddress]) {
+contract("BoomerangWorkerRatingTests", function([deployerAddress, userAddress, workerAddress, businessAddress]) {
 
   let boomerang;
   let boomerangToken;
@@ -24,15 +24,15 @@ contract("BoomerangRatingRewardPercentagesTests.js", function([deployerAddress, 
 
   it("reviewing a worker should add a rating", async function() {
 
-    let workerAverageRating = await boomerang.getWorkerAverageRating(workerAddress, businessAddress);
-    Number(workerAverageRating).should.equal(0);
+    let workerRatingsSum = await boomerang.getWorkerRatingsSum(workerAddress, businessAddress);
+    Number(workerRatingsSum).should.equal(0);
 
     const workerRating = 2;
     const businessRating = 3;
     await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
 
-    workerAverageRating = await boomerang.getWorkerAverageRating(workerAddress, businessAddress);
-    Number(workerAverageRating).should.equal(2);
+    workerRatingsSum = await boomerang.getWorkerRatingsSum(workerAddress, businessAddress);
+    Number(workerRatingsSum).should.equal(2);
   });
 
   it("reviewing a worker should increment the number of ratings", async function() {
@@ -43,12 +43,15 @@ contract("BoomerangRatingRewardPercentagesTests.js", function([deployerAddress, 
     const workerRating = 2;
     const businessRating = 3;
     await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
-
     numberOfWorkerRatings = await boomerang.getNumberOfWorkerRatings(workerAddress, businessAddress);
     Number(numberOfWorkerRatings).should.equal(1);
+
+    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+    numberOfWorkerRatings = await boomerang.getNumberOfWorkerRatings(workerAddress, businessAddress);
+    Number(numberOfWorkerRatings).should.equal(2);
   });
 
-  it("the worker average rating should update appropriately", async function() {
+  it("the worker ratings should sum appropriately", async function() {
 
     const firstWorkerRating = 2;
     const secondWorkerRating = 4;
@@ -56,18 +59,15 @@ contract("BoomerangRatingRewardPercentagesTests.js", function([deployerAddress, 
     const businessRating = 3;
     await boomerang.rateExperience(userAddress, workerAddress, businessAddress, firstWorkerRating, businessRating, ipfsHash);
 
-    let workerAverageRating = await boomerang.getWorkerAverageRating(workerAddress, businessAddress);
-    Number(workerAverageRating).should.equal(2);
-    console.log(workerAverageRating);
+    let workerRatingsSum = await boomerang.getWorkerRatingsSum(workerAddress, businessAddress);
+    Number(workerRatingsSum).should.equal(2);
 
     await boomerang.rateExperience(userAddress, workerAddress, businessAddress, secondWorkerRating, businessRating, ipfsHash);
-    workerAverageRating = await boomerang.getWorkerAverageRating(workerAddress, businessAddress);
-    Number(workerAverageRating).should.equal(3);
-    console.log(workerAverageRating);
+    workerRatingsSum = await boomerang.getWorkerRatingsSum(workerAddress, businessAddress);
+    Number(workerRatingsSum).should.equal(6);
 
     await boomerang.rateExperience(userAddress, workerAddress, businessAddress, thirdWorkerRating, businessRating, ipfsHash);
-    workerAverageRating = await boomerang.getWorkerAverageRating(workerAddress, businessAddress);
-    console.log(workerAverageRating);
-    // Number(workerAverageRating).should.equal(3.66);
+    workerRatingsSum = await boomerang.getWorkerRatingsSum(workerAddress, businessAddress);
+    Number(workerRatingsSum).should.equal(10);
   });
 });
