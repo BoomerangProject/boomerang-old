@@ -39,9 +39,13 @@ contract BoomerangWorker is BoomerangActor {
 
   function rateUser(address _userAddress, address _workerAddress, address _businessAddress, uint256 _userRating, bytes32 _ipfsHash) public {
 
+    if (_userRating < 1 || _userRating > 5) {
+      return;
+    }
+
     numberOfUserRatings[_userAddress] += 1;
-    userAverageRating[_userAddress] = (userAverageRating[_userAddress] + _userRating) / numberOfUserRatings[_userAddress];
-    emit UserRating(_businessAddress, _workerAddress, _userAddress, _userRating, _ipfsHash);
+    userRatingsSum[_userAddress] += _userRating;
+    emit UserRating(_userAddress, _workerAddress, _businessAddress, _userRating, _ipfsHash);
   }
 
   function getWorkerRatingsSum(address _workerAddress, address _businessAddress) public view returns (uint256 _workerRatingsSum) {

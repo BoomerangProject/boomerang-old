@@ -20,19 +20,6 @@ contract("BoomerangBusinessRatingTests", function([deployerAddress, userAddress,
     boomerang = await Boomerang.new(boomerangToken.address);
   });
 
-  it("reviewing a business should add a rating", async function() {
-
-    let businessRatingsSum = await boomerang.getBusinessRatingsSum(businessAddress);
-    Number(businessRatingsSum).should.equal(0);
-
-    const workerRating = 2;
-    const businessRating = 3;
-    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
-
-    businessRatingsSum = await boomerang.getBusinessRatingsSum(businessAddress);
-    Number(businessRatingsSum).should.equal(3);
-  });
-
   it("reviewing a business should increment the number of ratings", async function() {
 
     let numberOfBusinessRatings = await boomerang.getNumberOfBusinessRatings(businessAddress);
@@ -47,6 +34,10 @@ contract("BoomerangBusinessRatingTests", function([deployerAddress, userAddress,
     await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
     numberOfBusinessRatings = await boomerang.getNumberOfBusinessRatings(businessAddress);
     Number(numberOfBusinessRatings).should.equal(2);
+
+    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+    numberOfBusinessRatings = await boomerang.getNumberOfBusinessRatings(businessAddress);
+    Number(numberOfBusinessRatings).should.equal(3);
   });
 
   it("the business ratings should sum appropriately", async function() {
