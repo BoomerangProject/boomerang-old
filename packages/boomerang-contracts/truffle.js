@@ -21,22 +21,22 @@ module.exports = {
     ropsten: {
       provider: new WalletProvider(wallet, "https://ropsten.infura.io/" + process.env.INFURA_ACCESS_TOKEN),
       network_id: "3",
-      gas: 4612388,
+      gas: 7975275,
       gasPrice: 80000000000
     },
 
     rinkeby: {
       provider: new WalletProvider(wallet, "https://rinkeby.infura.io/" + process.env.INFURA_ACCESS_TOKEN),
       network_id: "4",
-      gas: 4612388,
+      gas: 7975275,
       gasPrice: 80000000000
     },
 
     kovan: {
       provider: new WalletProvider(wallet, "https://kovan.infura.io/" + process.env.INFURA_ACCESS_TOKEN),
       network_id: "42",
-      gas: 4612388,
-      gasPrice: 1
+      gas: 7975275,
+      gasPrice: 1000000000
     }
   }
 };
