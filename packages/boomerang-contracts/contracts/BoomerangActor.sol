@@ -39,9 +39,9 @@ contract BoomerangActor {
 
   modifier withCorrectSignature(address _businessAddress, address _address, uint8 _v, bytes32 _r, bytes32 _s) {
 
-    bytes32 nonceHash = keccak256(nonceValue[_businessAddress][_address]);
+    bytes32 nonceHash = keccak256(abi.encodePacked(nonceValue[_businessAddress][_address]));
     bytes memory prefix = '\x19Ethereum Signed Message:\n32';
-    bytes32 prefixedHash = keccak256(prefix, nonceHash);
+    bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, nonceHash));
     address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
 
     require(recoveredAddress == _address);
