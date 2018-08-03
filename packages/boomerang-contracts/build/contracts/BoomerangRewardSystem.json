@@ -109,14 +109,14 @@
     "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangRewardSystem.sol",
     "exportedSymbols": {
       "BoomerangRewardSystem": [
-        1380
+        1477
       ]
     },
-    "id": 1381,
+    "id": 1478,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1213,
+        "id": 1310,
         "literals": [
           "solidity",
           "^",
@@ -129,10 +129,10 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/Ownable.sol",
         "file": "../Ownable.sol",
-        "id": 1214,
+        "id": 1311,
         "nodeType": "ImportDirective",
-        "scope": 1381,
-        "sourceUnit": 848,
+        "scope": 1478,
+        "sourceUnit": 945,
         "src": "26:24:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -140,10 +140,10 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-token-contracts/contracts/SafeMath.sol",
         "file": "../../../boomerang-token-contracts/contracts/SafeMath.sol",
-        "id": 1215,
+        "id": 1312,
         "nodeType": "ImportDirective",
-        "scope": 1381,
-        "sourceUnit": 2181,
+        "scope": 1478,
+        "sourceUnit": 2278,
         "src": "51:67:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -151,10 +151,10 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-token-contracts/contracts/ERC20Token.sol",
         "file": "../../../boomerang-token-contracts/contracts/ERC20Token.sol",
-        "id": 1216,
+        "id": 1313,
         "nodeType": "ImportDirective",
-        "scope": 1381,
-        "sourceUnit": 2070,
+        "scope": 1478,
+        "sourceUnit": 2167,
         "src": "119:69:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -165,53 +165,53 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1217,
+              "id": 1314,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 847,
+              "referencedDeclaration": 944,
               "src": "224:7:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$847",
+                "typeIdentifier": "t_contract$_Ownable_$944",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 1218,
+            "id": 1315,
             "nodeType": "InheritanceSpecifier",
             "src": "224:7:9"
           }
         ],
         "contractDependencies": [
-          847
+          944
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1380,
+        "id": 1477,
         "linearizedBaseContracts": [
-          1380,
-          847
+          1477,
+          944
         ],
         "name": "BoomerangRewardSystem",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 1221,
+            "id": 1318,
             "libraryName": {
               "contractScope": null,
-              "id": 1219,
+              "id": 1316,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2180,
+              "referencedDeclaration": 2277,
               "src": "242:8:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$2180",
+                "typeIdentifier": "t_contract$_SafeMath_$2277",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
             "src": "236:27:9",
             "typeName": {
-              "id": 1220,
+              "id": 1317,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "255:7:9",
@@ -223,26 +223,26 @@
           },
           {
             "constant": false,
-            "id": 1223,
+            "id": 1320,
             "name": "boomerangToken",
             "nodeType": "VariableDeclaration",
-            "scope": 1380,
+            "scope": 1477,
             "src": "267:32:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ERC20Token_$2069",
+              "typeIdentifier": "t_contract$_ERC20Token_$2166",
               "typeString": "contract ERC20Token"
             },
             "typeName": {
               "contractScope": null,
-              "id": 1222,
+              "id": 1319,
               "name": "ERC20Token",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2069,
+              "referencedDeclaration": 2166,
               "src": "267:10:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20Token_$2069",
+                "typeIdentifier": "t_contract$_ERC20Token_$2166",
                 "typeString": "contract ERC20Token"
               }
             },
@@ -252,20 +252,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1229,
+            "id": 1326,
             "name": "Debug",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1228,
+              "id": 1325,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1225,
+                  "id": 1322,
                   "indexed": false,
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1229,
+                  "scope": 1326,
                   "src": "315:10:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -274,7 +274,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1224,
+                    "id": 1321,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "315:6:9",
@@ -288,11 +288,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1227,
+                  "id": 1324,
                   "indexed": false,
                   "name": "_arg",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1229,
+                  "scope": 1326,
                   "src": "327:12:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -301,7 +301,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1226,
+                    "id": 1323,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "327:7:9",
@@ -320,14 +320,14 @@
           },
           {
             "canonicalName": "BoomerangRewardSystem.RewardSystem",
-            "id": 1258,
+            "id": 1355,
             "members": [
               {
                 "constant": false,
-                "id": 1231,
+                "id": 1328,
                 "name": "numberOfRewardSteps",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "372:27:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -336,7 +336,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1230,
+                  "id": 1327,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "372:7:9",
@@ -350,10 +350,10 @@
               },
               {
                 "constant": false,
-                "id": 1234,
+                "id": 1331,
                 "name": "numberOfRewardCyclesForLevel",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "405:38:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -363,7 +363,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1232,
+                    "id": 1329,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "405:7:9",
@@ -372,7 +372,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1233,
+                  "id": 1330,
                   "length": null,
                   "nodeType": "ArrayTypeName",
                   "src": "405:9:9",
@@ -386,10 +386,10 @@
               },
               {
                 "constant": false,
-                "id": 1236,
+                "id": 1333,
                 "name": "numberOfRewardLevels",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "449:28:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -398,7 +398,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1235,
+                  "id": 1332,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "449:7:9",
@@ -412,10 +412,10 @@
               },
               {
                 "constant": false,
-                "id": 1239,
+                "id": 1336,
                 "name": "levelRewards",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "484:22:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -425,7 +425,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1237,
+                    "id": 1334,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "484:7:9",
@@ -434,7 +434,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1238,
+                  "id": 1335,
                   "length": null,
                   "nodeType": "ArrayTypeName",
                   "src": "484:9:9",
@@ -448,10 +448,10 @@
               },
               {
                 "constant": false,
-                "id": 1241,
+                "id": 1338,
                 "name": "ipfsHash",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "512:16:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -460,7 +460,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 1240,
+                  "id": 1337,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "512:7:9",
@@ -474,10 +474,10 @@
               },
               {
                 "constant": false,
-                "id": 1245,
+                "id": 1342,
                 "name": "rewardStep",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "535:38:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -486,9 +486,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1244,
+                  "id": 1341,
                   "keyType": {
-                    "id": 1242,
+                    "id": 1339,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "543:7:9",
@@ -504,7 +504,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1243,
+                    "id": 1340,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "554:7:9",
@@ -519,10 +519,10 @@
               },
               {
                 "constant": false,
-                "id": 1249,
+                "id": 1346,
                 "name": "rewardCycle",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "579:39:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -531,9 +531,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1248,
+                  "id": 1345,
                   "keyType": {
-                    "id": 1246,
+                    "id": 1343,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "587:7:9",
@@ -549,7 +549,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1247,
+                    "id": 1344,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "598:7:9",
@@ -564,10 +564,10 @@
               },
               {
                 "constant": false,
-                "id": 1253,
+                "id": 1350,
                 "name": "rewardLevel",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "624:39:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -576,9 +576,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1252,
+                  "id": 1349,
                   "keyType": {
-                    "id": 1250,
+                    "id": 1347,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "632:7:9",
@@ -594,7 +594,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1251,
+                    "id": 1348,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "643:7:9",
@@ -609,10 +609,10 @@
               },
               {
                 "constant": false,
-                "id": 1257,
+                "id": 1354,
                 "name": "rewardRank",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "669:38:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -621,9 +621,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1256,
+                  "id": 1353,
                   "keyType": {
-                    "id": 1254,
+                    "id": 1351,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "677:7:9",
@@ -639,7 +639,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1255,
+                    "id": 1352,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "688:7:9",
@@ -655,27 +655,27 @@
             ],
             "name": "RewardSystem",
             "nodeType": "StructDefinition",
-            "scope": 1380,
+            "scope": 1477,
             "src": "345:367:9",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1378,
+              "id": 1475,
               "nodeType": "Block",
               "src": "812:958:9",
               "statements": [
                 {
                   "assignments": [
-                    1266
+                    1363
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1266,
+                      "id": 1363,
                       "name": "nextRewardStep",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1379,
+                      "scope": 1476,
                       "src": "819:22:9",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -684,7 +684,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 1265,
+                        "id": 1362,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "819:7:9",
@@ -697,14 +697,14 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1273,
+                  "id": 1370,
                   "initialValue": {
                     "argumentTypes": null,
                     "commonType": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1272,
+                    "id": 1369,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -715,39 +715,39 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1267,
+                          "id": 1364,
                           "name": "_rewardSystem",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1260,
+                          "referencedDeclaration": 1357,
                           "src": "844:13:9",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                            "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                             "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                           }
                         },
-                        "id": 1268,
+                        "id": 1365,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "rewardStep",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1245,
+                        "referencedDeclaration": 1342,
                         "src": "844:24:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 1270,
+                      "id": 1367,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1269,
+                        "id": 1366,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1262,
+                        "referencedDeclaration": 1359,
                         "src": "869:8:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -770,7 +770,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 1271,
+                      "id": 1368,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -801,18 +801,18 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1277,
+                    "id": 1374,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 1274,
+                      "id": 1371,
                       "name": "nextRewardStep",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1266,
+                      "referencedDeclaration": 1363,
                       "src": "893:14:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -825,25 +825,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1275,
+                        "id": 1372,
                         "name": "_rewardSystem",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1260,
+                        "referencedDeclaration": 1357,
                         "src": "911:13:9",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                          "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                           "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                         }
                       },
-                      "id": 1276,
+                      "id": 1373,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "numberOfRewardSteps",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1231,
+                      "referencedDeclaration": 1328,
                       "src": "911:33:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -857,14 +857,14 @@
                     }
                   },
                   "falseBody": {
-                    "id": 1376,
+                    "id": 1473,
                     "nodeType": "Block",
                     "src": "1712:54:9",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1374,
+                          "id": 1471,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -875,39 +875,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1368,
+                                "id": 1465,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1260,
+                                "referencedDeclaration": 1357,
                                 "src": "1720:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                   "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1371,
+                              "id": 1468,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "rewardStep",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1245,
+                              "referencedDeclaration": 1342,
                               "src": "1720:24:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 1372,
+                            "id": 1469,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1370,
+                              "id": 1467,
                               "name": "_address",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1262,
+                              "referencedDeclaration": 1359,
                               "src": "1745:8:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -930,7 +930,7 @@
                           "rightHandSide": {
                             "argumentTypes": null,
                             "hexValue": "31",
-                            "id": 1373,
+                            "id": 1470,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -951,24 +951,24 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1375,
+                        "id": 1472,
                         "nodeType": "ExpressionStatement",
                         "src": "1720:39:9"
                       }
                     ]
                   },
-                  "id": 1377,
+                  "id": 1474,
                   "nodeType": "IfStatement",
                   "src": "889:877:9",
                   "trueBody": {
-                    "id": 1367,
+                    "id": 1464,
                     "nodeType": "Block",
                     "src": "946:760:9",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1284,
+                          "id": 1381,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -979,39 +979,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1278,
+                                "id": 1375,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1260,
+                                "referencedDeclaration": 1357,
                                 "src": "955:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                   "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1281,
+                              "id": 1378,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "rewardStep",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1245,
+                              "referencedDeclaration": 1342,
                               "src": "955:24:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 1282,
+                            "id": 1379,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1280,
+                              "id": 1377,
                               "name": "_address",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1262,
+                              "referencedDeclaration": 1359,
                               "src": "980:8:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -1034,7 +1034,7 @@
                           "rightHandSide": {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 1283,
+                            "id": 1380,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1055,21 +1055,21 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1285,
+                        "id": 1382,
                         "nodeType": "ExpressionStatement",
                         "src": "955:38:9"
                       },
                       {
                         "assignments": [
-                          1287
+                          1384
                         ],
                         "declarations": [
                           {
                             "constant": false,
-                            "id": 1287,
+                            "id": 1384,
                             "name": "nextRewardCycle",
                             "nodeType": "VariableDeclaration",
-                            "scope": 1379,
+                            "scope": 1476,
                             "src": "1001:23:9",
                             "stateVariable": false,
                             "storageLocation": "default",
@@ -1078,7 +1078,7 @@
                               "typeString": "uint256"
                             },
                             "typeName": {
-                              "id": 1286,
+                              "id": 1383,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
                               "src": "1001:7:9",
@@ -1091,14 +1091,14 @@
                             "visibility": "internal"
                           }
                         ],
-                        "id": 1294,
+                        "id": 1391,
                         "initialValue": {
                           "argumentTypes": null,
                           "commonType": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 1293,
+                          "id": 1390,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1109,39 +1109,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1288,
+                                "id": 1385,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1260,
+                                "referencedDeclaration": 1357,
                                 "src": "1027:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                   "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1289,
+                              "id": 1386,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "rewardCycle",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1249,
+                              "referencedDeclaration": 1346,
                               "src": "1027:25:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 1291,
+                            "id": 1388,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1290,
+                              "id": 1387,
                               "name": "_address",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1262,
+                              "referencedDeclaration": 1359,
                               "src": "1053:8:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -1164,7 +1164,7 @@
                           "rightExpression": {
                             "argumentTypes": null,
                             "hexValue": "31",
-                            "id": 1292,
+                            "id": 1389,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1190,15 +1190,15 @@
                       },
                       {
                         "assignments": [
-                          1296
+                          1393
                         ],
                         "declarations": [
                           {
                             "constant": false,
-                            "id": 1296,
+                            "id": 1393,
                             "name": "currentRewardLevel",
                             "nodeType": "VariableDeclaration",
-                            "scope": 1379,
+                            "scope": 1476,
                             "src": "1075:26:9",
                             "stateVariable": false,
                             "storageLocation": "default",
@@ -1207,7 +1207,7 @@
                               "typeString": "uint256"
                             },
                             "typeName": {
-                              "id": 1295,
+                              "id": 1392,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
                               "src": "1075:7:9",
@@ -1220,46 +1220,46 @@
                             "visibility": "internal"
                           }
                         ],
-                        "id": 1301,
+                        "id": 1398,
                         "initialValue": {
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1297,
+                              "id": 1394,
                               "name": "_rewardSystem",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1260,
+                              "referencedDeclaration": 1357,
                               "src": "1104:13:9",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                 "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                               }
                             },
-                            "id": 1298,
+                            "id": 1395,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "rewardLevel",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 1253,
+                            "referencedDeclaration": 1350,
                             "src": "1104:25:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                               "typeString": "mapping(address => uint256)"
                             }
                           },
-                          "id": 1300,
+                          "id": 1397,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1299,
+                            "id": 1396,
                             "name": "_address",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1262,
+                            "referencedDeclaration": 1359,
                             "src": "1130:8:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1287,18 +1287,18 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 1307,
+                          "id": 1404,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 1302,
+                            "id": 1399,
                             "name": "nextRewardCycle",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1287,
+                            "referencedDeclaration": 1384,
                             "src": "1151:15:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1313,39 +1313,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1303,
+                                "id": 1400,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1260,
+                                "referencedDeclaration": 1357,
                                 "src": "1170:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                   "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1304,
+                              "id": 1401,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "numberOfRewardCyclesForLevel",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1234,
+                              "referencedDeclaration": 1331,
                               "src": "1170:42:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
                                 "typeString": "uint256[] storage ref"
                               }
                             },
-                            "id": 1306,
+                            "id": 1403,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1305,
+                              "id": 1402,
                               "name": "currentRewardLevel",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1296,
+                              "referencedDeclaration": 1393,
                               "src": "1213:18:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -1370,14 +1370,14 @@
                           }
                         },
                         "falseBody": {
-                          "id": 1365,
+                          "id": 1462,
                           "nodeType": "Block",
                           "src": "1640:59:9",
                           "statements": [
                             {
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1363,
+                                "id": 1460,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -1388,39 +1388,39 @@
                                     "argumentTypes": null,
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1357,
+                                      "id": 1454,
                                       "name": "_rewardSystem",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1260,
+                                      "referencedDeclaration": 1357,
                                       "src": "1650:13:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                        "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                         "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                       }
                                     },
-                                    "id": 1360,
+                                    "id": 1457,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "rewardCycle",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 1249,
+                                    "referencedDeclaration": 1346,
                                     "src": "1650:25:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                       "typeString": "mapping(address => uint256)"
                                     }
                                   },
-                                  "id": 1361,
+                                  "id": 1458,
                                   "indexExpression": {
                                     "argumentTypes": null,
-                                    "id": 1359,
+                                    "id": 1456,
                                     "name": "_address",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1262,
+                                    "referencedDeclaration": 1359,
                                     "src": "1676:8:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -1443,7 +1443,7 @@
                                 "rightHandSide": {
                                   "argumentTypes": null,
                                   "hexValue": "31",
-                                  "id": 1362,
+                                  "id": 1459,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -1464,24 +1464,24 @@
                                   "typeString": "uint256"
                                 }
                               },
-                              "id": 1364,
+                              "id": 1461,
                               "nodeType": "ExpressionStatement",
                               "src": "1650:40:9"
                             }
                           ]
                         },
-                        "id": 1366,
+                        "id": 1463,
                         "nodeType": "IfStatement",
                         "src": "1147:552:9",
                         "trueBody": {
-                          "id": 1356,
+                          "id": 1453,
                           "nodeType": "Block",
                           "src": "1234:400:9",
                           "statements": [
                             {
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1314,
+                                "id": 1411,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -1492,39 +1492,39 @@
                                     "argumentTypes": null,
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1308,
+                                      "id": 1405,
                                       "name": "_rewardSystem",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1260,
+                                      "referencedDeclaration": 1357,
                                       "src": "1245:13:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                        "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                         "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                       }
                                     },
-                                    "id": 1311,
+                                    "id": 1408,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "rewardCycle",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 1249,
+                                    "referencedDeclaration": 1346,
                                     "src": "1245:25:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                       "typeString": "mapping(address => uint256)"
                                     }
                                   },
-                                  "id": 1312,
+                                  "id": 1409,
                                   "indexExpression": {
                                     "argumentTypes": null,
-                                    "id": 1310,
+                                    "id": 1407,
                                     "name": "_address",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1262,
+                                    "referencedDeclaration": 1359,
                                     "src": "1271:8:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -1547,7 +1547,7 @@
                                 "rightHandSide": {
                                   "argumentTypes": null,
                                   "hexValue": "30",
-                                  "id": 1313,
+                                  "id": 1410,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -1568,21 +1568,21 @@
                                   "typeString": "uint256"
                                 }
                               },
-                              "id": 1315,
+                              "id": 1412,
                               "nodeType": "ExpressionStatement",
                               "src": "1245:39:9"
                             },
                             {
                               "assignments": [
-                                1317
+                                1414
                               ],
                               "declarations": [
                                 {
                                   "constant": false,
-                                  "id": 1317,
+                                  "id": 1414,
                                   "name": "nextRewardLevel",
                                   "nodeType": "VariableDeclaration",
-                                  "scope": 1379,
+                                  "scope": 1476,
                                   "src": "1294:23:9",
                                   "stateVariable": false,
                                   "storageLocation": "default",
@@ -1591,7 +1591,7 @@
                                     "typeString": "uint256"
                                   },
                                   "typeName": {
-                                    "id": 1316,
+                                    "id": 1413,
                                     "name": "uint256",
                                     "nodeType": "ElementaryTypeName",
                                     "src": "1294:7:9",
@@ -1604,14 +1604,14 @@
                                   "visibility": "internal"
                                 }
                               ],
-                              "id": 1324,
+                              "id": 1421,
                               "initialValue": {
                                 "argumentTypes": null,
                                 "commonType": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
                                 },
-                                "id": 1323,
+                                "id": 1420,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -1622,39 +1622,39 @@
                                     "argumentTypes": null,
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1318,
+                                      "id": 1415,
                                       "name": "_rewardSystem",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1260,
+                                      "referencedDeclaration": 1357,
                                       "src": "1320:13:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                        "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                         "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                       }
                                     },
-                                    "id": 1319,
+                                    "id": 1416,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "rewardLevel",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 1253,
+                                    "referencedDeclaration": 1350,
                                     "src": "1320:25:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                       "typeString": "mapping(address => uint256)"
                                     }
                                   },
-                                  "id": 1321,
+                                  "id": 1418,
                                   "indexExpression": {
                                     "argumentTypes": null,
-                                    "id": 1320,
+                                    "id": 1417,
                                     "name": "_address",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1262,
+                                    "referencedDeclaration": 1359,
                                     "src": "1346:8:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -1677,7 +1677,7 @@
                                 "rightExpression": {
                                   "argumentTypes": null,
                                   "hexValue": "31",
-                                  "id": 1322,
+                                  "id": 1419,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -1708,18 +1708,18 @@
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
                                 },
-                                "id": 1328,
+                                "id": 1425,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "leftExpression": {
                                   "argumentTypes": null,
-                                  "id": 1325,
+                                  "id": 1422,
                                   "name": "nextRewardLevel",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1317,
+                                  "referencedDeclaration": 1414,
                                   "src": "1376:15:9",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -1732,25 +1732,25 @@
                                   "argumentTypes": null,
                                   "expression": {
                                     "argumentTypes": null,
-                                    "id": 1326,
+                                    "id": 1423,
                                     "name": "_rewardSystem",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1260,
+                                    "referencedDeclaration": 1357,
                                     "src": "1395:13:9",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                      "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                       "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                     }
                                   },
-                                  "id": 1327,
+                                  "id": 1424,
                                   "isConstant": false,
                                   "isLValue": true,
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "memberName": "numberOfRewardLevels",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 1236,
+                                  "referencedDeclaration": 1333,
                                   "src": "1395:34:9",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -1764,14 +1764,14 @@
                                 }
                               },
                               "falseBody": {
-                                "id": 1354,
+                                "id": 1451,
                                 "nodeType": "Block",
                                 "src": "1558:67:9",
                                 "statements": [
                                   {
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1352,
+                                      "id": 1449,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -1782,39 +1782,39 @@
                                           "argumentTypes": null,
                                           "expression": {
                                             "argumentTypes": null,
-                                            "id": 1346,
+                                            "id": 1443,
                                             "name": "_rewardSystem",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 1260,
+                                            "referencedDeclaration": 1357,
                                             "src": "1572:13:9",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                              "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                               "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                             }
                                           },
-                                          "id": 1349,
+                                          "id": 1446,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "rewardLevel",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 1253,
+                                          "referencedDeclaration": 1350,
                                           "src": "1572:25:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                             "typeString": "mapping(address => uint256)"
                                           }
                                         },
-                                        "id": 1350,
+                                        "id": 1447,
                                         "indexExpression": {
                                           "argumentTypes": null,
-                                          "id": 1348,
+                                          "id": 1445,
                                           "name": "_address",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1262,
+                                          "referencedDeclaration": 1359,
                                           "src": "1598:8:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -1837,7 +1837,7 @@
                                       "rightHandSide": {
                                         "argumentTypes": null,
                                         "hexValue": "31",
-                                        "id": 1351,
+                                        "id": 1448,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -1858,24 +1858,24 @@
                                         "typeString": "uint256"
                                       }
                                     },
-                                    "id": 1353,
+                                    "id": 1450,
                                     "nodeType": "ExpressionStatement",
                                     "src": "1572:40:9"
                                   }
                                 ]
                               },
-                              "id": 1355,
+                              "id": 1452,
                               "nodeType": "IfStatement",
                               "src": "1372:253:9",
                               "trueBody": {
-                                "id": 1345,
+                                "id": 1442,
                                 "nodeType": "Block",
                                 "src": "1431:121:9",
                                 "statements": [
                                   {
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1335,
+                                      "id": 1432,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -1886,39 +1886,39 @@
                                           "argumentTypes": null,
                                           "expression": {
                                             "argumentTypes": null,
-                                            "id": 1329,
+                                            "id": 1426,
                                             "name": "_rewardSystem",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 1260,
+                                            "referencedDeclaration": 1357,
                                             "src": "1446:13:9",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                              "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                               "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                             }
                                           },
-                                          "id": 1332,
+                                          "id": 1429,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "rewardLevel",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 1253,
+                                          "referencedDeclaration": 1350,
                                           "src": "1446:25:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                             "typeString": "mapping(address => uint256)"
                                           }
                                         },
-                                        "id": 1333,
+                                        "id": 1430,
                                         "indexExpression": {
                                           "argumentTypes": null,
-                                          "id": 1331,
+                                          "id": 1428,
                                           "name": "_address",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1262,
+                                          "referencedDeclaration": 1359,
                                           "src": "1472:8:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -1941,7 +1941,7 @@
                                       "rightHandSide": {
                                         "argumentTypes": null,
                                         "hexValue": "30",
-                                        "id": 1334,
+                                        "id": 1431,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -1962,14 +1962,14 @@
                                         "typeString": "uint256"
                                       }
                                     },
-                                    "id": 1336,
+                                    "id": 1433,
                                     "nodeType": "ExpressionStatement",
                                     "src": "1446:39:9"
                                   },
                                   {
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1343,
+                                      "id": 1440,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -1980,39 +1980,39 @@
                                           "argumentTypes": null,
                                           "expression": {
                                             "argumentTypes": null,
-                                            "id": 1337,
+                                            "id": 1434,
                                             "name": "_rewardSystem",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 1260,
+                                            "referencedDeclaration": 1357,
                                             "src": "1499:13:9",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                              "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                               "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                             }
                                           },
-                                          "id": 1340,
+                                          "id": 1437,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "rewardRank",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 1257,
+                                          "referencedDeclaration": 1354,
                                           "src": "1499:24:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                             "typeString": "mapping(address => uint256)"
                                           }
                                         },
-                                        "id": 1341,
+                                        "id": 1438,
                                         "indexExpression": {
                                           "argumentTypes": null,
-                                          "id": 1339,
+                                          "id": 1436,
                                           "name": "_address",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1262,
+                                          "referencedDeclaration": 1359,
                                           "src": "1524:8:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -2035,7 +2035,7 @@
                                       "rightHandSide": {
                                         "argumentTypes": null,
                                         "hexValue": "31",
-                                        "id": 1342,
+                                        "id": 1439,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -2056,7 +2056,7 @@
                                         "typeString": "uint256"
                                       }
                                     },
-                                    "id": 1344,
+                                    "id": 1441,
                                     "nodeType": "ExpressionStatement",
                                     "src": "1499:39:9"
                                   }
@@ -2072,7 +2072,7 @@
               ]
             },
             "documentation": null,
-            "id": 1379,
+            "id": 1476,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2080,31 +2080,31 @@
             "name": "incrementRewardProgress",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1263,
+              "id": 1360,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1260,
+                  "id": 1357,
                   "name": "_rewardSystem",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1379,
+                  "scope": 1476,
                   "src": "749:34:9",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                    "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                     "typeString": "struct BoomerangRewardSystem.RewardSystem"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 1259,
+                    "id": 1356,
                     "name": "RewardSystem",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1258,
+                    "referencedDeclaration": 1355,
                     "src": "749:12:9",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                      "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                       "typeString": "struct BoomerangRewardSystem.RewardSystem"
                     }
                   },
@@ -2113,10 +2113,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1262,
+                  "id": 1359,
                   "name": "_address",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1379,
+                  "scope": 1476,
                   "src": "785:16:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2125,7 +2125,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1261,
+                    "id": 1358,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "785:7:9",
@@ -2142,19 +2142,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1264,
+              "id": 1361,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "812:0:9"
             },
-            "scope": 1380,
+            "scope": 1477,
             "src": "716:1054:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 1381,
+        "scope": 1478,
         "src": "190:1582:9"
       }
     ],
@@ -2164,14 +2164,14 @@
     "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangRewardSystem.sol",
     "exportedSymbols": {
       "BoomerangRewardSystem": [
-        1380
+        1477
       ]
     },
-    "id": 1381,
+    "id": 1478,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1213,
+        "id": 1310,
         "literals": [
           "solidity",
           "^",
@@ -2184,10 +2184,10 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/Ownable.sol",
         "file": "../Ownable.sol",
-        "id": 1214,
+        "id": 1311,
         "nodeType": "ImportDirective",
-        "scope": 1381,
-        "sourceUnit": 848,
+        "scope": 1478,
+        "sourceUnit": 945,
         "src": "26:24:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2195,10 +2195,10 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-token-contracts/contracts/SafeMath.sol",
         "file": "../../../boomerang-token-contracts/contracts/SafeMath.sol",
-        "id": 1215,
+        "id": 1312,
         "nodeType": "ImportDirective",
-        "scope": 1381,
-        "sourceUnit": 2181,
+        "scope": 1478,
+        "sourceUnit": 2278,
         "src": "51:67:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2206,10 +2206,10 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-token-contracts/contracts/ERC20Token.sol",
         "file": "../../../boomerang-token-contracts/contracts/ERC20Token.sol",
-        "id": 1216,
+        "id": 1313,
         "nodeType": "ImportDirective",
-        "scope": 1381,
-        "sourceUnit": 2070,
+        "scope": 1478,
+        "sourceUnit": 2167,
         "src": "119:69:9",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2220,53 +2220,53 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1217,
+              "id": 1314,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 847,
+              "referencedDeclaration": 944,
               "src": "224:7:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$847",
+                "typeIdentifier": "t_contract$_Ownable_$944",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 1218,
+            "id": 1315,
             "nodeType": "InheritanceSpecifier",
             "src": "224:7:9"
           }
         ],
         "contractDependencies": [
-          847
+          944
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1380,
+        "id": 1477,
         "linearizedBaseContracts": [
-          1380,
-          847
+          1477,
+          944
         ],
         "name": "BoomerangRewardSystem",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 1221,
+            "id": 1318,
             "libraryName": {
               "contractScope": null,
-              "id": 1219,
+              "id": 1316,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2180,
+              "referencedDeclaration": 2277,
               "src": "242:8:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$2180",
+                "typeIdentifier": "t_contract$_SafeMath_$2277",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
             "src": "236:27:9",
             "typeName": {
-              "id": 1220,
+              "id": 1317,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "255:7:9",
@@ -2278,26 +2278,26 @@
           },
           {
             "constant": false,
-            "id": 1223,
+            "id": 1320,
             "name": "boomerangToken",
             "nodeType": "VariableDeclaration",
-            "scope": 1380,
+            "scope": 1477,
             "src": "267:32:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ERC20Token_$2069",
+              "typeIdentifier": "t_contract$_ERC20Token_$2166",
               "typeString": "contract ERC20Token"
             },
             "typeName": {
               "contractScope": null,
-              "id": 1222,
+              "id": 1319,
               "name": "ERC20Token",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2069,
+              "referencedDeclaration": 2166,
               "src": "267:10:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20Token_$2069",
+                "typeIdentifier": "t_contract$_ERC20Token_$2166",
                 "typeString": "contract ERC20Token"
               }
             },
@@ -2307,20 +2307,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1229,
+            "id": 1326,
             "name": "Debug",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1228,
+              "id": 1325,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1225,
+                  "id": 1322,
                   "indexed": false,
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1229,
+                  "scope": 1326,
                   "src": "315:10:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2329,7 +2329,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1224,
+                    "id": 1321,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "315:6:9",
@@ -2343,11 +2343,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1227,
+                  "id": 1324,
                   "indexed": false,
                   "name": "_arg",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1229,
+                  "scope": 1326,
                   "src": "327:12:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2356,7 +2356,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1226,
+                    "id": 1323,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "327:7:9",
@@ -2375,14 +2375,14 @@
           },
           {
             "canonicalName": "BoomerangRewardSystem.RewardSystem",
-            "id": 1258,
+            "id": 1355,
             "members": [
               {
                 "constant": false,
-                "id": 1231,
+                "id": 1328,
                 "name": "numberOfRewardSteps",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "372:27:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2391,7 +2391,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1230,
+                  "id": 1327,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "372:7:9",
@@ -2405,10 +2405,10 @@
               },
               {
                 "constant": false,
-                "id": 1234,
+                "id": 1331,
                 "name": "numberOfRewardCyclesForLevel",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "405:38:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2418,7 +2418,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1232,
+                    "id": 1329,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "405:7:9",
@@ -2427,7 +2427,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1233,
+                  "id": 1330,
                   "length": null,
                   "nodeType": "ArrayTypeName",
                   "src": "405:9:9",
@@ -2441,10 +2441,10 @@
               },
               {
                 "constant": false,
-                "id": 1236,
+                "id": 1333,
                 "name": "numberOfRewardLevels",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "449:28:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2453,7 +2453,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1235,
+                  "id": 1332,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "449:7:9",
@@ -2467,10 +2467,10 @@
               },
               {
                 "constant": false,
-                "id": 1239,
+                "id": 1336,
                 "name": "levelRewards",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "484:22:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2480,7 +2480,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1237,
+                    "id": 1334,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "484:7:9",
@@ -2489,7 +2489,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1238,
+                  "id": 1335,
                   "length": null,
                   "nodeType": "ArrayTypeName",
                   "src": "484:9:9",
@@ -2503,10 +2503,10 @@
               },
               {
                 "constant": false,
-                "id": 1241,
+                "id": 1338,
                 "name": "ipfsHash",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "512:16:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2515,7 +2515,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 1240,
+                  "id": 1337,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "512:7:9",
@@ -2529,10 +2529,10 @@
               },
               {
                 "constant": false,
-                "id": 1245,
+                "id": 1342,
                 "name": "rewardStep",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "535:38:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2541,9 +2541,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1244,
+                  "id": 1341,
                   "keyType": {
-                    "id": 1242,
+                    "id": 1339,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "543:7:9",
@@ -2559,7 +2559,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1243,
+                    "id": 1340,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "554:7:9",
@@ -2574,10 +2574,10 @@
               },
               {
                 "constant": false,
-                "id": 1249,
+                "id": 1346,
                 "name": "rewardCycle",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "579:39:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2586,9 +2586,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1248,
+                  "id": 1345,
                   "keyType": {
-                    "id": 1246,
+                    "id": 1343,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "587:7:9",
@@ -2604,7 +2604,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1247,
+                    "id": 1344,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "598:7:9",
@@ -2619,10 +2619,10 @@
               },
               {
                 "constant": false,
-                "id": 1253,
+                "id": 1350,
                 "name": "rewardLevel",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "624:39:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2631,9 +2631,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1252,
+                  "id": 1349,
                   "keyType": {
-                    "id": 1250,
+                    "id": 1347,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "632:7:9",
@@ -2649,7 +2649,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1251,
+                    "id": 1348,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "643:7:9",
@@ -2664,10 +2664,10 @@
               },
               {
                 "constant": false,
-                "id": 1257,
+                "id": 1354,
                 "name": "rewardRank",
                 "nodeType": "VariableDeclaration",
-                "scope": 1258,
+                "scope": 1355,
                 "src": "669:38:9",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2676,9 +2676,9 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "typeName": {
-                  "id": 1256,
+                  "id": 1353,
                   "keyType": {
-                    "id": 1254,
+                    "id": 1351,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "677:7:9",
@@ -2694,7 +2694,7 @@
                     "typeString": "mapping(address => uint256)"
                   },
                   "valueType": {
-                    "id": 1255,
+                    "id": 1352,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "688:7:9",
@@ -2710,27 +2710,27 @@
             ],
             "name": "RewardSystem",
             "nodeType": "StructDefinition",
-            "scope": 1380,
+            "scope": 1477,
             "src": "345:367:9",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1378,
+              "id": 1475,
               "nodeType": "Block",
               "src": "812:958:9",
               "statements": [
                 {
                   "assignments": [
-                    1266
+                    1363
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1266,
+                      "id": 1363,
                       "name": "nextRewardStep",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1379,
+                      "scope": 1476,
                       "src": "819:22:9",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -2739,7 +2739,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 1265,
+                        "id": 1362,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "819:7:9",
@@ -2752,14 +2752,14 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1273,
+                  "id": 1370,
                   "initialValue": {
                     "argumentTypes": null,
                     "commonType": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1272,
+                    "id": 1369,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2770,39 +2770,39 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1267,
+                          "id": 1364,
                           "name": "_rewardSystem",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1260,
+                          "referencedDeclaration": 1357,
                           "src": "844:13:9",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                            "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                             "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                           }
                         },
-                        "id": 1268,
+                        "id": 1365,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "rewardStep",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1245,
+                        "referencedDeclaration": 1342,
                         "src": "844:24:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 1270,
+                      "id": 1367,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1269,
+                        "id": 1366,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1262,
+                        "referencedDeclaration": 1359,
                         "src": "869:8:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2825,7 +2825,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 1271,
+                      "id": 1368,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2856,18 +2856,18 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1277,
+                    "id": 1374,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 1274,
+                      "id": 1371,
                       "name": "nextRewardStep",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1266,
+                      "referencedDeclaration": 1363,
                       "src": "893:14:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2880,25 +2880,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1275,
+                        "id": 1372,
                         "name": "_rewardSystem",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1260,
+                        "referencedDeclaration": 1357,
                         "src": "911:13:9",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                          "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                           "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                         }
                       },
-                      "id": 1276,
+                      "id": 1373,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "numberOfRewardSteps",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1231,
+                      "referencedDeclaration": 1328,
                       "src": "911:33:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2912,14 +2912,14 @@
                     }
                   },
                   "falseBody": {
-                    "id": 1376,
+                    "id": 1473,
                     "nodeType": "Block",
                     "src": "1712:54:9",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1374,
+                          "id": 1471,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2930,39 +2930,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1368,
+                                "id": 1465,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1260,
+                                "referencedDeclaration": 1357,
                                 "src": "1720:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                   "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1371,
+                              "id": 1468,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "rewardStep",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1245,
+                              "referencedDeclaration": 1342,
                               "src": "1720:24:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 1372,
+                            "id": 1469,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1370,
+                              "id": 1467,
                               "name": "_address",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1262,
+                              "referencedDeclaration": 1359,
                               "src": "1745:8:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -2985,7 +2985,7 @@
                           "rightHandSide": {
                             "argumentTypes": null,
                             "hexValue": "31",
-                            "id": 1373,
+                            "id": 1470,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3006,24 +3006,24 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1375,
+                        "id": 1472,
                         "nodeType": "ExpressionStatement",
                         "src": "1720:39:9"
                       }
                     ]
                   },
-                  "id": 1377,
+                  "id": 1474,
                   "nodeType": "IfStatement",
                   "src": "889:877:9",
                   "trueBody": {
-                    "id": 1367,
+                    "id": 1464,
                     "nodeType": "Block",
                     "src": "946:760:9",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1284,
+                          "id": 1381,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3034,39 +3034,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1278,
+                                "id": 1375,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1260,
+                                "referencedDeclaration": 1357,
                                 "src": "955:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                   "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1281,
+                              "id": 1378,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "rewardStep",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1245,
+                              "referencedDeclaration": 1342,
                               "src": "955:24:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 1282,
+                            "id": 1379,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1280,
+                              "id": 1377,
                               "name": "_address",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1262,
+                              "referencedDeclaration": 1359,
                               "src": "980:8:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -3089,7 +3089,7 @@
                           "rightHandSide": {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 1283,
+                            "id": 1380,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3110,21 +3110,21 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1285,
+                        "id": 1382,
                         "nodeType": "ExpressionStatement",
                         "src": "955:38:9"
                       },
                       {
                         "assignments": [
-                          1287
+                          1384
                         ],
                         "declarations": [
                           {
                             "constant": false,
-                            "id": 1287,
+                            "id": 1384,
                             "name": "nextRewardCycle",
                             "nodeType": "VariableDeclaration",
-                            "scope": 1379,
+                            "scope": 1476,
                             "src": "1001:23:9",
                             "stateVariable": false,
                             "storageLocation": "default",
@@ -3133,7 +3133,7 @@
                               "typeString": "uint256"
                             },
                             "typeName": {
-                              "id": 1286,
+                              "id": 1383,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
                               "src": "1001:7:9",
@@ -3146,14 +3146,14 @@
                             "visibility": "internal"
                           }
                         ],
-                        "id": 1294,
+                        "id": 1391,
                         "initialValue": {
                           "argumentTypes": null,
                           "commonType": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 1293,
+                          "id": 1390,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3164,39 +3164,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1288,
+                                "id": 1385,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1260,
+                                "referencedDeclaration": 1357,
                                 "src": "1027:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                   "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1289,
+                              "id": 1386,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "rewardCycle",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1249,
+                              "referencedDeclaration": 1346,
                               "src": "1027:25:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                 "typeString": "mapping(address => uint256)"
                               }
                             },
-                            "id": 1291,
+                            "id": 1388,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1290,
+                              "id": 1387,
                               "name": "_address",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1262,
+                              "referencedDeclaration": 1359,
                               "src": "1053:8:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
@@ -3219,7 +3219,7 @@
                           "rightExpression": {
                             "argumentTypes": null,
                             "hexValue": "31",
-                            "id": 1292,
+                            "id": 1389,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3245,15 +3245,15 @@
                       },
                       {
                         "assignments": [
-                          1296
+                          1393
                         ],
                         "declarations": [
                           {
                             "constant": false,
-                            "id": 1296,
+                            "id": 1393,
                             "name": "currentRewardLevel",
                             "nodeType": "VariableDeclaration",
-                            "scope": 1379,
+                            "scope": 1476,
                             "src": "1075:26:9",
                             "stateVariable": false,
                             "storageLocation": "default",
@@ -3262,7 +3262,7 @@
                               "typeString": "uint256"
                             },
                             "typeName": {
-                              "id": 1295,
+                              "id": 1392,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
                               "src": "1075:7:9",
@@ -3275,46 +3275,46 @@
                             "visibility": "internal"
                           }
                         ],
-                        "id": 1301,
+                        "id": 1398,
                         "initialValue": {
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1297,
+                              "id": 1394,
                               "name": "_rewardSystem",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1260,
+                              "referencedDeclaration": 1357,
                               "src": "1104:13:9",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                 "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                               }
                             },
-                            "id": 1298,
+                            "id": 1395,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "rewardLevel",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 1253,
+                            "referencedDeclaration": 1350,
                             "src": "1104:25:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                               "typeString": "mapping(address => uint256)"
                             }
                           },
-                          "id": 1300,
+                          "id": 1397,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 1299,
+                            "id": 1396,
                             "name": "_address",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1262,
+                            "referencedDeclaration": 1359,
                             "src": "1130:8:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -3342,18 +3342,18 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 1307,
+                          "id": 1404,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 1302,
+                            "id": 1399,
                             "name": "nextRewardCycle",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1287,
+                            "referencedDeclaration": 1384,
                             "src": "1151:15:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -3368,39 +3368,39 @@
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1303,
+                                "id": 1400,
                                 "name": "_rewardSystem",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1260,
+                                "referencedDeclaration": 1357,
                                 "src": "1170:13:9",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                  "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                   "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                 }
                               },
-                              "id": 1304,
+                              "id": 1401,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "numberOfRewardCyclesForLevel",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 1234,
+                              "referencedDeclaration": 1331,
                               "src": "1170:42:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
                                 "typeString": "uint256[] storage ref"
                               }
                             },
-                            "id": 1306,
+                            "id": 1403,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 1305,
+                              "id": 1402,
                               "name": "currentRewardLevel",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1296,
+                              "referencedDeclaration": 1393,
                               "src": "1213:18:9",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -3425,14 +3425,14 @@
                           }
                         },
                         "falseBody": {
-                          "id": 1365,
+                          "id": 1462,
                           "nodeType": "Block",
                           "src": "1640:59:9",
                           "statements": [
                             {
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1363,
+                                "id": 1460,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -3443,39 +3443,39 @@
                                     "argumentTypes": null,
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1357,
+                                      "id": 1454,
                                       "name": "_rewardSystem",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1260,
+                                      "referencedDeclaration": 1357,
                                       "src": "1650:13:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                        "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                         "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                       }
                                     },
-                                    "id": 1360,
+                                    "id": 1457,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "rewardCycle",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 1249,
+                                    "referencedDeclaration": 1346,
                                     "src": "1650:25:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                       "typeString": "mapping(address => uint256)"
                                     }
                                   },
-                                  "id": 1361,
+                                  "id": 1458,
                                   "indexExpression": {
                                     "argumentTypes": null,
-                                    "id": 1359,
+                                    "id": 1456,
                                     "name": "_address",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1262,
+                                    "referencedDeclaration": 1359,
                                     "src": "1676:8:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -3498,7 +3498,7 @@
                                 "rightHandSide": {
                                   "argumentTypes": null,
                                   "hexValue": "31",
-                                  "id": 1362,
+                                  "id": 1459,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -3519,24 +3519,24 @@
                                   "typeString": "uint256"
                                 }
                               },
-                              "id": 1364,
+                              "id": 1461,
                               "nodeType": "ExpressionStatement",
                               "src": "1650:40:9"
                             }
                           ]
                         },
-                        "id": 1366,
+                        "id": 1463,
                         "nodeType": "IfStatement",
                         "src": "1147:552:9",
                         "trueBody": {
-                          "id": 1356,
+                          "id": 1453,
                           "nodeType": "Block",
                           "src": "1234:400:9",
                           "statements": [
                             {
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1314,
+                                "id": 1411,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -3547,39 +3547,39 @@
                                     "argumentTypes": null,
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1308,
+                                      "id": 1405,
                                       "name": "_rewardSystem",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1260,
+                                      "referencedDeclaration": 1357,
                                       "src": "1245:13:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                        "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                         "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                       }
                                     },
-                                    "id": 1311,
+                                    "id": 1408,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "rewardCycle",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 1249,
+                                    "referencedDeclaration": 1346,
                                     "src": "1245:25:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                       "typeString": "mapping(address => uint256)"
                                     }
                                   },
-                                  "id": 1312,
+                                  "id": 1409,
                                   "indexExpression": {
                                     "argumentTypes": null,
-                                    "id": 1310,
+                                    "id": 1407,
                                     "name": "_address",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1262,
+                                    "referencedDeclaration": 1359,
                                     "src": "1271:8:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -3602,7 +3602,7 @@
                                 "rightHandSide": {
                                   "argumentTypes": null,
                                   "hexValue": "30",
-                                  "id": 1313,
+                                  "id": 1410,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -3623,21 +3623,21 @@
                                   "typeString": "uint256"
                                 }
                               },
-                              "id": 1315,
+                              "id": 1412,
                               "nodeType": "ExpressionStatement",
                               "src": "1245:39:9"
                             },
                             {
                               "assignments": [
-                                1317
+                                1414
                               ],
                               "declarations": [
                                 {
                                   "constant": false,
-                                  "id": 1317,
+                                  "id": 1414,
                                   "name": "nextRewardLevel",
                                   "nodeType": "VariableDeclaration",
-                                  "scope": 1379,
+                                  "scope": 1476,
                                   "src": "1294:23:9",
                                   "stateVariable": false,
                                   "storageLocation": "default",
@@ -3646,7 +3646,7 @@
                                     "typeString": "uint256"
                                   },
                                   "typeName": {
-                                    "id": 1316,
+                                    "id": 1413,
                                     "name": "uint256",
                                     "nodeType": "ElementaryTypeName",
                                     "src": "1294:7:9",
@@ -3659,14 +3659,14 @@
                                   "visibility": "internal"
                                 }
                               ],
-                              "id": 1324,
+                              "id": 1421,
                               "initialValue": {
                                 "argumentTypes": null,
                                 "commonType": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
                                 },
-                                "id": 1323,
+                                "id": 1420,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -3677,39 +3677,39 @@
                                     "argumentTypes": null,
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1318,
+                                      "id": 1415,
                                       "name": "_rewardSystem",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1260,
+                                      "referencedDeclaration": 1357,
                                       "src": "1320:13:9",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                        "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                         "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                       }
                                     },
-                                    "id": 1319,
+                                    "id": 1416,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "rewardLevel",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 1253,
+                                    "referencedDeclaration": 1350,
                                     "src": "1320:25:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                       "typeString": "mapping(address => uint256)"
                                     }
                                   },
-                                  "id": 1321,
+                                  "id": 1418,
                                   "indexExpression": {
                                     "argumentTypes": null,
-                                    "id": 1320,
+                                    "id": 1417,
                                     "name": "_address",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1262,
+                                    "referencedDeclaration": 1359,
                                     "src": "1346:8:9",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
@@ -3732,7 +3732,7 @@
                                 "rightExpression": {
                                   "argumentTypes": null,
                                   "hexValue": "31",
-                                  "id": 1322,
+                                  "id": 1419,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -3763,18 +3763,18 @@
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
                                 },
-                                "id": 1328,
+                                "id": 1425,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "leftExpression": {
                                   "argumentTypes": null,
-                                  "id": 1325,
+                                  "id": 1422,
                                   "name": "nextRewardLevel",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1317,
+                                  "referencedDeclaration": 1414,
                                   "src": "1376:15:9",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -3787,25 +3787,25 @@
                                   "argumentTypes": null,
                                   "expression": {
                                     "argumentTypes": null,
-                                    "id": 1326,
+                                    "id": 1423,
                                     "name": "_rewardSystem",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1260,
+                                    "referencedDeclaration": 1357,
                                     "src": "1395:13:9",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                      "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                       "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                     }
                                   },
-                                  "id": 1327,
+                                  "id": 1424,
                                   "isConstant": false,
                                   "isLValue": true,
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "memberName": "numberOfRewardLevels",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 1236,
+                                  "referencedDeclaration": 1333,
                                   "src": "1395:34:9",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -3819,14 +3819,14 @@
                                 }
                               },
                               "falseBody": {
-                                "id": 1354,
+                                "id": 1451,
                                 "nodeType": "Block",
                                 "src": "1558:67:9",
                                 "statements": [
                                   {
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1352,
+                                      "id": 1449,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -3837,39 +3837,39 @@
                                           "argumentTypes": null,
                                           "expression": {
                                             "argumentTypes": null,
-                                            "id": 1346,
+                                            "id": 1443,
                                             "name": "_rewardSystem",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 1260,
+                                            "referencedDeclaration": 1357,
                                             "src": "1572:13:9",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                              "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                               "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                             }
                                           },
-                                          "id": 1349,
+                                          "id": 1446,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "rewardLevel",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 1253,
+                                          "referencedDeclaration": 1350,
                                           "src": "1572:25:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                             "typeString": "mapping(address => uint256)"
                                           }
                                         },
-                                        "id": 1350,
+                                        "id": 1447,
                                         "indexExpression": {
                                           "argumentTypes": null,
-                                          "id": 1348,
+                                          "id": 1445,
                                           "name": "_address",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1262,
+                                          "referencedDeclaration": 1359,
                                           "src": "1598:8:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -3892,7 +3892,7 @@
                                       "rightHandSide": {
                                         "argumentTypes": null,
                                         "hexValue": "31",
-                                        "id": 1351,
+                                        "id": 1448,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -3913,24 +3913,24 @@
                                         "typeString": "uint256"
                                       }
                                     },
-                                    "id": 1353,
+                                    "id": 1450,
                                     "nodeType": "ExpressionStatement",
                                     "src": "1572:40:9"
                                   }
                                 ]
                               },
-                              "id": 1355,
+                              "id": 1452,
                               "nodeType": "IfStatement",
                               "src": "1372:253:9",
                               "trueBody": {
-                                "id": 1345,
+                                "id": 1442,
                                 "nodeType": "Block",
                                 "src": "1431:121:9",
                                 "statements": [
                                   {
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1335,
+                                      "id": 1432,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -3941,39 +3941,39 @@
                                           "argumentTypes": null,
                                           "expression": {
                                             "argumentTypes": null,
-                                            "id": 1329,
+                                            "id": 1426,
                                             "name": "_rewardSystem",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 1260,
+                                            "referencedDeclaration": 1357,
                                             "src": "1446:13:9",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                              "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                               "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                             }
                                           },
-                                          "id": 1332,
+                                          "id": 1429,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "rewardLevel",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 1253,
+                                          "referencedDeclaration": 1350,
                                           "src": "1446:25:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                             "typeString": "mapping(address => uint256)"
                                           }
                                         },
-                                        "id": 1333,
+                                        "id": 1430,
                                         "indexExpression": {
                                           "argumentTypes": null,
-                                          "id": 1331,
+                                          "id": 1428,
                                           "name": "_address",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1262,
+                                          "referencedDeclaration": 1359,
                                           "src": "1472:8:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -3996,7 +3996,7 @@
                                       "rightHandSide": {
                                         "argumentTypes": null,
                                         "hexValue": "30",
-                                        "id": 1334,
+                                        "id": 1431,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -4017,14 +4017,14 @@
                                         "typeString": "uint256"
                                       }
                                     },
-                                    "id": 1336,
+                                    "id": 1433,
                                     "nodeType": "ExpressionStatement",
                                     "src": "1446:39:9"
                                   },
                                   {
                                     "expression": {
                                       "argumentTypes": null,
-                                      "id": 1343,
+                                      "id": 1440,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -4035,39 +4035,39 @@
                                           "argumentTypes": null,
                                           "expression": {
                                             "argumentTypes": null,
-                                            "id": 1337,
+                                            "id": 1434,
                                             "name": "_rewardSystem",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 1260,
+                                            "referencedDeclaration": 1357,
                                             "src": "1499:13:9",
                                             "typeDescriptions": {
-                                              "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                                              "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                                               "typeString": "struct BoomerangRewardSystem.RewardSystem storage pointer"
                                             }
                                           },
-                                          "id": 1340,
+                                          "id": 1437,
                                           "isConstant": false,
                                           "isLValue": true,
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "memberName": "rewardRank",
                                           "nodeType": "MemberAccess",
-                                          "referencedDeclaration": 1257,
+                                          "referencedDeclaration": 1354,
                                           "src": "1499:24:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                                             "typeString": "mapping(address => uint256)"
                                           }
                                         },
-                                        "id": 1341,
+                                        "id": 1438,
                                         "indexExpression": {
                                           "argumentTypes": null,
-                                          "id": 1339,
+                                          "id": 1436,
                                           "name": "_address",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1262,
+                                          "referencedDeclaration": 1359,
                                           "src": "1524:8:9",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -4090,7 +4090,7 @@
                                       "rightHandSide": {
                                         "argumentTypes": null,
                                         "hexValue": "31",
-                                        "id": 1342,
+                                        "id": 1439,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
@@ -4111,7 +4111,7 @@
                                         "typeString": "uint256"
                                       }
                                     },
-                                    "id": 1344,
+                                    "id": 1441,
                                     "nodeType": "ExpressionStatement",
                                     "src": "1499:39:9"
                                   }
@@ -4127,7 +4127,7 @@
               ]
             },
             "documentation": null,
-            "id": 1379,
+            "id": 1476,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -4135,31 +4135,31 @@
             "name": "incrementRewardProgress",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1263,
+              "id": 1360,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1260,
+                  "id": 1357,
                   "name": "_rewardSystem",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1379,
+                  "scope": 1476,
                   "src": "749:34:9",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                    "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                     "typeString": "struct BoomerangRewardSystem.RewardSystem"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 1259,
+                    "id": 1356,
                     "name": "RewardSystem",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1258,
+                    "referencedDeclaration": 1355,
                     "src": "749:12:9",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_RewardSystem_$1258_storage_ptr",
+                      "typeIdentifier": "t_struct$_RewardSystem_$1355_storage_ptr",
                       "typeString": "struct BoomerangRewardSystem.RewardSystem"
                     }
                   },
@@ -4168,10 +4168,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1262,
+                  "id": 1359,
                   "name": "_address",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1379,
+                  "scope": 1476,
                   "src": "785:16:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4180,7 +4180,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1261,
+                    "id": 1358,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "785:7:9",
@@ -4197,19 +4197,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1264,
+              "id": 1361,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "812:0:9"
             },
-            "scope": 1380,
+            "scope": 1477,
             "src": "716:1054:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 1381,
+        "scope": 1478,
         "src": "190:1582:9"
       }
     ],
@@ -4221,5 +4221,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-02T18:15:44.026Z"
+  "updatedAt": "2018-08-03T14:27:18.139Z"
 }

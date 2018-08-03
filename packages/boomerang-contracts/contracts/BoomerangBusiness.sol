@@ -58,10 +58,10 @@ contract BoomerangBusiness is BoomerangActor {
                               address indexed _businessAddress,
                               bytes32 _ipfsHash);
 
-  function boomerangExperience(  address _userAddres†s,
+  function boomerangExperience(  address _userAddress,
                                  address _workerAddress,
                                  address _businessAddress,
-                                 bytes32 _ipfsHash) {
+                                 bytes32 _ipfsHash) public {
 
     emit BoomerangExperience(_userAddress, _workerAddress, _businessAddress, _ipfsHash);
   }
