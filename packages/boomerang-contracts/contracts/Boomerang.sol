@@ -10,4 +10,10 @@ contract Boomerang is BoomerangUser, BoomerangWorker, BoomerangBusiness, Boomera
   constructor(address _tokenContractAddress) public {
     boomerangToken = ERC20Token(_tokenContractAddress);
   }
+
+  address public updatedContractAddress;
+
+  function setUpdatedContractAddress(address _updatedContractAddress) public onlyOwner {
+    updatedContractAddress = _updatedContractAddress;
+  }
 }

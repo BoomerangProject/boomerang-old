@@ -49,4 +49,20 @@ contract BoomerangBusiness is BoomerangActor {
   function getNumberOfBusinessRatings(address _businessAddress) public view returns (uint256 _numberOfBusinessRatings) {
     return numberOfBusinessRatings[_businessAddress];
   }
+
+
+  mapping(bytes32 => bool) boomerangExperienceWasRated;
+
+  event BoomerangExperience(  address indexed _userAddress,
+                              address indexed _workerAddress,
+                              address indexed _businessAddress,
+                              bytes32 _ipfsHash);
+
+  function boomerangExperience(  address _userAddres†s,
+                                 address _workerAddress,
+                                 address _businessAddress,
+                                 bytes32 _ipfsHash) {
+
+    emit BoomerangExperience(_userAddress, _workerAddress, _businessAddress, _ipfsHash);
+  }
 }

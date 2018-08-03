@@ -95,13 +95,9 @@
         {
           "name": "",
           "type": "address"
-        },
-        {
-          "name": "",
-          "type": "address"
         }
       ],
-      "name": "workerAverageRating",
+      "name": "userRatingsSum",
       "outputs": [
         {
           "name": "",
@@ -125,6 +121,25 @@
         {
           "name": "",
           "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "businessRatingsSum",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
         }
       ],
       "payable": false,
@@ -163,6 +178,29 @@
         }
       ],
       "name": "numberOfBusinessRatings",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "nonce",
       "outputs": [
         {
           "name": "",
@@ -223,11 +261,11 @@
           "type": "address"
         }
       ],
-      "name": "workerHasApprovedBusiness",
+      "name": "workerRatingsSum",
       "outputs": [
         {
           "name": "",
-          "type": "bool"
+          "type": "uint256"
         }
       ],
       "payable": false,
@@ -240,13 +278,17 @@
         {
           "name": "",
           "type": "address"
+        },
+        {
+          "name": "",
+          "type": "address"
         }
       ],
-      "name": "businessAverageRating",
+      "name": "workerHasApprovedBusiness",
       "outputs": [
         {
           "name": "",
-          "type": "uint256"
+          "type": "bool"
         }
       ],
       "payable": false,
@@ -275,64 +317,26 @@
       "payable": false,
       "stateMutability": "view",
       "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "userAverageRating",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "businessAddress",
-          "type": "address"
-        }
-      ],
-      "name": "getNumberOfWorkers",
-      "outputs": [
-        {
-          "name": "count",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b506109c6806100206000396000f3006080604052600436106100db576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063067a0949146100e05780630e2be2661461015b578063130ee376146101d25780631466d0191461025f5780632f64550a146102ba5780632fccafb5146103315780634209fff1146103885780637b1d0c83146103e35780639708c61f1461045e578063aa156645146104b5578063b265c33d14610510578063e336379314610567578063ec5df15a146105e2578063f901188814610639578063ffb33793146106c6575b600080fd5b3480156100ec57600080fd5b50610141600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061071d565b604051808215151515815260200191505060405180910390f35b34801561016757600080fd5b506101bc600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061074c565b6040518082815260200191505060405180910390f35b3480156101de57600080fd5b5061021d600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610771565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561026b57600080fd5b506102a0600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506107be565b604051808215151515815260200191505060405180910390f35b3480156102c657600080fd5b5061031b600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506107de565b6040518082815260200191505060405180910390f35b34801561033d57600080fd5b50610372600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610803565b6040518082815260200191505060405180910390f35b34801561039457600080fd5b506103c9600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061084f565b604051808215151515815260200191505060405180910390f35b3480156103ef57600080fd5b50610444600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061086f565b604051808215151515815260200191505060405180910390f35b34801561046a57600080fd5b5061049f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061089e565b6040518082815260200191505060405180910390f35b3480156104c157600080fd5b506104f6600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108b6565b604051808215151515815260200191505060405180910390f35b34801561051c57600080fd5b50610551600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108d6565b6040518082815260200191505060405180910390f35b34801561057357600080fd5b506105c8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108ee565b604051808215151515815260200191505060405180910390f35b3480156105ee57600080fd5b50610623600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061091d565b6040518082815260200191505060405180910390f35b34801561064557600080fd5b50610684600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610935565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156106d257600080fd5b50610707600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610982565b6040518082815260200191505060405180910390f35b60016020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b6009602052816000526040600020602052806000526040600020600091509150505481565b60076020528160005260406000208181548110151561078c57fe5b906000526020600020016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60006020528060005260406000206000915054906101000a900460ff1681565b6008602052816000526040600020602052806000526040600020600091509150505481565b6000600260008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805490509050919050565b600c6020528060005260406000206000915054906101000a900460ff1681565b600d6020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60046020528060005260406000206000915090505481565b60056020528060005260406000206000915054906101000a900460ff1681565b600b6020528060005260406000206000915090505481565b60066020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60036020528060005260406000206000915090505481565b60026020528160005260406000208181548110151561095057fe5b906000526020600020016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600a60205280600052604060002060009150905054815600a165627a7a723058203bfcfa47d934e5d89ca7d70ed58338ee2fe40d673380a79d5e1f6fb24690e6240029",
-  "deployedBytecode": "0x6080604052600436106100db576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063067a0949146100e05780630e2be2661461015b578063130ee376146101d25780631466d0191461025f5780632f64550a146102ba5780632fccafb5146103315780634209fff1146103885780637b1d0c83146103e35780639708c61f1461045e578063aa156645146104b5578063b265c33d14610510578063e336379314610567578063ec5df15a146105e2578063f901188814610639578063ffb33793146106c6575b600080fd5b3480156100ec57600080fd5b50610141600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061071d565b604051808215151515815260200191505060405180910390f35b34801561016757600080fd5b506101bc600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061074c565b6040518082815260200191505060405180910390f35b3480156101de57600080fd5b5061021d600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610771565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561026b57600080fd5b506102a0600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506107be565b604051808215151515815260200191505060405180910390f35b3480156102c657600080fd5b5061031b600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506107de565b6040518082815260200191505060405180910390f35b34801561033d57600080fd5b50610372600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610803565b6040518082815260200191505060405180910390f35b34801561039457600080fd5b506103c9600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061084f565b604051808215151515815260200191505060405180910390f35b3480156103ef57600080fd5b50610444600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061086f565b604051808215151515815260200191505060405180910390f35b34801561046a57600080fd5b5061049f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061089e565b6040518082815260200191505060405180910390f35b3480156104c157600080fd5b506104f6600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108b6565b604051808215151515815260200191505060405180910390f35b34801561051c57600080fd5b50610551600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108d6565b6040518082815260200191505060405180910390f35b34801561057357600080fd5b506105c8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108ee565b604051808215151515815260200191505060405180910390f35b3480156105ee57600080fd5b50610623600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061091d565b6040518082815260200191505060405180910390f35b34801561064557600080fd5b50610684600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610935565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156106d257600080fd5b50610707600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610982565b6040518082815260200191505060405180910390f35b60016020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b6009602052816000526040600020602052806000526040600020600091509150505481565b60076020528160005260406000208181548110151561078c57fe5b906000526020600020016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60006020528060005260406000206000915054906101000a900460ff1681565b6008602052816000526040600020602052806000526040600020600091509150505481565b6000600260008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805490509050919050565b600c6020528060005260406000206000915054906101000a900460ff1681565b600d6020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60046020528060005260406000206000915090505481565b60056020528060005260406000206000915054906101000a900460ff1681565b600b6020528060005260406000206000915090505481565b60066020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60036020528060005260406000206000915090505481565b60026020528160005260406000208181548110151561095057fe5b906000526020600020016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600a60205280600052604060002060009150905054815600a165627a7a723058203bfcfa47d934e5d89ca7d70ed58338ee2fe40d673380a79d5e1f6fb24690e6240029",
-  "sourceMap": "26:1161:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:1161:1;;;;;;;",
-  "deployedSourceMap": "26:1161:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;116:77;;8:9:-1;5:2;;;30:1;27;20:12;5:2;116:77:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;783:76;;8:9:-1;5:2;;;30:1;27;20:12;5:2;783:76:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;651:49;;8:9:-1;5:2;;;30:1;27;20:12;5:2;651:49:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;69:42;;8:9:-1;5:2;;;30:1;27;20:12;5:2;69:42:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;705:74;;8:9:-1;5:2;;;30:1;27;20:12;5:2;705:74:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;249:137;;8:9:-1;5:2;;;30:1;27;20:12;5:2;249:137:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;989:38;;8:9:-1;5:2;;;30:1;27;20:12;5:2;989:38:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1055:62;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1055:62:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;450:58;;8:9:-1;5:2;;;30:1;27;20:12;5:2;450:58:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;525:40;;8:9:-1;5:2;;;30:1;27;20:12;5:2;525:40:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;930:54;;8:9:-1;5:2;;;30:1;27;20:12;5:2;930:54:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;570:77;;8:9:-1;5:2;;;30:1;27;20:12;5:2;570:77:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;390:56;;8:9:-1;5:2;;;30:1;27;20:12;5:2;390:56:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;197:47;;8:9:-1;5:2;;;30:1;27;20:12;5:2;197:47:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;874:52;;8:9:-1;5:2;;;30:1;27;20:12;5:2;874:52:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;116:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;783:76::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;651:49::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;69:42::-;;;;;;;;;;;;;;;;;;;;;;:::o;705:74::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;249:137::-;322:10;347;:27;358:15;347:27;;;;;;;;;;;;;;;:34;;;;340:41;;249:137;;;:::o;989:38::-;;;;;;;;;;;;;;;;;;;;;;:::o;1055:62::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;450:58::-;;;;;;;;;;;;;;;;;:::o;525:40::-;;;;;;;;;;;;;;;;;;;;;;:::o;930:54::-;;;;;;;;;;;;;;;;;:::o;570:77::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;390:56::-;;;;;;;;;;;;;;;;;:::o;197:47::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;874:52::-;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.4.24;\n\ncontract BoomerangActor {\n\n  // business\n  mapping(address => bool) public isBusiness;\n\n  mapping(address => mapping(address => bool)) public businessHasApprovedWorker;\n  mapping(address => address[]) public workerList;\n\n  function getNumberOfWorkers(address businessAddress) public view returns(uint count) {\n    return workerList[businessAddress].length;\n  }\n\n  mapping(address => uint256) public businessAverageRating;\n  mapping(address => uint256) public numberOfBusinessRatings;\n\n  // worker\n  mapping(address => bool) public isWorker;\n\n  mapping(address => mapping(address => bool)) public workerHasApprovedBusiness;\n  mapping(address => address[]) public businessList;\n\n  mapping(address => mapping(address => uint256)) public workerAverageRating;\n  mapping(address => mapping(address => uint256)) public numberOfWorkerRatings;\n\n  // user\n  mapping(address => uint256) public userAverageRating;\n  mapping(address => uint256) public numberOfUserRatings;\n\n  mapping(address => bool) public isUser;\n\n  // business + worker\n  mapping(address => mapping(address => bool)) public isEmployed;\n\n//  mapping(address => mapping(bytes32 => uint256)) public nonce;\n}\n",
+  "bytecode": "0x608060405234801561001057600080fd5b506109bf806100206000396000f3006080604052600436106100db576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063067a0949146100e05780630e2be2661461015b578063130ee376146101d25780631466d0191461025f57806332455817146102ba5780634209fff1146103115780635e27d3981461036c5780637b1d0c83146103c35780639708c61f1461043e578063a719536714610495578063aa1566451461050c578063b265c33d14610567578063ca202792146105be578063e336379314610635578063f9011888146106b0575b600080fd5b3480156100ec57600080fd5b50610141600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061073d565b604051808215151515815260200191505060405180910390f35b34801561016757600080fd5b506101bc600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061076c565b6040518082815260200191505060405180910390f35b3480156101de57600080fd5b5061021d600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610791565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561026b57600080fd5b506102a0600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506107de565b604051808215151515815260200191505060405180910390f35b3480156102c657600080fd5b506102fb600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506107fe565b6040518082815260200191505060405180910390f35b34801561031d57600080fd5b50610352600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610816565b604051808215151515815260200191505060405180910390f35b34801561037857600080fd5b506103ad600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610836565b6040518082815260200191505060405180910390f35b3480156103cf57600080fd5b50610424600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061084e565b604051808215151515815260200191505060405180910390f35b34801561044a57600080fd5b5061047f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061087d565b6040518082815260200191505060405180910390f35b3480156104a157600080fd5b506104f6600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610895565b6040518082815260200191505060405180910390f35b34801561051857600080fd5b5061054d600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108ba565b604051808215151515815260200191505060405180910390f35b34801561057357600080fd5b506105a8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108da565b6040518082815260200191505060405180910390f35b3480156105ca57600080fd5b5061061f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108f2565b6040518082815260200191505060405180910390f35b34801561064157600080fd5b50610696600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610917565b604051808215151515815260200191505060405180910390f35b3480156106bc57600080fd5b506106fb600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610946565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60016020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b600b602052816000526040600020602052806000526040600020600091509150505481565b6005602052816000526040600020818154811015156107ac57fe5b906000526020600020016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60006020528060005260406000206000915054906101000a900460ff1681565b600c6020528060005260406000206000915090505481565b60066020528060005260406000206000915054906101000a900460ff1681565b60086020528060005260406000206000915090505481565b60076020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60096020528060005260406000206000915090505481565b600e602052816000526040600020602052806000526040600020600091509150505481565b60036020528060005260406000206000915054906101000a900460ff1681565b600d6020528060005260406000206000915090505481565b600a602052816000526040600020602052806000526040600020600091509150505481565b60046020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60026020528160005260406000208181548110151561096157fe5b906000526020600020016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820a793efd87ec5af13e406656fe98368759a9fea3a27d4d3d156845ef989596bda0029",
+  "deployedBytecode": "0x6080604052600436106100db576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063067a0949146100e05780630e2be2661461015b578063130ee376146101d25780631466d0191461025f57806332455817146102ba5780634209fff1146103115780635e27d3981461036c5780637b1d0c83146103c35780639708c61f1461043e578063a719536714610495578063aa1566451461050c578063b265c33d14610567578063ca202792146105be578063e336379314610635578063f9011888146106b0575b600080fd5b3480156100ec57600080fd5b50610141600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061073d565b604051808215151515815260200191505060405180910390f35b34801561016757600080fd5b506101bc600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061076c565b6040518082815260200191505060405180910390f35b3480156101de57600080fd5b5061021d600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610791565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561026b57600080fd5b506102a0600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506107de565b604051808215151515815260200191505060405180910390f35b3480156102c657600080fd5b506102fb600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506107fe565b6040518082815260200191505060405180910390f35b34801561031d57600080fd5b50610352600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610816565b604051808215151515815260200191505060405180910390f35b34801561037857600080fd5b506103ad600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610836565b6040518082815260200191505060405180910390f35b3480156103cf57600080fd5b50610424600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061084e565b604051808215151515815260200191505060405180910390f35b34801561044a57600080fd5b5061047f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061087d565b6040518082815260200191505060405180910390f35b3480156104a157600080fd5b506104f6600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610895565b6040518082815260200191505060405180910390f35b34801561051857600080fd5b5061054d600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108ba565b604051808215151515815260200191505060405180910390f35b34801561057357600080fd5b506105a8600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108da565b6040518082815260200191505060405180910390f35b3480156105ca57600080fd5b5061061f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506108f2565b6040518082815260200191505060405180910390f35b34801561064157600080fd5b50610696600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610917565b604051808215151515815260200191505060405180910390f35b3480156106bc57600080fd5b506106fb600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610946565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60016020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b600b602052816000526040600020602052806000526040600020600091509150505481565b6005602052816000526040600020818154811015156107ac57fe5b906000526020600020016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60006020528060005260406000206000915054906101000a900460ff1681565b600c6020528060005260406000206000915090505481565b60066020528060005260406000206000915054906101000a900460ff1681565b60086020528060005260406000206000915090505481565b60076020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60096020528060005260406000206000915090505481565b600e602052816000526040600020602052806000526040600020600091509150505481565b60036020528060005260406000206000915054906101000a900460ff1681565b600d6020528060005260406000206000915090505481565b600a602052816000526040600020602052806000526040600020600091509150505481565b60046020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60026020528160005260406000208181548110151561096157fe5b906000526020600020016000915091509054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820a793efd87ec5af13e406656fe98368759a9fea3a27d4d3d156845ef989596bda0029",
+  "sourceMap": "26:1073:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:1073:1;;;;;;;",
+  "deployedSourceMap": "26:1073:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;116:77;;8:9:-1;5:2;;;30:1;27;20:12;5:2;116:77:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;792:76;;8:9:-1;5:2;;;30:1;27;20:12;5:2;792:76:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;387:49;;8:9:-1;5:2;;;30:1;27;20:12;5:2;387:49:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;69:42;;8:9:-1;5:2;;;30:1;27;20:12;5:2;69:42:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;873:49;;8:9:-1;5:2;;;30:1;27;20:12;5:2;873:49:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;451:38;;8:9:-1;5:2;;;30:1;27;20:12;5:2;451:38:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;597:53;;8:9:-1;5:2;;;30:1;27;20:12;5:2;597:53:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;517:62;;8:9:-1;5:2;;;30:1;27;20:12;5:2;517:62:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;654:58;;8:9:-1;5:2;;;30:1;27;20:12;5:2;654:58:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1036:60;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1036:60:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;261:40;;8:9:-1;5:2;;;30:1;27;20:12;5:2;261:40:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;926:54;;8:9:-1;5:2;;;30:1;27;20:12;5:2;926:54:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;717:71;;8:9:-1;5:2;;;30:1;27;20:12;5:2;717:71:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;306:77;;8:9:-1;5:2;;;30:1;27;20:12;5:2;306:77:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;197:47;;8:9:-1;5:2;;;30:1;27;20:12;5:2;197:47:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;116:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;792:76::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;387:49::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;69:42::-;;;;;;;;;;;;;;;;;;;;;;:::o;873:49::-;;;;;;;;;;;;;;;;;:::o;451:38::-;;;;;;;;;;;;;;;;;;;;;;:::o;597:53::-;;;;;;;;;;;;;;;;;:::o;517:62::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;654:58::-;;;;;;;;;;;;;;;;;:::o;1036:60::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;261:40::-;;;;;;;;;;;;;;;;;;;;;;:::o;926:54::-;;;;;;;;;;;;;;;;;:::o;717:71::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;306:77::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;197:47::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.24;\n\ncontract BoomerangActor {\n\n  // business\n  mapping(address => bool) public isBusiness;\n\n  mapping(address => mapping(address => bool)) public businessHasApprovedWorker;\n  mapping(address => address[]) public workerList;\n\n  // worker\n  mapping(address => bool) public isWorker;\n\n  mapping(address => mapping(address => bool)) public workerHasApprovedBusiness;\n  mapping(address => address[]) public businessList;\n\n  // user\n  mapping(address => bool) public isUser;\n\n  // business + worker\n  mapping(address => mapping(address => bool)) public isEmployed;\n\n  // ratings\n  mapping(address => uint256) public businessRatingsSum;\n  mapping(address => uint256) public numberOfBusinessRatings;\n\n  mapping(address => mapping(address => uint256)) public workerRatingsSum;\n  mapping(address => mapping(address => uint256)) public numberOfWorkerRatings;\n\n  mapping(address => uint256) public userRatingsSum;\n  mapping(address => uint256) public numberOfUserRatings;\n\n  // businessAddress => actorAddress => nonceValue\n  mapping(address => mapping(address => uint256)) public nonce;\n}\n",
   "sourcePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/BoomerangActor.sol",
   "ast": {
     "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/BoomerangActor.sol",
     "exportedSymbols": {
       "BoomerangActor": [
-        110
+        117
       ]
     },
-    "id": 111,
+    "id": 118,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 28,
+        "id": 42,
         "literals": [
           "solidity",
           "^",
@@ -348,19 +352,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 110,
+        "id": 117,
         "linearizedBaseContracts": [
-          110
+          117
         ],
         "name": "BoomerangActor",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 32,
+            "id": 46,
             "name": "isBusiness",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
+            "scope": 117,
             "src": "69:42:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -369,9 +373,9 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 31,
+              "id": 45,
               "keyType": {
-                "id": 29,
+                "id": 43,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "77:7:1",
@@ -387,7 +391,7 @@
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 30,
+                "id": 44,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
                 "src": "88:4:1",
@@ -402,10 +406,10 @@
           },
           {
             "constant": false,
-            "id": 38,
+            "id": 52,
             "name": "businessHasApprovedWorker",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
+            "scope": 117,
             "src": "116:77:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -414,9 +418,9 @@
               "typeString": "mapping(address => mapping(address => bool))"
             },
             "typeName": {
-              "id": 37,
+              "id": 51,
               "keyType": {
-                "id": 33,
+                "id": 47,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "124:7:1",
@@ -432,9 +436,9 @@
                 "typeString": "mapping(address => mapping(address => bool))"
               },
               "valueType": {
-                "id": 36,
+                "id": 50,
                 "keyType": {
-                  "id": 34,
+                  "id": 48,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "143:7:1",
@@ -450,7 +454,7 @@
                   "typeString": "mapping(address => bool)"
                 },
                 "valueType": {
-                  "id": 35,
+                  "id": 49,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "154:4:1",
@@ -466,10 +470,10 @@
           },
           {
             "constant": false,
-            "id": 43,
+            "id": 57,
             "name": "workerList",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
+            "scope": 117,
             "src": "197:47:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -478,9 +482,9 @@
               "typeString": "mapping(address => address[])"
             },
             "typeName": {
-              "id": 42,
+              "id": 56,
               "keyType": {
-                "id": 39,
+                "id": 53,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "205:7:1",
@@ -497,7 +501,7 @@
               },
               "valueType": {
                 "baseType": {
-                  "id": 40,
+                  "id": 54,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "216:7:1",
@@ -506,7 +510,7 @@
                     "typeString": "address"
                   }
                 },
-                "id": 41,
+                "id": 55,
                 "length": null,
                 "nodeType": "ArrayTypeName",
                 "src": "216:9:1",
@@ -520,253 +524,12 @@
             "visibility": "public"
           },
           {
-            "body": {
-              "id": 55,
-              "nodeType": "Block",
-              "src": "334:52:1",
-              "statements": [
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "expression": {
-                      "argumentTypes": null,
-                      "baseExpression": {
-                        "argumentTypes": null,
-                        "id": 50,
-                        "name": "workerList",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 43,
-                        "src": "347:10:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_address_$dyn_storage_$",
-                          "typeString": "mapping(address => address[] storage ref)"
-                        }
-                      },
-                      "id": 52,
-                      "indexExpression": {
-                        "argumentTypes": null,
-                        "id": 51,
-                        "name": "businessAddress",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 45,
-                        "src": "358:15:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": false,
-                      "nodeType": "IndexAccess",
-                      "src": "347:27:1",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_address_$dyn_storage",
-                        "typeString": "address[] storage ref"
-                      }
-                    },
-                    "id": 53,
-                    "isConstant": false,
-                    "isLValue": true,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "memberName": "length",
-                    "nodeType": "MemberAccess",
-                    "referencedDeclaration": null,
-                    "src": "347:34:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "functionReturnParameters": 49,
-                  "id": 54,
-                  "nodeType": "Return",
-                  "src": "340:41:1"
-                }
-              ]
-            },
-            "documentation": null,
-            "id": 56,
-            "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": true,
-            "modifiers": [],
-            "name": "getNumberOfWorkers",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 46,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 45,
-                  "name": "businessAddress",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 56,
-                  "src": "277:23:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 44,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "277:7:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "276:25:1"
-            },
-            "payable": false,
-            "returnParameters": {
-              "id": 49,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 48,
-                  "name": "count",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 56,
-                  "src": "322:10:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 47,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "322:4:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "321:12:1"
-            },
-            "scope": 110,
-            "src": "249:137:1",
-            "stateMutability": "view",
-            "superFunction": null,
-            "visibility": "public"
-          },
-          {
             "constant": false,
-            "id": 60,
-            "name": "businessAverageRating",
-            "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "390:56:1",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-              "typeString": "mapping(address => uint256)"
-            },
-            "typeName": {
-              "id": 59,
-              "keyType": {
-                "id": 57,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "398:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "390:27:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-                "typeString": "mapping(address => uint256)"
-              },
-              "valueType": {
-                "id": 58,
-                "name": "uint256",
-                "nodeType": "ElementaryTypeName",
-                "src": "409:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 64,
-            "name": "numberOfBusinessRatings",
-            "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "450:58:1",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-              "typeString": "mapping(address => uint256)"
-            },
-            "typeName": {
-              "id": 63,
-              "keyType": {
-                "id": 61,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "458:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "450:27:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-                "typeString": "mapping(address => uint256)"
-              },
-              "valueType": {
-                "id": 62,
-                "name": "uint256",
-                "nodeType": "ElementaryTypeName",
-                "src": "469:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 68,
+            "id": 61,
             "name": "isWorker",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "525:40:1",
+            "scope": 117,
+            "src": "261:40:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -774,28 +537,28 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 67,
+              "id": 60,
               "keyType": {
-                "id": 65,
+                "id": 58,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "533:7:1",
+                "src": "269:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "525:24:1",
+              "src": "261:24:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 66,
+                "id": 59,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
-                "src": "544:4:1",
+                "src": "280:4:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bool",
                   "typeString": "bool"
@@ -807,11 +570,11 @@
           },
           {
             "constant": false,
-            "id": 74,
+            "id": 67,
             "name": "workerHasApprovedBusiness",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "570:77:1",
+            "scope": 117,
+            "src": "306:77:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -819,46 +582,46 @@
               "typeString": "mapping(address => mapping(address => bool))"
             },
             "typeName": {
-              "id": 73,
+              "id": 66,
               "keyType": {
-                "id": 69,
+                "id": 62,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "578:7:1",
+                "src": "314:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "570:44:1",
+              "src": "306:44:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
                 "typeString": "mapping(address => mapping(address => bool))"
               },
               "valueType": {
-                "id": 72,
+                "id": 65,
                 "keyType": {
-                  "id": 70,
+                  "id": 63,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "597:7:1",
+                  "src": "333:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
                   }
                 },
                 "nodeType": "Mapping",
-                "src": "589:24:1",
+                "src": "325:24:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                   "typeString": "mapping(address => bool)"
                 },
                 "valueType": {
-                  "id": 71,
+                  "id": 64,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "608:4:1",
+                  "src": "344:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -871,11 +634,11 @@
           },
           {
             "constant": false,
-            "id": 79,
+            "id": 72,
             "name": "businessList",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "651:49:1",
+            "scope": 117,
+            "src": "387:49:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -883,38 +646,38 @@
               "typeString": "mapping(address => address[])"
             },
             "typeName": {
-              "id": 78,
+              "id": 71,
               "keyType": {
-                "id": 75,
+                "id": 68,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "659:7:1",
+                "src": "395:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "651:29:1",
+              "src": "387:29:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_address_$dyn_storage_$",
                 "typeString": "mapping(address => address[])"
               },
               "valueType": {
                 "baseType": {
-                  "id": 76,
+                  "id": 69,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "670:7:1",
+                  "src": "406:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
                   }
                 },
-                "id": 77,
+                "id": 70,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "670:9:1",
+                "src": "406:9:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                   "typeString": "address[]"
@@ -926,229 +689,11 @@
           },
           {
             "constant": false,
-            "id": 85,
-            "name": "workerAverageRating",
-            "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "705:74:1",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
-              "typeString": "mapping(address => mapping(address => uint256))"
-            },
-            "typeName": {
-              "id": 84,
-              "keyType": {
-                "id": 80,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "713:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "705:47:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
-                "typeString": "mapping(address => mapping(address => uint256))"
-              },
-              "valueType": {
-                "id": 83,
-                "keyType": {
-                  "id": 81,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "732:7:1",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  }
-                },
-                "nodeType": "Mapping",
-                "src": "724:27:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-                  "typeString": "mapping(address => uint256)"
-                },
-                "valueType": {
-                  "id": 82,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "743:7:1",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 91,
-            "name": "numberOfWorkerRatings",
-            "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "783:76:1",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
-              "typeString": "mapping(address => mapping(address => uint256))"
-            },
-            "typeName": {
-              "id": 90,
-              "keyType": {
-                "id": 86,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "791:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "783:47:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
-                "typeString": "mapping(address => mapping(address => uint256))"
-              },
-              "valueType": {
-                "id": 89,
-                "keyType": {
-                  "id": 87,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "810:7:1",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  }
-                },
-                "nodeType": "Mapping",
-                "src": "802:27:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-                  "typeString": "mapping(address => uint256)"
-                },
-                "valueType": {
-                  "id": 88,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "821:7:1",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 95,
-            "name": "userAverageRating",
-            "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "874:52:1",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-              "typeString": "mapping(address => uint256)"
-            },
-            "typeName": {
-              "id": 94,
-              "keyType": {
-                "id": 92,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "882:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "874:27:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-                "typeString": "mapping(address => uint256)"
-              },
-              "valueType": {
-                "id": 93,
-                "name": "uint256",
-                "nodeType": "ElementaryTypeName",
-                "src": "893:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 99,
-            "name": "numberOfUserRatings",
-            "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "930:54:1",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-              "typeString": "mapping(address => uint256)"
-            },
-            "typeName": {
-              "id": 98,
-              "keyType": {
-                "id": 96,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "938:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "930:27:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-                "typeString": "mapping(address => uint256)"
-              },
-              "valueType": {
-                "id": 97,
-                "name": "uint256",
-                "nodeType": "ElementaryTypeName",
-                "src": "949:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 103,
+            "id": 76,
             "name": "isUser",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "989:38:1",
+            "scope": 117,
+            "src": "451:38:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1156,28 +701,28 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 102,
+              "id": 75,
               "keyType": {
-                "id": 100,
+                "id": 73,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "997:7:1",
+                "src": "459:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "989:24:1",
+              "src": "451:24:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 101,
+                "id": 74,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
-                "src": "1008:4:1",
+                "src": "470:4:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bool",
                   "typeString": "bool"
@@ -1189,11 +734,11 @@
           },
           {
             "constant": false,
-            "id": 109,
+            "id": 82,
             "name": "isEmployed",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "1055:62:1",
+            "scope": 117,
+            "src": "517:62:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1201,46 +746,46 @@
               "typeString": "mapping(address => mapping(address => bool))"
             },
             "typeName": {
-              "id": 108,
+              "id": 81,
               "keyType": {
-                "id": 104,
+                "id": 77,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "1063:7:1",
+                "src": "525:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "1055:44:1",
+              "src": "517:44:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
                 "typeString": "mapping(address => mapping(address => bool))"
               },
               "valueType": {
-                "id": 107,
+                "id": 80,
                 "keyType": {
-                  "id": 105,
+                  "id": 78,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1082:7:1",
+                  "src": "544:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
                   }
                 },
                 "nodeType": "Mapping",
-                "src": "1074:24:1",
+                "src": "536:24:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                   "typeString": "mapping(address => bool)"
                 },
                 "valueType": {
-                  "id": 106,
+                  "id": 79,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1093:4:1",
+                  "src": "555:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1250,26 +795,398 @@
             },
             "value": null,
             "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 86,
+            "name": "businessRatingsSum",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "597:53:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 85,
+              "keyType": {
+                "id": 83,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "605:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "597:27:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 84,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "616:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 90,
+            "name": "numberOfBusinessRatings",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "654:58:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 89,
+              "keyType": {
+                "id": 87,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "662:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "654:27:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 88,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "673:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 96,
+            "name": "workerRatingsSum",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "717:71:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+              "typeString": "mapping(address => mapping(address => uint256))"
+            },
+            "typeName": {
+              "id": 95,
+              "keyType": {
+                "id": 91,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "725:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "717:47:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+                "typeString": "mapping(address => mapping(address => uint256))"
+              },
+              "valueType": {
+                "id": 94,
+                "keyType": {
+                  "id": 92,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "744:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "736:27:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "valueType": {
+                  "id": 93,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "755:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 102,
+            "name": "numberOfWorkerRatings",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "792:76:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+              "typeString": "mapping(address => mapping(address => uint256))"
+            },
+            "typeName": {
+              "id": 101,
+              "keyType": {
+                "id": 97,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "800:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "792:47:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+                "typeString": "mapping(address => mapping(address => uint256))"
+              },
+              "valueType": {
+                "id": 100,
+                "keyType": {
+                  "id": 98,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "819:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "811:27:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "valueType": {
+                  "id": 99,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "830:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 106,
+            "name": "userRatingsSum",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "873:49:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 105,
+              "keyType": {
+                "id": 103,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "881:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "873:27:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 104,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "892:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 110,
+            "name": "numberOfUserRatings",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "926:54:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 109,
+              "keyType": {
+                "id": 107,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "934:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "926:27:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 108,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "945:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 116,
+            "name": "nonce",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "1036:60:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+              "typeString": "mapping(address => mapping(address => uint256))"
+            },
+            "typeName": {
+              "id": 115,
+              "keyType": {
+                "id": 111,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "1044:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1036:47:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+                "typeString": "mapping(address => mapping(address => uint256))"
+              },
+              "valueType": {
+                "id": 114,
+                "keyType": {
+                  "id": 112,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1063:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "1055:27:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "valueType": {
+                  "id": 113,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1074:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           }
         ],
-        "scope": 111,
-        "src": "26:1161:1"
+        "scope": 118,
+        "src": "26:1073:1"
       }
     ],
-    "src": "0:1188:1"
+    "src": "0:1100:1"
   },
   "legacyAST": {
     "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/BoomerangActor.sol",
     "exportedSymbols": {
       "BoomerangActor": [
-        110
+        117
       ]
     },
-    "id": 111,
+    "id": 118,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 28,
+        "id": 42,
         "literals": [
           "solidity",
           "^",
@@ -1285,19 +1202,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 110,
+        "id": 117,
         "linearizedBaseContracts": [
-          110
+          117
         ],
         "name": "BoomerangActor",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 32,
+            "id": 46,
             "name": "isBusiness",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
+            "scope": 117,
             "src": "69:42:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1306,9 +1223,9 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 31,
+              "id": 45,
               "keyType": {
-                "id": 29,
+                "id": 43,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "77:7:1",
@@ -1324,7 +1241,7 @@
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 30,
+                "id": 44,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
                 "src": "88:4:1",
@@ -1339,10 +1256,10 @@
           },
           {
             "constant": false,
-            "id": 38,
+            "id": 52,
             "name": "businessHasApprovedWorker",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
+            "scope": 117,
             "src": "116:77:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1351,9 +1268,9 @@
               "typeString": "mapping(address => mapping(address => bool))"
             },
             "typeName": {
-              "id": 37,
+              "id": 51,
               "keyType": {
-                "id": 33,
+                "id": 47,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "124:7:1",
@@ -1369,9 +1286,9 @@
                 "typeString": "mapping(address => mapping(address => bool))"
               },
               "valueType": {
-                "id": 36,
+                "id": 50,
                 "keyType": {
-                  "id": 34,
+                  "id": 48,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "143:7:1",
@@ -1387,7 +1304,7 @@
                   "typeString": "mapping(address => bool)"
                 },
                 "valueType": {
-                  "id": 35,
+                  "id": 49,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "154:4:1",
@@ -1403,10 +1320,10 @@
           },
           {
             "constant": false,
-            "id": 43,
+            "id": 57,
             "name": "workerList",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
+            "scope": 117,
             "src": "197:47:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1415,9 +1332,9 @@
               "typeString": "mapping(address => address[])"
             },
             "typeName": {
-              "id": 42,
+              "id": 56,
               "keyType": {
-                "id": 39,
+                "id": 53,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "205:7:1",
@@ -1434,7 +1351,7 @@
               },
               "valueType": {
                 "baseType": {
-                  "id": 40,
+                  "id": 54,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "216:7:1",
@@ -1443,7 +1360,7 @@
                     "typeString": "address"
                   }
                 },
-                "id": 41,
+                "id": 55,
                 "length": null,
                 "nodeType": "ArrayTypeName",
                 "src": "216:9:1",
@@ -1457,253 +1374,12 @@
             "visibility": "public"
           },
           {
-            "body": {
-              "id": 55,
-              "nodeType": "Block",
-              "src": "334:52:1",
-              "statements": [
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "expression": {
-                      "argumentTypes": null,
-                      "baseExpression": {
-                        "argumentTypes": null,
-                        "id": 50,
-                        "name": "workerList",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 43,
-                        "src": "347:10:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_address_$dyn_storage_$",
-                          "typeString": "mapping(address => address[] storage ref)"
-                        }
-                      },
-                      "id": 52,
-                      "indexExpression": {
-                        "argumentTypes": null,
-                        "id": 51,
-                        "name": "businessAddress",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 45,
-                        "src": "358:15:1",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": false,
-                      "nodeType": "IndexAccess",
-                      "src": "347:27:1",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_address_$dyn_storage",
-                        "typeString": "address[] storage ref"
-                      }
-                    },
-                    "id": 53,
-                    "isConstant": false,
-                    "isLValue": true,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "memberName": "length",
-                    "nodeType": "MemberAccess",
-                    "referencedDeclaration": null,
-                    "src": "347:34:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "functionReturnParameters": 49,
-                  "id": 54,
-                  "nodeType": "Return",
-                  "src": "340:41:1"
-                }
-              ]
-            },
-            "documentation": null,
-            "id": 56,
-            "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": true,
-            "modifiers": [],
-            "name": "getNumberOfWorkers",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 46,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 45,
-                  "name": "businessAddress",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 56,
-                  "src": "277:23:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 44,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "277:7:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "276:25:1"
-            },
-            "payable": false,
-            "returnParameters": {
-              "id": 49,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 48,
-                  "name": "count",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 56,
-                  "src": "322:10:1",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 47,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "322:4:1",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "321:12:1"
-            },
-            "scope": 110,
-            "src": "249:137:1",
-            "stateMutability": "view",
-            "superFunction": null,
-            "visibility": "public"
-          },
-          {
             "constant": false,
-            "id": 60,
-            "name": "businessAverageRating",
-            "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "390:56:1",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-              "typeString": "mapping(address => uint256)"
-            },
-            "typeName": {
-              "id": 59,
-              "keyType": {
-                "id": 57,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "398:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "390:27:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-                "typeString": "mapping(address => uint256)"
-              },
-              "valueType": {
-                "id": 58,
-                "name": "uint256",
-                "nodeType": "ElementaryTypeName",
-                "src": "409:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 64,
-            "name": "numberOfBusinessRatings",
-            "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "450:58:1",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-              "typeString": "mapping(address => uint256)"
-            },
-            "typeName": {
-              "id": 63,
-              "keyType": {
-                "id": 61,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "458:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "450:27:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-                "typeString": "mapping(address => uint256)"
-              },
-              "valueType": {
-                "id": 62,
-                "name": "uint256",
-                "nodeType": "ElementaryTypeName",
-                "src": "469:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 68,
+            "id": 61,
             "name": "isWorker",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "525:40:1",
+            "scope": 117,
+            "src": "261:40:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1711,28 +1387,28 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 67,
+              "id": 60,
               "keyType": {
-                "id": 65,
+                "id": 58,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "533:7:1",
+                "src": "269:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "525:24:1",
+              "src": "261:24:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 66,
+                "id": 59,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
-                "src": "544:4:1",
+                "src": "280:4:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bool",
                   "typeString": "bool"
@@ -1744,11 +1420,11 @@
           },
           {
             "constant": false,
-            "id": 74,
+            "id": 67,
             "name": "workerHasApprovedBusiness",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "570:77:1",
+            "scope": 117,
+            "src": "306:77:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1756,46 +1432,46 @@
               "typeString": "mapping(address => mapping(address => bool))"
             },
             "typeName": {
-              "id": 73,
+              "id": 66,
               "keyType": {
-                "id": 69,
+                "id": 62,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "578:7:1",
+                "src": "314:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "570:44:1",
+              "src": "306:44:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
                 "typeString": "mapping(address => mapping(address => bool))"
               },
               "valueType": {
-                "id": 72,
+                "id": 65,
                 "keyType": {
-                  "id": 70,
+                  "id": 63,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "597:7:1",
+                  "src": "333:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
                   }
                 },
                 "nodeType": "Mapping",
-                "src": "589:24:1",
+                "src": "325:24:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                   "typeString": "mapping(address => bool)"
                 },
                 "valueType": {
-                  "id": 71,
+                  "id": 64,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "608:4:1",
+                  "src": "344:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1808,11 +1484,11 @@
           },
           {
             "constant": false,
-            "id": 79,
+            "id": 72,
             "name": "businessList",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "651:49:1",
+            "scope": 117,
+            "src": "387:49:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1820,38 +1496,38 @@
               "typeString": "mapping(address => address[])"
             },
             "typeName": {
-              "id": 78,
+              "id": 71,
               "keyType": {
-                "id": 75,
+                "id": 68,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "659:7:1",
+                "src": "395:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "651:29:1",
+              "src": "387:29:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_address_$dyn_storage_$",
                 "typeString": "mapping(address => address[])"
               },
               "valueType": {
                 "baseType": {
-                  "id": 76,
+                  "id": 69,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "670:7:1",
+                  "src": "406:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
                   }
                 },
-                "id": 77,
+                "id": 70,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "670:9:1",
+                "src": "406:9:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                   "typeString": "address[]"
@@ -1863,229 +1539,11 @@
           },
           {
             "constant": false,
-            "id": 85,
-            "name": "workerAverageRating",
-            "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "705:74:1",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
-              "typeString": "mapping(address => mapping(address => uint256))"
-            },
-            "typeName": {
-              "id": 84,
-              "keyType": {
-                "id": 80,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "713:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "705:47:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
-                "typeString": "mapping(address => mapping(address => uint256))"
-              },
-              "valueType": {
-                "id": 83,
-                "keyType": {
-                  "id": 81,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "732:7:1",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  }
-                },
-                "nodeType": "Mapping",
-                "src": "724:27:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-                  "typeString": "mapping(address => uint256)"
-                },
-                "valueType": {
-                  "id": 82,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "743:7:1",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 91,
-            "name": "numberOfWorkerRatings",
-            "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "783:76:1",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
-              "typeString": "mapping(address => mapping(address => uint256))"
-            },
-            "typeName": {
-              "id": 90,
-              "keyType": {
-                "id": 86,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "791:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "783:47:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
-                "typeString": "mapping(address => mapping(address => uint256))"
-              },
-              "valueType": {
-                "id": 89,
-                "keyType": {
-                  "id": 87,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "810:7:1",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  }
-                },
-                "nodeType": "Mapping",
-                "src": "802:27:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-                  "typeString": "mapping(address => uint256)"
-                },
-                "valueType": {
-                  "id": 88,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "821:7:1",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 95,
-            "name": "userAverageRating",
-            "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "874:52:1",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-              "typeString": "mapping(address => uint256)"
-            },
-            "typeName": {
-              "id": 94,
-              "keyType": {
-                "id": 92,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "882:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "874:27:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-                "typeString": "mapping(address => uint256)"
-              },
-              "valueType": {
-                "id": 93,
-                "name": "uint256",
-                "nodeType": "ElementaryTypeName",
-                "src": "893:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 99,
-            "name": "numberOfUserRatings",
-            "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "930:54:1",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-              "typeString": "mapping(address => uint256)"
-            },
-            "typeName": {
-              "id": 98,
-              "keyType": {
-                "id": 96,
-                "name": "address",
-                "nodeType": "ElementaryTypeName",
-                "src": "938:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "930:27:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
-                "typeString": "mapping(address => uint256)"
-              },
-              "valueType": {
-                "id": 97,
-                "name": "uint256",
-                "nodeType": "ElementaryTypeName",
-                "src": "949:7:1",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 103,
+            "id": 76,
             "name": "isUser",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "989:38:1",
+            "scope": 117,
+            "src": "451:38:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2093,28 +1551,28 @@
               "typeString": "mapping(address => bool)"
             },
             "typeName": {
-              "id": 102,
+              "id": 75,
               "keyType": {
-                "id": 100,
+                "id": 73,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "997:7:1",
+                "src": "459:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "989:24:1",
+              "src": "451:24:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                 "typeString": "mapping(address => bool)"
               },
               "valueType": {
-                "id": 101,
+                "id": 74,
                 "name": "bool",
                 "nodeType": "ElementaryTypeName",
-                "src": "1008:4:1",
+                "src": "470:4:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bool",
                   "typeString": "bool"
@@ -2126,11 +1584,11 @@
           },
           {
             "constant": false,
-            "id": 109,
+            "id": 82,
             "name": "isEmployed",
             "nodeType": "VariableDeclaration",
-            "scope": 110,
-            "src": "1055:62:1",
+            "scope": 117,
+            "src": "517:62:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2138,46 +1596,46 @@
               "typeString": "mapping(address => mapping(address => bool))"
             },
             "typeName": {
-              "id": 108,
+              "id": 81,
               "keyType": {
-                "id": 104,
+                "id": 77,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "1063:7:1",
+                "src": "525:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "1055:44:1",
+              "src": "517:44:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
                 "typeString": "mapping(address => mapping(address => bool))"
               },
               "valueType": {
-                "id": 107,
+                "id": 80,
                 "keyType": {
-                  "id": 105,
+                  "id": 78,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1082:7:1",
+                  "src": "544:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
                   }
                 },
                 "nodeType": "Mapping",
-                "src": "1074:24:1",
+                "src": "536:24:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                   "typeString": "mapping(address => bool)"
                 },
                 "valueType": {
-                  "id": 106,
+                  "id": 79,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1093:4:1",
+                  "src": "555:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -2187,13 +1645,385 @@
             },
             "value": null,
             "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 86,
+            "name": "businessRatingsSum",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "597:53:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 85,
+              "keyType": {
+                "id": 83,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "605:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "597:27:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 84,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "616:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 90,
+            "name": "numberOfBusinessRatings",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "654:58:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 89,
+              "keyType": {
+                "id": 87,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "662:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "654:27:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 88,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "673:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 96,
+            "name": "workerRatingsSum",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "717:71:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+              "typeString": "mapping(address => mapping(address => uint256))"
+            },
+            "typeName": {
+              "id": 95,
+              "keyType": {
+                "id": 91,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "725:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "717:47:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+                "typeString": "mapping(address => mapping(address => uint256))"
+              },
+              "valueType": {
+                "id": 94,
+                "keyType": {
+                  "id": 92,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "744:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "736:27:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "valueType": {
+                  "id": 93,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "755:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 102,
+            "name": "numberOfWorkerRatings",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "792:76:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+              "typeString": "mapping(address => mapping(address => uint256))"
+            },
+            "typeName": {
+              "id": 101,
+              "keyType": {
+                "id": 97,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "800:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "792:47:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+                "typeString": "mapping(address => mapping(address => uint256))"
+              },
+              "valueType": {
+                "id": 100,
+                "keyType": {
+                  "id": 98,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "819:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "811:27:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "valueType": {
+                  "id": 99,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "830:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 106,
+            "name": "userRatingsSum",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "873:49:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 105,
+              "keyType": {
+                "id": 103,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "881:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "873:27:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 104,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "892:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 110,
+            "name": "numberOfUserRatings",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "926:54:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 109,
+              "keyType": {
+                "id": 107,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "934:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "926:27:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 108,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "945:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 116,
+            "name": "nonce",
+            "nodeType": "VariableDeclaration",
+            "scope": 117,
+            "src": "1036:60:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+              "typeString": "mapping(address => mapping(address => uint256))"
+            },
+            "typeName": {
+              "id": 115,
+              "keyType": {
+                "id": 111,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "1044:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1036:47:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_uint256_$_$",
+                "typeString": "mapping(address => mapping(address => uint256))"
+              },
+              "valueType": {
+                "id": 114,
+                "keyType": {
+                  "id": 112,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1063:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "1055:27:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "valueType": {
+                  "id": 113,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1074:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
           }
         ],
-        "scope": 111,
-        "src": "26:1161:1"
+        "scope": 118,
+        "src": "26:1073:1"
       }
     ],
-    "src": "0:1188:1"
+    "src": "0:1100:1"
   },
   "compiler": {
     "name": "solc",
@@ -2201,5 +2031,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-31T17:40:50.763Z"
+  "updatedAt": "2018-08-02T18:15:44.011Z"
 }
