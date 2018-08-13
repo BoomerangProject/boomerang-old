@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "boomerang-contract-objects": "^1.0.3",
+    "boomerang-contract-objects": "^1.0.5",
     "boomerang-token-contract-objects": "^1.0.1",
     "bs58": "^4.0.1",
     "react": "^16.2.0",

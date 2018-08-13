@@ -902,14 +902,14 @@
     "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangRewards.sol",
     "exportedSymbols": {
       "BoomerangRewards": [
-        1691
+        1603
       ]
     },
-    "id": 1692,
+    "id": 1604,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1585,
+        "id": 1497,
         "literals": [
           "solidity",
           "^",
@@ -922,10 +922,10 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangUserRewardSystem.sol",
         "file": "./BoomerangUserRewardSystem.sol",
-        "id": 1586,
+        "id": 1498,
         "nodeType": "ImportDirective",
-        "scope": 1692,
-        "sourceUnit": 1944,
+        "scope": 1604,
+        "sourceUnit": 1856,
         "src": "26:41:10",
         "symbolAliases": [],
         "unitAlias": ""
@@ -933,10 +933,10 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangWorkerRewardSystem.sol",
         "file": "./BoomerangWorkerRewardSystem.sol",
-        "id": 1587,
+        "id": 1499,
         "nodeType": "ImportDirective",
-        "scope": 1692,
-        "sourceUnit": 2204,
+        "scope": 1604,
+        "sourceUnit": 2116,
         "src": "68:43:10",
         "symbolAliases": [],
         "unitAlias": ""
@@ -944,10 +944,10 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangGrowthPoolRewardSystem.sol",
         "file": "./BoomerangGrowthPoolRewardSystem.sol",
-        "id": 1588,
+        "id": 1500,
         "nodeType": "ImportDirective",
-        "scope": 1692,
-        "sourceUnit": 1415,
+        "scope": 1604,
+        "sourceUnit": 1327,
         "src": "112:47:10",
         "symbolAliases": [],
         "unitAlias": ""
@@ -958,17 +958,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1589,
+              "id": 1501,
               "name": "BoomerangUserRewardSystem",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1943,
+              "referencedDeclaration": 1855,
               "src": "190:25:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_BoomerangUserRewardSystem_$1943",
+                "typeIdentifier": "t_contract$_BoomerangUserRewardSystem_$1855",
                 "typeString": "contract BoomerangUserRewardSystem"
               }
             },
-            "id": 1590,
+            "id": 1502,
             "nodeType": "InheritanceSpecifier",
             "src": "190:25:10"
           },
@@ -976,17 +976,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1591,
+              "id": 1503,
               "name": "BoomerangWorkerRewardSystem",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2203,
+              "referencedDeclaration": 2115,
               "src": "217:27:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_BoomerangWorkerRewardSystem_$2203",
+                "typeIdentifier": "t_contract$_BoomerangWorkerRewardSystem_$2115",
                 "typeString": "contract BoomerangWorkerRewardSystem"
               }
             },
-            "id": 1592,
+            "id": 1504,
             "nodeType": "InheritanceSpecifier",
             "src": "217:27:10"
           },
@@ -994,49 +994,49 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1593,
+              "id": 1505,
               "name": "BoomerangGrowthPoolRewardSystem",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1414,
+              "referencedDeclaration": 1326,
               "src": "246:31:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_BoomerangGrowthPoolRewardSystem_$1414",
+                "typeIdentifier": "t_contract$_BoomerangGrowthPoolRewardSystem_$1326",
                 "typeString": "contract BoomerangGrowthPoolRewardSystem"
               }
             },
-            "id": 1594,
+            "id": 1506,
             "nodeType": "InheritanceSpecifier",
             "src": "246:31:10"
           }
         ],
         "contractDependencies": [
-          1050,
-          1414,
-          1583,
-          1943,
-          2203
+          962,
+          1326,
+          1495,
+          1855,
+          2115
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1691,
+        "id": 1603,
         "linearizedBaseContracts": [
-          1691,
-          1414,
-          2203,
-          1943,
-          1583,
-          1050
+          1603,
+          1326,
+          2115,
+          1855,
+          1495,
+          962
         ],
         "name": "BoomerangRewards",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 1600,
+            "id": 1512,
             "name": "ratingRewards",
             "nodeType": "VariableDeclaration",
-            "scope": 1691,
+            "scope": 1603,
             "src": "283:51:10",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1045,9 +1045,9 @@
               "typeString": "mapping(address => uint256[5])"
             },
             "typeName": {
-              "id": 1599,
+              "id": 1511,
               "keyType": {
-                "id": 1595,
+                "id": 1507,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "291:7:10",
@@ -1064,7 +1064,7 @@
               },
               "valueType": {
                 "baseType": {
-                  "id": 1596,
+                  "id": 1508,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "302:7:10",
@@ -1073,11 +1073,11 @@
                     "typeString": "uint256"
                   }
                 },
-                "id": 1598,
+                "id": 1510,
                 "length": {
                   "argumentTypes": null,
                   "hexValue": "35",
-                  "id": 1597,
+                  "id": 1509,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": false,
@@ -1106,20 +1106,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1610,
+            "id": 1522,
             "name": "WorkerReward",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1609,
+              "id": 1521,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1602,
+                  "id": 1514,
                   "indexed": true,
                   "name": "_workerAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1610,
+                  "scope": 1522,
                   "src": "357:30:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1128,7 +1128,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1601,
+                    "id": 1513,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "357:7:10",
@@ -1142,11 +1142,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1604,
+                  "id": 1516,
                   "indexed": true,
                   "name": "_businessAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1610,
+                  "scope": 1522,
                   "src": "389:32:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1155,7 +1155,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1603,
+                    "id": 1515,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "389:7:10",
@@ -1169,11 +1169,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1606,
+                  "id": 1518,
                   "indexed": false,
                   "name": "_workerRating",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1610,
+                  "scope": 1522,
                   "src": "423:21:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1182,7 +1182,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1605,
+                    "id": 1517,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "423:7:10",
@@ -1196,11 +1196,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1608,
+                  "id": 1520,
                   "indexed": false,
                   "name": "_rewardValue",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1610,
+                  "scope": 1522,
                   "src": "446:20:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1209,7 +1209,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1607,
+                    "id": 1519,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "446:7:10",
@@ -1228,21 +1228,21 @@
           },
           {
             "body": {
-              "id": 1657,
+              "id": 1569,
               "nodeType": "Block",
               "src": "576:349:10",
               "statements": [
                 {
                   "assignments": [
-                    1623
+                    1535
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1623,
+                      "id": 1535,
                       "name": "rewardValues",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1658,
+                      "scope": 1570,
                       "src": "583:31:10",
                       "stateVariable": false,
                       "storageLocation": "storage",
@@ -1252,7 +1252,7 @@
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 1621,
+                          "id": 1533,
                           "name": "uint256",
                           "nodeType": "ElementaryTypeName",
                           "src": "583:7:10",
@@ -1261,11 +1261,11 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1622,
+                        "id": 1534,
                         "length": {
                           "argumentTypes": null,
                           "hexValue": "35",
-                          "id": 1620,
+                          "id": 1532,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1291,30 +1291,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1627,
+                  "id": 1539,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 1624,
+                      "id": 1536,
                       "name": "ratingRewards",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1600,
+                      "referencedDeclaration": 1512,
                       "src": "617:13:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$5_storage_$",
                         "typeString": "mapping(address => uint256[5] storage ref)"
                       }
                     },
-                    "id": 1626,
+                    "id": 1538,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 1625,
+                      "id": 1537,
                       "name": "_businessAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1614,
+                      "referencedDeclaration": 1526,
                       "src": "631:16:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1337,15 +1337,15 @@
                 },
                 {
                   "assignments": [
-                    1629
+                    1541
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1629,
+                      "id": 1541,
                       "name": "rewardValue",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1658,
+                      "scope": 1570,
                       "src": "654:19:10",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1354,7 +1354,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 1628,
+                        "id": 1540,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "654:7:10",
@@ -1367,41 +1367,41 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1635,
+                  "id": 1547,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 1630,
+                      "id": 1542,
                       "name": "rewardValues",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1623,
+                      "referencedDeclaration": 1535,
                       "src": "676:12:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_uint256_$5_storage_ptr",
                         "typeString": "uint256[5] storage pointer"
                       }
                     },
-                    "id": 1634,
+                    "id": 1546,
                     "indexExpression": {
                       "argumentTypes": null,
                       "commonType": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 1633,
+                      "id": 1545,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "leftExpression": {
                         "argumentTypes": null,
-                        "id": 1631,
+                        "id": 1543,
                         "name": "_workerRating",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1616,
+                        "referencedDeclaration": 1528,
                         "src": "689:13:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1413,7 +1413,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 1632,
+                        "id": 1544,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1455,18 +1455,18 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1638,
+                    "id": 1550,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 1636,
+                      "id": 1548,
                       "name": "rewardValue",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1629,
+                      "referencedDeclaration": 1541,
                       "src": "716:11:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1478,7 +1478,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 1637,
+                      "id": 1549,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1500,18 +1500,18 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 1641,
+                  "id": 1553,
                   "nodeType": "IfStatement",
                   "src": "712:43:10",
                   "trueBody": {
-                    "id": 1640,
+                    "id": 1552,
                     "nodeType": "Block",
                     "src": "734:21:10",
                     "statements": [
                       {
                         "expression": null,
-                        "functionReturnParameters": 1618,
-                        "id": 1639,
+                        "functionReturnParameters": 1530,
+                        "id": 1551,
                         "nodeType": "Return",
                         "src": "742:7:10"
                       }
@@ -1524,11 +1524,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1645,
+                        "id": 1557,
                         "name": "_businessAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1614,
+                        "referencedDeclaration": 1526,
                         "src": "789:16:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1537,11 +1537,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1646,
+                        "id": 1558,
                         "name": "_workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1612,
+                        "referencedDeclaration": 1524,
                         "src": "807:14:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1550,11 +1550,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1647,
+                        "id": 1559,
                         "name": "rewardValue",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1629,
+                        "referencedDeclaration": 1541,
                         "src": "823:11:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1579,32 +1579,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1642,
+                        "id": 1554,
                         "name": "boomerangToken",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1426,
+                        "referencedDeclaration": 1338,
                         "src": "761:14:10",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC20Token_$2272",
+                          "typeIdentifier": "t_contract$_ERC20Token_$2184",
                           "typeString": "contract ERC20Token"
                         }
                       },
-                      "id": 1644,
+                      "id": 1556,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "transferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2246,
+                      "referencedDeclaration": 2158,
                       "src": "761:27:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
                         "typeString": "function (address,address,uint256) external returns (bool)"
                       }
                     },
-                    "id": 1648,
+                    "id": 1560,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1618,7 +1618,7 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1649,
+                  "id": 1561,
                   "nodeType": "ExpressionStatement",
                   "src": "761:74:10"
                 },
@@ -1628,11 +1628,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1651,
+                        "id": 1563,
                         "name": "_workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1612,
+                        "referencedDeclaration": 1524,
                         "src": "859:14:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1641,11 +1641,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1652,
+                        "id": 1564,
                         "name": "_businessAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1614,
+                        "referencedDeclaration": 1526,
                         "src": "875:16:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1654,11 +1654,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1653,
+                        "id": 1565,
                         "name": "_workerRating",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1616,
+                        "referencedDeclaration": 1528,
                         "src": "893:13:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1667,11 +1667,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1654,
+                        "id": 1566,
                         "name": "rewardValue",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1629,
+                        "referencedDeclaration": 1541,
                         "src": "908:11:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1698,18 +1698,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 1650,
+                      "id": 1562,
                       "name": "WorkerReward",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1610,
+                      "referencedDeclaration": 1522,
                       "src": "846:12:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_uint256_$returns$__$",
                         "typeString": "function (address,address,uint256,uint256)"
                       }
                     },
-                    "id": 1655,
+                    "id": 1567,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1723,14 +1723,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1656,
+                  "id": 1568,
                   "nodeType": "EmitStatement",
                   "src": "841:79:10"
                 }
               ]
             },
             "documentation": null,
-            "id": 1658,
+            "id": 1570,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1738,15 +1738,15 @@
             "name": "rewardWorker",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1617,
+              "id": 1529,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1612,
+                  "id": 1524,
                   "name": "_workerAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1658,
+                  "scope": 1570,
                   "src": "494:22:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1755,7 +1755,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1611,
+                    "id": 1523,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "494:7:10",
@@ -1769,10 +1769,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1614,
+                  "id": 1526,
                   "name": "_businessAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1658,
+                  "scope": 1570,
                   "src": "518:24:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1781,7 +1781,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1613,
+                    "id": 1525,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "518:7:10",
@@ -1795,10 +1795,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1616,
+                  "id": 1528,
                   "name": "_workerRating",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1658,
+                  "scope": 1570,
                   "src": "544:21:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1807,7 +1807,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1615,
+                    "id": 1527,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "544:7:10",
@@ -1824,12 +1824,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1618,
+              "id": 1530,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "576:0:10"
             },
-            "scope": 1691,
+            "scope": 1603,
             "src": "472:453:10",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1837,14 +1837,14 @@
           },
           {
             "body": {
-              "id": 1673,
+              "id": 1585,
               "nodeType": "Block",
               "src": "1015:59:10",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1671,
+                    "id": 1583,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1853,25 +1853,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 1667,
+                        "id": 1579,
                         "name": "ratingRewards",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1600,
+                        "referencedDeclaration": 1512,
                         "src": "1021:13:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$5_storage_$",
                           "typeString": "mapping(address => uint256[5] storage ref)"
                         }
                       },
-                      "id": 1669,
+                      "id": 1581,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1668,
+                        "id": 1580,
                         "name": "_businessAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1660,
+                        "referencedDeclaration": 1572,
                         "src": "1035:16:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1893,11 +1893,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1670,
+                      "id": 1582,
                       "name": "_ratingRewards",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1664,
+                      "referencedDeclaration": 1576,
                       "src": "1055:14:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_uint256_$5_memory_ptr",
@@ -1910,14 +1910,14 @@
                       "typeString": "uint256[5] storage ref"
                     }
                   },
-                  "id": 1672,
+                  "id": 1584,
                   "nodeType": "ExpressionStatement",
                   "src": "1021:48:10"
                 }
               ]
             },
             "documentation": null,
-            "id": 1674,
+            "id": 1586,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1925,15 +1925,15 @@
             "name": "setRatingRewards",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1665,
+              "id": 1577,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1660,
+                  "id": 1572,
                   "name": "_businessAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1674,
+                  "scope": 1586,
                   "src": "955:24:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1942,7 +1942,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1659,
+                    "id": 1571,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "955:7:10",
@@ -1956,10 +1956,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1664,
+                  "id": 1576,
                   "name": "_ratingRewards",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1674,
+                  "scope": 1586,
                   "src": "981:25:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1969,7 +1969,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1661,
+                      "id": 1573,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "981:7:10",
@@ -1978,11 +1978,11 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1663,
+                    "id": 1575,
                     "length": {
                       "argumentTypes": null,
                       "hexValue": "35",
-                      "id": 1662,
+                      "id": 1574,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2012,12 +2012,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1666,
+              "id": 1578,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1015:0:10"
             },
-            "scope": 1691,
+            "scope": 1603,
             "src": "929:145:10",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2025,25 +2025,25 @@
           },
           {
             "body": {
-              "id": 1689,
+              "id": 1601,
               "nodeType": "Block",
               "src": "1178:59:10",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1687,
+                    "id": 1599,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1683,
+                      "id": 1595,
                       "name": "_ratingRewards",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1681,
+                      "referencedDeclaration": 1593,
                       "src": "1184:14:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_uint256_$5_memory_ptr",
@@ -2056,25 +2056,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 1684,
+                        "id": 1596,
                         "name": "ratingRewards",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1600,
+                        "referencedDeclaration": 1512,
                         "src": "1201:13:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$5_storage_$",
                           "typeString": "mapping(address => uint256[5] storage ref)"
                         }
                       },
-                      "id": 1686,
+                      "id": 1598,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1685,
+                        "id": 1597,
                         "name": "_businessAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1676,
+                        "referencedDeclaration": 1588,
                         "src": "1215:16:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2098,14 +2098,14 @@
                       "typeString": "uint256[5] memory"
                     }
                   },
-                  "id": 1688,
+                  "id": 1600,
                   "nodeType": "ExpressionStatement",
                   "src": "1184:48:10"
                 }
               ]
             },
             "documentation": null,
-            "id": 1690,
+            "id": 1602,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2113,15 +2113,15 @@
             "name": "getRatingRewards",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1677,
+              "id": 1589,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1676,
+                  "id": 1588,
                   "name": "_businessAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1690,
+                  "scope": 1602,
                   "src": "1104:24:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2130,7 +2130,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1675,
+                    "id": 1587,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1104:7:10",
@@ -2147,15 +2147,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1682,
+              "id": 1594,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1681,
+                  "id": 1593,
                   "name": "_ratingRewards",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1690,
+                  "scope": 1602,
                   "src": "1151:25:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2165,7 +2165,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1678,
+                      "id": 1590,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "1151:7:10",
@@ -2174,11 +2174,11 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1680,
+                    "id": 1592,
                     "length": {
                       "argumentTypes": null,
                       "hexValue": "35",
-                      "id": 1679,
+                      "id": 1591,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2206,14 +2206,14 @@
               ],
               "src": "1150:27:10"
             },
-            "scope": 1691,
+            "scope": 1603,
             "src": "1078:159:10",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1692,
+        "scope": 1604,
         "src": "161:1078:10"
       }
     ],
@@ -2223,14 +2223,14 @@
     "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangRewards.sol",
     "exportedSymbols": {
       "BoomerangRewards": [
-        1691
+        1603
       ]
     },
-    "id": 1692,
+    "id": 1604,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1585,
+        "id": 1497,
         "literals": [
           "solidity",
           "^",
@@ -2243,10 +2243,10 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangUserRewardSystem.sol",
         "file": "./BoomerangUserRewardSystem.sol",
-        "id": 1586,
+        "id": 1498,
         "nodeType": "ImportDirective",
-        "scope": 1692,
-        "sourceUnit": 1944,
+        "scope": 1604,
+        "sourceUnit": 1856,
         "src": "26:41:10",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2254,10 +2254,10 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangWorkerRewardSystem.sol",
         "file": "./BoomerangWorkerRewardSystem.sol",
-        "id": 1587,
+        "id": 1499,
         "nodeType": "ImportDirective",
-        "scope": 1692,
-        "sourceUnit": 2204,
+        "scope": 1604,
+        "sourceUnit": 2116,
         "src": "68:43:10",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2265,10 +2265,10 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangGrowthPoolRewardSystem.sol",
         "file": "./BoomerangGrowthPoolRewardSystem.sol",
-        "id": 1588,
+        "id": 1500,
         "nodeType": "ImportDirective",
-        "scope": 1692,
-        "sourceUnit": 1415,
+        "scope": 1604,
+        "sourceUnit": 1327,
         "src": "112:47:10",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2279,17 +2279,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1589,
+              "id": 1501,
               "name": "BoomerangUserRewardSystem",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1943,
+              "referencedDeclaration": 1855,
               "src": "190:25:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_BoomerangUserRewardSystem_$1943",
+                "typeIdentifier": "t_contract$_BoomerangUserRewardSystem_$1855",
                 "typeString": "contract BoomerangUserRewardSystem"
               }
             },
-            "id": 1590,
+            "id": 1502,
             "nodeType": "InheritanceSpecifier",
             "src": "190:25:10"
           },
@@ -2297,17 +2297,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1591,
+              "id": 1503,
               "name": "BoomerangWorkerRewardSystem",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2203,
+              "referencedDeclaration": 2115,
               "src": "217:27:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_BoomerangWorkerRewardSystem_$2203",
+                "typeIdentifier": "t_contract$_BoomerangWorkerRewardSystem_$2115",
                 "typeString": "contract BoomerangWorkerRewardSystem"
               }
             },
-            "id": 1592,
+            "id": 1504,
             "nodeType": "InheritanceSpecifier",
             "src": "217:27:10"
           },
@@ -2315,49 +2315,49 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1593,
+              "id": 1505,
               "name": "BoomerangGrowthPoolRewardSystem",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1414,
+              "referencedDeclaration": 1326,
               "src": "246:31:10",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_BoomerangGrowthPoolRewardSystem_$1414",
+                "typeIdentifier": "t_contract$_BoomerangGrowthPoolRewardSystem_$1326",
                 "typeString": "contract BoomerangGrowthPoolRewardSystem"
               }
             },
-            "id": 1594,
+            "id": 1506,
             "nodeType": "InheritanceSpecifier",
             "src": "246:31:10"
           }
         ],
         "contractDependencies": [
-          1050,
-          1414,
-          1583,
-          1943,
-          2203
+          962,
+          1326,
+          1495,
+          1855,
+          2115
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1691,
+        "id": 1603,
         "linearizedBaseContracts": [
-          1691,
-          1414,
-          2203,
-          1943,
-          1583,
-          1050
+          1603,
+          1326,
+          2115,
+          1855,
+          1495,
+          962
         ],
         "name": "BoomerangRewards",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 1600,
+            "id": 1512,
             "name": "ratingRewards",
             "nodeType": "VariableDeclaration",
-            "scope": 1691,
+            "scope": 1603,
             "src": "283:51:10",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2366,9 +2366,9 @@
               "typeString": "mapping(address => uint256[5])"
             },
             "typeName": {
-              "id": 1599,
+              "id": 1511,
               "keyType": {
-                "id": 1595,
+                "id": 1507,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "291:7:10",
@@ -2385,7 +2385,7 @@
               },
               "valueType": {
                 "baseType": {
-                  "id": 1596,
+                  "id": 1508,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "302:7:10",
@@ -2394,11 +2394,11 @@
                     "typeString": "uint256"
                   }
                 },
-                "id": 1598,
+                "id": 1510,
                 "length": {
                   "argumentTypes": null,
                   "hexValue": "35",
-                  "id": 1597,
+                  "id": 1509,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": false,
@@ -2427,20 +2427,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1610,
+            "id": 1522,
             "name": "WorkerReward",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1609,
+              "id": 1521,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1602,
+                  "id": 1514,
                   "indexed": true,
                   "name": "_workerAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1610,
+                  "scope": 1522,
                   "src": "357:30:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2449,7 +2449,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1601,
+                    "id": 1513,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "357:7:10",
@@ -2463,11 +2463,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1604,
+                  "id": 1516,
                   "indexed": true,
                   "name": "_businessAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1610,
+                  "scope": 1522,
                   "src": "389:32:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2476,7 +2476,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1603,
+                    "id": 1515,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "389:7:10",
@@ -2490,11 +2490,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1606,
+                  "id": 1518,
                   "indexed": false,
                   "name": "_workerRating",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1610,
+                  "scope": 1522,
                   "src": "423:21:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2503,7 +2503,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1605,
+                    "id": 1517,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "423:7:10",
@@ -2517,11 +2517,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1608,
+                  "id": 1520,
                   "indexed": false,
                   "name": "_rewardValue",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1610,
+                  "scope": 1522,
                   "src": "446:20:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2530,7 +2530,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1607,
+                    "id": 1519,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "446:7:10",
@@ -2549,21 +2549,21 @@
           },
           {
             "body": {
-              "id": 1657,
+              "id": 1569,
               "nodeType": "Block",
               "src": "576:349:10",
               "statements": [
                 {
                   "assignments": [
-                    1623
+                    1535
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1623,
+                      "id": 1535,
                       "name": "rewardValues",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1658,
+                      "scope": 1570,
                       "src": "583:31:10",
                       "stateVariable": false,
                       "storageLocation": "storage",
@@ -2573,7 +2573,7 @@
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 1621,
+                          "id": 1533,
                           "name": "uint256",
                           "nodeType": "ElementaryTypeName",
                           "src": "583:7:10",
@@ -2582,11 +2582,11 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1622,
+                        "id": 1534,
                         "length": {
                           "argumentTypes": null,
                           "hexValue": "35",
-                          "id": 1620,
+                          "id": 1532,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2612,30 +2612,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1627,
+                  "id": 1539,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 1624,
+                      "id": 1536,
                       "name": "ratingRewards",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1600,
+                      "referencedDeclaration": 1512,
                       "src": "617:13:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$5_storage_$",
                         "typeString": "mapping(address => uint256[5] storage ref)"
                       }
                     },
-                    "id": 1626,
+                    "id": 1538,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 1625,
+                      "id": 1537,
                       "name": "_businessAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1614,
+                      "referencedDeclaration": 1526,
                       "src": "631:16:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2658,15 +2658,15 @@
                 },
                 {
                   "assignments": [
-                    1629
+                    1541
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1629,
+                      "id": 1541,
                       "name": "rewardValue",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1658,
+                      "scope": 1570,
                       "src": "654:19:10",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -2675,7 +2675,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 1628,
+                        "id": 1540,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "654:7:10",
@@ -2688,41 +2688,41 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1635,
+                  "id": 1547,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 1630,
+                      "id": 1542,
                       "name": "rewardValues",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1623,
+                      "referencedDeclaration": 1535,
                       "src": "676:12:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_uint256_$5_storage_ptr",
                         "typeString": "uint256[5] storage pointer"
                       }
                     },
-                    "id": 1634,
+                    "id": 1546,
                     "indexExpression": {
                       "argumentTypes": null,
                       "commonType": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 1633,
+                      "id": 1545,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "leftExpression": {
                         "argumentTypes": null,
-                        "id": 1631,
+                        "id": 1543,
                         "name": "_workerRating",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1616,
+                        "referencedDeclaration": 1528,
                         "src": "689:13:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2734,7 +2734,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 1632,
+                        "id": 1544,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2776,18 +2776,18 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1638,
+                    "id": 1550,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 1636,
+                      "id": 1548,
                       "name": "rewardValue",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1629,
+                      "referencedDeclaration": 1541,
                       "src": "716:11:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2799,7 +2799,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 1637,
+                      "id": 1549,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2821,18 +2821,18 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 1641,
+                  "id": 1553,
                   "nodeType": "IfStatement",
                   "src": "712:43:10",
                   "trueBody": {
-                    "id": 1640,
+                    "id": 1552,
                     "nodeType": "Block",
                     "src": "734:21:10",
                     "statements": [
                       {
                         "expression": null,
-                        "functionReturnParameters": 1618,
-                        "id": 1639,
+                        "functionReturnParameters": 1530,
+                        "id": 1551,
                         "nodeType": "Return",
                         "src": "742:7:10"
                       }
@@ -2845,11 +2845,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1645,
+                        "id": 1557,
                         "name": "_businessAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1614,
+                        "referencedDeclaration": 1526,
                         "src": "789:16:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2858,11 +2858,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1646,
+                        "id": 1558,
                         "name": "_workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1612,
+                        "referencedDeclaration": 1524,
                         "src": "807:14:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2871,11 +2871,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1647,
+                        "id": 1559,
                         "name": "rewardValue",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1629,
+                        "referencedDeclaration": 1541,
                         "src": "823:11:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2900,32 +2900,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1642,
+                        "id": 1554,
                         "name": "boomerangToken",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1426,
+                        "referencedDeclaration": 1338,
                         "src": "761:14:10",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC20Token_$2272",
+                          "typeIdentifier": "t_contract$_ERC20Token_$2184",
                           "typeString": "contract ERC20Token"
                         }
                       },
-                      "id": 1644,
+                      "id": 1556,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "transferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2246,
+                      "referencedDeclaration": 2158,
                       "src": "761:27:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
                         "typeString": "function (address,address,uint256) external returns (bool)"
                       }
                     },
-                    "id": 1648,
+                    "id": 1560,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2939,7 +2939,7 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1649,
+                  "id": 1561,
                   "nodeType": "ExpressionStatement",
                   "src": "761:74:10"
                 },
@@ -2949,11 +2949,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1651,
+                        "id": 1563,
                         "name": "_workerAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1612,
+                        "referencedDeclaration": 1524,
                         "src": "859:14:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2962,11 +2962,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1652,
+                        "id": 1564,
                         "name": "_businessAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1614,
+                        "referencedDeclaration": 1526,
                         "src": "875:16:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2975,11 +2975,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1653,
+                        "id": 1565,
                         "name": "_workerRating",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1616,
+                        "referencedDeclaration": 1528,
                         "src": "893:13:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2988,11 +2988,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1654,
+                        "id": 1566,
                         "name": "rewardValue",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1629,
+                        "referencedDeclaration": 1541,
                         "src": "908:11:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3019,18 +3019,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 1650,
+                      "id": 1562,
                       "name": "WorkerReward",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1610,
+                      "referencedDeclaration": 1522,
                       "src": "846:12:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_uint256_$returns$__$",
                         "typeString": "function (address,address,uint256,uint256)"
                       }
                     },
-                    "id": 1655,
+                    "id": 1567,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3044,14 +3044,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1656,
+                  "id": 1568,
                   "nodeType": "EmitStatement",
                   "src": "841:79:10"
                 }
               ]
             },
             "documentation": null,
-            "id": 1658,
+            "id": 1570,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -3059,15 +3059,15 @@
             "name": "rewardWorker",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1617,
+              "id": 1529,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1612,
+                  "id": 1524,
                   "name": "_workerAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1658,
+                  "scope": 1570,
                   "src": "494:22:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3076,7 +3076,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1611,
+                    "id": 1523,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "494:7:10",
@@ -3090,10 +3090,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1614,
+                  "id": 1526,
                   "name": "_businessAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1658,
+                  "scope": 1570,
                   "src": "518:24:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3102,7 +3102,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1613,
+                    "id": 1525,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "518:7:10",
@@ -3116,10 +3116,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1616,
+                  "id": 1528,
                   "name": "_workerRating",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1658,
+                  "scope": 1570,
                   "src": "544:21:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3128,7 +3128,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1615,
+                    "id": 1527,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "544:7:10",
@@ -3145,12 +3145,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1618,
+              "id": 1530,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "576:0:10"
             },
-            "scope": 1691,
+            "scope": 1603,
             "src": "472:453:10",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3158,14 +3158,14 @@
           },
           {
             "body": {
-              "id": 1673,
+              "id": 1585,
               "nodeType": "Block",
               "src": "1015:59:10",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1671,
+                    "id": 1583,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3174,25 +3174,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 1667,
+                        "id": 1579,
                         "name": "ratingRewards",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1600,
+                        "referencedDeclaration": 1512,
                         "src": "1021:13:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$5_storage_$",
                           "typeString": "mapping(address => uint256[5] storage ref)"
                         }
                       },
-                      "id": 1669,
+                      "id": 1581,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1668,
+                        "id": 1580,
                         "name": "_businessAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1660,
+                        "referencedDeclaration": 1572,
                         "src": "1035:16:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3214,11 +3214,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1670,
+                      "id": 1582,
                       "name": "_ratingRewards",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1664,
+                      "referencedDeclaration": 1576,
                       "src": "1055:14:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_uint256_$5_memory_ptr",
@@ -3231,14 +3231,14 @@
                       "typeString": "uint256[5] storage ref"
                     }
                   },
-                  "id": 1672,
+                  "id": 1584,
                   "nodeType": "ExpressionStatement",
                   "src": "1021:48:10"
                 }
               ]
             },
             "documentation": null,
-            "id": 1674,
+            "id": 1586,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -3246,15 +3246,15 @@
             "name": "setRatingRewards",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1665,
+              "id": 1577,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1660,
+                  "id": 1572,
                   "name": "_businessAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1674,
+                  "scope": 1586,
                   "src": "955:24:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3263,7 +3263,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1659,
+                    "id": 1571,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "955:7:10",
@@ -3277,10 +3277,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1664,
+                  "id": 1576,
                   "name": "_ratingRewards",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1674,
+                  "scope": 1586,
                   "src": "981:25:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3290,7 +3290,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1661,
+                      "id": 1573,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "981:7:10",
@@ -3299,11 +3299,11 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1663,
+                    "id": 1575,
                     "length": {
                       "argumentTypes": null,
                       "hexValue": "35",
-                      "id": 1662,
+                      "id": 1574,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3333,12 +3333,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1666,
+              "id": 1578,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1015:0:10"
             },
-            "scope": 1691,
+            "scope": 1603,
             "src": "929:145:10",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3346,25 +3346,25 @@
           },
           {
             "body": {
-              "id": 1689,
+              "id": 1601,
               "nodeType": "Block",
               "src": "1178:59:10",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1687,
+                    "id": 1599,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1683,
+                      "id": 1595,
                       "name": "_ratingRewards",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1681,
+                      "referencedDeclaration": 1593,
                       "src": "1184:14:10",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_uint256_$5_memory_ptr",
@@ -3377,25 +3377,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 1684,
+                        "id": 1596,
                         "name": "ratingRewards",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1600,
+                        "referencedDeclaration": 1512,
                         "src": "1201:13:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_uint256_$5_storage_$",
                           "typeString": "mapping(address => uint256[5] storage ref)"
                         }
                       },
-                      "id": 1686,
+                      "id": 1598,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1685,
+                        "id": 1597,
                         "name": "_businessAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1676,
+                        "referencedDeclaration": 1588,
                         "src": "1215:16:10",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3419,14 +3419,14 @@
                       "typeString": "uint256[5] memory"
                     }
                   },
-                  "id": 1688,
+                  "id": 1600,
                   "nodeType": "ExpressionStatement",
                   "src": "1184:48:10"
                 }
               ]
             },
             "documentation": null,
-            "id": 1690,
+            "id": 1602,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -3434,15 +3434,15 @@
             "name": "getRatingRewards",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1677,
+              "id": 1589,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1676,
+                  "id": 1588,
                   "name": "_businessAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1690,
+                  "scope": 1602,
                   "src": "1104:24:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3451,7 +3451,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1675,
+                    "id": 1587,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1104:7:10",
@@ -3468,15 +3468,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1682,
+              "id": 1594,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1681,
+                  "id": 1593,
                   "name": "_ratingRewards",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1690,
+                  "scope": 1602,
                   "src": "1151:25:10",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3486,7 +3486,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1678,
+                      "id": 1590,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "1151:7:10",
@@ -3495,11 +3495,11 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1680,
+                    "id": 1592,
                     "length": {
                       "argumentTypes": null,
                       "hexValue": "35",
-                      "id": 1679,
+                      "id": 1591,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3527,14 +3527,14 @@
               ],
               "src": "1150:27:10"
             },
-            "scope": 1691,
+            "scope": 1603,
             "src": "1078:159:10",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1692,
+        "scope": 1604,
         "src": "161:1078:10"
       }
     ],
@@ -3546,5 +3546,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-03T15:53:20.875Z"
+  "updatedAt": "2018-08-13T14:57:00.191Z"
 }
