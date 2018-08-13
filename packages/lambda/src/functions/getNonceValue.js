@@ -1,12 +1,35 @@
 'use strict';
-import BoomerangContractService from '../services/BoomerangContractServiceOld';
+import BoomerangContractService from '../services/BoomerangContractService';
+import errorResponse from '../responses/errorResponse';
+
+const getBusinessAddress = function(event) {
+
+  const jsonBody = JSON.parse(event.body);
+  return jsonBody.businessAddress;
+};
+
+const getWorkerAddress = function(event) {
+
+  const jsonBody = JSON.parse(event.body);
+  return jsonBody.workerAddress;
+};
 
 export default async (event, context, callback) => {
 
-  const businessAddress = event.queryStringParameters.businessAddress;
-  const userId = event.queryStringParameters.userId;
+  const businessAddress = getBusinessAddress(event);
+  const workerAddress = getWorkerAddress(event);
 
-  const nonceValue = await BoomerangContractService.getNonceValue(businessAddress, userId);
+  if (businessAddress == null || businessAddress.length < 1) {
+    callback(null, errorResponse('businessAddress is required'));
+    return;
+  }
+
+  if (workerAddress == null || userId.length < 1) {
+    callback(null, errorResponse('workerAddress is required'));
+    return;
+  }
+
+  const nonceValue = await BoomerangContractService.getNonceValue(businessAddress, workerAddress);
 
   const response = {
     statusCode: 200,
