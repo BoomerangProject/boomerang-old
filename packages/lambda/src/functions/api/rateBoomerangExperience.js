@@ -84,23 +84,21 @@ export default async (event, context, callback) => {
   }
   // ---
 
-  const ipfsObject = JSON.parse(event.body);
-
-  let ipfsHash;
-
-  try {
-    ipfsHash = await storeToIpfs(ipfsObject);
-  } catch (error) {
-    return callback(null, ipfsErrorResponse(error));
-  }
-
-  console.log('ipfsHash: ' + ipfsHash);
-
-  try {
-    await storeToS3('boomerang-rated-experience', ipfsHash, ipfsObject);
-  } catch (error) {
-    return callback(null, s3errorResponse(error));
-  }
+  // const ipfsObject = JSON.parse(event.body);
+  //
+  // try {
+  //   await storeToIpfs(ipfsObject);
+  // } catch (error) {
+  //   return callback(null, ipfsErrorResponse(error));
+  // }
+  //
+  // console.log('ipfsHash: ' + ipfsHash);
+  //
+  // try {
+  //   await storeToS3('boomerang-rated-experience', ipfsHash, ipfsObject);
+  // } catch (error) {
+  //   return callback(null, s3errorResponse(error));
+  // }
 
   // ---
 
