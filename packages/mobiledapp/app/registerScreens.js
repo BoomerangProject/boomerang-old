@@ -36,6 +36,7 @@ import DefineWorkerRewardRatingDistributionComponent from "./pages/accounts/busi
 import DefineWorkerRewardColorSchemeComponent from "./pages/accounts/business/defineworkerrewards/d/DefineWorkerRewardColorSchemeComponent";
 import DefineUserRewardsComponent from "./pages/accounts/business/defineuserrewards/DefineUserRewardsComponent";
 import DefineRewardsTestComponent from "./pages/test/definerewardstest/DefineRewardsTestComponent";
+import UserRateExperienceComponent from "./pages/accounts/user/userrateexperience/UserRateExperienceComponent";
 
 export function registerScreens() {
 
@@ -80,4 +81,6 @@ export function registerScreens() {
   Navigation.registerComponent('DefineRewardsTestPage', () => DefineRewardsTestComponent);
   Navigation.registerComponent('DefineWorkerRewardRatingDistributionPage', () => DefineWorkerRewardRatingDistributionComponent);
   Navigation.registerComponent('DefineWorkerRewardColorSchemePage', () => DefineWorkerRewardColorSchemeComponent);
+
+  Navigation.registerComponent('UserRateExperiencePage', () => UserRateExperienceComponent);
 }

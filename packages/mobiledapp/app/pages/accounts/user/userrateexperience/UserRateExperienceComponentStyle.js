@@ -32,22 +32,8 @@ module.exports = StyleSheet.create({
     color: '#002A1C',
     fontSize: 10,
   },
-
-  buttonContainer: {
-
-    marginTop: 16,
-    marginBottom: 32,
-    width: '40%',
-    height: 50,
-    borderWidth: 1,
-    borderColor: 'black',
-    alignItems: 'center',
-    justifyContent: 'center'
+  businessNameTextInput: {
+    width: '75%',
+    marginBottom: 32
   },
-
-  button: {
-    fontSize: 12,
-    color: '#002A1C',
-    fontFamily: 'WorkSans-Regular'
-  }
 });

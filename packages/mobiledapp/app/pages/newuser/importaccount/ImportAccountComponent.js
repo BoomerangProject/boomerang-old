@@ -66,6 +66,7 @@ export default class ImportAccountComponent extends Component {
           </View>
 
         <ActivityIndicatorButtonComponent
+          style={styles.importAccountButtonContainer}
           showActivityIndicator={this.state.showActivityIndicator}
           buttonText='Confirm Seed'
           onClick={this.onClickOfConfirmButton.bind(this)}

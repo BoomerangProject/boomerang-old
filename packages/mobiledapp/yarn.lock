@@ -1485,9 +1485,9 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-boomerang-contract-objects@^1.0.3:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/boomerang-contract-objects/-/boomerang-contract-objects-1.0.4.tgz#5fb296db7de2a70583384e75229348c69b728d31"
+boomerang-contract-objects@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/boomerang-contract-objects/-/boomerang-contract-objects-1.0.5.tgz#2725e18bde9b845afbf2c84e1ad94506ba2d10a9"
 
 boomerang-token-contract-objects@^1.0.1:
   version "1.0.2"

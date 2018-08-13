@@ -134,6 +134,10 @@ class NavigatorImpl {
     this.pushPage({screenName: 'TransactionsPage', backButton: true});
   }
 
+  pushUserRateExperiencePage() {
+    this.pushPage({screenName: 'UserRateExperiencePage', navBarHidden: true});
+  }
+
   goBack() {
     this.navigator.pop();
   }

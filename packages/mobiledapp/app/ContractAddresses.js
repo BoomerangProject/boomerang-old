@@ -8,7 +8,7 @@
 // export const boomerangTokenContractAddress = '0xe71545a6148a187f72badfc34485e8482d0f3876';
 
 // kovan
-export const boomerangContractAddress = '0x86964a8050bf4a76c06bd0e66a486cfd292f5478';
+export const boomerangContractAddress = '0x1cf929a376a0826d00e1e9e67db36fbe8dac1854';
 export const boomerangTokenContractAddress = '0x296a46880ea31389f6a98a76498e96b2111b096f';
 
 export const payerAddress = '0xdcee2f1da7262362a962d456280a928f4f90bb5e';
