@@ -22,7 +22,7 @@ export default async (event, context, callback) => {
     return;
   }
 
-  if (workerAddress == null || userId.length < 1) {
+  if (workerAddress == null || workerAddress.length < 1) {
     callback(null, errorResponse('workerAddress is required'));
     return;
   }
