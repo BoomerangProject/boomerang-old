@@ -27,9 +27,11 @@ export default async (event, context, callback) => {
     return;
   }
 
-  const nonceValue = await boomerangContract.methods.getNonceValue(businessAddress, workerAddress);
+  const nonceValue = await boomerangContract.methods.getNonceValue(businessAddress, workerAddress).call();
 
-  console.log(nonceValue);
+  console.log('businessAddress: ' + businessAddress);
+  console.log('workerAddress: ' + workerAddress);
+  console.log('nonce value: ' + nonceValue);
 
   const response = {
     statusCode: 200,
