@@ -94,3 +94,9 @@ functions:
       - http:
           path: /addWorker
           method: post
+  rateBoomerangExperience:
+    handler: lib/handler.rateBoomerangExperience
+    events:
+      - http:
+          path: /rateBoomerangExperience
+          method: post
