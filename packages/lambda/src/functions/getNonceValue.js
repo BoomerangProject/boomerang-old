@@ -1,5 +1,5 @@
 'use strict';
-import BoomerangContractService from '../services/BoomerangContractService';
+import boomerangContract from '../services/BoomerangContractService';
 import errorResponse from '../responses/errorResponse';
 
 const getBusinessAddress = function(event) {
@@ -27,12 +27,14 @@ export default async (event, context, callback) => {
     return;
   }
 
-  const nonceValue = await BoomerangContractService.getNonceValue(businessAddress, workerAddress);
+  const nonceValue = await boomerangContract.methods.getNonceValue(businessAddress, workerAddress);
+
+  console.log(nonceValue);
 
   const response = {
     statusCode: 200,
     body: JSON.stringify({
-      nonce: nonceValue.toNumber()
+      nonce: nonceValue
     })
   };
 

@@ -14,7 +14,6 @@ let signTransaction = async (apiMethod, apiMethodParameters) => {
   const query = boomerangContract.methods[apiMethod](...apiMethodParameters);
   console.log('query: ' + query);
 
-
   const encodedABI = query.encodeABI();
   console.log('encodedABI: ' + encodedABI);
 
@@ -27,8 +26,6 @@ let signTransaction = async (apiMethod, apiMethodParameters) => {
   };
 
   console.log('transaction: ' + transaction);
-
-
 
   const signedTransaction = await web3.eth.accounts.signTransaction(transaction, privateKeyOfPayer);
   console.log('signedTransaction: ' + signedTransaction);
