@@ -4,14 +4,12 @@ import errorResponse from '../responses/errorResponse';
 
 const getBusinessAddress = function(event) {
 
-  const jsonBody = JSON.parse(event.body);
-  return jsonBody.businessAddress;
+  return event.queryStringParameters.businessAddress;
 };
 
 const getWorkerAddress = function(event) {
 
-  const jsonBody = JSON.parse(event.body);
-  return jsonBody.workerAddress;
+  return event.queryStringParameters.workerAddress;
 };
 
 export default async (event, context, callback) => {
