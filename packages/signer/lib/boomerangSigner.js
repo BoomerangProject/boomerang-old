@@ -12,19 +12,19 @@ var _asyncToGenerator2 = require("babel-runtime/helpers/asyncToGenerator");
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
-var getNonce = function () {
-  var _ref2 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2(businessAddressArg, userIdArg) {
+var getNonceForNewRating = function () {
+  var _ref2 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2(businessAddressArg, userAddressArg) {
     return _regenerator2.default.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             return _context2.abrupt("return", new _promise2.default(function (resolve, reject) {
 
-              return _axios2.default.get('/getNonceValue', {
+              return _axios2.default.get('/getNonceForNewRating', {
 
                 params: {
                   businessAddress: businessAddressArg,
-                  userId: userIdArg
+                  userAddress: userAddressArg
                 }
 
               }).then(function (response) {
@@ -44,7 +44,7 @@ var getNonce = function () {
     }, _callee2, this);
   }));
 
-  return function getNonce(_x3, _x4) {
+  return function getNonceForNewRating(_x3, _x4) {
     return _ref2.apply(this, arguments);
   };
 }();
@@ -59,7 +59,7 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_axios2.default.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';
+_axios2.default.defaults.baseURL = 'https://z6iwp9j5e3.execute-api.us-east-1.amazonaws.com/dev';
 // axios.defaults.baseURL = 'http://localhost:3000';
 
 
@@ -70,15 +70,20 @@ function getRandomInt(min, max) {
 var boomerangSigner = {
 
   getSignature: function () {
-    var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(businessAddress, userId) {
+    var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(businessAddress, userAddress) {
       var nonceValue, message, messageHash, privateKey, signature;
       return _regenerator2.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              _context.next = 2;
+              return getNonceForNewRating(businessAddress, userAddress);
 
-              // const nonceValue = await getNonce(businessAddress, userId);
-              nonceValue = 27031;
+            case 2:
+              nonceValue = _context.sent;
+
+              console.log('nonceValue: ' + nonceValue);
+              // const nonceValue = 27031;
               //
               // for (var i = 0; i < 10; i++) {
               //
@@ -107,13 +112,12 @@ var boomerangSigner = {
               privateKey = new Buffer(process.env.BOOMERANG_ACCOUNT_SEED, 'hex');
               signature = _ethereumjsUtil2.default.ecsign(messageHash, privateKey);
 
-
-              console.log(_ethereumjsUtil2.default.publicToAddress(_ethereumjsUtil2.default.ecrecover(messageHash, 27, signature.r, signature.s)));
-              console.log(_ethereumjsUtil2.default.publicToAddress(_ethereumjsUtil2.default.ecrecover(messageHash, 28, signature.r, signature.s)));
+              // console.log(ethUtil.publicToAddress(ethUtil.ecrecover(messageHash, 27, signature.r, signature.s)));
+              // console.log(ethUtil.publicToAddress(ethUtil.ecrecover(messageHash, 28, signature.r, signature.s)));
 
               return _context.abrupt("return", signature);
 
-            case 12:
+            case 13:
             case "end":
               return _context.stop();
           }

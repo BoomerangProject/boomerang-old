@@ -14,7 +14,6 @@ provider:
   region: us-east-1
   timeout: 300
 
-
 functions:
   getNonceValue:
     handler: lib/handler.getNonceValue
@@ -22,7 +21,7 @@ functions:
       - http:
           path: /getNonceValue
           method: get
-  getNonceValue:
+  getNonceValueForNewRating:
     handler: lib/handler.getNonceValueForNewRating
     events:
       - http:

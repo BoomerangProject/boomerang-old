@@ -5,6 +5,7 @@ import { getItem, setItem } from "../../../../services/LocalStorageService";
 import IpfsFileRequester from '../../../../api/IpfsFileRequester';
 import GetNonceValueRequester from '../../../../api/read/GetNonceValueRequester';
 import RateBoomerangExperienceRequester from '../../../../api/write/RateBoomerangExperienceRequester';
+import GetNonceValueForNewRatingRequester from '../../../../api/read/GetNonceValueForNewRatingRequester';
 
 
 const businessAddress = '0x8715db79576978f5118aa96bc3ed5d70fca68448';
@@ -17,7 +18,7 @@ export default class UserAccountComponent extends Component {
   constructor(args) {
     super(args);
     this.state = {userAddress: '', userName: '', nonceValue: ''};
-    this.getNonceValueRequester = new GetNonceValueRequester(businessAddress, workerAddress);
+    this.getNonceValueForNewRatingRequester = new GetNonceValueForNewRatingRequester(businessAddress, workerAddress);
     this.rateBoomerangExperienceRequeser = new RateBoomerangExperienceRequester(userAddress, workerAddress, businessAddress, '5', '5', ipfsHash);
   }
 
@@ -32,8 +33,7 @@ export default class UserAccountComponent extends Component {
     console.log(JSON.stringify(file));
     this.setState({userAddress: file.userAddress, userName: file.userName});
 
-
-    let nonceValue = await this.getNonceValueRequester.makeRequest();
+    let nonceValue = await this.getNonceValueForNewRatingRequester.makeRequest();
     console.log('nonceValue: ' + nonceValue);
     this.setState({nonceValue: nonceValue});
   }
@@ -45,7 +45,7 @@ export default class UserAccountComponent extends Component {
   }
 
   async componentWillUnmount() {
-    await this.getNonceValueRequester.cancel();
+    await this.getNonceValueForNewRatingRequester.cancel();
     await this.rateBoomerangExperienceRequeser.cancel();
   }
 

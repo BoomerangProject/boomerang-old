@@ -1,7 +1,7 @@
 import ethUtil from "ethereumjs-util";
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://k8ariy4jr4.execute-api.us-east-1.amazonaws.com/dev';
+axios.defaults.baseURL = 'https://z6iwp9j5e3.execute-api.us-east-1.amazonaws.com/dev';
 // axios.defaults.baseURL = 'http://localhost:3000';
 
 
@@ -11,10 +11,11 @@ function getRandomInt(min, max) {
 
 const boomerangSigner = {
 
-  getSignature: async (businessAddress, userId) => {
+  getSignature: async (businessAddress, userAddress) => {
 
-    // const nonceValue = await getNonce(businessAddress, userId);
-    const nonceValue = 27031;
+    const nonceValue = await getNonceForNewRating(businessAddress, userAddress);
+    console.log('nonceValue: ' + nonceValue);
+    // const nonceValue = 27031;
     //
     // for (var i = 0; i < 10; i++) {
     //
@@ -41,23 +42,22 @@ const boomerangSigner = {
     const privateKey = new Buffer(process.env.BOOMERANG_ACCOUNT_SEED, 'hex');
     const signature = ethUtil.ecsign(messageHash, privateKey);
 
-
-    console.log(ethUtil.publicToAddress(ethUtil.ecrecover(messageHash, 27, signature.r, signature.s)));
-    console.log(ethUtil.publicToAddress(ethUtil.ecrecover(messageHash, 28, signature.r, signature.s)));
+    // console.log(ethUtil.publicToAddress(ethUtil.ecrecover(messageHash, 27, signature.r, signature.s)));
+    // console.log(ethUtil.publicToAddress(ethUtil.ecrecover(messageHash, 28, signature.r, signature.s)));
 
     return signature;
   }
 };
 
-async function getNonce(businessAddressArg, userIdArg) {
+async function getNonceForNewRating(businessAddressArg, userAddressArg) {
 
   return new Promise(function(resolve, reject) {
 
-    return axios.get('/getNonceValue', {
+    return axios.get('/getNonceForNewRating', {
 
       params: {
         businessAddress: businessAddressArg,
-        userId: userIdArg
+        userAddress: userAddressArg
       }
 
     }).then(function (response) {
