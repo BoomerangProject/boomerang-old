@@ -1,5 +1,6 @@
 'use strict';
 import getNonceValue from "./functions/getNonceValue";
+import getNonceValueForNewRating from "./functions/getNonceValueForNewRating";
 import rateExperience from "./functions/reviews/rateExperience";
 import storeReview from "./functions/reviews/storeReview";
 import requestReview from "./functions/reviewrequests/requestReview";
