@@ -7,30 +7,30 @@ const getBusinessAddress = function(event) {
   return event.queryStringParameters.businessAddress;
 };
 
-const getActorAddress = function(event) {
+const getWorkerAddress = function(event) {
 
-  return event.queryStringParameters.actorAddress;
+  return event.queryStringParameters.workerAddress;
 };
 
 export default async (event, context, callback) => {
 
   const businessAddress = getBusinessAddress(event);
-  const actorAddress = getActorAddress(event);
+  const workerAddress = getWorkerAddress(event);
 
   if (businessAddress == null || businessAddress.length < 1) {
     callback(null, errorResponse('businessAddress is required'));
     return;
   }
 
-  if (actorAddress == null || actorAddress.length < 1) {
-    callback(null, errorResponse('actorAddress is required'));
+  if (workerAddress == null || workerAddress.length < 1) {
+    callback(null, errorResponse('workerAddress is required'));
     return;
   }
 
-  const nonceValue = await boomerangContract.methods.getNonceValue(businessAddress, actorAddress).call();
+  const nonceValue = await boomerangContract.methods.getNonceValueForNewRating(businessAddress, workerAddress).call();
 
   console.log('businessAddress: ' + businessAddress);
-  console.log('actorAddress: ' + actorAddress);
+  console.log('workerAddress: ' + workerAddress);
   console.log('nonce value: ' + nonceValue);
 
   const response = {

@@ -22,6 +22,12 @@ functions:
       - http:
           path: /getNonceValue
           method: get
+  getNonceValue:
+    handler: lib/handler.getNonceValueForNewRating
+    events:
+      - http:
+          path: /getNonceValueForNewRating
+          method: get
   rateExperience:
     handler: lib/handler.rateExperience
     events:

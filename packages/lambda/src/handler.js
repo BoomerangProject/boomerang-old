@@ -15,6 +15,7 @@ import addWorker from "./functions/api/addWorker";
 import rateBoomerangExperience from "./functions/api/rateBoomerangExperience";
 
 module.exports.getNonceValue = getNonceValue;
+module.exports.getNonceValueForNewRating = getNonceValueForNewRating;
 module.exports.rateExperience = rateExperience;
 module.exports.storeReview = storeReview;
 module.exports.requestReview = requestReview;
