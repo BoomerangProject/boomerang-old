@@ -9,16 +9,16 @@ import RateBoomerangExperienceRequester from '../../../../api/write/RateBoomeran
 
 const businessAddress = '0x8715db79576978f5118aa96bc3ed5d70fca68448';
 const workerAddress = '0x83b21d39574d21ea31b05ecc027ca38633f9354f';
-const userAddress = '0xda47c60f629876812674a9d95b3acd306ee21aac';
-const ipfsHash = '0x7aec552a65bfd833319cecd80cb10be136a35c9da94a8c899f2536c371293b93';
+const userAddress = '0x71248354c8C2951d0026972CF44213E737D6E3d8';
+const ipfsHash = 'QmNQZ9S4WkF4UjnYQPtpmb438UTp9g4jGx6TAHpSg2fXBc';
 
 export default class UserAccountComponent extends Component {
 
   constructor(args) {
     super(args);
     this.state = {userAddress: '', userName: '', nonceValue: ''};
-    this.getNonceValueRequester = new GetNonceValueRequester();
-    this.rateBoomerangExperienceRequeser = new RateBoomerangExperienceRequester();
+    this.getNonceValueRequester = new GetNonceValueRequester(businessAddress, workerAddress);
+    this.rateBoomerangExperienceRequeser = new RateBoomerangExperienceRequester(userAddress, workerAddress, businessAddress, '5', '5', ipfsHash);
   }
 
   async componentDidMount() {
@@ -33,14 +33,14 @@ export default class UserAccountComponent extends Component {
     this.setState({userAddress: file.userAddress, userName: file.userName});
 
 
-    let nonceValue = await this.getNonceValueRequester.makeRequest(businessAddress, workerAddress);
+    let nonceValue = await this.getNonceValueRequester.makeRequest();
     console.log('nonceValue: ' + nonceValue);
     this.setState({nonceValue: nonceValue});
   }
 
   async onClickOfRateExperienceButton() {
 
-    let txReceipt = await this.rateBoomerangExperienceRequeser.makeRequest(userAddress,workerAddress, businessAddress, 5, 5, ipfsHash);
+    let txReceipt = await this.rateBoomerangExperienceRequeser.makeRequest();
     console.log(txReceipt);
   }
 

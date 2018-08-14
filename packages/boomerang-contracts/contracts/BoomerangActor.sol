@@ -37,18 +37,18 @@ contract BoomerangActor {
     _nonceValue = nonceValue[_businessAddress][_actorAddress];
   }
 
-  modifier withCorrectSignature(address _businessAddress, address _address, uint8 _v, bytes32 _r, bytes32 _s) {
-
-    bytes32 nonceHash = keccak256(abi.encodePacked(nonceValue[_businessAddress][_address]));
-    bytes memory prefix = '\x19Ethereum Signed Message:\n32';
-    bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, nonceHash));
-    address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
-
-    require(recoveredAddress == _address);
-
-    nonceValue[_businessAddress][_address] += 1;
-    _;
-  }
+//  modifier withCorrectSignature(address _businessAddress, address _address, uint8 _v, bytes32 _r, bytes32 _s) {
+//
+//    bytes32 nonceHash = keccak256(abi.encodePacked(nonceValue[_businessAddress][_address]));
+//    bytes memory prefix = '\x19Ethereum Signed Message:\n32';
+//    bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, nonceHash));
+//    address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
+//
+//    require(recoveredAddress == _address);
+//
+//    nonceValue[_businessAddress][_address] += 1;
+//    _;
+//  }
 
 
 // //   businessAddress => userId => nonceValue
@@ -70,4 +70,10 @@ contract BoomerangActor {
 //    nonceValueForUsersWithoutAddress[_businessAddress][_userId] += 1;
 //    _;
 //  }
+
+
+
+
+
+
 }

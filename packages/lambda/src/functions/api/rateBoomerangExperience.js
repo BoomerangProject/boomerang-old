@@ -53,6 +53,15 @@ export default async (event, context, callback) => {
   const businessRating = getBusinessRating(event);
   const ipfsHash = getIpfsHash(event);
 
+  console.log('rateBoomerangExperience');
+  console.log('-----------------------------');
+  console.log('userAddress: ' + userAddress);
+  console.log('workerAddress: ' + workerAddress);
+  console.log('businessAddress: ' + businessAddress);
+  console.log('workerRating: ' + workerRating);
+  console.log('businessRating: ' + businessRating);
+  console.log('ipfsHash: ' + ipfsHash);
+
   if (userAddress == null || userAddress.length < 1) {
     callback(null, errorResponse('userAddress is required'));
     return;

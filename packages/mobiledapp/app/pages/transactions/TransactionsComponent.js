@@ -12,6 +12,7 @@ export default class TransactionsComponent extends Component {
 
   async componentDidMount() {
     const pendingTransactions = await getArrayItem('pendingTransactions');
+    pendingTransactions.map( (transactionHash) => console.log(transactionHash));
     this.setState({pendingTransactions});
   }
 
