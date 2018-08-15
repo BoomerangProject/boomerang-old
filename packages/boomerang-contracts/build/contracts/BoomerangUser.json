@@ -405,14 +405,14 @@
     "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/BoomerangUser.sol",
     "exportedSymbols": {
       "BoomerangUser": [
-        626
+        627
       ]
     },
-    "id": 627,
+    "id": 628,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 576,
+        "id": 577,
         "literals": [
           "solidity",
           "^",
@@ -425,9 +425,9 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/BoomerangActor.sol",
         "file": "./BoomerangActor.sol",
-        "id": 577,
+        "id": 578,
         "nodeType": "ImportDirective",
-        "scope": 627,
+        "scope": 628,
         "sourceUnit": 136,
         "src": "26:30:4",
         "symbolAliases": [],
@@ -439,7 +439,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 578,
+              "id": 579,
               "name": "BoomerangActor",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 135,
@@ -449,7 +449,7 @@
                 "typeString": "contract BoomerangActor"
               }
             },
-            "id": 579,
+            "id": 580,
             "nodeType": "InheritanceSpecifier",
             "src": "84:14:4"
           }
@@ -460,9 +460,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 626,
+        "id": 627,
         "linearizedBaseContracts": [
-          626,
+          627,
           135
         ],
         "name": "BoomerangUser",
@@ -471,20 +471,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 585,
+            "id": 586,
             "name": "UserProfileUpdated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 584,
+              "id": 585,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 581,
+                  "id": 582,
                   "indexed": true,
                   "name": "_userAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 585,
+                  "scope": 586,
                   "src": "129:28:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -493,7 +493,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 580,
+                    "id": 581,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "129:7:4",
@@ -507,11 +507,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 583,
+                  "id": 584,
                   "indexed": false,
                   "name": "_ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 585,
+                  "scope": 586,
                   "src": "159:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -520,7 +520,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 582,
+                    "id": 583,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "159:7:4",
@@ -539,7 +539,7 @@
           },
           {
             "body": {
-              "id": 611,
+              "id": 612,
               "nodeType": "Block",
               "src": "255:137:4",
               "statements": [
@@ -553,7 +553,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 597,
+                        "id": 598,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -562,7 +562,7 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 593,
+                            "id": 594,
                             "name": "isUser",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -573,14 +573,14 @@
                               "typeString": "mapping(address => bool)"
                             }
                           },
-                          "id": 595,
+                          "id": 596,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 594,
+                            "id": 595,
                             "name": "_userAddress",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 587,
+                            "referencedDeclaration": 588,
                             "src": "277:12:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -603,7 +603,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "66616c7365",
-                          "id": 596,
+                          "id": 597,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -632,21 +632,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 592,
+                      "id": 593,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2316,
-                        2317
+                        2317,
+                        2318
                       ],
-                      "referencedDeclaration": 2316,
+                      "referencedDeclaration": 2317,
                       "src": "262:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 598,
+                    "id": 599,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -660,14 +660,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 599,
+                  "id": 600,
                   "nodeType": "ExpressionStatement",
                   "src": "262:38:4"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 604,
+                    "id": 605,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -676,7 +676,7 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 600,
+                        "id": 601,
                         "name": "isUser",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -687,14 +687,14 @@
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 602,
+                      "id": 603,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 601,
+                        "id": 602,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 587,
+                        "referencedDeclaration": 588,
                         "src": "313:12:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -717,7 +717,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "74727565",
-                      "id": 603,
+                      "id": 604,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -738,7 +738,7 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 605,
+                  "id": 606,
                   "nodeType": "ExpressionStatement",
                   "src": "306:27:4"
                 },
@@ -748,11 +748,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 607,
+                        "id": 608,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 587,
+                        "referencedDeclaration": 588,
                         "src": "363:12:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -761,11 +761,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 608,
+                        "id": 609,
                         "name": "_ipfsHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 589,
+                        "referencedDeclaration": 590,
                         "src": "377:9:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -784,18 +784,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 606,
+                      "id": 607,
                       "name": "UserProfileUpdated",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 585,
+                      "referencedDeclaration": 586,
                       "src": "344:18:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_bytes32_$returns$__$",
                         "typeString": "function (address,bytes32)"
                       }
                     },
-                    "id": 609,
+                    "id": 610,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -809,14 +809,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 610,
+                  "id": 611,
                   "nodeType": "EmitStatement",
                   "src": "339:48:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 612,
+            "id": 613,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -824,15 +824,15 @@
             "name": "registerAsUser",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 590,
+              "id": 591,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 587,
+                  "id": 588,
                   "name": "_userAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 612,
+                  "scope": 613,
                   "src": "207:20:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -841,7 +841,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 586,
+                    "id": 587,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "207:7:4",
@@ -855,10 +855,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 589,
+                  "id": 590,
                   "name": "_ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 612,
+                  "scope": 613,
                   "src": "229:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -867,7 +867,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 588,
+                    "id": 589,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "229:7:4",
@@ -884,12 +884,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 591,
+              "id": 592,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "255:0:4"
             },
-            "scope": 626,
+            "scope": 627,
             "src": "183:209:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -897,7 +897,7 @@
           },
           {
             "body": {
-              "id": 624,
+              "id": 625,
               "nodeType": "Block",
               "src": "471:59:4",
               "statements": [
@@ -907,11 +907,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 620,
+                        "id": 621,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 614,
+                        "referencedDeclaration": 615,
                         "src": "501:12:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -920,11 +920,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 621,
+                        "id": 622,
                         "name": "_ipfsHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 616,
+                        "referencedDeclaration": 617,
                         "src": "515:9:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -943,18 +943,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 619,
+                      "id": 620,
                       "name": "UserProfileUpdated",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 585,
+                      "referencedDeclaration": 586,
                       "src": "482:18:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_bytes32_$returns$__$",
                         "typeString": "function (address,bytes32)"
                       }
                     },
-                    "id": 622,
+                    "id": 623,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -968,14 +968,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 623,
+                  "id": 624,
                   "nodeType": "EmitStatement",
                   "src": "477:48:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 625,
+            "id": 626,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -983,15 +983,15 @@
             "name": "updateUserProfile",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 617,
+              "id": 618,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 614,
+                  "id": 615,
                   "name": "_userAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 625,
+                  "scope": 626,
                   "src": "423:20:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1000,7 +1000,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 613,
+                    "id": 614,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "423:7:4",
@@ -1014,10 +1014,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 616,
+                  "id": 617,
                   "name": "_ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 625,
+                  "scope": 626,
                   "src": "445:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1026,7 +1026,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 615,
+                    "id": 616,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "445:7:4",
@@ -1043,19 +1043,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 618,
+              "id": 619,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "471:0:4"
             },
-            "scope": 626,
+            "scope": 627,
             "src": "396:134:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 627,
+        "scope": 628,
         "src": "58:474:4"
       }
     ],
@@ -1065,14 +1065,14 @@
     "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/BoomerangUser.sol",
     "exportedSymbols": {
       "BoomerangUser": [
-        626
+        627
       ]
     },
-    "id": 627,
+    "id": 628,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 576,
+        "id": 577,
         "literals": [
           "solidity",
           "^",
@@ -1085,9 +1085,9 @@
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/BoomerangActor.sol",
         "file": "./BoomerangActor.sol",
-        "id": 577,
+        "id": 578,
         "nodeType": "ImportDirective",
-        "scope": 627,
+        "scope": 628,
         "sourceUnit": 136,
         "src": "26:30:4",
         "symbolAliases": [],
@@ -1099,7 +1099,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 578,
+              "id": 579,
               "name": "BoomerangActor",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 135,
@@ -1109,7 +1109,7 @@
                 "typeString": "contract BoomerangActor"
               }
             },
-            "id": 579,
+            "id": 580,
             "nodeType": "InheritanceSpecifier",
             "src": "84:14:4"
           }
@@ -1120,9 +1120,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 626,
+        "id": 627,
         "linearizedBaseContracts": [
-          626,
+          627,
           135
         ],
         "name": "BoomerangUser",
@@ -1131,20 +1131,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 585,
+            "id": 586,
             "name": "UserProfileUpdated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 584,
+              "id": 585,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 581,
+                  "id": 582,
                   "indexed": true,
                   "name": "_userAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 585,
+                  "scope": 586,
                   "src": "129:28:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1153,7 +1153,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 580,
+                    "id": 581,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "129:7:4",
@@ -1167,11 +1167,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 583,
+                  "id": 584,
                   "indexed": false,
                   "name": "_ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 585,
+                  "scope": 586,
                   "src": "159:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1180,7 +1180,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 582,
+                    "id": 583,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "159:7:4",
@@ -1199,7 +1199,7 @@
           },
           {
             "body": {
-              "id": 611,
+              "id": 612,
               "nodeType": "Block",
               "src": "255:137:4",
               "statements": [
@@ -1213,7 +1213,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 597,
+                        "id": 598,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1222,7 +1222,7 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 593,
+                            "id": 594,
                             "name": "isUser",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -1233,14 +1233,14 @@
                               "typeString": "mapping(address => bool)"
                             }
                           },
-                          "id": 595,
+                          "id": 596,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 594,
+                            "id": 595,
                             "name": "_userAddress",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 587,
+                            "referencedDeclaration": 588,
                             "src": "277:12:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1263,7 +1263,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "66616c7365",
-                          "id": 596,
+                          "id": 597,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1292,21 +1292,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 592,
+                      "id": 593,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2316,
-                        2317
+                        2317,
+                        2318
                       ],
-                      "referencedDeclaration": 2316,
+                      "referencedDeclaration": 2317,
                       "src": "262:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 598,
+                    "id": 599,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1320,14 +1320,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 599,
+                  "id": 600,
                   "nodeType": "ExpressionStatement",
                   "src": "262:38:4"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 604,
+                    "id": 605,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1336,7 +1336,7 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 600,
+                        "id": 601,
                         "name": "isUser",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -1347,14 +1347,14 @@
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 602,
+                      "id": 603,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 601,
+                        "id": 602,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 587,
+                        "referencedDeclaration": 588,
                         "src": "313:12:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1377,7 +1377,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "74727565",
-                      "id": 603,
+                      "id": 604,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1398,7 +1398,7 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 605,
+                  "id": 606,
                   "nodeType": "ExpressionStatement",
                   "src": "306:27:4"
                 },
@@ -1408,11 +1408,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 607,
+                        "id": 608,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 587,
+                        "referencedDeclaration": 588,
                         "src": "363:12:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1421,11 +1421,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 608,
+                        "id": 609,
                         "name": "_ipfsHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 589,
+                        "referencedDeclaration": 590,
                         "src": "377:9:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1444,18 +1444,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 606,
+                      "id": 607,
                       "name": "UserProfileUpdated",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 585,
+                      "referencedDeclaration": 586,
                       "src": "344:18:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_bytes32_$returns$__$",
                         "typeString": "function (address,bytes32)"
                       }
                     },
-                    "id": 609,
+                    "id": 610,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1469,14 +1469,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 610,
+                  "id": 611,
                   "nodeType": "EmitStatement",
                   "src": "339:48:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 612,
+            "id": 613,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1484,15 +1484,15 @@
             "name": "registerAsUser",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 590,
+              "id": 591,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 587,
+                  "id": 588,
                   "name": "_userAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 612,
+                  "scope": 613,
                   "src": "207:20:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1501,7 +1501,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 586,
+                    "id": 587,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "207:7:4",
@@ -1515,10 +1515,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 589,
+                  "id": 590,
                   "name": "_ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 612,
+                  "scope": 613,
                   "src": "229:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1527,7 +1527,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 588,
+                    "id": 589,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "229:7:4",
@@ -1544,12 +1544,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 591,
+              "id": 592,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "255:0:4"
             },
-            "scope": 626,
+            "scope": 627,
             "src": "183:209:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1557,7 +1557,7 @@
           },
           {
             "body": {
-              "id": 624,
+              "id": 625,
               "nodeType": "Block",
               "src": "471:59:4",
               "statements": [
@@ -1567,11 +1567,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 620,
+                        "id": 621,
                         "name": "_userAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 614,
+                        "referencedDeclaration": 615,
                         "src": "501:12:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1580,11 +1580,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 621,
+                        "id": 622,
                         "name": "_ipfsHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 616,
+                        "referencedDeclaration": 617,
                         "src": "515:9:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1603,18 +1603,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 619,
+                      "id": 620,
                       "name": "UserProfileUpdated",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 585,
+                      "referencedDeclaration": 586,
                       "src": "482:18:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_bytes32_$returns$__$",
                         "typeString": "function (address,bytes32)"
                       }
                     },
-                    "id": 622,
+                    "id": 623,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1628,14 +1628,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 623,
+                  "id": 624,
                   "nodeType": "EmitStatement",
                   "src": "477:48:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 625,
+            "id": 626,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1643,15 +1643,15 @@
             "name": "updateUserProfile",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 617,
+              "id": 618,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 614,
+                  "id": 615,
                   "name": "_userAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 625,
+                  "scope": 626,
                   "src": "423:20:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1660,7 +1660,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 613,
+                    "id": 614,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "423:7:4",
@@ -1674,10 +1674,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 616,
+                  "id": 617,
                   "name": "_ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 625,
+                  "scope": 626,
                   "src": "445:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1686,7 +1686,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 615,
+                    "id": 616,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "445:7:4",
@@ -1703,19 +1703,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 618,
+              "id": 619,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "471:0:4"
             },
-            "scope": 626,
+            "scope": 627,
             "src": "396:134:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 627,
+        "scope": 628,
         "src": "58:474:4"
       }
     ],
@@ -1727,5 +1727,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-14T18:45:00.021Z"
+  "updatedAt": "2018-08-15T15:57:30.788Z"
 }

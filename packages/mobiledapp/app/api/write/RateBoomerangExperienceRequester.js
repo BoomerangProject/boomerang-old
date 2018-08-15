@@ -2,7 +2,7 @@ import WriteRequester from './WriteRequester';
 
 export default class RateBoomerangExperienceRequester extends WriteRequester {
 
-  constructor(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash) {
+  constructor(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash, v, r, s) {
 
     const apiMethod = '/rateBoomerangExperience';
 
@@ -13,6 +13,9 @@ export default class RateBoomerangExperienceRequester extends WriteRequester {
       workerRating: workerRating,
       businessRating: businessRating,
       ipfsHash: ipfsHash,
+      v: v,
+      r: r,
+      s: s
     };
 
     super(apiMethod, apiMethodParameters);

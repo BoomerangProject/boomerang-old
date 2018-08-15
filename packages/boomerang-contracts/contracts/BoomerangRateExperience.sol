@@ -74,11 +74,11 @@ contract BoomerangRateExperience is BoomerangActor, BoomerangRewards {
   /**/
   // this line:
 
-      require(ecrecover(keccak256(abi.encodePacked('\x19Ethereum Signed Message:\n32', keccak256(abi.encodePacked(nonceValueForNewRating[_businessAddress][_userAddress])))), _v, _r, _s) == _userAddress);
+      require(ecrecover(keccak256(abi.encodePacked('\x19Ethereum Signed Message:\n32', keccak256(abi.encodePacked(_userAddress, nonceValueForNewRating[_businessAddress][_userAddress])))), _v, _r, _s) == _businessAddress);
 
   // is equivalent to:
   //
-//      bytes32 nonceHash = keccak256(abi.encodePacked(nonceValueForNewRating[_businessAddress][_userAddress]));
+//      bytes32 nonceHash = keccak256(abi.encodePacked(_userAddress, nonceValueForNewRating[_businessAddress][_userAddress]));
 //      bytes memory prefix = '\x19Ethereum Signed Message:\n32';
 //      bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, nonceHash));
 //      address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);

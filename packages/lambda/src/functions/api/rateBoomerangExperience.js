@@ -44,6 +44,24 @@ const getIpfsHash = function(event) {
   return jsonBody.ipfsHash;
 };
 
+const getV = function(event) {
+
+  const jsonBody = JSON.parse(event.body);
+  return jsonBody.v;
+};
+
+const getR = function(event) {
+
+  const jsonBody = JSON.parse(event.body);
+  return jsonBody.r;
+};
+
+const getS = function(event) {
+
+  const jsonBody = JSON.parse(event.body);
+  return jsonBody.s;
+};
+
 export default async (event, context, callback) => {
 
   const userAddress = getUserAddress(event);
@@ -52,6 +70,9 @@ export default async (event, context, callback) => {
   const workerRating = getWorkerRating(event);
   const businessRating = getBusinessRating(event);
   const ipfsHash = getIpfsHash(event);
+  const v = getV(event);
+  const r = getR(event);
+  const s = getS(event);
 
   console.log('rateBoomerangExperience');
   console.log('-----------------------------');
@@ -61,6 +82,9 @@ export default async (event, context, callback) => {
   console.log('workerRating: ' + workerRating);
   console.log('businessRating: ' + businessRating);
   console.log('ipfsHash: ' + ipfsHash);
+  console.log('v: ' + v);
+  console.log('r: ' + r);
+  console.log('s: ' + s);
 
   if (userAddress == null || userAddress.length < 1) {
     callback(null, errorResponse('userAddress is required'));
@@ -91,6 +115,21 @@ export default async (event, context, callback) => {
     callback(null, errorResponse('ipfsHash is required'));
     return;
   }
+
+  if (v == null || v.length < 1) {
+    callback(null, errorResponse('v is required'));
+    return;
+  }
+
+  if (r == null || r.length < 1) {
+    callback(null, errorResponse('r is required'));
+    return;
+  }
+
+  if (s == null || s.length < 1) {
+    callback(null, errorResponse('s is required'));
+    return;
+  }
   // ---
 
   // const ipfsObject = JSON.parse(event.body);
@@ -113,7 +152,7 @@ export default async (event, context, callback) => {
 
   let signedTransaction;
   try {
-    signedTransaction = await signTransaction('rateBoomerangExperience', [userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHashInBytes(ipfsHash)]);
+    signedTransaction = await signTransaction('rateBoomerangExperience', [userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHashInBytes(ipfsHash), v, r, s]);
   } catch (error) {
     return callback(null, errorResponse('problem with signing transaction: ' + error));
   }
