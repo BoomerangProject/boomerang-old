@@ -77,13 +77,18 @@ var _ethereumjsUtil = require("ethereumjs-util");
 
 var _ethereumjsUtil2 = _interopRequireDefault(_ethereumjsUtil);
 
+var _ethereumjsAbi = require("ethereumjs-abi");
+
+var _ethereumjsAbi2 = _interopRequireDefault(_ethereumjsAbi);
+
 var _axios = require("axios");
 
 var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var privateKeyOfTheBusiness = '6898ca0044b4b85e9fae54ba2a64520fc5bc0183d3685569be4f56b98082c451';
+var privateKeyOfTheBusiness = '2413fffb1c65c4da92322c52e1b609c2f69b19e14cb178ec06d8ee63dc622f73';
+// const privateKey = new Buffer(process.env.BOOMERANG_ACCOUNT_SEED, 'hex');
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -104,58 +109,36 @@ var boomerangSigner = {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+
+              console.log('businessAddress: ' + businessAddress);
+              console.log('userAddress: ' + userAddress);
+
+              _context.next = 4;
               return getNonceValueForNewRating(businessAddress, userAddress);
 
-            case 2:
+            case 4:
               nonceValue = _context.sent;
 
               console.log('nonceValue: ' + nonceValue);
-              // const nonceValue = 27031;
-              //
-              // for (var i = 0; i < 10; i++) {
-              //
-              //   const value = getRandomInt(0,32000);
-              //   console.log(value);
-              //
-              //   const message = ethUtil.toBuffer(value);
-              //   const messageHash = ethUtil.hashPersonalMessage(message);
-              //
-              //   console.log(messageHash);
-              //
-              //   const privateKey = new Buffer(process.env.BOOMERANG_ACCOUNT_SEED, 'hex');
-              //   const signature = ethUtil.ecsign(messageHash, privateKey);
-              //
-              //   console.log(signature);
-              // }
 
-              message = _ethereumjsUtil2.default.toBuffer(userAddress + nonceValue);
+              message = _ethereumjsAbi2.default.soliditySHA3(['address', 'uint256'], [userAddress, nonceValue]);
 
-              console.log("message: " + _ethereumjsUtil2.default.bufferToHex(message));
-              console.log("32?: " + message.length.toString());
+              console.log('message: ' + _ethereumjsUtil2.default.bufferToHex(message));
+
+              // adds the "x19Ethereum Signed Message:\n32" prefix
               messageHash = _ethereumjsUtil2.default.hashPersonalMessage(message);
 
-              console.log("messageHash: " + _ethereumjsUtil2.default.bufferToHex(messageHash));
+              console.log('messageHash: ' + _ethereumjsUtil2.default.bufferToHex(messageHash));
 
               privateKey = new Buffer(privateKeyOfTheBusiness, 'hex');
               signature = _ethereumjsUtil2.default.ecsign(messageHash, privateKey);
-
-              //      bytes32 nonceHash = keccak256(abi.encodePacked(_userAddress, nonceValueForNewRating[_businessAddress][_userAddress]));
-              //      bytes memory prefix = '\x19Ethereum Signed Message:\n32';
-              //      bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, nonceHash));
-              //      address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
-              //      require(recoveredAddress == _userAddress);
-
               recoveredAddress = _ethereumjsUtil2.default.publicToAddress(_ethereumjsUtil2.default.ecrecover(messageHash, signature.v, signature.r, signature.s));
 
               console.log('recovered address: ' + _ethereumjsUtil2.default.bufferToHex(recoveredAddress));
 
-              // console.log(ethUtil.publicToAddress(ethUtil.ecrecover(messageHash, 27, signature.r, signature.s)));
-              // console.log(ethUtil.publicToAddress(ethUtil.ecrecover(messageHash, 28, signature.r, signature.s)));
-
               return _context.abrupt("return", signature);
 
-            case 14:
+            case 15:
             case "end":
               return _context.stop();
           }

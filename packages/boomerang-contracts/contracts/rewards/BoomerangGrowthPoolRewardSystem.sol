@@ -25,12 +25,12 @@ contract BoomerangGrowthPoolRewardSystem is BoomerangRewardSystem {
     }
 
     updateGrowthPoolRewardProgressForUser(_userAddress);
-
-    if (_workerRating == 5) {
-      updateGrowthPoolRewardProgressForWorker(_workerAddress);
-    }
-
-    updateGrowthPoolRewardProgressForBusiness(_businessAddress);
+//
+//    if (_workerRating == 5) {
+//      updateGrowthPoolRewardProgressForWorker(_workerAddress);
+//    }
+//
+//    updateGrowthPoolRewardProgressForBusiness(_businessAddress);
   }
 
   function updateGrowthPoolRewardProgressForUser(address _userAddress) internal {
@@ -45,7 +45,17 @@ contract BoomerangGrowthPoolRewardSystem is BoomerangRewardSystem {
     }
   }
 
+  function updateGrowthPoolRewardProgressForUser2(address _userAddress) internal {
 
+    uint256 userRewardLevel = growthPoolRewardSystem.rewardLevel[_userAddress];
+    incrementRewardProgress(growthPoolRewardSystem, _userAddress);
+
+    if (growthPoolRewardSystem.rewardStep[_userAddress] == 0) {
+      uint256 rewardValue = growthPoolRewardSystem.levelRewards[userRewardLevel];
+      boomerangToken.transferFrom(owner, _userAddress, rewardValue);
+      emit GrowthPoolRewardForUser(_userAddress, rewardValue);
+    }
+  }
   function updateGrowthPoolRewardProgressForWorker(address _workerAddress) internal {
 
     uint256 workerRewardLevel = growthPoolRewardSystem.rewardLevel[_workerAddress];
@@ -59,9 +69,16 @@ contract BoomerangGrowthPoolRewardSystem is BoomerangRewardSystem {
   }
 
   function updateGrowthPoolRewardProgressForBusiness(address _businessAddress) internal {
-    incrementRewardProgress(growthPoolRewardSystem, _businessAddress);
-  }
 
+    uint256 businessRewardLevel = growthPoolRewardSystem.rewardLevel[_businessAddress];
+    incrementRewardProgress(growthPoolRewardSystem, _businessAddress);
+
+    if (growthPoolRewardSystem.rewardStep[_businessAddress] == 0) {
+      uint256 rewardValue = growthPoolRewardSystem.levelRewards[businessRewardLevel];
+      boomerangToken.transferFrom(owner, _businessAddress, rewardValue);
+      emit GrowthPoolRewardForBusiness(_businessAddress, rewardValue);
+    }
+  }
 
    function addBusinessesToGrowthPoolRewardsSystem(address[] businesses) external onlyOwner {
       for (uint i = 0; i < businesses.length; i++) {

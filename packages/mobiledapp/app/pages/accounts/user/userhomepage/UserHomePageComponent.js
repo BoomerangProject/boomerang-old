@@ -8,18 +8,21 @@ import RateBoomerangExperienceRequester from '../../../../api/write/RateBoomeran
 import GetNonceValueForNewRatingRequester from '../../../../api/read/GetNonceValueForNewRatingRequester';
 
 
-const businessAddress = '0x8715db79576978f5118aa96bc3ed5d70fca68448';
+const userAddress = '0x74AF84d40c47Bc7d2fe9294562EcA54eAF4Fa0eA';
 const workerAddress = '0x83b21d39574d21ea31b05ecc027ca38633f9354f';
-const userAddress = '0x71248354c8C2951d0026972CF44213E737D6E3d8';
+const businessAddress = '0x8AF0Ba103658814b394e5a61FCeD7033934a97cA';
 const ipfsHash = 'QmNQZ9S4WkF4UjnYQPtpmb438UTp9g4jGx6TAHpSg2fXBc';
+const v = 28;
+const r = '0xed209a7d522c6b7a4dad1a44e5e3bd825dddef1e1583d0cc47d50f331b825117';
+const s = '0x49c4dfbf96a74ee2d2f170ba32557e7622534d58770a52d6e1c1182462d1b48b';
 
-export default class UserAccountComponent extends Component {
+export default class UserHomePageComponent extends Component {
 
   constructor(args) {
     super(args);
     this.state = {userAddress: '', userName: '', nonceValue: ''};
     this.getNonceValueForNewRatingRequester = new GetNonceValueForNewRatingRequester(businessAddress, workerAddress);
-    this.rateBoomerangExperienceRequeser = new RateBoomerangExperienceRequester(userAddress, workerAddress, businessAddress, '5', '5', ipfsHash);
+    this.rateBoomerangExperienceRequeser = new RateBoomerangExperienceRequester(userAddress, workerAddress, businessAddress, '5', '5', ipfsHash, v, r, s);
   }
 
   async componentDidMount() {

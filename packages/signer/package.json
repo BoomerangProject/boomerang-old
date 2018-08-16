@@ -12,7 +12,8 @@
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
-    "ethereumjs-util": "^5.1.5"
+    "ethereumjs-abi": "^0.6.5",
+    "ethereumjs-util": "^5.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -2,7 +2,7 @@ const boomerangSigner = require("boomerang-signer");
 const ethUtil = require('ethereumjs-util');
 require('dotenv').config();
 
-boomerangSigner.getSignature("0xd0a287acbc9b2b4222c5ea38dc0f8f1031b0e5ce", "0x71248354c8C2951d0026972CF44213E737D6E3d8").then((signature) => {
+boomerangSigner.getSignature("0x8AF0Ba103658814b394e5a61FCeD7033934a97cA", "0x74AF84d40c47Bc7d2fe9294562EcA54eAF4Fa0eA").then((signature) => {
   console.log('v: ' + signature.v);
   console.log('r: ' + ethUtil.bufferToHex(signature.r));
   console.log('s: ' + ethUtil.bufferToHex(signature.s));
