@@ -5,9 +5,7 @@ import './BoomerangRewardSystem.sol';
 contract BoomerangGrowthPoolRewardSystem is BoomerangRewardSystem {
 
   event RegisterGrowthPoolRewardSystem();
-  event GrowthPoolRewardForUser(address indexed _userAddress, uint256 _rewardValue);
-  event GrowthPoolRewardForWorker(address indexed _workerAddress, uint256 _rewardValue);
-  event GrowthPoolRewardForBusiness(address indexed _businessAddress, uint256 _rewardValue);
+  event GrowthPoolReward(string _type, address indexed _address, uint256 _rewardValue);
 
   RewardSystem public growthPoolRewardSystem;
   mapping (address => bool) public growthPoolBusiness;
@@ -24,59 +22,24 @@ contract BoomerangGrowthPoolRewardSystem is BoomerangRewardSystem {
       return;
     }
 
-    updateGrowthPoolRewardProgressForUser(_userAddress);
-//
-//    if (_workerRating == 5) {
-//      updateGrowthPoolRewardProgressForWorker(_workerAddress);
-//    }
-//
-//    updateGrowthPoolRewardProgressForBusiness(_businessAddress);
-  }
+    updateGrowthPoolRewardProgress('user', _userAddress);
 
-  function updateGrowthPoolRewardProgressForUser(address _userAddress) internal {
-
-    uint256 userRewardLevel = growthPoolRewardSystem.rewardLevel[_userAddress];
-    incrementRewardProgress(growthPoolRewardSystem, _userAddress);
-
-    if (growthPoolRewardSystem.rewardStep[_userAddress] == 0) {
-      uint256 rewardValue = growthPoolRewardSystem.levelRewards[userRewardLevel];
-      boomerangToken.transferFrom(owner, _userAddress, rewardValue);
-      emit GrowthPoolRewardForUser(_userAddress, rewardValue);
+    if (_workerRating == 5) {
+      updateGrowthPoolRewardProgress('worker', _workerAddress);
     }
+
+    updateGrowthPoolRewardProgress('business', _businessAddress);
   }
 
-  function updateGrowthPoolRewardProgressForUser2(address _userAddress) internal {
+  function updateGrowthPoolRewardProgress(string _type, address _address) internal {
 
-    uint256 userRewardLevel = growthPoolRewardSystem.rewardLevel[_userAddress];
-    incrementRewardProgress(growthPoolRewardSystem, _userAddress);
+    uint256 rewardLevel = growthPoolRewardSystem.rewardLevel[_address];
+    incrementRewardProgress(growthPoolRewardSystem, _address);
 
-    if (growthPoolRewardSystem.rewardStep[_userAddress] == 0) {
-      uint256 rewardValue = growthPoolRewardSystem.levelRewards[userRewardLevel];
-      boomerangToken.transferFrom(owner, _userAddress, rewardValue);
-      emit GrowthPoolRewardForUser(_userAddress, rewardValue);
-    }
-  }
-  function updateGrowthPoolRewardProgressForWorker(address _workerAddress) internal {
-
-    uint256 workerRewardLevel = growthPoolRewardSystem.rewardLevel[_workerAddress];
-    incrementRewardProgress(growthPoolRewardSystem, _workerAddress);
-
-    if (growthPoolRewardSystem.rewardStep[_workerAddress] == 0) {
-      uint256 rewardValue = growthPoolRewardSystem.levelRewards[workerRewardLevel];
-      boomerangToken.transferFrom(owner, _workerAddress, rewardValue);
-      emit GrowthPoolRewardForWorker(_workerAddress, rewardValue);
-    }
-  }
-
-  function updateGrowthPoolRewardProgressForBusiness(address _businessAddress) internal {
-
-    uint256 businessRewardLevel = growthPoolRewardSystem.rewardLevel[_businessAddress];
-    incrementRewardProgress(growthPoolRewardSystem, _businessAddress);
-
-    if (growthPoolRewardSystem.rewardStep[_businessAddress] == 0) {
-      uint256 rewardValue = growthPoolRewardSystem.levelRewards[businessRewardLevel];
-      boomerangToken.transferFrom(owner, _businessAddress, rewardValue);
-      emit GrowthPoolRewardForBusiness(_businessAddress, rewardValue);
+    if (growthPoolRewardSystem.rewardStep[_address] == 0) {
+      uint256 rewardValue = growthPoolRewardSystem.levelRewards[rewardLevel];
+      boomerangToken.transferFrom(owner, _address, rewardValue);
+      emit GrowthPoolReward(_type, _address, rewardValue);
     }
   }
 
