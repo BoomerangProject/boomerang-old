@@ -159,20 +159,18 @@ class NavigatorImpl {
       return;
     }
 
-    this.startNewAppToUserHomePage();
-
-    // if (isUser) {
-    //   this.startNewAppToUserHomePage();
-    // } else if (isWorker) {
-    //   this.startNewAppToWorkerHomePage();
-    // } else if (isBusiness) {
-    //   this.startNewAppToBusinessHomePage();
-    //   // Navigator.init(this).resetToBusinessEmployeesPage();
-    // } else {
-    //   ToastAndroid.show('account not found!', ToastAndroid.SHORT);
-    //   await logOut();
-    //   this.resetToWelcomePage();
-    // }
+    if (isUser) {
+      this.startNewAppToUserHomePage();
+    } else if (isWorker) {
+      this.startNewAppToWorkerHomePage();
+    } else if (isBusiness) {
+      this.startNewAppToBusinessHomePage();
+      // Navigator.init(this).resetToBusinessEmployeesPage();
+    } else {
+      ToastAndroid.show('account not found!', ToastAndroid.SHORT);
+      await logOut();
+      this.resetToWelcomePage();
+    }
   }
 
 

@@ -1,4 +1,5 @@
 pragma solidity ^0.4.24;
+//pragma experimental ABIEncoderV2;
 
 contract BoomerangActor {
 
@@ -30,50 +31,28 @@ contract BoomerangActor {
   mapping(address => uint256) public userRatingsSum;
   mapping(address => uint256) public numberOfUserRatings;
 
-  // businessAddress => actorAddress => nonceValue
-  mapping(address => mapping(address => uint256)) public nonceValue;
+  // actorAddress => nonceValue
+  mapping(address => uint256) public nonceValueForGasSubsidy;
 
-  function getNonceValue(address _businessAddress, address _actorAddress) public view returns (uint256 _nonceValue) {
-    _nonceValue = nonceValue[_businessAddress][_actorAddress];
+//  struct Signature {
+//
+//    uint8 v;
+//    bytes32 r;
+//    bytes32 s;
+//  }
+
+  function getNonceValueForGasSubsidy(address _actorAddress) public view returns (uint256 _nonceValue) {
+    _nonceValue = nonceValueForGasSubsidy[_actorAddress];
   }
 
-//  modifier withCorrectSignature(address _businessAddress, address _address, uint8 _v, bytes32 _r, bytes32 _s) {
-//
-//    bytes32 nonceHash = keccak256(abi.encodePacked(nonceValue[_businessAddress][_address]));
-//    bytes memory prefix = '\x19Ethereum Signed Message:\n32';
-//    bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, nonceHash));
-//    address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
-//
-//    require(recoveredAddress == _address);
-//
-//    nonceValue[_businessAddress][_address] += 1;
-//    _;
-//  }
+  function verifyActor(address _actorAddress, uint8 _v, bytes32 _r, bytes32 _s) internal {
 
+    bytes32 nonceHash = keccak256(abi.encodePacked(_actorAddress, nonceValueForGasSubsidy[_actorAddress]));
+    bytes memory prefix = '\x19Ethereum Signed Message:\n32';
+    bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, nonceHash));
+    address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
+    require(recoveredAddress == _actorAddress);
 
-// //   businessAddress => userId => nonceValue
-//  mapping(address => mapping(bytes32 => uint256)) public nonceValueForUsersWithoutAddress;
-//
-//  function getNonceValueForUsersWithoutAddress(address _businessAddress, bytes32 _userId) public view returns (uint256 _nonceValue) {
-//    _nonceValue = nonceValueForUsersWithoutAddress[_businessAddress][_userId];
-//  }
-//
-//  modifier withCorrectSignatureFromBusiness(address _businessAddress, bytes32 _userId, uint8 _v, bytes32 _r, bytes32 _s) {
-//
-//    bytes32 nonceHash = keccak256(abi.encodePacked(nonceValueForUsersWithoutAddress[_businessAddress][_userId]));
-//    bytes memory prefix = '\x19Ethereum Signed Message:\n32';
-//    bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, nonceHash));
-//    address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
-//
-//    require(recoveredAddress == _businessAddress);
-//
-//    nonceValueForUsersWithoutAddress[_businessAddress][_userId] += 1;
-//    _;
-//  }
-
-
-
-
-
-
+    nonceValueForGasSubsidy[_actorAddress] += 1;
+  }
 }

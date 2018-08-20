@@ -1,4 +1,5 @@
 pragma solidity ^0.4.24;
+//pragma experimental ABIEncoderV2;
 
 import './BoomerangActor.sol';
 import './rewards/BoomerangRewards.sol';
@@ -12,7 +13,8 @@ contract BoomerangRateExperience is BoomerangActor, BoomerangRewards {
     _nonceValue = nonceValueForNewRating[_businessAddress][_userAddress];
   }
 
-  event DebugBoolean(string arg, bool something);
+  event DebugInt(string _id, uint8 _arg);
+  event DebugBytes(string _id, string _arg);
 
   event BoomerangExperienceRating(  address indexed _userAddress,
                           address indexed _workerAddress,
@@ -21,18 +23,32 @@ contract BoomerangRateExperience is BoomerangActor, BoomerangRewards {
                           uint256 _businessRating,
                           bytes32 _ipfsHash);
 
+  function test(address _userAddress, address _businessAddress, bytes32 _v, bytes32 _r, bytes32 _s) external {
+
+//    emit DebugInt('a', uint8(signature[0]));
+
+//    bytes32 someBytes = signature[0];
+//    bytes32 someOtherBytes = bytes32(0xc25fe672ad9a174313135ca77d6e26eea15bdf73671ca0d397831226bd00f603);
+
+    emit DebugInt('a', uint8(_v));
+//    emit DebugInt('a', uint8(signature[0]));
+//    emit DebugBytes('b', bytes32(signature[1]);
+//    emit DebugBytes('c', signature[2]);
+
+
+//    onlyAuthorizedReviewer(_userAddress, _businessAddress, uint8(_v), _r, _s);
+  }
+
   function rateBoomerangExperience( address _userAddress,
                             address _workerAddress,
                             address _businessAddress,
                             uint256 _workerRating,
                             uint256 _businessRating,
                             bytes32 _ipfsHash,
-                            uint8 _v,
-                            bytes32 _r,
-                            bytes32 _s)
+                            Signature signature)
   public {
 
-    onlyAuthorizedUser(_userAddress, _businessAddress, _v, _r, _s);
+    onlyAuthorizedReviewer(_userAddress, _businessAddress, signature);
 
     updateWorkerRating(_workerAddress, _businessAddress, _workerRating);
     updateBusinessRating(_businessAddress, _businessRating);
@@ -66,12 +82,12 @@ contract BoomerangRateExperience is BoomerangActor, BoomerangRewards {
     workerRatingsSum[_businessAddress][_workerAddress] += _workerRating;
   }
 
-  function onlyAuthorizedUser(address _userAddress, address _businessAddress, uint8 _v, bytes32 _r, bytes32 _s) internal {
+  function onlyAuthorizedReviewer(address _userAddress, address _businessAddress, Signature signature) internal {
 
     bytes32 nonceHash = keccak256(abi.encodePacked(_userAddress, nonceValueForNewRating[_businessAddress][_userAddress]));
     bytes memory prefix = '\x19Ethereum Signed Message:\n32';
     bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, nonceHash));
-    address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
+    address recoveredAddress = ecrecover(prefixedHash, signature._v, signature._r, signature._s);
     require(recoveredAddress == _businessAddress);
 
     nonceValueForNewRating[_businessAddress][_userAddress] += 1;
