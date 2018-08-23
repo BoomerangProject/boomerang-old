@@ -5,16 +5,6 @@ import axios from "axios";
 const privateKeyOfTheBusiness = '2413fffb1c65c4da92322c52e1b609c2f69b19e14cb178ec06d8ee63dc622f73';
 // const privateKey = new Buffer(process.env.BOOMERANG_ACCOUNT_SEED, 'hex');
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function pad(n, width, z) {
-  z = z || '0';
-  n = n + '';
-  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
-}
-
 const boomerangSigner = {
 
   getSignature: async (businessAddress, userAddress) => {

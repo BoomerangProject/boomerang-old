@@ -1,22 +1,31 @@
 pragma solidity ^0.4.24;
 //pragma experimental ABIEncoderV2;
 
-import './BoomerangRewardSystem.sol';
+import './BoomerangRewardSystemImpl.sol';
 
-contract BoomerangWorkerRewardSystem is BoomerangRewardSystem {
+contract BoomerangWorkerRewardSystemImpl is BoomerangRewardSystemImpl {
 
   event RegisterWorkerRewardSystem(address indexed _businessAddress);
   event PerformanceReward(address indexed _workerAddress, address indexed _businessAddress, uint256 _rewardValue);
 
   mapping(address => RewardSystem) public workerRewardSystem;
 
-  function registerWorkerRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256[] _numberOfRewardCyclesForLevel, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) public {
+  function registerWorkerRewardSystem(address _businessAddress,
+                                      uint256 _numberOfRewardSteps,
+                                      uint256[] _numberOfRewardCyclesForLevel,
+                                      uint256 _numberOfRewardLevels,
+                                      uint256[] _levelRewards,
+                                      bytes32 _ipfsHash,
+                                      uint8 _v,
+                                      bytes32 _r,
+                                      bytes32 _s) public {
 
+    boomerangAuth.verify(_businessAddress, _v, _r, _s);
     workerRewardSystem[_businessAddress] = RewardSystem(_numberOfRewardSteps, _numberOfRewardCyclesForLevel, _numberOfRewardLevels, _levelRewards, _ipfsHash);
     emit RegisterWorkerRewardSystem(_businessAddress);
   }
 
-  function updateWorkerRewardProgress(address _workerAddress, address _businessAddress, uint256 _workerRating) internal {
+  function updateWorkerRewardProgress(address _workerAddress, address _businessAddress, uint256 _workerRating) public {
 
     if (_workerRating != 5) {
       return;

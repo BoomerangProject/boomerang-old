@@ -23,6 +23,7 @@
     "chai-bignumber": "^2.0.1",
     "codecov": "^2.3.0",
     "dotenv": "^5.0.1",
+    "ethereumjs-abi": "^0.6.5",
     "ethereumjs-util": "^5.2.0",
     "ganache-cli": "^6.0.3",
     "scrypt": "^6.0.3",

@@ -1,22 +1,31 @@
 pragma solidity ^0.4.24;
 //pragma experimental ABIEncoderV2;
 
-import './BoomerangRewardSystem.sol';
+import './BoomerangRewardSystemImpl.sol';
 
-contract BoomerangUserRewardSystem is BoomerangRewardSystem {
+contract BoomerangUserRewardSystemImpl is BoomerangRewardSystemImpl {
 
   event RegisterUserRewardSystem(address indexed _businessAddress);
   event LoyaltyReward(address indexed _userAddress, address indexed _businessAddress, uint256 _rewardValue);
 
   mapping(address => RewardSystem) public userRewardSystem;
 
-  function registerUserRewardSystem(address _businessAddress, uint256 _numberOfRewardSteps, uint256[] _numberOfRewardCyclesForLevel, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash) public {
+  function registerUserRewardSystem(address _businessAddress,
+                                    uint256 _numberOfRewardSteps,
+                                    uint256[] _numberOfRewardCyclesForLevel,
+                                    uint256 _numberOfRewardLevels,
+                                    uint256[] _levelRewards,
+                                    bytes32 _ipfsHash,
+                                    uint8 _v,
+                                    bytes32 _r,
+                                    bytes32 _s) public {
 
+    boomerangAuth.verify(_businessAddress, _v, _r, _s);
     userRewardSystem[_businessAddress] = RewardSystem(_numberOfRewardSteps, _numberOfRewardCyclesForLevel, _numberOfRewardLevels, _levelRewards, _ipfsHash);
     emit RegisterUserRewardSystem(_businessAddress);
   }
 
-  function updateUserRewardProgress(address _userAddress, address _businessAddress) internal {
+  function updateUserRewardProgress(address _userAddress, address _businessAddress) public {
 
     RewardSystem storage rewardSystem = userRewardSystem[_businessAddress];
     uint256 userRewardLevel = rewardSystem.rewardLevel[_userAddress];

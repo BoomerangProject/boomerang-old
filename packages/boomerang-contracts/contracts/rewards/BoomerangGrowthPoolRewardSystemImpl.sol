@@ -1,9 +1,9 @@
 pragma solidity ^0.4.24;
 //pragma experimental ABIEncoderV2;
 
-import './BoomerangRewardSystem.sol';
+import './BoomerangRewardSystemImpl.sol';
 
-contract BoomerangGrowthPoolRewardSystem is BoomerangRewardSystem {
+contract BoomerangGrowthPoolRewardSystemImpl is BoomerangRewardSystemImpl {
 
   event RegisterGrowthPoolRewardSystem();
   event GrowthPoolReward(string _type, address indexed _address, uint256 _rewardValue);
@@ -17,7 +17,7 @@ contract BoomerangGrowthPoolRewardSystem is BoomerangRewardSystem {
     emit RegisterGrowthPoolRewardSystem();
   }
 
-  function updateGrowthPoolRewardProgress(address _userAddress, address _workerAddress, address _businessAddress, uint256 _workerRating) internal {
+  function updateGrowthPoolRewardProgress(address _userAddress, address _workerAddress, address _businessAddress, uint256 _workerRating) public {
 
     if (growthPoolBusiness[_businessAddress] == false) {
       return;
@@ -32,7 +32,7 @@ contract BoomerangGrowthPoolRewardSystem is BoomerangRewardSystem {
     updateGrowthPoolRewardProgress('business', _businessAddress);
   }
 
-  function updateGrowthPoolRewardProgress(string _type, address _address) internal {
+  function updateGrowthPoolRewardProgress(string _type, address _address) public {
 
     uint256 rewardLevel = growthPoolRewardSystem.rewardLevel[_address];
     incrementRewardProgress(growthPoolRewardSystem, _address);

@@ -1,33 +1,74 @@
 pragma solidity ^0.4.24;
 //pragma experimental ABIEncoderV2;
 
-import './BoomerangUserRewardSystem.sol';
-import './BoomerangWorkerRewardSystem.sol';
-import './BoomerangGrowthPoolRewardSystem.sol';
+import '../Ownable.sol';
 
-contract BoomerangRewards is BoomerangUserRewardSystem, BoomerangWorkerRewardSystem, BoomerangGrowthPoolRewardSystem {
+contract BoomerangRewards is Ownable {
 
-  mapping(address => uint256[5]) public ratingRewards;
-  event WorkerReward(address indexed _workerAddress, address indexed _businessAddress, uint256 _workerRating, uint256 _rewardValue);
+  // rating rewards
+  function setRatingRewards(address _businessAddress,
+                            uint256[5] _ratingRewards,
+                            uint8 _v,
+                            bytes32 _r,
+                            bytes32 _s) public;
 
-  function rewardWorker(address _workerAddress, address _businessAddress, uint256 _workerRating) internal {
+  function rewardWorker(address _workerAddress, address _businessAddress, uint256 _workerRating) public;
+  function getRatingRewards(address _businessAddress) public view returns (uint256[5] _ratingRewards);
 
-    uint256[5] storage rewardValues = ratingRewards[_businessAddress];
-    uint256 rewardValue = rewardValues[_workerRating-1];
 
-    if (rewardValue == 0) {
-      return;
-    }
+  // user reward system
+  function registerUserRewardSystem(address _businessAddress,
+                                    uint256 _numberOfRewardSteps,
+                                    uint256[] _numberOfRewardCyclesForLevel,
+                                    uint256 _numberOfRewardLevels,
+                                    uint256[] _levelRewards,
+                                    bytes32 _ipfsHash,
+                                    uint8 _v,
+                                    bytes32 _r,
+                                    bytes32 _s) public;
 
-    boomerangToken.transferFrom(_businessAddress, _workerAddress, rewardValue);
-    emit WorkerReward(_workerAddress, _businessAddress, _workerRating, rewardValue);
-  }
+  function updateUserRewardProgress(address _userAddress, address _businessAddress) public;
+  function getUserRewardSystem(address _businessAddress) public view returns (uint256 _numberOfRewardSteps, uint256[] _numberOfRewardCyclesForLevel, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash);
+  function getUserRewardStep(address _userAddress, address _businessAddress) public view returns (uint256 _rewardStep);
+  function getUserRewardCycle(address _userAddress, address _businessAddress) public view returns (uint256 _rewardCycle);
+  function getUserRewardLevel(address _userAddress, address _businessAddress) public view returns (uint256 _rewardLevel);
+  function getUserRewardRank(address _userAddress, address _businessAddress) public view returns (uint256 _rewardRank);
 
-  function setRatingRewards(address _businessAddress, uint256[5] _ratingRewards) public {
-    ratingRewards[_businessAddress] = _ratingRewards;
-  }
 
-  function getRatingRewards(address _businessAddress) public view returns (uint256[5] _ratingRewards) {
-    _ratingRewards = ratingRewards[_businessAddress];
-  }
+  // worker reward system
+  function registerWorkerRewardSystem(address _businessAddress,
+                                      uint256 _numberOfRewardSteps,
+                                      uint256[] _numberOfRewardCyclesForLevel,
+                                      uint256 _numberOfRewardLevels,
+                                      uint256[] _levelRewards,
+                                      bytes32 _ipfsHash,
+                                      uint8 _v,
+                                      bytes32 _r,
+                                      bytes32 _s) public;
+
+  function updateWorkerRewardProgress(address _workerAddress, address _businessAddress, uint256 _workerRating) public;
+
+  function getWorkerRewardSystem(address _businessAddress) public view returns (uint256 _numberOfRewardSteps, uint256[] _numberOfRewardCyclesForLevel, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash);
+  function getWorkerRewardStep(address _workerAddress, address _businessAddress) public view returns (uint256 _rewardStep);
+  function getWorkerRewardCycle(address _workerAddress, address _businessAddress) public view returns (uint256 _rewardCycle);
+  function getWorkerRewardLevel(address _workerAddress, address _businessAddress) public view returns (uint256 _rewardLevel);
+  function getWorkerRewardRank(address _workerAddress, address _businessAddress) public view returns (uint256 _rewardRank);
+
+
+  // growth pool reward system
+  function registerGrowthPoolRewardSystem(uint256 _numberOfRewardSteps,
+                                          uint256[] _numberOfRewardCyclesForLevel,
+                                          uint256 _numberOfRewardLevels,
+                                          uint256[] _levelRewards,
+                                          bytes32 _ipfsHash) public;
+
+  function updateGrowthPoolRewardProgress(address _userAddress, address _workerAddress, address _businessAddress, uint256 _workerRating) public;
+  function updateGrowthPoolRewardProgress(string _type, address _address) public;
+  function addBusinessesToGrowthPoolRewardsSystem(address[] businesses) external;
+  function removeBusinessesFromGrowthPoolRewardsSystem(address[] businesses) external;
+  function getGrowthPoolRewardSystem() public view returns (uint256 _numberOfRewardSteps, uint256[] _numberOfRewardCyclesForLevel, uint256 _numberOfRewardLevels, uint256[] _levelRewards, bytes32 _ipfsHash);
+  function getGrowthPoolRewardStep(address _address) public view returns (uint256 _rewardStep);
+  function getGrowthPoolRewardCycle(address _address) public view returns (uint256 _rewardCycle);
+  function getGrowthPoolRewardLevel(address _address) public view returns (uint256 _rewardLevel);
+  function getGrowthPoolRewardRank(address _address) public view returns (uint256 _rewardRank);
 }

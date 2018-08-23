@@ -1,15 +1,15 @@
 pragma solidity ^0.4.24;
 //pragma experimental ABIEncoderV2;
 
+import './BoomerangTokenInterface.sol';
+import './BoomerangRewards.sol';
+import '../authorization/BoomerangAuth.sol';
 import '../Ownable.sol';
-import "../../../boomerang-token-contracts/contracts/SafeMath.sol";
-import '../../../boomerang-token-contracts/contracts/ERC20Token.sol';
 
-contract BoomerangRewardSystem is Ownable {
-  using SafeMath for uint256;
+contract BoomerangRewardSystemImpl is BoomerangTokenInterface, BoomerangRewards {
 
-  ERC20Token public boomerangToken;
-  event Debug(string _id, uint256 _arg);
+  // interfaces
+  BoomerangAuth public boomerangAuth;
 
   struct RewardSystem {
 
