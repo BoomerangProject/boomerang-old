@@ -2,52 +2,68 @@ import assertWorkerRewardSystemStatus from './helpers/assertWorkerRewardSystemSt
 
 const BigNumber = web3.BigNumber;
 import { ipfsHash, rewardSystem } from './helpers/mockData';
+import Signer from './helpers/signer';
+import { getBoomerangAuthContract, getBoomerangUserContract, getBoomerangWorkerContract, getBoomerangBusinessContract, getBoomerangTokenContract, getBoomerangRewardsContract, getBoomerangExperienceContract } from './helpers/contractInstances';
+
 
 require("chai")
   .use(require("chai-as-promised"))
   .use(require("chai-bignumber")(BigNumber))
   .should();
 
-const Boomerang = artifacts.require("Boomerang");
-const BoomerangToken = artifacts.require("BoomerangToken");
-
 contract("BoomerangWorkerRatingTests", function([deployerAddress, userAddress, workerAddress, businessAddress]) {
 
-  let boomerang;
-  let boomerangToken;
+  let boomerangAuthContract;
+  let boomerangWorkerContract;
+  let boomerangBusinessContract;
+  let boomerangTokenContract;
+  let boomerangRewardsContract;
+  let boomerangExperienceContract;
+  let ratingSigner;
+  let businessSigner;
 
   beforeEach(async function() {
 
-    boomerangToken = await BoomerangToken.new();
-    boomerang = await Boomerang.new(boomerangToken.address);
+    boomerangAuthContract = await getBoomerangAuthContract();
+    boomerangWorkerContract = await getBoomerangWorkerContract(boomerangAuthContract.address);
+    boomerangBusinessContract = await getBoomerangBusinessContract(boomerangAuthContract.address);
+    boomerangTokenContract = await getBoomerangTokenContract();
+    boomerangRewardsContract = await getBoomerangRewardsContract(boomerangAuthContract.address, boomerangTokenContract.address);
+    boomerangExperienceContract = await getBoomerangExperienceContract(boomerangWorkerContract.address, boomerangBusinessContract.address, boomerangRewardsContract.address);
+
+    ratingSigner = await new Signer(userAddress);
+    businessSigner = await new Signer(businessAddress);
   });
 
   it("reviewing a worker should add a rating", async function() {
 
-    let workerRatingsSum = await boomerang.getWorkerRatingsSum(workerAddress, businessAddress);
+    let workerRatingsSum = await boomerangWorkerContract.getRatingsSum(workerAddress, businessAddress);
     Number(workerRatingsSum).should.equal(0);
 
     const workerRating = 2;
     const businessRating = 3;
-    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
+    let sig = await ratingSigner.getSignature();
+    await boomerangExperienceContract.rate(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash, sig.v, sig.r, sig.s);
 
-    workerRatingsSum = await boomerang.getWorkerRatingsSum(workerAddress, businessAddress);
+    workerRatingsSum = await boomerangWorkerContract.getRatingsSum(workerAddress, businessAddress);
     Number(workerRatingsSum).should.equal(2);
   });
 
   it("reviewing a worker should increment the number of ratings", async function() {
 
-    let numberOfWorkerRatings = await boomerang.getNumberOfWorkerRatings(workerAddress, businessAddress);
+    let numberOfWorkerRatings = await boomerangWorkerContract.getNumberOfRatings(workerAddress, businessAddress);
     Number(numberOfWorkerRatings).should.equal(0);
 
     const workerRating = 2;
     const businessRating = 3;
-    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
-    numberOfWorkerRatings = await boomerang.getNumberOfWorkerRatings(workerAddress, businessAddress);
+    let sig = await ratingSigner.getSignature();
+    await boomerangExperienceContract.rate(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash, sig.v, sig.r, sig.s);
+    numberOfWorkerRatings = await boomerangWorkerContract.getNumberOfRatings(workerAddress, businessAddress);
     Number(numberOfWorkerRatings).should.equal(1);
 
-    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash);
-    numberOfWorkerRatings = await boomerang.getNumberOfWorkerRatings(workerAddress, businessAddress);
+    sig = await ratingSigner.getSignature();
+    await boomerangExperienceContract.rate(userAddress, workerAddress, businessAddress, workerRating, businessRating, ipfsHash, sig.v, sig.r, sig.s);
+    numberOfWorkerRatings = await boomerangWorkerContract.getNumberOfRatings(workerAddress, businessAddress);
     Number(numberOfWorkerRatings).should.equal(2);
   });
 
@@ -57,17 +73,21 @@ contract("BoomerangWorkerRatingTests", function([deployerAddress, userAddress, w
     const secondWorkerRating = 4;
     const thirdWorkerRating = 4;
     const businessRating = 3;
-    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, firstWorkerRating, businessRating, ipfsHash);
 
-    let workerRatingsSum = await boomerang.getWorkerRatingsSum(workerAddress, businessAddress);
+    let sig = await ratingSigner.getSignature();
+    await boomerangExperienceContract.rate(userAddress, workerAddress, businessAddress, firstWorkerRating, businessRating, ipfsHash, sig.v, sig.r, sig.s);
+
+    let workerRatingsSum = await boomerangWorkerContract.getRatingsSum(workerAddress, businessAddress);
     Number(workerRatingsSum).should.equal(2);
 
-    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, secondWorkerRating, businessRating, ipfsHash);
-    workerRatingsSum = await boomerang.getWorkerRatingsSum(workerAddress, businessAddress);
+    sig = await ratingSigner.getSignature();
+    await boomerangExperienceContract.rate(userAddress, workerAddress, businessAddress, secondWorkerRating, businessRating, ipfsHash, sig.v, sig.r, sig.s);
+    workerRatingsSum = await boomerangWorkerContract.getRatingsSum(workerAddress, businessAddress);
     Number(workerRatingsSum).should.equal(6);
 
-    await boomerang.rateExperience(userAddress, workerAddress, businessAddress, thirdWorkerRating, businessRating, ipfsHash);
-    workerRatingsSum = await boomerang.getWorkerRatingsSum(workerAddress, businessAddress);
+    sig = await ratingSigner.getSignature();
+    await boomerangExperienceContract.rate(userAddress, workerAddress, businessAddress, thirdWorkerRating, businessRating, ipfsHash, sig.v, sig.r, sig.s);
+    workerRatingsSum = await boomerangWorkerContract.getRatingsSum(workerAddress, businessAddress);
     Number(workerRatingsSum).should.equal(10);
   });
 });

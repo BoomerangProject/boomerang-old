@@ -1,15 +1,16 @@
 pragma solidity ^0.4.24;
 //pragma experimental ABIEncoderV2;
 
-import './BoomerangTokenInterface.sol';
 import './BoomerangRewards.sol';
 import '../authorization/BoomerangAuth.sol';
+import '../../../boomerang-token-contracts/contracts/ERC20Token.sol';
 import '../Ownable.sol';
 
-contract BoomerangRewardSystemImpl is BoomerangTokenInterface, BoomerangRewards {
+contract BoomerangRewardSystemImpl is BoomerangRewards {
 
   // interfaces
   BoomerangAuth public boomerangAuth;
+  ERC20Token public boomerangToken;
 
   struct RewardSystem {
 

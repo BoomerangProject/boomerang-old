@@ -11,7 +11,7 @@ export default class Signer {
     this.nonceValue = 0;
   }
 
-  async getSignature(address) {
+  async getSignature() {
 
     const message = soliditySHA3(
       [ 'address', 'uint256' ],
@@ -30,8 +30,4 @@ export default class Signer {
     this.nonceValue = this.nonceValue + 1;
     return sig;
   };
-
-  getBusinessAddress() {
-    return businessAddress;
-  }
 }

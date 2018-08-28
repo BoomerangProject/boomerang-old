@@ -64,7 +64,7 @@
           "type": "bytes32"
         }
       ],
-      "name": "rateBoomerangExperience",
+      "name": "rate",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
@@ -75,20 +75,20 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.24;\n//pragma experimental ABIEncoderV2;\n\ncontract BoomerangExperience {\n\n  function getNonceValueForNewRating(address _businessAddress, address _userAddress) public view returns (uint256 _nonceValue);\n\n  function rateBoomerangExperience( address _userAddress,\n                                    address _workerAddress,\n                                    address _businessAddress,\n                                    uint256 _workerRating,\n                                    uint256 _businessRating,\n                                    bytes32 _ipfsHash,\n                                    uint8 _v,\n                                    bytes32 _r,\n                                    bytes32 _s) public;\n}",
+  "source": "pragma solidity ^0.4.24;\n//pragma experimental ABIEncoderV2;\n\ncontract BoomerangExperience {\n\n  function getNonceValueForNewRating(address _businessAddress, address _userAddress) public view returns (uint256 _nonceValue);\n\n  function rate(  address _userAddress,\n                  address _workerAddress,\n                  address _businessAddress,\n                  uint256 _workerRating,\n                  uint256 _businessRating,\n                  bytes32 _ipfsHash,\n                  uint8 _v,\n                  bytes32 _r,\n                  bytes32 _s) public;\n}",
   "sourcePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/experience/BoomerangExperience.sol",
   "ast": {
     "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/experience/BoomerangExperience.sol",
     "exportedSymbols": {
       "BoomerangExperience": [
-        821
+        811
       ]
     },
-    "id": 822,
+    "id": 812,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 790,
+        "id": 780,
         "literals": [
           "solidity",
           "^",
@@ -96,7 +96,7 @@
           ".24"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:10"
+        "src": "0:24:9"
       },
       {
         "baseContracts": [],
@@ -104,9 +104,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 821,
+        "id": 811,
         "linearizedBaseContracts": [
-          821
+          811
         ],
         "name": "BoomerangExperience",
         "nodeType": "ContractDefinition",
@@ -114,7 +114,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 799,
+            "id": 789,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -122,16 +122,16 @@
             "name": "getNonceValueForNewRating",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 795,
+              "id": 785,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 792,
+                  "id": 782,
                   "name": "_businessAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 799,
-                  "src": "131:24:10",
+                  "scope": 789,
+                  "src": "131:24:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -139,10 +139,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 791,
+                    "id": 781,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "131:7:10",
+                    "src": "131:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -153,11 +153,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 794,
+                  "id": 784,
                   "name": "_userAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 799,
-                  "src": "157:20:10",
+                  "scope": 789,
+                  "src": "157:20:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -165,10 +165,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 793,
+                    "id": 783,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "157:7:10",
+                    "src": "157:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -178,20 +178,147 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "130:48:10"
+              "src": "130:48:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 798,
+              "id": 788,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 797,
+                  "id": 787,
                   "name": "_nonceValue",
                   "nodeType": "VariableDeclaration",
-                  "scope": 799,
-                  "src": "200:19:10",
+                  "scope": 789,
+                  "src": "200:19:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 786,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "200:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "199:21:9"
+            },
+            "scope": 811,
+            "src": "96:125:9",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 810,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "rate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 808,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 791,
+                  "name": "_userAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 810,
+                  "src": "241:20:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 790,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "241:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 793,
+                  "name": "_workerAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 810,
+                  "src": "281:22:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 792,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "281:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 795,
+                  "name": "_businessAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 810,
+                  "src": "323:24:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 794,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "323:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 797,
+                  "name": "_workerRating",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 810,
+                  "src": "367:21:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -202,7 +329,7 @@
                     "id": 796,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "200:7:10",
+                    "src": "367:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -210,167 +337,40 @@
                   },
                   "value": null,
                   "visibility": "internal"
-                }
-              ],
-              "src": "199:21:10"
-            },
-            "scope": 821,
-            "src": "96:125:10",
-            "stateMutability": "view",
-            "superFunction": null,
-            "visibility": "public"
-          },
-          {
-            "body": null,
-            "documentation": null,
-            "id": 820,
-            "implemented": false,
-            "isConstructor": false,
-            "isDeclaredConst": false,
-            "modifiers": [],
-            "name": "rateBoomerangExperience",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 818,
-              "nodeType": "ParameterList",
-              "parameters": [
+                },
+                {
+                  "constant": false,
+                  "id": 799,
+                  "name": "_businessRating",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 810,
+                  "src": "408:23:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 798,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "408:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
                 {
                   "constant": false,
                   "id": 801,
-                  "name": "_userAddress",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "259:20:10",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 800,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "259:7:10",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 803,
-                  "name": "_workerAddress",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "317:22:10",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 802,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "317:7:10",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 805,
-                  "name": "_businessAddress",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "377:24:10",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 804,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "377:7:10",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 807,
-                  "name": "_workerRating",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "439:21:10",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 806,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "439:7:10",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 809,
-                  "name": "_businessRating",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "498:23:10",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 808,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "498:7:10",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 811,
                   "name": "_ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "559:17:10",
+                  "scope": 810,
+                  "src": "451:17:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -378,10 +378,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 810,
+                    "id": 800,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "559:7:10",
+                    "src": "451:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -392,11 +392,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 813,
+                  "id": 803,
                   "name": "_v",
                   "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "614:8:10",
+                  "scope": 810,
+                  "src": "488:8:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -404,10 +404,10 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 812,
+                    "id": 802,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
-                    "src": "614:5:10",
+                    "src": "488:5:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -418,11 +418,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 815,
+                  "id": 805,
                   "name": "_r",
                   "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "660:10:10",
+                  "scope": 810,
+                  "src": "516:10:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -430,10 +430,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 814,
+                    "id": 804,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "660:7:10",
+                    "src": "516:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -444,11 +444,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 817,
+                  "id": 807,
                   "name": "_s",
                   "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "708:10:10",
+                  "scope": 810,
+                  "src": "546:10:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -456,10 +456,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 816,
+                    "id": 806,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "708:7:10",
+                    "src": "546:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -469,40 +469,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "257:462:10"
+              "src": "238:319:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 819,
+              "id": 809,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "726:0:10"
+              "src": "564:0:9"
             },
-            "scope": 821,
-            "src": "225:502:10",
+            "scope": 811,
+            "src": "225:340:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 822,
-        "src": "62:667:10"
+        "scope": 812,
+        "src": "62:505:9"
       }
     ],
-    "src": "0:729:10"
+    "src": "0:567:9"
   },
   "legacyAST": {
     "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/experience/BoomerangExperience.sol",
     "exportedSymbols": {
       "BoomerangExperience": [
-        821
+        811
       ]
     },
-    "id": 822,
+    "id": 812,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 790,
+        "id": 780,
         "literals": [
           "solidity",
           "^",
@@ -510,7 +510,7 @@
           ".24"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:10"
+        "src": "0:24:9"
       },
       {
         "baseContracts": [],
@@ -518,9 +518,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 821,
+        "id": 811,
         "linearizedBaseContracts": [
-          821
+          811
         ],
         "name": "BoomerangExperience",
         "nodeType": "ContractDefinition",
@@ -528,7 +528,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 799,
+            "id": 789,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -536,16 +536,16 @@
             "name": "getNonceValueForNewRating",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 795,
+              "id": 785,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 792,
+                  "id": 782,
                   "name": "_businessAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 799,
-                  "src": "131:24:10",
+                  "scope": 789,
+                  "src": "131:24:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -553,10 +553,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 791,
+                    "id": 781,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "131:7:10",
+                    "src": "131:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -567,11 +567,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 794,
+                  "id": 784,
                   "name": "_userAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 799,
-                  "src": "157:20:10",
+                  "scope": 789,
+                  "src": "157:20:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -579,10 +579,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 793,
+                    "id": 783,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "157:7:10",
+                    "src": "157:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -592,20 +592,147 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "130:48:10"
+              "src": "130:48:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 798,
+              "id": 788,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 797,
+                  "id": 787,
                   "name": "_nonceValue",
                   "nodeType": "VariableDeclaration",
-                  "scope": 799,
-                  "src": "200:19:10",
+                  "scope": 789,
+                  "src": "200:19:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 786,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "200:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "199:21:9"
+            },
+            "scope": 811,
+            "src": "96:125:9",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 810,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "rate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 808,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 791,
+                  "name": "_userAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 810,
+                  "src": "241:20:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 790,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "241:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 793,
+                  "name": "_workerAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 810,
+                  "src": "281:22:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 792,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "281:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 795,
+                  "name": "_businessAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 810,
+                  "src": "323:24:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 794,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "323:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 797,
+                  "name": "_workerRating",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 810,
+                  "src": "367:21:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -616,7 +743,7 @@
                     "id": 796,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "200:7:10",
+                    "src": "367:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -624,167 +751,40 @@
                   },
                   "value": null,
                   "visibility": "internal"
-                }
-              ],
-              "src": "199:21:10"
-            },
-            "scope": 821,
-            "src": "96:125:10",
-            "stateMutability": "view",
-            "superFunction": null,
-            "visibility": "public"
-          },
-          {
-            "body": null,
-            "documentation": null,
-            "id": 820,
-            "implemented": false,
-            "isConstructor": false,
-            "isDeclaredConst": false,
-            "modifiers": [],
-            "name": "rateBoomerangExperience",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 818,
-              "nodeType": "ParameterList",
-              "parameters": [
+                },
+                {
+                  "constant": false,
+                  "id": 799,
+                  "name": "_businessRating",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 810,
+                  "src": "408:23:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 798,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "408:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
                 {
                   "constant": false,
                   "id": 801,
-                  "name": "_userAddress",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "259:20:10",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 800,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "259:7:10",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 803,
-                  "name": "_workerAddress",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "317:22:10",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 802,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "317:7:10",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 805,
-                  "name": "_businessAddress",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "377:24:10",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 804,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "377:7:10",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 807,
-                  "name": "_workerRating",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "439:21:10",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 806,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "439:7:10",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 809,
-                  "name": "_businessRating",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "498:23:10",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 808,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "498:7:10",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 811,
                   "name": "_ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "559:17:10",
+                  "scope": 810,
+                  "src": "451:17:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -792,10 +792,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 810,
+                    "id": 800,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "559:7:10",
+                    "src": "451:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -806,11 +806,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 813,
+                  "id": 803,
                   "name": "_v",
                   "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "614:8:10",
+                  "scope": 810,
+                  "src": "488:8:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -818,10 +818,10 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 812,
+                    "id": 802,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
-                    "src": "614:5:10",
+                    "src": "488:5:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -832,11 +832,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 815,
+                  "id": 805,
                   "name": "_r",
                   "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "660:10:10",
+                  "scope": 810,
+                  "src": "516:10:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -844,10 +844,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 814,
+                    "id": 804,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "660:7:10",
+                    "src": "516:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -858,11 +858,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 817,
+                  "id": 807,
                   "name": "_s",
                   "nodeType": "VariableDeclaration",
-                  "scope": 820,
-                  "src": "708:10:10",
+                  "scope": 810,
+                  "src": "546:10:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -870,10 +870,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 816,
+                    "id": 806,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "708:7:10",
+                    "src": "546:7:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -883,27 +883,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "257:462:10"
+              "src": "238:319:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 819,
+              "id": 809,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "726:0:10"
+              "src": "564:0:9"
             },
-            "scope": 821,
-            "src": "225:502:10",
+            "scope": 811,
+            "src": "225:340:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 822,
-        "src": "62:667:10"
+        "scope": 812,
+        "src": "62:505:9"
       }
     ],
-    "src": "0:729:10"
+    "src": "0:567:9"
   },
   "compiler": {
     "name": "solc",
@@ -911,5 +911,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-22T15:34:49.034Z"
+  "updatedAt": "2018-08-27T16:21:55.795Z"
 }

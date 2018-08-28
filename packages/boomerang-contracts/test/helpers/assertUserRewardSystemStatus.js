@@ -1,9 +1,9 @@
-export default async function assertUserRewardSystemStatus(boomerang, address, businessAddress, expectedRewardStep, expectedRewardCycle, expectedRewardLevel, expectedRewardRank) {
+export default async function assertUserRewardSystemStatus(boomerangRewardsContract, address, businessAddress, expectedRewardStep, expectedRewardCycle, expectedRewardLevel, expectedRewardRank) {
 
-  let rewardStep = await boomerang.getUserRewardStep(address, businessAddress);
-  let rewardCycle = await boomerang.getUserRewardCycle(address, businessAddress);
-  let rewardLevel = await boomerang.getUserRewardLevel(address, businessAddress);
-  let rewardRank = await boomerang.getUserRewardRank(address, businessAddress);
+  let rewardStep = await boomerangRewardsContract.getUserRewardStep(address, businessAddress);
+  let rewardCycle = await boomerangRewardsContract.getUserRewardCycle(address, businessAddress);
+  let rewardLevel = await boomerangRewardsContract.getUserRewardLevel(address, businessAddress);
+  let rewardRank = await boomerangRewardsContract.getUserRewardRank(address, businessAddress);
 
   Number(rewardStep).should.equal(expectedRewardStep);
   Number(rewardCycle).should.equal(expectedRewardCycle);

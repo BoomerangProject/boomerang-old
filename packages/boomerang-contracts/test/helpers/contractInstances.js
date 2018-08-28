@@ -26,12 +26,23 @@ export async function getBoomerangBusinessContract(boomerangAuthAddress) {
   return boomerangBusinessContract;
 }
 
-export async function getBoomerangExperienceContract(boomerangWorkerAddress, boomerangBusinessAddress) {
+export async function getBoomerangTokenContract() {
 
   const BoomerangTokenContract = artifacts.require("BoomerangToken");
   const boomerangToken = await BoomerangTokenContract.new();
-  
+  return boomerangToken;
+}
+
+export async function getBoomerangRewardsContract(boomerangAuthAddress, boomerangTokenContractAddress) {
+
+  const BoomerangRewardsContract = artifacts.require("BoomerangRewardsContract");
+  const boomerangRewardsContract = await BoomerangRewardsContract.new(boomerangAuthAddress, boomerangTokenContractAddress);
+  return boomerangRewardsContract;
+}
+
+export async function getBoomerangExperienceContract(boomerangWorkerAddress, boomerangBusinessAddress, boomerangRewardsAddress) {
+
   const BoomerangExperienceContract = artifacts.require("BoomerangExperienceContract");
-  const boomerangExperienceContract = await BoomerangExperienceContract.new(boomerangToken.address, boomerangWorkerAddress, boomerangBusinessAddress);
+  const boomerangExperienceContract = await BoomerangExperienceContract.new(boomerangWorkerAddress, boomerangBusinessAddress, boomerangRewardsAddress);
   return boomerangExperienceContract;
 }

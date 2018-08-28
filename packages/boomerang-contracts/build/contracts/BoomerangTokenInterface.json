@@ -16,24 +16,24 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b5060e98061001f6000396000f300608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680639d0696ed146044575b600080fd5b348015604f57600080fd5b5060566098565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058200c1d27de47bdd164c21ad40c933783cfdfd2d7a878969bf44b0b273048902bbf0029",
-  "deployedBytecode": "0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680639d0696ed146044575b600080fd5b348015604f57600080fd5b5060566098565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058200c1d27de47bdd164c21ad40c933783cfdfd2d7a878969bf44b0b273048902bbf0029",
-  "sourceMap": "195:103:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;195:103:0;;;;;;;",
-  "deployedSourceMap": "195:103:0:-;;;;;;;;;;;;;;;;;;;;;;;;263:32;;8:9:-1;5:2;;;30:1;27;20:12;5:2;263:32:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.4.24;\n//pragma experimental ABIEncoderV2;\n\nimport \"../../boomerang-token-contracts/contracts/SafeMath.sol\";\nimport '../../boomerang-token-contracts/contracts/ERC20Token.sol';\n\ncontract BoomerangTokenInterface {\n  using SafeMath for uint256;\n\n  ERC20Token public boomerangToken;\n}",
-  "sourcePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/BoomerangTokenInterface.sol",
+  "bytecode": "0x608060405234801561001057600080fd5b5060e98061001f6000396000f300608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680639d0696ed146044575b600080fd5b348015604f57600080fd5b5060566098565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820ba94a994ff957984471cd26b7aa4ba766006dcb38b549c8ecf2edcfd8cd9161a0029",
+  "deployedBytecode": "0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680639d0696ed146044575b600080fd5b348015604f57600080fd5b5060566098565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820ba94a994ff957984471cd26b7aa4ba766006dcb38b549c8ecf2edcfd8cd9161a0029",
+  "sourceMap": "201:103:17:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;201:103:17;;;;;;;",
+  "deployedSourceMap": "201:103:17:-;;;;;;;;;;;;;;;;;;;;;;;;269:32;;8:9:-1;5:2;;;30:1;27;20:12;5:2;269:32:17;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.24;\n//pragma experimental ABIEncoderV2;\n\nimport \"../../../boomerang-token-contracts/contracts/SafeMath.sol\";\nimport '../../../boomerang-token-contracts/contracts/ERC20Token.sol';\n\ncontract BoomerangTokenInterface {\n  using SafeMath for uint256;\n\n  ERC20Token public boomerangToken;\n}",
+  "sourcePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangTokenInterface.sol",
   "ast": {
-    "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/BoomerangTokenInterface.sol",
+    "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangTokenInterface.sol",
     "exportedSymbols": {
       "BoomerangTokenInterface": [
-        9
+        2035
       ]
     },
-    "id": 10,
+    "id": 2036,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1,
+        "id": 2027,
         "literals": [
           "solidity",
           "^",
@@ -41,27 +41,27 @@
           ".24"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:0"
+        "src": "0:24:17"
       },
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-token-contracts/contracts/SafeMath.sol",
-        "file": "../../boomerang-token-contracts/contracts/SafeMath.sol",
-        "id": 2,
+        "file": "../../../boomerang-token-contracts/contracts/SafeMath.sol",
+        "id": 2028,
         "nodeType": "ImportDirective",
-        "scope": 10,
-        "sourceUnit": 2983,
-        "src": "62:64:0",
+        "scope": 2036,
+        "sourceUnit": 3331,
+        "src": "62:67:17",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-token-contracts/contracts/ERC20Token.sol",
-        "file": "../../boomerang-token-contracts/contracts/ERC20Token.sol",
-        "id": 3,
+        "file": "../../../boomerang-token-contracts/contracts/ERC20Token.sol",
+        "id": 2029,
         "nodeType": "ImportDirective",
-        "scope": 10,
-        "sourceUnit": 2872,
-        "src": "127:66:0",
+        "scope": 2036,
+        "sourceUnit": 3220,
+        "src": "130:69:17",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -71,34 +71,34 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 9,
+        "id": 2035,
         "linearizedBaseContracts": [
-          9
+          2035
         ],
         "name": "BoomerangTokenInterface",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 6,
+            "id": 2032,
             "libraryName": {
               "contractScope": null,
-              "id": 4,
+              "id": 2030,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2982,
-              "src": "238:8:0",
+              "referencedDeclaration": 3330,
+              "src": "244:8:17",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$2982",
+                "typeIdentifier": "t_contract$_SafeMath_$3330",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
-            "src": "232:27:0",
+            "src": "238:27:17",
             "typeName": {
-              "id": 5,
+              "id": 2031,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "251:7:0",
+              "src": "257:7:17",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -107,26 +107,26 @@
           },
           {
             "constant": false,
-            "id": 8,
+            "id": 2034,
             "name": "boomerangToken",
             "nodeType": "VariableDeclaration",
-            "scope": 9,
-            "src": "263:32:0",
+            "scope": 2035,
+            "src": "269:32:17",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ERC20Token_$2871",
+              "typeIdentifier": "t_contract$_ERC20Token_$3219",
               "typeString": "contract ERC20Token"
             },
             "typeName": {
               "contractScope": null,
-              "id": 7,
+              "id": 2033,
               "name": "ERC20Token",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2871,
-              "src": "263:10:0",
+              "referencedDeclaration": 3219,
+              "src": "269:10:17",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20Token_$2871",
+                "typeIdentifier": "t_contract$_ERC20Token_$3219",
                 "typeString": "contract ERC20Token"
               }
             },
@@ -134,24 +134,24 @@
             "visibility": "public"
           }
         ],
-        "scope": 10,
-        "src": "195:103:0"
+        "scope": 2036,
+        "src": "201:103:17"
       }
     ],
-    "src": "0:298:0"
+    "src": "0:304:17"
   },
   "legacyAST": {
-    "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/BoomerangTokenInterface.sol",
+    "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-contracts/contracts/rewards/BoomerangTokenInterface.sol",
     "exportedSymbols": {
       "BoomerangTokenInterface": [
-        9
+        2035
       ]
     },
-    "id": 10,
+    "id": 2036,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1,
+        "id": 2027,
         "literals": [
           "solidity",
           "^",
@@ -159,27 +159,27 @@
           ".24"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:0"
+        "src": "0:24:17"
       },
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-token-contracts/contracts/SafeMath.sol",
-        "file": "../../boomerang-token-contracts/contracts/SafeMath.sol",
-        "id": 2,
+        "file": "../../../boomerang-token-contracts/contracts/SafeMath.sol",
+        "id": 2028,
         "nodeType": "ImportDirective",
-        "scope": 10,
-        "sourceUnit": 2983,
-        "src": "62:64:0",
+        "scope": 2036,
+        "sourceUnit": 3331,
+        "src": "62:67:17",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "absolutePath": "/Users/panda/projects/boomerang/packages/boomerang-token-contracts/contracts/ERC20Token.sol",
-        "file": "../../boomerang-token-contracts/contracts/ERC20Token.sol",
-        "id": 3,
+        "file": "../../../boomerang-token-contracts/contracts/ERC20Token.sol",
+        "id": 2029,
         "nodeType": "ImportDirective",
-        "scope": 10,
-        "sourceUnit": 2872,
-        "src": "127:66:0",
+        "scope": 2036,
+        "sourceUnit": 3220,
+        "src": "130:69:17",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -189,34 +189,34 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 9,
+        "id": 2035,
         "linearizedBaseContracts": [
-          9
+          2035
         ],
         "name": "BoomerangTokenInterface",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 6,
+            "id": 2032,
             "libraryName": {
               "contractScope": null,
-              "id": 4,
+              "id": 2030,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2982,
-              "src": "238:8:0",
+              "referencedDeclaration": 3330,
+              "src": "244:8:17",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$2982",
+                "typeIdentifier": "t_contract$_SafeMath_$3330",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
-            "src": "232:27:0",
+            "src": "238:27:17",
             "typeName": {
-              "id": 5,
+              "id": 2031,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "251:7:0",
+              "src": "257:7:17",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -225,26 +225,26 @@
           },
           {
             "constant": false,
-            "id": 8,
+            "id": 2034,
             "name": "boomerangToken",
             "nodeType": "VariableDeclaration",
-            "scope": 9,
-            "src": "263:32:0",
+            "scope": 2035,
+            "src": "269:32:17",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ERC20Token_$2871",
+              "typeIdentifier": "t_contract$_ERC20Token_$3219",
               "typeString": "contract ERC20Token"
             },
             "typeName": {
               "contractScope": null,
-              "id": 7,
+              "id": 2033,
               "name": "ERC20Token",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2871,
-              "src": "263:10:0",
+              "referencedDeclaration": 3219,
+              "src": "269:10:17",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20Token_$2871",
+                "typeIdentifier": "t_contract$_ERC20Token_$3219",
                 "typeString": "contract ERC20Token"
               }
             },
@@ -252,11 +252,11 @@
             "visibility": "public"
           }
         ],
-        "scope": 10,
-        "src": "195:103:0"
+        "scope": 2036,
+        "src": "201:103:17"
       }
     ],
-    "src": "0:298:0"
+    "src": "0:304:17"
   },
   "compiler": {
     "name": "solc",
@@ -264,5 +264,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-22T15:34:49.027Z"
+  "updatedAt": "2018-08-27T16:21:55.799Z"
 }
