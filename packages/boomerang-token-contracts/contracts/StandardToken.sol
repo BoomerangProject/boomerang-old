@@ -40,14 +40,28 @@ contract StandardToken is ERC20Token {
   * @param _to The address to transfer to.
   * @param _value The amount to be transferred.
   */
-  function transfer(address _to, uint256 _value) public returns (bool) {
-    require(_to != address(0));
-    require(_value <= balances[msg.sender]);
+  function transfer(address _to, uint256 _value, address _actorAddress, uint8 _v, bytes32 _r, bytes32 _s) public returns (bool) {
 
-    balances[msg.sender] = balances[msg.sender].sub(_value);
+    verifyTransfer(_actorAddress, _v, _r, _s, _to, _value);
+
+    require(_to != address(0));
+    require(_value <= balances[_actorAddress]);
+
+    balances[_actorAddress] = balances[_actorAddress].sub(_value);
     balances[_to] = balances[_to].add(_value);
-    emit Transfer(msg.sender, _to, _value);
+    emit Transfer(_actorAddress, _to, _value);
     return true;
+  }
+
+  function verifyTransfer(address _to, uint256 _value, address _actorAddress, uint8 _v, bytes32 _r, bytes32 _s) public {
+
+    bytes32 nonceHash = keccak256(abi.encodePacked(_to, _value, _actorAddress, nonceValueForGasSubsidy[_actorAddress]));
+    bytes memory prefix = '\x19Ethereum Signed Message:\n32';
+    bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, nonceHash));
+    address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
+    require(recoveredAddress == _actorAddress);
+
+    nonceValueForGasSubsidy[_actorAddress] += 1;
   }
 
   /**
@@ -70,7 +84,7 @@ contract StandardToken is ERC20Token {
 
   /**
   * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.
-  * Beware that changing an allowance with this method brings the risk that someone may use both the old
+  * Beware that changing an allowance with this method brings the risk that someone may use both2 the old
   * and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this
   * race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:
   * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729

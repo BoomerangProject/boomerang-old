@@ -346,7 +346,7 @@ ga('send','pageview');
         <script>
 
           const iframeElement = document.createElement("iframe");
-          iframeElement.id="boomerangIframe";
+          iframeElement.id="kudosIframe";
           iframeElement.scrolling="no";
           iframeElement.frameBorder="0";
           iframeElement.allowtransparency="false";
@@ -365,10 +365,10 @@ ga('send','pageview');
 
           document.body.appendChild(iframeElement);
 
-          const boomerangIframeDocument = document.getElementById("boomerangIframe").contentWindow.document;
-          boomerangIframeDocument.open();
+          const kudosIframeDocument = document.getElementById("kudosIframe").contentWindow.document;
+          kudosIframeDocument.open();
 
-          boomerangIframeDocument._l=function() {
+          kudosIframeDocument._l=function() {
 
             const mainDiv = this.createElement("div");
             mainDiv.style = "max-width: 600px";
@@ -377,7 +377,7 @@ ga('send','pageview');
 
             const mainScript = this.createElement("script");
 
-            const code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        boomerangApp.rateExperience('Sharoda', 'mySignature', d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/boomerang-webplugin/boomerangWebPluginWidget.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'boomerangWebPlugin'));";
+            const code = "(function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)){ return; }      js = d.createElement(s); js.id = id;      js.onload = function(){        kudosApp.rateExperience('Sharoda', 'mySignature', d.getElementById(\"content\"));      };      js.src = \"https://s3.amazonaws.com/kudos-webplugin/kudosWebPluginWidget.js\";      fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'kudosWebPlugin'));";
 
             try {
               mainScript.appendChild(this.createTextNode(code));
@@ -388,20 +388,20 @@ ga('send','pageview');
             this.body.appendChild(mainScript);
           };
 
-          boomerangIframeDocument.write('<body style="margin:0; padding:0" onload="document._l();">');
-          boomerangIframeDocument.close();
+          kudosIframeDocument.write('<body style="margin:0; padding:0" onload="document._l();">');
+          kudosIframeDocument.close();
 
-          const boomerang = document.getElementById("boomerangIframe").contentWindow;
+          const kudos = document.getElementById("kudosIframe").contentWindow;
 
-          boomerang.show = function() {
+          kudos.show = function() {
             containerDiv.style.visibility = "visible";
           };
 
-          boomerang.hide = function() {
+          kudos.hide = function() {
             containerDiv.style.visibility = "hidden";
           };
 
-          boomerang.isVisible = function() {
+          kudos.isVisible = function() {
             return containerDiv.style.visibility === "visible";
           };
 

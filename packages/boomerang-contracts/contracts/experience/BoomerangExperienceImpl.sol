@@ -73,14 +73,14 @@ contract BoomerangExperienceImpl is BoomerangExperience {
     boomerangWorker.updateRatingsSum(_workerAddress, _businessAddress, _workerRating);
   }
 
-  function onlyAuthorizedReviewer(address _userAddress, address _businessAddress, uint8 _v, bytes32 _r, bytes32 _s) private {
-
-    bytes32 nonceHash = keccak256(abi.encodePacked(_userAddress, nonceValueForNewRating[_businessAddress][_userAddress]));
-    bytes memory prefix = '\x19Ethereum Signed Message:\n32';
-    bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, nonceHash));
-    address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
-    require(recoveredAddress == _businessAddress);
-
-    nonceValueForNewRating[_businessAddress][_userAddress] += 1;
-  }
+//  function onlyAuthorizedReviewer(address _userAddress, address _businessAddress, uint8 _v, bytes32 _r, bytes32 _s) private {
+//
+//    bytes32 nonceHash = keccak256(abi.encodePacked(_userAddress, nonceValueForNewRating[_businessAddress][_userAddress]));
+//    bytes memory prefix = '\x19Ethereum Signed Message:\n32';
+//    bytes32 prefixedHash = keccak256(abi.encodePacked(prefix, nonceHash));
+//    address recoveredAddress = ecrecover(prefixedHash, _v, _r, _s);
+//    require(recoveredAddress == _businessAddress);
+//
+//    nonceValueForNewRating[_businessAddress][_userAddress] += 1;
+//  }
 }
